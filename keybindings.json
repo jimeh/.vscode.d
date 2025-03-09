@@ -734,7 +734,7 @@
   // ===========================================================================
   // MARK: edamagit
   // ===========================================================================
-  // Extension URL:
+  // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=kahole.magit
   //
   { // Open magit status.
@@ -763,7 +763,7 @@
   // ===========================================================================
   // MARK: Project Manager
   // ===========================================================================
-  // Extension URL:
+  // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager
   //
   { // List projects.
@@ -782,7 +782,7 @@
   // ===========================================================================
   // MARK: dired
   // ===========================================================================
-  // Extension URL:
+  // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=rrudi.vscode-dired
   //
   { // Open dired.
@@ -819,7 +819,7 @@
   // ===========================================================================
   // MARK: swiper
   // ===========================================================================
-  // Extension URL:
+  // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=wenhoujx.swiper
   //
   { // Swiper word at cursor.
@@ -849,9 +849,13 @@
   // ===========================================================================
   // MARK: Makefile task runner
   // ===========================================================================
-  // Extension URL:
+  // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=carlos-algms.make-task-provider
   //
+  { // Run target.
+    "key": "ctrl+c ctrl+m",
+    "command": "make-task-provider.runTarget"
+  },
   { // Run target.
     "key": "ctrl+c enter",
     "command": "make-task-provider.runTarget"
