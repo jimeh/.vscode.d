@@ -38,13 +38,13 @@ Editors:
 
 Commands:
   config, conf             Create symlinks for editor config files
-  dump-extensions, dump    Export installed editor extensions to extensions.txt
-  extensions, ext          Install editor extensions from extensions.txt
+  dump-extensions, dump    Export installed editor extensions to a lock file.
+  extensions, ext          Install editor extensions from a lock file.
 
 Options:
-  --latest                 When used with extensions command, installs the
+  --latest                 When used with the extensions command, installs the
                            latest version of each extension instead of the
-                           exact version from the lock file
+                           exact version from the lock file.
 
 Description:
   This script manages editor configuration files and extensions.
@@ -426,6 +426,11 @@ main() {
     echo "Error: No editor specified"
     show_help
     exit 1
+  fi
+
+  if [[ "$1" == "help" || "$1" == "--help" || "$1" == "-h" ]]; then
+    show_help
+    exit 0
   fi
 
   if [[ $# -lt 2 ]]; then
