@@ -230,15 +230,15 @@
   },
   { // Navigate right.
     "key": "alt+l",
-    "command": "workbench.action.navigateRight",
+    "command": "workbench.action.navigateRight"
   },
   { // Navigate left.
     "key": "alt+j",
-    "command": "workbench.action.navigateLeft",
+    "command": "workbench.action.navigateLeft"
   },
   { // Navigate down.
     "key": "alt+k",
-    "command": "workbench.action.navigateDown",
+    "command": "workbench.action.navigateDown"
   },
   { // Navigate up back to editor from terminal.
     "key": "alt+i",
