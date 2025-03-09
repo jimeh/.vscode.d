@@ -452,12 +452,14 @@
   { // Set indentation to correct level.
     //
     // This was borrowed from the awesome-emacs-keymap extension and modifed to
-    // add the `!cpp.shouldAcceptTab` condition for the sake of Cursor.
+    // add:
+    // - `!cpp.shouldAcceptTab` condition for the sake of Cursor.
+    // - `!tableMode` condition for the sake of text-tables.
     //
     // Extension: https://marketplace.visualstudio.com/items?itemName=tuttieee.emacs-mcx
     "key": "tab",
     "command": "emacs-mcx.tabToTabStop",
-    "when": "editorTextFocus && !editorReadonly && !inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible && !inSnippetMode && !editorTabCompletion && !editorParameterHintsVisible && !cursorAtInlineEdit && !cpp.shouldAcceptTab"
+    "when": "editorTextFocus && !editorReadonly && !inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible && !inSnippetMode && !editorTabCompletion && !editorParameterHintsVisible && !cursorAtInlineEdit && !cpp.shouldAcceptTab && !tableMode"
   },
   { // Cycle spacing.
     //
@@ -823,6 +825,25 @@
   { // Swiper word at cursor.
     "key": "alt+r",
     "command": "swiper.swiper-word-at-cursor"
+  },
+  //
+  // ===========================================================================
+  // MARK: Text Tables
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=RomanPeshkov.vscode-text-tables
+  //
+  { // Format under cursor.
+    "key": "ctrl+q ctrl+f",
+    "command": "text-tables.formatUnderCursor"
+  },
+  { // Format under cursor.
+    //
+    // This is a workaround for ctrl+f not working globally as right arrow in
+    // all input fields. This relies on Karabiner-Elements to remap ctrl+f to
+    // right arrow.
+    "key": "ctrl+q right",
+    "command": "text-tables.formatUnderCursor"
   },
   //
   // ===========================================================================

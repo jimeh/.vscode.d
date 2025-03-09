@@ -381,6 +381,14 @@
   "sortLines.ignoreUnselectedLastLine": true,
   //
   // ===========================================================================
+  // MARK: Text Tables
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=RomanPeshkov.vscode-text-tables
+  //
+  "text-tables.showStatus": false,
+  //
+  // ===========================================================================
   // MARK: vscode-color-picker
   // ===========================================================================
   // Extension:
