@@ -111,6 +111,10 @@
   // MARK: Explorer
   // ===========================================================================
   //
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.go": "${capture}_test.go, ${capture}_example_test.go, ${capture}_internal_test.go, ${capture}_integration_test.go"
+  },
   "explorer.sortOrder": "mixed",
   "explorer.sortOrderLexicographicOptions": "unicode",
   //
