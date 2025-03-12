@@ -433,12 +433,34 @@
   // ===========================================================================
   // MARK: Command aliases
   // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=ArturoDent.command-alias
   //
   "command aliases": {
-    // Sort Lines.
-    // Extension: https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines
-    "sortLines.sortLines": "sl"
+    "sortLines.sortLines": "sl", // Sort Lines - https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines
+    "settings.cycle.commandCenter": "Toggle Command Center"
   },
+  //
+  // ===========================================================================
+  // MARK: Settings Cycle
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=hoovercj.vscode-settings-cycler
+  //
+  "settings.cycle": [
+    {
+      "id": "commandCenter",
+      "overrideWorkspaceSettings": false,
+      "values": [
+        {
+          "window.customTitleBarVisibility": "auto"
+        },
+        {
+          "window.customTitleBarVisibility": "never"
+        }
+      ]
+    }
+  ],
   //
   // ===========================================================================
   // MARK: Macros
