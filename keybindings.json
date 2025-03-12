@@ -161,12 +161,12 @@
   // ===========================================================================
   //
   { // Toggle fullscreen.
-    "key": "ctrl+cmd+enter",
+    "key": "cmd+enter",
     "command": "workbench.action.toggleFullScreen",
     "when": "!isIOS"
   },
   { // Toggle fullscreen.
-    "key": "cmd+enter",
+    "key": "cmd+ctrl+enter",
     "command": "workbench.action.toggleFullScreen",
     "when": "!isIOS"
   },
@@ -177,7 +177,7 @@
   },
   //
   // ===========================================================================
-  // MARK: Editor Navigation
+  // MARK: Editor/View Navigation
   // ===========================================================================
   //
   { // Go to next editor.
@@ -200,9 +200,49 @@
     "command": "workbench.action.terminal.focusPrevious",
     "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
   },
+  { // Focus previous panel view.
+    "key": "cmd+ctrl+[",
+    "command": "workbench.action.previousPanelView",
+    "when": "panelVisible"
+  },
+  { // Focus next panel view.
+    "key": "cmd+ctrl+]",
+    "command": "workbench.action.nextPanelView",
+    "when": "panelVisible"
+  },
   //
   // ===========================================================================
-  // MARK: Editor Group Navigation
+  // MARK: Editor/View Layout
+  // ===========================================================================
+  //
+  { // Even editor widths.
+    "key": "ctrl+x space",
+    "command": "workbench.action.evenEditorWidths",
+    "when": "!terminalFocus"
+  },
+  { // Toggle maximized editor group.
+    "key": "ctrl+z ctrl+enter",
+    "command": "workbench.action.toggleMaximizeEditorGroup",
+    "when": "!panelFocus"
+  },
+  { // Expand editor group.
+    "key": "ctrl+z enter",
+    "command": "workbench.action.minimizeOtherEditors",
+    "when": "!panelFocus"
+  },
+  { // Toggle maximized panel.
+    //
+    // Keybindings that work while terminal is focused are limited as we send
+    // most keybindings to the terminal. Hence the key choice here does not
+    // conform to the general pattern of <something>+enter to toggle
+    // maximize/fullscreen style behavior.
+    "key": "cmd+shift+o",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "panelVisible"
+  },
+  //
+  // ===========================================================================
+  // MARK: Editor/View Navigation
   // ===========================================================================
   //
   { // Focus next editor group.
@@ -218,7 +258,7 @@
   { // Navigate up.
     "key": "alt+i",
     "command": "workbench.action.navigateUp",
-    "when": "!terminalFocus"
+    "when": "!panelFocus"
   },
   { // Navigate up.
     //
@@ -226,7 +266,7 @@
     // to remap alt+i to cmd+alt+up.
     "key": "cmd+alt+up",
     "command": "workbench.action.navigateUp",
-    "when": "!terminalFocus"
+    "when": "!panelFocus"
   },
   { // Navigate right.
     "key": "alt+l",
@@ -243,7 +283,7 @@
   { // Navigate up back to editor from terminal.
     "key": "alt+i",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "terminalFocus"
+    "when": "panelFocus"
   },
   { // Navigate up back to editor from terminal.
     //
@@ -251,27 +291,7 @@
     // to remap alt+i to cmd+alt+up.
     "key": "cmd+alt+up",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "terminalFocus"
-  },
-  //
-  // ===========================================================================
-  // MARK: Editor Group Layout
-  // ===========================================================================
-  //
-  { // Even editor widths.
-    "key": "ctrl+x space",
-    "command": "workbench.action.evenEditorWidths",
-    "when": "!terminalFocus"
-  },
-  {
-    "key": "ctrl+z ctrl+enter",
-    "command": "workbench.action.toggleMaximizeEditorGroup",
-    "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups"
-  },
-  {
-    "key": "ctrl+z enter",
-    "command": "workbench.action.minimizeOtherEditors",
-    "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups"
+    "when": "panelFocus"
   },
   //
   // ===========================================================================
