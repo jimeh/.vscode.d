@@ -111,9 +111,13 @@
   // MARK: Explorer
   // ===========================================================================
   //
-  "explorer.fileNesting.enabled": true,
+  // I like the idea of file nesting, but in practise I find myself hating it :(
+  "explorer.fileNesting.enabled": false,
   "explorer.fileNesting.patterns": {
-    "*.go": "${capture}_test.go, ${capture}_example_test.go, ${capture}_internal_test.go, ${capture}_integration_test.go"
+    "*.go": "${capture}_test.go, ${capture}_example_test.go, ${capture}_integration_test.go, ${capture}_internal_test.go",
+    "Brewfile": "Brewfile.lock.json",
+    "Gemfile": "Gemfile.lock",
+    "go.mod": "go.sum"
   },
   "explorer.sortOrder": "mixed",
   "explorer.sortOrderLexicographicOptions": "unicode",
