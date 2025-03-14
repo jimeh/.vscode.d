@@ -1,0 +1,17 @@
+# Custom VSCode Dictionary Words
+dired
+edamagit
+elpaca
+gofumpt
+golangci
+gopls
+Hammerspoon
+haxelib
+hexedit
+Karabiner
+keymap
+magit
+Menlo
+scrollback
+staticcheck
+Subtests

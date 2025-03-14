@@ -14,6 +14,11 @@ CONFIG_SOURCES=(
   "snippets"
 )
 
+# Additional static symlinks to create (source => target)
+declare -A STATIC_SYMLINKS=(
+  ["cspell/vscode-user-dictionary.txt"]="${HOME}/.cspell/vscode-user-dictionary.txt"
+)
+
 # Detect current script directory.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -114,6 +119,11 @@ backup_and_link() {
   local real_target
   local real_source
 
+  # Create target directory if it doesn't exist
+  local target_dir
+  target_dir="$(dirname "${target}")"
+  mkdir -p "${target_dir}"
+
   # Check if target already exists
   if [[ -e "${target}" ]]; then
     # If it's a symlink, check if it points to the same location
@@ -144,6 +154,12 @@ do_symlink() {
   mkdir -p "${config_dir}"
   for path in "${CONFIG_SOURCES[@]}"; do
     backup_and_link "${SCRIPT_DIR}/${path}" "${config_dir}/${path}"
+  done
+
+  # Create static symlinks to custom locations
+  for source in "${!STATIC_SYMLINKS[@]}"; do
+    target="${STATIC_SYMLINKS[${source}]}"
+    backup_and_link "${SCRIPT_DIR}/${source}" "${target}"
   done
 
   echo "Symlink setup complete!"

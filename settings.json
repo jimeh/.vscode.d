@@ -111,7 +111,7 @@
   // MARK: Explorer
   // ===========================================================================
   //
-  // I like the idea of file nesting, but in practise I find myself hating it :(
+  // I like the idea of file nesting, but in practice I find myself hating it :(
   "explorer.fileNesting.enabled": false,
   "explorer.fileNesting.patterns": {
     "*.go": "${capture}_test.go, ${capture}_example_test.go, ${capture}_integration_test.go, ${capture}_internal_test.go",
@@ -184,6 +184,24 @@
   //
   "file-browser.hideDotfiles": false,
   "file-browser.labelIgnoredFiles": true,
+  //
+  // ===========================================================================
+  // MARK: Spell Check
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+  //
+  "cSpell.checkVSCodeSystemFiles": true,
+  "cSpell.customDictionaries": {
+    // Run the `./siren <editor> config` command to symlink
+    // `cspell/vscode-user-dictionary.txt` into the `~/.cspell` directory.
+    "custom-user-dictionary": {
+      "name": "vscode-user-dictionary",
+      "path": "~/.cspell/vscode-user-dictionary.txt",
+      "addWords": true,
+      "scope": "user"
+    }
+  },
   //
   // ===========================================================================
   // MARK: Project Manager

@@ -486,7 +486,7 @@
   //
   { // Set indentation to correct level.
     //
-    // This was borrowed from the awesome-emacs-keymap extension and modifed to
+    // This was borrowed from the awesome-emacs-keymap extension and modified to
     // add:
     // - `!cpp.shouldAcceptTab` condition for the sake of Cursor.
     // - `!tableMode` condition for the sake of text-tables.
@@ -761,7 +761,7 @@
     //
     // This is a workaround for ctrl+d not working globally as forward delete in
     // all input fields. Hence we rebind ctrl+d to forward delete, meaning any
-    // keybindings that use ctrl+d need to be updated to use delete aswell.
+    // keybindings that use ctrl+d need to be updated to use delete as well.
     "key": "ctrl+c delete",
     "command": "editor.action.triggerParameterHints"
   },
