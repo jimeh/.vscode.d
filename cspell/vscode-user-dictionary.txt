@@ -13,6 +13,7 @@ gelf
 ghostty
 gofumpt
 golangci
+gopkg
 gopls
 Hammerspoon
 Hashie
@@ -20,6 +21,7 @@ haxelib
 hexedit
 hyprevisors
 incidentio
+jimeh
 jsbundling
 Karabiner
 katalet
@@ -35,9 +37,12 @@ magit
 Menlo
 metricks
 minfraud
+Myhrberg
 omniauth
 preprod
 propshaft
+rbheap
+Redistat
 scrollback
 shoulda
 sidekiq
@@ -45,6 +50,9 @@ sirportly
 sshake
 sshkey
 staticcheck
+stretchr
 Subtests
 tailscale
+themepack
+tmuxifier
 xero
