@@ -453,17 +453,6 @@
   },
   //
   // ===========================================================================
-  // MARK: Command aliases
-  // ===========================================================================
-  // Extension:
-  // - https://marketplace.visualstudio.com/items?itemName=ArturoDent.command-alias
-  //
-  "command aliases": {
-    "sortLines.sortLines": "sl", // Sort Lines - https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines
-    "settings.cycle.commandCenter": "Toggle Command Center"
-  },
-  //
-  // ===========================================================================
   // MARK: Settings Cycle
   // ===========================================================================
   // Extension:
@@ -485,12 +474,41 @@
   ],
   //
   // ===========================================================================
+  // MARK: Command aliases
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=ArturoDent.command-alias
+  //
+  "command aliases": {
+    "sortLines.sortLines": "sl", // Sort Lines - https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines
+    "settings.cycle.commandCenter": "Toggle Command Center",
+    "macros.insertEmDash": "Insert Em Dash",
+    "macros.insertEnDash": "Insert En Dash"
+  },
+  //
+  // ===========================================================================
   // MARK: Macros
   // ===========================================================================
   // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=ctf0.macros
   //
   "macros.list": {
+    "insertEmDash": [
+      {
+        "command": "type",
+        "args": {
+          "text": "—"
+        }
+      }
+    ],
+    "insertEnDash": [
+      {
+        "command": "type",
+        "args": {
+          "text": "–"
+        }
+      }
+    ],
     //
     // cycleSpacing is a basic emulation Emacs' built-in cycle-spacing command.
     // It doesn't actually cycle spacing, but it performs the first step which
