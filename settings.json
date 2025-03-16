@@ -314,30 +314,6 @@
   },
   //
   // ===========================================================================
-  // MARK: JSON
-  // ===========================================================================
-  //
-  "[json]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
-  //
-  // ===========================================================================
-  // MARK: Lua
-  // ===========================================================================
-  // Extensions:
-  // - https://marketplace.visualstudio.com/items?itemName=sumneko.lua
-  //
-  "Lua.codeLens.enable": true,
-  "Lua.diagnostics.globals": [
-    // Hammerspoon
-    "hs",
-    "spoon"
-  ],
-  "Lua.diagnostics.workspaceEvent": "OnChange",
-  "Lua.hint.enable": true,
-  //
-  // ===========================================================================
   // MARK: Ruby
   // ===========================================================================
   // Extensions:
@@ -357,6 +333,67 @@
   // version of Ruby is used.
   "rubyTestExplorer.minitestCommand": "mise x -- bundle exec rake",
   "rubyTestExplorer.rspecCommand": "mise x -- bundle exec rspec",
+  //
+  // ===========================================================================
+  // MARK: Dockerfile
+  // ===========================================================================
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
+  //
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  //
+  // ===========================================================================
+  // MARK: JSON
+  // ===========================================================================
+  //
+  "[json]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  //
+  // ===========================================================================
+  // MARK: HTML
+  // ===========================================================================
+  //
+  "[html]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  //
+  // ===========================================================================
+  // MARK: CSS
+  // ===========================================================================
+  //
+  "[css]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  //
+  // ===========================================================================
+  // MARK: JavaScript
+  // ===========================================================================
+  //
+  "[javascript]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  //
+  // ===========================================================================
+  // MARK: Lua
+  // ===========================================================================
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=sumneko.lua
+  //
+  "Lua.codeLens.enable": true,
+  "Lua.diagnostics.globals": [
+    // Hammerspoon
+    "hs",
+    "spoon"
+  ],
+  "Lua.diagnostics.workspaceEvent": "OnChange",
+  "Lua.hint.enable": true,
   //
   // ===========================================================================
   // MARK: Shellscript
@@ -421,15 +458,12 @@
   // - https://marketplace.visualstudio.com/items?itemName=AntiAntiSepticeye.vscode-color-picker
   //
   "vscode-color-picker.languages": [
-    "css",
     "go",
     "javascript",
     "less",
     "postcss",
     "python",
     "ruby",
-    "sass",
-    "scss",
     "sss",
     "stylus",
     "svg",
