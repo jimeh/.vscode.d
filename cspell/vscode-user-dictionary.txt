@@ -1,6 +1,9 @@
 # Custom VSCode Dictionary Words
 actionnav
 authie
+bootsnap
+buildx
+casecmp
 checkin
 conntrack
 cssbundling
@@ -15,6 +18,7 @@ gofumpt
 golangci
 gopkg
 gopls
+goreleaser
 Hammerspoon
 Hashie
 haxelib
@@ -43,6 +47,8 @@ preprod
 propshaft
 rbheap
 Redistat
+rmrf
+rubocop
 scrollback
 shoulda
 sidekiq
