@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Mon Mar 17 10:11:48 GMT 2025
+# Generated on Tue Mar 18 19:36:07 GMT 2025
 
 alefragnani.project-manager@12.8.0
 antiantisepticeye.vscode-color-picker@0.0.4
@@ -72,7 +72,7 @@ romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
 rust-lang.rust-analyzer@0.3.2345
 shopify.ruby-extensions-pack@0.1.13
-shopify.ruby-lsp@0.9.7
+shopify.ruby-lsp@0.9.8
 sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.40
 streetsidesoftware.code-spell-checker@4.0.40
