@@ -287,7 +287,7 @@
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
   //
   // ===========================================================================
-  // MARK: Go
+  // MARK: Language: Go
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=golang.go
@@ -314,7 +314,7 @@
   },
   //
   // ===========================================================================
-  // MARK: Ruby
+  // MARK: Language: Ruby
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-extensions-pack
@@ -335,7 +335,7 @@
   "rubyTestExplorer.rspecCommand": "mise x -- bundle exec rspec",
   //
   // ===========================================================================
-  // MARK: Dockerfile
+  // MARK: Language: Dockerfile
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
@@ -345,7 +345,7 @@
   },
   //
   // ===========================================================================
-  // MARK: JSON
+  // MARK: Language: JSON
   // ===========================================================================
   //
   "[json]": {
@@ -354,7 +354,7 @@
   },
   //
   // ===========================================================================
-  // MARK: HTML
+  // MARK: Language: HTML
   // ===========================================================================
   //
   "[html]": {
@@ -363,7 +363,7 @@
   },
   //
   // ===========================================================================
-  // MARK: CSS
+  // MARK: Language: CSS
   // ===========================================================================
   //
   "[css]": {
@@ -372,7 +372,7 @@
   },
   //
   // ===========================================================================
-  // MARK: JavaScript
+  // MARK: Language: JavaScript
   // ===========================================================================
   //
   "[javascript]": {
@@ -381,7 +381,7 @@
   },
   //
   // ===========================================================================
-  // MARK: Lua
+  // MARK: Language: Lua
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=sumneko.lua
@@ -396,7 +396,7 @@
   "Lua.hint.enable": true,
   //
   // ===========================================================================
-  // MARK: Shellscript
+  // MARK: Language: Shellscript
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=foxundermoon.shell-format
@@ -417,7 +417,7 @@
   "shellformat.flag": "-i 2 -ci -sr",
   //
   // ===========================================================================
-  // MARK: YAML
+  // MARK: Language: YAML
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml

@@ -680,11 +680,6 @@
   // MARK: Testing
   // ===========================================================================
   //
-  {
-    "key": "ctrl+c , t",
-    "command": "go.toggle.test.file",
-    "when": "editorTextFocus && editorLangId == 'go'"
-  },
   { // Run current file.
     "key": "ctrl+c , v",
     "command": "macros.runTestCurrentFile",
@@ -899,5 +894,15 @@
   { // Run target.
     "key": "ctrl+c enter",
     "command": "make-task-provider.runTarget"
+  },
+  //
+  // ===========================================================================
+  // MARK: Language: Go
+  // ===========================================================================
+  //
+  {
+    "key": "ctrl+c , t",
+    "command": "go.toggle.test.file",
+    "when": "editorTextFocus && editorLangId == 'go'"
   }
 ]
