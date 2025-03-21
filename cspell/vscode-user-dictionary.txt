@@ -3,6 +3,7 @@ actionnav
 authie
 bootsnap
 buildx
+cadvisor
 casecmp
 checkin
 chgrp
@@ -22,6 +23,7 @@ finalizer
 fpath
 gelf
 ghostty
+gluetun
 GOBIN
 godoc
 goenv
@@ -43,6 +45,7 @@ hexedit
 hyprevisors
 incidentio
 innodb
+jellyfin
 jimdev
 jimeh
 jimnoct
@@ -77,10 +80,12 @@ powify
 preprod
 propshaft
 rbheap
+rclone
 redcarpet
 Redistat
 restish
 rmrf
+romdo
 rubocop
 rustup
 SAVEHIST
