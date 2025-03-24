@@ -71,6 +71,11 @@
     120
   ],
   //
+  // Indentation
+  "editor.tabSize": 4,
+  "editor.indentSize": 2,
+  "editor.detectIndentation": true,
+  //
   // Semantic Highlighting
   "editor.semanticHighlighting.enabled": true,
   //
@@ -287,12 +292,25 @@
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
   //
   // ===========================================================================
+  // MARK: Language: Dockerfile
+  // ===========================================================================
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
+  //
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  //
+  // ===========================================================================
   // MARK: Language: Go
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=golang.go
   // - https://marketplace.visualstudio.com/items?itemName=gofenix.go-lines
   //
+  "[go]": {
+    "editor.tabSize": 4
+  },
   "go-lines.lineLength": 120,
   "go.coverOnSingleTest": true,
   "go.coverShowCounts": true,
@@ -311,6 +329,90 @@
       "shadow": true
     },
     "ui.diagnostic.staticcheck": true
+  },
+  //
+  // ===========================================================================
+  // MARK: Language: HTML
+  // ===========================================================================
+  //
+  "[html]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  //
+  // ===========================================================================
+  // MARK: Language: JSON
+  // ===========================================================================
+  //
+  "[json]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  //
+  // ===========================================================================
+  // MARK: Language: Lua
+  // ===========================================================================
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=sumneko.lua
+  //
+  "Lua.codeLens.enable": true,
+  "Lua.diagnostics.globals": [
+    // Hammerspoon
+    "hs",
+    "spoon"
+  ],
+  "Lua.diagnostics.workspaceEvent": "OnChange",
+  "Lua.hint.enable": true,
+  //
+  // ===========================================================================
+  // MARK: Language: CSS
+  // ===========================================================================
+  //
+  "[css]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  //
+  // ===========================================================================
+  // MARK: Language: JavaScript
+  // ===========================================================================
+  //
+  "[javascript]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  //
+  // ===========================================================================
+  // MARK: Language: Makefile
+  // ===========================================================================
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=carlos-algms.make-task-provider
+  //
+  "[makefile]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  "makefile.configureOnOpen": false,
+  "make-task-provider.telemetry": false,
+  //
+  // ===========================================================================
+  // MARK: Language: Markdown
+  // ===========================================================================
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
+  //
+  "[markdown]": {
+    "editor.tabSize": 4,
+    "editor.indentSize": 2,
+    "editor.detectIndentation": false
+  },
+  "markdownlint.config": {
+    "no-hard-tabs": {
+      "ignore_code_languages": [
+        "go",
+        "makefile"
+      ]
+    }
   },
   //
   // ===========================================================================
@@ -335,67 +437,6 @@
   "rubyTestExplorer.rspecCommand": "mise x -- bundle exec rspec",
   //
   // ===========================================================================
-  // MARK: Language: Dockerfile
-  // ===========================================================================
-  // Extensions:
-  // - https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
-  //
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
-  //
-  // ===========================================================================
-  // MARK: Language: JSON
-  // ===========================================================================
-  //
-  "[json]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
-  //
-  // ===========================================================================
-  // MARK: Language: HTML
-  // ===========================================================================
-  //
-  "[html]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
-  //
-  // ===========================================================================
-  // MARK: Language: CSS
-  // ===========================================================================
-  //
-  "[css]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
-  //
-  // ===========================================================================
-  // MARK: Language: JavaScript
-  // ===========================================================================
-  //
-  "[javascript]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
-  //
-  // ===========================================================================
-  // MARK: Language: Lua
-  // ===========================================================================
-  // Extensions:
-  // - https://marketplace.visualstudio.com/items?itemName=sumneko.lua
-  //
-  "Lua.codeLens.enable": true,
-  "Lua.diagnostics.globals": [
-    // Hammerspoon
-    "hs",
-    "spoon"
-  ],
-  "Lua.diagnostics.workspaceEvent": "OnChange",
-  "Lua.hint.enable": true,
-  //
-  // ===========================================================================
   // MARK: Language: Shellscript
   // ===========================================================================
   // Extensions:
@@ -414,6 +455,8 @@
     "editor.insertSpaces": true
   },
   "shellformat.useEditorConfig": true,
+  // Note: `shellformat.flag` is ignored when `shellformat.useEditorConfig` is
+  // enabled.
   "shellformat.flag": "-i 2 -ci -sr",
   //
   // ===========================================================================
@@ -424,15 +467,6 @@
   // - https://marketplace.visualstudio.com/items?itemName=arahata.linter-actionlint
   //
   "redhat.telemetry.enabled": false,
-  //
-  // ===========================================================================
-  // MARK: Makefile
-  // ===========================================================================
-  // Extensions:
-  // - https://marketplace.visualstudio.com/items?itemName=carlos-algms.make-task-provider
-  //
-  "makefile.configureOnOpen": false,
-  "make-task-provider.telemetry": false,
   //
   // ===========================================================================
   // MARK: Sort Lines
