@@ -215,9 +215,10 @@
   // - https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager
   //
   "projectManager.git.baseFolders": [
-    "~/Projects",
+    "~/.config",
     "~/.dotfiles",
-    "~/.config"
+    "~/Projects",
+    "~/src"
   ],
   "projectManager.git.ignoredFolders": [
     "node_modules",
