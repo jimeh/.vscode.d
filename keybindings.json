@@ -304,7 +304,7 @@
     "key": "cmd+s",
     "command": "searchEditorApplyChanges.apply",
     "when": "inSearchEditor"
-  }
+  },
   //
   // ===========================================================================
   // MARK: Move Active Editor Group
