@@ -295,6 +295,18 @@
   },
   //
   // ===========================================================================
+  // MARK: Searching
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=jakearl.search-editor-apply-changes
+  //
+  { // Apply changes in search editor.
+    "key": "cmd+s",
+    "command": "searchEditorApplyChanges.apply",
+    "when": "inSearchEditor"
+  }
+  //
+  // ===========================================================================
   // MARK: Move Active Editor Group
   // ===========================================================================
   //
