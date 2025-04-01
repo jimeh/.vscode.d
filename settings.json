@@ -34,8 +34,9 @@
   "cursor.aipreview.enabled": true,
   "cursor.cpp.enablePartialAccepts": true,
   "cursor.diffs.useCharacterLevelDiffs": true,
-  "cursor.terminal.usePreviewBox": true,
   "cursor.general.enableShadowWorkspace": true,
+  "cursor.terminal.usePreviewBox": true,
+  "update.releaseTrack": "prerelease",
   //
   // ===========================================================================
   // MARK: Windsurf (Text Editor)
@@ -293,7 +294,16 @@
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
   //
   // ===========================================================================
-  // MARK: Language: Dockerfile
+  // MARK: Lang: CSS
+  // ===========================================================================
+  //
+  "[css]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  //
+  // ===========================================================================
+  // MARK: Lang: Dockerfile
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
@@ -303,7 +313,7 @@
   },
   //
   // ===========================================================================
-  // MARK: Language: Go
+  // MARK: Lang: Go
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=golang.go
@@ -333,7 +343,7 @@
   },
   //
   // ===========================================================================
-  // MARK: Language: HTML
+  // MARK: Lang: HTML
   // ===========================================================================
   //
   "[html]": {
@@ -342,16 +352,29 @@
   },
   //
   // ===========================================================================
-  // MARK: Language: JSON
+  // MARK: Lang: JSON
   // ===========================================================================
   //
   "[json]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  //
+  // ===========================================================================
+  // MARK: Lang: JavaScript
+  // ===========================================================================
+  //
+  "[javascript]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2
   },
   //
   // ===========================================================================
-  // MARK: Language: Lua
+  // MARK: Lang: Lua
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=sumneko.lua
@@ -366,25 +389,7 @@
   "Lua.hint.enable": true,
   //
   // ===========================================================================
-  // MARK: Language: CSS
-  // ===========================================================================
-  //
-  "[css]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
-  //
-  // ===========================================================================
-  // MARK: Language: JavaScript
-  // ===========================================================================
-  //
-  "[javascript]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
-  //
-  // ===========================================================================
-  // MARK: Language: Makefile
+  // MARK: Lang: Makefile
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=carlos-algms.make-task-provider
@@ -397,7 +402,7 @@
   "make-task-provider.telemetry": false,
   //
   // ===========================================================================
-  // MARK: Language: Markdown
+  // MARK: Lang: Markdown
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
@@ -405,7 +410,8 @@
   "[markdown]": {
     "editor.tabSize": 4,
     "editor.indentSize": 2,
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
   "markdownlint.config": {
     "no-hard-tabs": {
@@ -417,7 +423,7 @@
   },
   //
   // ===========================================================================
-  // MARK: Language: Ruby
+  // MARK: Lang: Ruby
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-extensions-pack
@@ -438,7 +444,7 @@
   "rubyTestExplorer.rspecCommand": "mise x -- bundle exec rspec",
   //
   // ===========================================================================
-  // MARK: Language: Shellscript
+  // MARK: Lang: Shellscript
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=foxundermoon.shell-format
@@ -461,7 +467,7 @@
   "shellformat.flag": "-i 2 -ci -sr",
   //
   // ===========================================================================
-  // MARK: Language: YAML
+  // MARK: Lang: YAML
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml

@@ -42,6 +42,7 @@ extensions via lock files.
 ```bash
 ./siren --help
 ```
+
 ```
 Usage: siren EDITOR COMMAND [OPTIONS]
 

@@ -2,28 +2,28 @@
   "println": {
     "prefix": "pd",
     "body": [
-      "fmt.Println($0)",
+      "fmt.Println($0)"
     ],
     "description": "fmt.Println(...)"
   },
   "debug print": {
     "prefix": "ppd",
     "body": [
-      "fmt.Printf(\"$1: %#v\\n\", $1)$0",
+      "fmt.Printf(\"$1: %#v\\n\", $1)$0"
     ],
     "description": "fmt.Printf(\"...: %+v\\n\", ...)"
   },
   "printf": {
     "prefix": "pf",
     "body": [
-      "fmt.Printf(${1:format}, ${2:a ...any})$0",
+      "fmt.Printf(${1:format}, ${2:a ...any})$0"
     ],
     "description": "fmt.Printf(..., ...)"
   },
   "sprintf": {
     "prefix": "spf",
     "body": [
-      "fmt.Sprintf(${1:format}, ${2:a ...any})$0",
+      "fmt.Sprintf(${1:format}, ${2:a ...any})$0"
     ],
     "description": "fmt.Sprintf(..., ...)"
   },
