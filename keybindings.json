@@ -318,6 +318,11 @@
     "command": "searchEditorApplyChanges.apply",
     "when": "inSearchEditor"
   },
+  { // Apply changes in search editor.
+    "key": "ctrl+x ctrl+s",
+    "command": "searchEditorApplyChanges.apply",
+    "when": "inSearchEditor"
+  },
   //
   // ===========================================================================
   // MARK: Move Active Editor Group
