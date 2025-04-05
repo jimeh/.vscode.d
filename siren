@@ -272,7 +272,7 @@ install_extension_direct() {
 
   if [[ "${use_latest}" == "true" ]]; then
     echo "Installing ${extension} (latest version)"
-    if ! "${editor_cmd}" --install-extension "${extension}"; then
+    if ! "${editor_cmd}" --install-extension "${extension} --force"; then
       echo "Warning: Direct install failed for ${extension}"
       result=1
     fi
