@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Sat Apr  5 11:10:56 BST 2025
+# Generated on Sat Apr  5 23:09:43 BST 2025
 
 alefragnani.project-manager@12.8.0
 antiantisepticeye.vscode-color-picker@0.0.4
@@ -61,7 +61,6 @@ ms-python.vscode-pylance@2024.8.1
 ms-vscode-remote.remote-containers@0.394.0
 ms-vscode-remote.remote-ssh@0.113.1
 ms-vscode-remote.remote-ssh-edit@0.87.0
-ms-vscode.cpptools@1.24.5
 ms-vscode.extension-test-runner@0.0.12
 ms-vscode.hexeditor@1.11.1
 ms-vscode.remote-explorer@0.4.3
