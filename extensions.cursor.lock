@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Sat Apr  5 23:09:43 BST 2025
+# Generated on Sun Apr 13 14:00:45 BST 2025
 
 alefragnani.project-manager@12.8.0
 antiantisepticeye.vscode-color-picker@0.0.4
@@ -54,7 +54,7 @@ matthewpi.caddyfile-support@0.4.0
 mattn.lisp@0.1.12
 mhutchie.git-graph@1.30.0
 mkhl.direnv@0.17.0
-ms-azuretools.vscode-docker@1.29.4
+ms-azuretools.vscode-docker@1.29.5
 ms-python.debugpy@2024.6.0
 ms-python.python@2024.12.3
 ms-python.vscode-pylance@2024.8.1
@@ -69,21 +69,21 @@ ms-vscode.remote-server@1.5.2
 ms-vscode.test-adapter-converter@0.2.1
 ms-vscode.vscode-speech@0.12.1
 ms-vsliveshare.vsliveshare@1.0.5948
-pflannery.vscode-versionlens@1.16.3
+pflannery.vscode-versionlens@1.16.5
 pkief.material-icon-theme@5.21.2
-redhat.vscode-xml@0.28.0
+redhat.vscode-xml@0.28.1
 redhat.vscode-yaml@1.17.0
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
-rust-lang.rust-analyzer@0.3.2362
+rust-lang.rust-analyzer@0.3.2370
 shopify.ruby-extensions-pack@0.1.13
-shopify.ruby-lsp@0.9.13
+shopify.ruby-lsp@0.9.14
 sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.41
-streetsidesoftware.code-spell-checker@4.0.40
+streetsidesoftware.code-spell-checker@4.0.45
 stuart.unique-window-colors@1.0.51
-sumneko.lua@3.13.9
-svelte.svelte-vscode@109.5.3
+sumneko.lua@3.14.0
+svelte.svelte-vscode@109.5.4
 swellaby.vscode-rust-test-adapter@0.11.0
 tamasfe.even-better-toml@0.21.2
 timonwong.shellcheck@0.37.7
