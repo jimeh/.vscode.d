@@ -474,6 +474,9 @@
   // - https://marketplace.visualstudio.com/items?itemName=arahata.linter-actionlint
   //
   "redhat.telemetry.enabled": false,
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
   //
   // ===========================================================================
   // MARK: Sort Lines
