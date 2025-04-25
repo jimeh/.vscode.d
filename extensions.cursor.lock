@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Sun Apr 13 14:00:45 BST 2025
+# Generated on Fri Apr 25 14:08:55 BST 2025
 
 alefragnani.project-manager@12.8.0
 antiantisepticeye.vscode-color-picker@0.0.4
@@ -12,7 +12,7 @@ bierner.github-markdown-preview@0.3.0
 bierner.markdown-checkbox@0.4.0
 bierner.markdown-emoji@0.3.1
 bierner.markdown-footnotes@0.1.1
-bierner.markdown-mermaid@1.27.0
+bierner.markdown-mermaid@1.28.0
 bierner.markdown-preview-github-styles@2.1.0
 bierner.markdown-yaml-preamble@0.1.0
 bodil.file-browser@0.2.11
@@ -41,7 +41,7 @@ hashicorp.terraform@2.34.3
 hbenl.vscode-test-explorer@2.22.1
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.1
-hverlin.mise-vscode@0.49.0
+hverlin.mise-vscode@0.49.2
 jakearl.search-editor-apply-changes@0.1.1
 jnoortheen.nix-ide@0.4.16
 joshbolduc.commitlint@2.6.2
@@ -69,18 +69,18 @@ ms-vscode.remote-server@1.5.2
 ms-vscode.test-adapter-converter@0.2.1
 ms-vscode.vscode-speech@0.12.1
 ms-vsliveshare.vsliveshare@1.0.5948
-pflannery.vscode-versionlens@1.16.5
+pflannery.vscode-versionlens@1.20.1
 pkief.material-icon-theme@5.21.2
 redhat.vscode-xml@0.28.1
 redhat.vscode-yaml@1.17.0
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
-rust-lang.rust-analyzer@0.3.2370
+rust-lang.rust-analyzer@0.3.2433
 shopify.ruby-extensions-pack@0.1.13
-shopify.ruby-lsp@0.9.14
+shopify.ruby-lsp@0.9.16
 sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.41
-streetsidesoftware.code-spell-checker@4.0.45
+streetsidesoftware.code-spell-checker@4.0.47
 stuart.unique-window-colors@1.0.51
 sumneko.lua@3.14.0
 svelte.svelte-vscode@109.5.4
