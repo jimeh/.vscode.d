@@ -75,6 +75,7 @@ kubens
 letsencrypt
 libmysqlclient
 libyaml
+Loadbalancers
 localtime
 magit
 Menlo
