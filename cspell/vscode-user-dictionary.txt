@@ -13,6 +13,7 @@ conntrack
 covermode
 coverprofile
 cssbundling
+ctop
 davide
 digg
 dired
@@ -36,6 +37,7 @@ goenv
 gofumpt
 goimports
 golangci
+golines
 GOMAXPROCS
 gomod
 gopkg
@@ -59,6 +61,7 @@ jimdev
 jimeh
 jimnoct
 jsbundling
+jsonlint
 Karabiner
 katalet
 katapult
@@ -72,6 +75,8 @@ kpult
 krew
 kubectx
 kubens
+kubetail
+langserver
 letsencrypt
 libmysqlclient
 libyaml
@@ -89,12 +94,15 @@ nokogiri
 nolint
 omniauth
 onepassword
+opentofu
 passhash
 PGID
+pipx
 powify
 preprod
 println
 propshaft
+protoc
 PUID
 QUIC
 rbheap
@@ -111,6 +119,8 @@ scaleway
 schro
 scrollback
 setuptools
+shellcheck
+shfmt
 shoulda
 sidekiq
 sirportly
@@ -122,7 +132,9 @@ staticcheck
 stretchr
 Subtests
 tailscale
+talosctl
 TESTARGS
+tflint
 themepack
 tmdb
 tmuxifier
