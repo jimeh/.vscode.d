@@ -514,18 +514,20 @@
   // MARK: Text Manipulation
   // ===========================================================================
   //
-  { // Set indentation to correct level.
-    //
-    // This was borrowed from the awesome-emacs-keymap extension and modified to
-    // add:
-    // - `!cpp.shouldAcceptTab` condition for the sake of Cursor.
-    // - `!tableMode` condition for the sake of text-tables.
-    //
-    // Extension: https://marketplace.visualstudio.com/items?itemName=tuttieee.emacs-mcx
-    "key": "tab",
-    "command": "emacs-mcx.tabToTabStop",
-    "when": "editorTextFocus && !editorReadonly && !inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible && !inSnippetMode && !editorTabCompletion && !editorParameterHintsVisible && !cursorAtInlineEdit && !cpp.shouldAcceptTab && !tableMode"
-  },
+  // TODO: Re-evaluate if we may still need a custom tab keybinding for Cursor.
+  //
+  // { // Set indentation to correct level.
+  //   //
+  //   // This was borrowed from the awesome-emacs-keymap extension and modified to
+  //   // add:
+  //   // - `!cpp.shouldAcceptTab` condition for the sake of Cursor.
+  //   // - `!tableMode` condition for the sake of text-tables.
+  //   //
+  //   // Extension: https://marketplace.visualstudio.com/items?itemName=tuttieee.emacs-mcx
+  //   "key": "tab",
+  //   "command": "emacs-mcx.tabToTabStop",
+  //   "when": "editorTextFocus && !editorReadonly && !inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible && !inSnippetMode && !editorTabCompletion && !editorParameterHintsVisible && !cursorAtInlineEdit && !cpp.shouldAcceptTab && !tableMode"
+  // },
   { // Cycle spacing.
     //
     // This is a basic emulation Emacs' built-in cycle-spacing command. It
