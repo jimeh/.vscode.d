@@ -141,6 +141,7 @@ tmuxifier
 TOOLDIR
 traefik
 unionfs
+valkey
 vterm
 websecure
 weechat
