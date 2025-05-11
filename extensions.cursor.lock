@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Fri May  2 23:05:57 BST 2025
+# Generated on Sun May 11 13:38:01 BST 2025
 
 alefragnani.project-manager@12.8.0
 antiantisepticeye.vscode-color-picker@0.0.4
@@ -54,7 +54,7 @@ matthewpi.caddyfile-support@0.4.0
 mattn.lisp@0.1.12
 mhutchie.git-graph@1.30.0
 mkhl.direnv@0.17.0
-ms-azuretools.vscode-containers@2.0.0
+ms-azuretools.vscode-containers@2.0.1
 ms-python.debugpy@2024.6.0
 ms-python.python@2024.12.3
 ms-python.vscode-pylance@2024.8.1
@@ -63,21 +63,21 @@ ms-vscode-remote.remote-ssh@0.113.1
 ms-vscode-remote.remote-ssh-edit@0.87.0
 ms-vscode.extension-test-runner@0.0.12
 ms-vscode.hexeditor@1.11.1
-ms-vscode.remote-explorer@0.4.3
+ms-vscode.remote-explorer@0.5.0
 ms-vscode.remote-repositories@0.42.0
 ms-vscode.remote-server@1.5.2
 ms-vscode.test-adapter-converter@0.2.1
-ms-vscode.vscode-speech@0.12.1
+ms-vscode.vscode-speech@0.14.0
 ms-vsliveshare.vsliveshare@1.0.5948
 pflannery.vscode-versionlens@1.20.1
 pkief.material-icon-theme@5.22.0
-redhat.vscode-xml@0.28.1
+redhat.vscode-xml@0.29.0
 redhat.vscode-yaml@1.18.0
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
-rust-lang.rust-analyzer@0.3.2441
+rust-lang.rust-analyzer@0.3.2449
 shopify.ruby-extensions-pack@0.1.13
-shopify.ruby-lsp@0.9.20
+shopify.ruby-lsp@0.9.23
 sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.42
 streetsidesoftware.code-spell-checker@4.0.47
