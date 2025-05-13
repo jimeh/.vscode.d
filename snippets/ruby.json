@@ -32,5 +32,40 @@
       "require 'byebug'; byebug$0"
     ],
     "description": "require 'byebug'; byebug"
+  },
+  "attr_reader": {
+    "prefix": "r",
+    "body": [
+      "attr_reader :${1:name}"
+    ],
+    "description": "attr_reader :name"
+  },
+  "attr_writer": {
+    "prefix": "w",
+    "body": [
+      "attr_writer :${1:name}"
+    ],
+    "description": "attr_writer :name"
+  },
+  "attr_accessor": {
+    "prefix": "rw",
+    "body": [
+      "attr_accessor :${1:name}"
+    ],
+    "description": "attr_accessor :name"
+  },
+  "require": {
+    "prefix": "re",
+    "body": [
+      "require '${1:name}'"
+    ],
+    "description": "require 'name'"
+  },
+  "require_relative": {
+    "prefix": "rr",
+    "body": [
+      "require_relative '${1:name}'"
+    ],
+    "description": "require_relative 'name'"
   }
 }
