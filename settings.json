@@ -329,8 +329,11 @@
     "editor.tabSize": 4
   },
   "go-lines.lineLength": 120,
-  "go.coverOnSingleTest": true,
-  "go.coverShowCounts": true,
+  "go.coverageDecorator": {
+    "type": "gutter",
+    "coveredGutterStyle": "verticalblue",
+    "uncoveredGutterStyle": "verticalyellow"
+  },
   "go.formatTool": "gofumpt",
   "go.inlayHints.constantValues": true,
   "go.lintOnSave": "workspace",
