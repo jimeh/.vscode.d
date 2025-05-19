@@ -21,6 +21,7 @@ direnv
 Dockerfiles
 dotenv
 edamagit
+ekosystem
 elpaca
 emacsclient
 envctl
@@ -89,6 +90,8 @@ minfraud
 mullvad
 mvdan
 Myhrberg
+myops
+myopscode
 nerdctl
 nokogiri
 nolint
