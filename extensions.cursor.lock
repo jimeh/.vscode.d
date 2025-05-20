@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Tue May 20 11:35:11 BST 2025
+# Generated on Tue May 20 11:36:43 BST 2025
 
 alefragnani.project-manager@12.8.0
 antiantisepticeye.vscode-color-picker@0.0.4
@@ -37,13 +37,13 @@ github.vscode-pull-request-github@0.102.0
 gofenix.go-lines@0.0.10
 golang.go@0.46.1
 gruntfuggly.todo-tree@0.0.226
-hashicorp.terraform@2.34.3
+hashicorp.terraform@2.34.4
 hbenl.vscode-test-explorer@2.22.1
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.1
-hverlin.mise-vscode@0.49.2
+hverlin.mise-vscode@0.50.0
 jakearl.search-editor-apply-changes@0.1.1
-jnoortheen.nix-ide@0.4.17
+jnoortheen.nix-ide@0.4.18
 joshbolduc.commitlint@2.6.2
 kahole.magit@0.6.66
 karunamurti.haml@1.4.1
@@ -69,7 +69,7 @@ ms-vscode.remote-server@1.5.2
 ms-vscode.test-adapter-converter@0.2.1
 ms-vscode.vscode-speech@0.14.0
 ms-vsliveshare.vsliveshare@1.0.5948
-pflannery.vscode-versionlens@1.22.1
+pflannery.vscode-versionlens@1.22.2
 pkief.material-icon-theme@5.23.0
 redhat.vscode-xml@0.29.0
 redhat.vscode-yaml@1.18.0
