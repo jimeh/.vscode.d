@@ -126,6 +126,7 @@ shellcheck
 shfmt
 shoulda
 sidekiq
+simplecov
 sirportly
 SITEFUNS
 solargraph

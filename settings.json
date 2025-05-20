@@ -437,6 +437,7 @@
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-extensions-pack
   // - https://marketplace.visualstudio.com/items?itemName=connorshea.vscode-ruby-test-adapter
+  // - https://marketplace.visualstudio.com/items?itemName=dewski.simplecov
   //
   "[ruby]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp",
@@ -451,6 +452,13 @@
   // version of Ruby is used.
   "rubyTestExplorer.minitestCommand": "mise x -- bundle exec rake",
   "rubyTestExplorer.rspecCommand": "mise x -- bundle exec rspec",
+  "simplecov-vscode.enabled": false,
+  "simplecov.coverageDecorator": {
+    "type": "gutter",
+    "coveredGutterStyle": "verticalblue",
+    "uncoveredGutterStyle": "verticalyellow",
+    "uncoveredBranchGutterStyle": "verticalyellow"
+  },
   //
   // ===========================================================================
   // MARK: Lang: Shellscript
