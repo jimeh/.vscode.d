@@ -129,6 +129,7 @@ sidekiq
 simplecov
 sirportly
 SITEFUNS
+slsa
 solargraph
 sshake
 sshkey
