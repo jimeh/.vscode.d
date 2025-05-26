@@ -257,6 +257,52 @@ do_dump_extensions() {
   echo "Extensions list dumped to ${extensions_lock}"
 }
 
+# Validate extension line format
+validate_extension_line() {
+  local line="$1"
+  local extension=""
+  local version=""
+  local publisher=""
+  local extension_name=""
+
+  # Check for exactly one @ symbol
+  local at_count
+  at_count=$(echo "${line}" | grep -o "@" | wc -l)
+  if [[ ${at_count} -ne 1 ]]; then
+    echo "Warning: Invalid format '${line}' - must contain exactly one '@'"
+    return 1
+  fi
+
+  # Extract extension and version parts
+  extension="${line%@*}"
+  version="${line#*@}"
+
+  # Validate extension part (should be publisher.extension)
+  if [[ ! "${extension}" =~ ^[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+$ ]]; then
+    echo "Warning: Invalid extension format '${extension}' - must be 'publisher.extension'"
+    return 1
+  fi
+
+  # Validate version is not empty and contains valid characters
+  if [[ -z "${version}" ]]; then
+    echo "Warning: Empty version for extension '${extension}'"
+    return 1
+  fi
+
+  if [[ ! "${version}" =~ ^[a-zA-Z0-9._-]+$ ]]; then
+    echo "Warning: Invalid version format '${version}' for extension '${extension}'"
+    return 1
+  fi
+
+  # Check for leading/trailing whitespace
+  if [[ "${line}" != "${line// /}" ]]; then
+    echo "Warning: Extension line contains spaces: '${line}'"
+    return 1
+  fi
+
+  return 0
+}
+
 # Global variable to cache installed extensions
 _INSTALLED_EXTENSIONS=""
 
@@ -416,13 +462,13 @@ do_install_extensions() {
   # Process each extension
   while IFS= read -r line; do
     if [[ -n "${line}" && ! "${line}" =~ ^[[:space:]]*# ]]; then
-      if [[ "${line}" == *"@"* ]]; then
-        extension="${line%@*}"
-        version="${line#*@}"
-      else
-        echo "Warning: Skipping malformed line: ${line}"
+      # Validate extension line format
+      if ! validate_extension_line "${line}"; then
         continue
       fi
+
+      extension="${line%@*}"
+      version="${line#*@}"
 
       # Check if already installed with correct version
       if is_extension_installed "${editor_cmd}" "${extension}"; then
