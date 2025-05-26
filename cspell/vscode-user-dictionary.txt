@@ -74,6 +74,7 @@ kluster
 konfig
 kpult
 krew
+krystalbot
 kubectx
 kubens
 kubetail
@@ -116,6 +117,7 @@ restish
 rmrf
 romdo
 rubocop
+rubygems
 rustup
 SAVEHIST
 scaleway
@@ -145,6 +147,7 @@ tmdb
 tmuxifier
 TOOLDIR
 traefik
+tzdata
 unionfs
 valkey
 vterm
