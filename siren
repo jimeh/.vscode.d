@@ -112,6 +112,19 @@ editor_config_dir() {
   esac
 }
 
+# Cross-platform function to resolve symlinks
+resolve_symlink() {
+  local path="$1"
+  if command -v realpath > /dev/null 2>&1; then
+    realpath "$path"
+  elif [[ "$(uname -s)" == "Darwin" ]]; then
+    # Use printf to safely pass the path to Python
+    python -c "import os, sys; print(os.path.realpath(sys.argv[1]))" "$path"
+  else
+    readlink -f "$path"
+  fi
+}
+
 # Backup and symlink
 backup_and_link() {
   local source="$1"
@@ -128,8 +141,8 @@ backup_and_link() {
   if [[ -e "${target}" ]]; then
     # If it's a symlink, check if it points to the same location
     if [[ -L "${target}" ]]; then
-      real_target="$(readlink -f "${target}")"
-      real_source="$(readlink -f "${source}")"
+      real_target="$(resolve_symlink "$target")"
+      real_source="$(resolve_symlink "$source")"
       if [[ "${real_target}" == "${real_source}" ]]; then
         echo "Skipping ${target} - already linked to ${source}"
         return
@@ -211,7 +224,6 @@ find_editor_cmd() {
 
   # Check for the command in all possible locations
   for cmd in "${possible_commands[@]}"; do
-    echo "Checking ${cmd}" >&2
     if command -v "${cmd}" > /dev/null 2>&1; then
       editor_cmd="${cmd}"
       break
@@ -259,7 +271,8 @@ is_extension_installed() {
   fi
 
   # Check if extension exists in cached list
-  echo "${_INSTALLED_EXTENSIONS}" | grep -q "^${extension}@"
+  echo "${_INSTALLED_EXTENSIONS}" |
+    grep -q "^$(printf '%s' "${extension}" | sed 's/[[\.*^$()+?{|]/\\&/g')@"
 }
 
 # Install an extension directly using the marketplace
@@ -272,7 +285,7 @@ install_extension_direct() {
 
   if [[ "${use_latest}" == "true" ]]; then
     echo "Installing ${extension} (latest version)"
-    if ! "${editor_cmd}" --install-extension "${extension} --force"; then
+    if ! "${editor_cmd}" --install-extension "${extension}" --force; then
       echo "Warning: Direct install failed for ${extension}"
       result=1
     fi
@@ -303,6 +316,13 @@ install_extension_via_vsix() {
   local install_version=""
 
   if [[ "${use_latest}" == "true" ]]; then
+    # Check for jq availability when using --latest flag
+    if ! command -v jq > /dev/null 2>&1; then
+      echo "Error: jq is required when using --latest flag to parse marketplace API responses"
+      echo "Please install jq or remove the --latest flag to use exact versions from the lock file"
+      return 1
+    fi
+
     # In latest mode, we need to first query the marketplace to get the latest version
     echo "Finding latest version for ${extension}..."
 
@@ -313,17 +333,14 @@ install_extension_via_vsix() {
     # Create extensions directory if it doesn't exist
     mkdir -p "${extensions_cache_dir}"
 
-    # Create a JSON request payload to query for the extension details
-    local request_data='{
-      "filters": [
-        {
-          "criteria": [
-            { "filterType": 7, "value": "'${extension}'" }
-          ]
-        }
-      ],
-      "flags": 2
-    }'
+    # Use jq to properly construct JSON
+    local request_data
+    request_data=$(jq -n --arg ext "$extension" '{
+      filters: [{
+        criteria: [{ filterType: 7, value: $ext }]
+      }],
+      flags: 2
+    }')
 
     # Query the marketplace for extension metadata
     if ! curl --silent --compressed -X POST -H "Content-Type: application/json" -H "Accept: application/json; api-version=7.2-preview.1" -d "${request_data}" "${metadata_url}" > "${temp_metadata}"; then
@@ -332,14 +349,8 @@ install_extension_via_vsix() {
       return 1
     fi
 
-    # Extract the latest version from the response
-    if command -v jq > /dev/null 2>&1; then
-      # If jq is available, use it to parse JSON
-      install_version=$(jq -r '.results[0].extensions[0].versions[0].version' "${temp_metadata}" 2> /dev/null)
-    else
-      # Fallback to grep/sed for basic extraction if jq is not available
-      install_version=$(grep -o '"version":"[^"]*"' "${temp_metadata}" | head -1 | sed 's/"version":"//;s/"//' 2> /dev/null)
-    fi
+    # Extract the latest version from the response using jq
+    install_version=$(jq -r '.results[0].extensions[0].versions[0].version' "${temp_metadata}" 2> /dev/null)
 
     # Clean up metadata file
     rm -f "${temp_metadata}"
@@ -405,8 +416,13 @@ do_install_extensions() {
   # Process each extension
   while IFS= read -r line; do
     if [[ -n "${line}" && ! "${line}" =~ ^[[:space:]]*# ]]; then
-      extension="${line%@*}"
-      version="${line#*@}"
+      if [[ "${line}" == *"@"* ]]; then
+        extension="${line%@*}"
+        version="${line#*@}"
+      else
+        echo "Warning: Skipping malformed line: ${line}"
+        continue
+      fi
 
       # Check if already installed with correct version
       if is_extension_installed "${editor_cmd}" "${extension}"; then
