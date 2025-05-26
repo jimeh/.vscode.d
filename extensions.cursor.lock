@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Sun May 25 20:55:14 BST 2025
+# Generated on Mon May 26 09:49:35 BST 2025
 
 alefragnani.project-manager@12.8.0
 antiantisepticeye.vscode-color-picker@0.0.4
@@ -75,7 +75,7 @@ redhat.vscode-xml@0.29.0
 redhat.vscode-yaml@1.18.0
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
-rust-lang.rust-analyzer@0.3.2466
+rust-lang.rust-analyzer@0.3.2474
 shopify.ruby-extensions-pack@0.1.13
 shopify.ruby-lsp@0.9.26
 sidneys1.gitconfig@2.0.1
