@@ -310,7 +310,7 @@ _INSTALLED_EXTENSIONS=""
 installed_extensions() {
   local editor_cmd="$1"
 
-  # Build cache if not already built
+  # Populate the cache if it's not already populated.
   if [[ -z "${_INSTALLED_EXTENSIONS}" ]]; then
     _INSTALLED_EXTENSIONS="$("${editor_cmd}" --list-extensions --show-versions)"
   fi
@@ -482,6 +482,10 @@ do_install_extensions() {
     echo "Error: ${extensions_lock} not found"
     exit 1
   fi
+
+  # Warn the installed extensions cache before we start processing the lock
+  # file.
+  installed_extensions "${editor_cmd}"
 
   # Process each extension
   while IFS= read -r line; do
