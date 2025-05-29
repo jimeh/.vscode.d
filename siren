@@ -306,19 +306,37 @@ validate_extension_line() {
 # Global variable to cache installed extensions
 _INSTALLED_EXTENSIONS=""
 
-# Check if extension is already installed, ignoring version
-is_extension_installed() {
+# Get installed extensions with versions, using cache if available
+installed_extensions() {
   local editor_cmd="$1"
-  local extension="$2"
 
   # Build cache if not already built
   if [[ -z "${_INSTALLED_EXTENSIONS}" ]]; then
     _INSTALLED_EXTENSIONS="$("${editor_cmd}" --list-extensions --show-versions)"
   fi
 
+  echo "${_INSTALLED_EXTENSIONS}"
+}
+
+# Check if extension is already installed, ignoring version
+is_extension_installed() {
+  local editor_cmd="$1"
+  local extension="$2"
+
   # Check if extension exists in cached list
-  echo "${_INSTALLED_EXTENSIONS}" |
+  installed_extensions "${editor_cmd}" |
     grep -q "^$(printf '%s' "${extension}" | sed 's/[[\.*^$()+?{|]/\\&/g')@"
+}
+
+# Check if extension is installed with exact version
+is_exact_version_installed() {
+  local editor_cmd="$1"
+  local extension="$2"
+  local version="$3"
+
+  # Check if exact extension@version exists in cached list
+  installed_extensions "${editor_cmd}" |
+    grep -q "^$(printf '%s' "${extension}@${version}" | sed 's/[[\.*^$()+?{|]/\\&/g')$"
 }
 
 # Install an extension directly using the marketplace
@@ -327,6 +345,7 @@ install_extension_direct() {
   local extension="$2"
   local version="$3"
   local use_latest="$4"
+  local force_install="$5"
   local result=0
 
   if [[ "${use_latest}" == "true" ]]; then
@@ -337,7 +356,11 @@ install_extension_direct() {
     fi
   else
     echo "Installing ${extension}@${version}"
-    if ! "${editor_cmd}" --install-extension "${extension}@${version}"; then
+    local install_cmd=("${editor_cmd}" --install-extension "${extension}@${version}")
+    if [[ "${force_install}" == "true" ]]; then
+      install_cmd+=(--force)
+    fi
+    if ! "${install_cmd[@]}"; then
       echo "Warning: Direct install failed for ${extension}@${version}"
       result=1
     fi
@@ -433,6 +456,7 @@ install_extension_via_vsix() {
   fi
 
   # Install the extension from .vsix file
+  # Note: Installing from .vsix automatically overwrites existing versions
   echo "Installing extension from ${vsix_path}"
   if ! "${editor_cmd}" --install-extension "${vsix_path}"; then
     echo "Warning: Failed to install ${extension}@${install_version} from .vsix"
@@ -471,9 +495,26 @@ do_install_extensions() {
       version="${line#*@}"
 
       # Check if already installed with correct version
-      if is_extension_installed "${editor_cmd}" "${extension}"; then
-        echo "Extension ${extension} is already installed, skipping"
-        continue
+      if [[ "${use_latest}" == "true" ]]; then
+        # In latest mode, just check if extension is installed (any version)
+        if is_extension_installed "${editor_cmd}" "${extension}"; then
+          echo "Extension ${extension} is already installed, skipping"
+          continue
+        fi
+      else
+        # In exact mode, check if the exact version is installed
+        if is_exact_version_installed "${editor_cmd}" "${extension}" "${version}"; then
+          echo "Extension ${extension}@${version} is already installed, skipping"
+          continue
+        elif is_extension_installed "${editor_cmd}" "${extension}"; then
+          echo "Extension ${extension} is installed but wrong version, force-installing ${version}"
+        fi
+      fi
+
+      # Determine if we need to force install (when wrong version is installed)
+      local force_install="false"
+      if [[ "${use_latest}" == "false" ]] && is_extension_installed "${editor_cmd}" "${extension}"; then
+        force_install="true"
       fi
 
       # For Cursor we need to download and install from .vsix file, as
@@ -483,7 +524,7 @@ do_install_extensions() {
         continue
       fi
 
-      if ! install_extension_direct "${editor_cmd}" "${extension}" "${version}" "${use_latest}"; then
+      if ! install_extension_direct "${editor_cmd}" "${extension}" "${version}" "${use_latest}" "${force_install}"; then
         echo "Direct installation failed, trying .vsix download method..."
         install_extension_via_vsix "${editor_cmd}" "${extension}" "${version}" "${use_latest}" "${extensions_cache_dir}"
       fi
