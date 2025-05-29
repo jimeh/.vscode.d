@@ -54,6 +54,7 @@ haxelib
 healthcheck
 helmfile
 hexedit
+hostnames
 hyprevisors
 incidentio
 innodb
@@ -88,11 +89,13 @@ magit
 Menlo
 metricks
 minfraud
+msgpack
 mullvad
 mvdan
 Myhrberg
 myops
 myopscode
+namespacing
 nerdctl
 nokogiri
 nolint
@@ -147,6 +150,7 @@ tmdb
 tmuxifier
 TOOLDIR
 traefik
+tweakable
 tzdata
 unionfs
 valkey
