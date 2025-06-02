@@ -1,5 +1,6 @@
 # Custom VSCode Dictionary Words
 actionnav
+aker
 authie
 bootsnap
 buildx
@@ -97,6 +98,7 @@ myops
 myopscode
 namespacing
 nerdctl
+nindent
 nokogiri
 nolint
 omniauth
@@ -150,6 +152,7 @@ tmdb
 tmuxifier
 TOOLDIR
 traefik
+trunc
 tweakable
 tzdata
 unionfs
