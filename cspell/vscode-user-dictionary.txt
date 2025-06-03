@@ -2,6 +2,7 @@
 actionnav
 aker
 authie
+bootable
 bootsnap
 buildx
 byebug
@@ -26,6 +27,7 @@ ekosystem
 elpaca
 emacsclient
 envctl
+fieldset
 finalizer
 fozbaz
 fpath
@@ -126,6 +128,7 @@ rubygems
 rustup
 SAVEHIST
 scaleway
+schedulable
 schro
 scrollback
 setuptools
@@ -155,6 +158,10 @@ traefik
 trunc
 tweakable
 tzdata
+unallocate
+unallocates
+Unallocating
+unassigns
 unionfs
 valkey
 vterm
