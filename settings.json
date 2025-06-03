@@ -446,6 +446,12 @@
     "editor.insertSpaces": true,
     "editor.tabSize": 2
   },
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "auto"
+  },
+  "rubyLsp.featureFlags": {
+    "fullTestDiscovery": false
+  },
   // Ruby Test Explorer
   "rubyTestExplorer.logpanel": false,
   // Use mise to execute ruby test explorer bundler commands to ensure correct
