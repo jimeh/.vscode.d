@@ -169,6 +169,11 @@ do_symlink() {
     backup_and_link "${SCRIPT_DIR}/${path}" "${config_dir}/${path}"
   done
 
+  # Conditionally add mcp.json for cursor
+  if [[ "${SETUP_EDITOR}" == "cursor" ]]; then
+    STATIC_SYMLINKS["cursor/mcp.json"]="${HOME}/.cursor/mcp.json"
+  fi
+
   # Create static symlinks to custom locations
   for source in "${!STATIC_SYMLINKS[@]}"; do
     target="${STATIC_SYMLINKS[${source}]}"
