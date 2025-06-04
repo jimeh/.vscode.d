@@ -511,23 +511,42 @@
   },
   //
   // ===========================================================================
+  // MARK: Emacs-like behavior
+  // ===========================================================================
+  //
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=tuttieee.emacs-mcx
+  //
+  // These keybindings were borrowed from the awesome-emacs-keymap extension and
+  // modified in the following ways:
+  //
+  // - For compatibility with Cursor:
+  //   - Added `!cpp.shouldAcceptTab` and `!cursorAtInlineEdit` conditions to
+  //     not trigger when Cursor is displaying tab-accepted suggestions.
+  //   - Removed `config.emacs-mcx.emacsLikeTab` condition, as enabling it
+  //     breaks accepting suggestions in Cursor with the tab key.
+  // - For compatibility with text-tables extension:
+  //   - Added `!tableMode` condition.
+  //
+  // The original condition from awesome-emacs-keymap was:
+  //
+  // "when": "config.emacs-mcx.emacsLikeTab && editorTextFocus && !editorReadonly && !inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible && !inSnippetMode && !editorTabCompletion && !editorParameterHintsVisible"
+  //
+  { // Set indentation to correct level.
+    "key": "tab",
+    "command": "emacs-mcx.tabToTabStop",
+    "when": "editorTextFocus && !editorReadonly && !inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible && !inSnippetMode && !editorTabCompletion && !editorParameterHintsVisible && !cursorAtInlineEdit && !cpp.shouldAcceptTab && !tableMode"
+  },
+  { // Set indentation to correct level.
+    "key": "ctrl+i",
+    "command": "emacs-mcx.tabToTabStop",
+    "when": "editorTextFocus && !editorReadonly && !inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible && !inSnippetMode && !editorTabCompletion && !editorParameterHintsVisible && !cursorAtInlineEdit && !cpp.shouldAcceptTab && !tableMode"
+  },
+  //
+  // ===========================================================================
   // MARK: Text Manipulation
   // ===========================================================================
   //
-  // TODO: Re-evaluate if we may still need a custom tab keybinding for Cursor.
-  //
-  // { // Set indentation to correct level.
-  //   //
-  //   // This was borrowed from the awesome-emacs-keymap extension and modified to
-  //   // add:
-  //   // - `!cpp.shouldAcceptTab` condition for the sake of Cursor.
-  //   // - `!tableMode` condition for the sake of text-tables.
-  //   //
-  //   // Extension: https://marketplace.visualstudio.com/items?itemName=tuttieee.emacs-mcx
-  //   "key": "tab",
-  //   "command": "emacs-mcx.tabToTabStop",
-  //   "when": "editorTextFocus && !editorReadonly && !inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible && !inSnippetMode && !editorTabCompletion && !editorParameterHintsVisible && !cursorAtInlineEdit && !cpp.shouldAcceptTab && !tableMode"
-  // },
   { // Cycle spacing.
     //
     // This is a basic emulation Emacs' built-in cycle-spacing command. It
