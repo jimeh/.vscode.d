@@ -399,6 +399,21 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  "json.schemas": [
+    { // Release Please config
+      "fileMatch": [
+        "/**/release-please-config.json"
+      ],
+      "url": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
+    },
+    { // Release Please manifest
+      "fileMatch": [
+        "/**/.release-please-manifest.json",
+        "/**/release-please-manifest.json"
+      ],
+      "url": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/manifest.json"
+    }
+  ],
   //
   // ===========================================================================
   // MARK: Lang: JavaScript
