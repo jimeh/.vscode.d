@@ -267,8 +267,6 @@ validate_extension_line() {
   local line="$1"
   local extension=""
   local version=""
-  local publisher=""
-  local extension_name=""
 
   # Check for exactly one @ symbol
   local at_count
