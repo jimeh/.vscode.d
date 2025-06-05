@@ -106,6 +106,7 @@ nolint
 omniauth
 onepassword
 opentofu
+pagy
 passhash
 PGID
 pipx
@@ -164,6 +165,8 @@ Unallocating
 unassigns
 unionfs
 valkey
+vcard
+vcards
 vterm
 websecure
 weechat
