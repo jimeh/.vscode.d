@@ -687,6 +687,18 @@
   },
   //
   // ===========================================================================
+  // MARK: Rewrap Revived
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=dnut.rewrap-revived
+  //
+  { // Toggle auto wrap in current document.
+    "key": "ctrl+c q",
+    "command": "rewrap.toggleAutoWrap",
+    "when": "editorTextFocus"
+  },
+  //
+  // ===========================================================================
   // MARK: Multi-Cursor
   // ===========================================================================
   //

@@ -319,6 +319,20 @@
   "workbench.editor.defaultBinaryEditor": "hexEditor.hexedit",
   //
   // ===========================================================================
+  // MARK: Rewrap Revived
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=dnut.rewrap-revived
+  //
+  // Enable auto-wrap by default. In programming languages it only applies to
+  // comments.
+  "rewrap.autoWrap.enabled": true,
+  // Only wrap the current paragraph when triggering rewrap with alt+q within a
+  // comment.
+  "rewrap.wholeComment": false,
+  //
+  //
+  // ===========================================================================
   // MARK: Lang: CSS
   // ===========================================================================
   //
