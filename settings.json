@@ -373,6 +373,12 @@
     "coveredGutterStyle": "verticalblue",
     "uncoveredGutterStyle": "verticalyellow"
   },
+  "go.disableConcurrentTests": true,
+  "go.editorContextMenuCommands": {
+    "testFile": true,
+    "testPackage": true,
+    "fillStruct": true
+  },
   "go.formatTool": "gofumpt",
   "go.inlayHints.constantValues": true,
   "go.lintOnSave": "workspace",
@@ -814,11 +820,5 @@
       },
       "workbench.action.focusActiveEditorGroup"
     ]
-  },
-  "go.disableConcurrentTests": true,
-  "go.editorContextMenuCommands": {
-    "testFile": true,
-    "testPackage": true,
-    "fillStruct": true
   }
 }
