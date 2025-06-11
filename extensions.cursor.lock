@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Wed Jun  4 12:15:35 BST 2025
+# Generated on Wed Jun 11 02:58:35 BST 2025
 
 alefragnani.project-manager@12.8.0
 antiantisepticeye.vscode-color-picker@0.0.4
@@ -30,9 +30,10 @@ editorconfig.editorconfig@0.17.2
 emeraldwalk.runonsave@0.2.7
 esbenp.prettier-vscode@11.0.0
 exiasr.hadolint@1.1.2
+fogio.inline-go-struct-tags-syntax-highlight@1.0.0
 foxundermoon.shell-format@7.2.5
 github.remotehub@0.64.0
-github.vscode-github-actions@0.27.1
+github.vscode-github-actions@0.27.2
 github.vscode-pull-request-github@0.102.0
 gofenix.go-lines@0.0.10
 golang.go@0.46.1
@@ -76,7 +77,7 @@ redhat.vscode-xml@0.29.0
 redhat.vscode-yaml@1.18.0
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
-rust-lang.rust-analyzer@0.3.2482
+rust-lang.rust-analyzer@0.3.2490
 shopify.ruby-extensions-pack@0.1.13
 shopify.ruby-lsp@0.9.27
 sidneys1.gitconfig@2.0.1
