@@ -8,6 +8,7 @@ buildx
 byebug
 cadvisor
 casecmp
+chardata
 checkin
 chgrp
 commonmarker
@@ -27,6 +28,7 @@ ekosystem
 elpaca
 emacsclient
 envctl
+Falsef
 fieldset
 finalizer
 fozbaz
@@ -121,6 +123,7 @@ rbheap
 rclone
 redcarpet
 Redistat
+renderable
 restish
 rmrf
 romdo
@@ -156,6 +159,7 @@ tmdb
 tmuxifier
 TOOLDIR
 traefik
+Truef
 trunc
 tweakable
 tzdata
