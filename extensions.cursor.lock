@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Wed Jun 11 02:58:35 BST 2025
+# Generated on Wed Jun 11 09:58:42 BST 2025
 
 alefragnani.project-manager@12.8.0
 antiantisepticeye.vscode-color-picker@0.0.4
@@ -53,6 +53,7 @@ letrieu.expand-region@0.1.4
 m4ns0ur.base64@1.0.0
 matthewpi.caddyfile-support@0.4.0
 mattn.lisp@0.1.12
+mermaidchart.vscode-mermaid-chart@2.4.1
 mhutchie.git-graph@1.30.0
 mkhl.direnv@0.17.0
 ms-azuretools.vscode-containers@2.0.2
