@@ -308,6 +308,9 @@
   // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=hverlin.mise-vscode
   //
+  "mise.autoDetectMiseBinPath": false,
+  "mise.checkForNewMiseVersion": false,
+  "mise.configureExtensionsAutomatically": false,
   "mise.updateOpenTerminalsEnvAutomatically": true,
   //
   // ===========================================================================
