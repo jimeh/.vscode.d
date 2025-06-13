@@ -31,6 +31,7 @@ envctl
 Falsef
 fieldset
 finalizer
+finalizers
 fozbaz
 fpath
 gelf
@@ -126,6 +127,7 @@ Redistat
 renderable
 restish
 rmrf
+rollouts
 romdo
 rubocop
 rubygems
