@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Wed Jun 11 10:01:23 BST 2025
+# Generated on Fri Jun 13 20:22:18 BST 2025
 
 alefragnani.project-manager@12.8.0
 antiantisepticeye.vscode-color-picker@0.0.4
@@ -12,7 +12,7 @@ bierner.markdown-checkbox@0.4.0
 bierner.markdown-emoji@0.3.1
 bierner.markdown-footnotes@0.1.1
 bierner.markdown-mermaid@1.28.0
-bierner.markdown-preview-github-styles@2.1.0
+bierner.markdown-preview-github-styles@2.2.0
 bierner.markdown-yaml-preamble@0.1.0
 bodil.file-browser@0.2.11
 britesnow.vscode-toggle-quotes@0.3.6
@@ -81,7 +81,7 @@ romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
 rust-lang.rust-analyzer@0.3.2490
 shopify.ruby-extensions-pack@0.1.13
-shopify.ruby-lsp@0.9.27
+shopify.ruby-lsp@0.9.28
 sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.42
 streetsidesoftware.code-spell-checker@4.0.47
