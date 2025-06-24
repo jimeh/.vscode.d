@@ -1,6 +1,7 @@
 # Custom VSCode Dictionary Words
 actionnav
 aker
+amazonses
 authie
 bootable
 bootsnap
