@@ -1,8 +1,7 @@
 {
   "mcpServers": {
     "context7": {
-      "command": "mise",
-      "args": ["x", "npm:@upstash/context7-mcp", "--", "context7-mcp"]
+      "url": "https://mcp.context7.com/mcp"
     }
   }
 }
