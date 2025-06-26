@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Tue Jun 24 01:42:15 BST 2025
+# Generated on Thu Jun 26 12:45:45 BST 2025
 
 alefragnani.project-manager@12.8.0
 antiantisepticeye.vscode-color-picker@0.0.4
@@ -86,7 +86,7 @@ sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.42
 streetsidesoftware.code-spell-checker@4.0.47
 stuart.unique-window-colors@1.0.51
-sumneko.lua@3.14.0
+sumneko.lua@3.15.0
 svelte.svelte-vscode@109.9.0
 swellaby.vscode-rust-test-adapter@0.11.1
 tamasfe.even-better-toml@0.21.2
