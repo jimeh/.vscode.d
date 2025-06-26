@@ -391,6 +391,7 @@
   "go.testFlags": [
     "-count=1"
   ],
+  "go.toolsManagement.autoUpdate": false,
   "go.useLanguageServer": true,
   "gopls": {
     "formatting.gofumpt": true,
