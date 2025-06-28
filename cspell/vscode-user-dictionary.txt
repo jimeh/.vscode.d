@@ -106,6 +106,7 @@ kubens
 kubetail
 langserver
 letsencrypt
+libgccjit
 libmysqlclient
 libvterm
 libyaml
@@ -163,6 +164,7 @@ rubygems
 rustup
 SAVEHIST
 scaleway
+sccache
 schedulable
 schro
 scrollback
@@ -183,6 +185,7 @@ stretchr
 Subtests
 tailscale
 talosctl
+taplo
 teamspeak
 TESTARGS
 tflint
