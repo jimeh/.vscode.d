@@ -570,7 +570,13 @@
   "redhat.telemetry.enabled": false,
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
   },
   //
   // ===========================================================================
