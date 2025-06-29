@@ -224,6 +224,7 @@
   "projectManager.git.baseFolders": [
     "~/.config",
     "~/.dotfiles",
+    "~/Documents/Obsidian Vaults",
     "~/Projects",
     "~/src"
   ],
