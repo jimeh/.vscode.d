@@ -21,6 +21,9 @@ define_settings() {
 
   # Additional static symlinks to create (source => target).
   STATIC_SYMLINKS["cspell/vscode-user-dictionary.txt"]="${HOME}/.cspell/vscode-user-dictionary.txt"
+  STATIC_SYMLINKS["harper-ls/dictionary.txt"]="$(harper_config_dir)/dictionary.txt"
+  STATIC_SYMLINKS["harper-ls/file_dictionaries"]="$(harper_config_dir)/file_dictionaries"
+  STATIC_SYMLINKS["harper-ls/ignored_lints"]="$(harper_config_dir)/ignored_lints"
 
   # Conditionally add `mcp.json` for Cursor.
   if [[ "${SETUP_EDITOR}" == "cursor" ]]; then

@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Sat Jul  5 11:45:47 BST 2025
+# Generated on Sat Jul  5 21:37:38 BST 2025
 
 alefragnani.project-manager@12.8.0
 anthropic.claude-code@1.0.43
@@ -28,6 +28,7 @@ dbaeumer.vscode-eslint@3.0.10
 dewski.simplecov@0.0.7
 dnut.rewrap-revived@1.16.3
 editorconfig.editorconfig@0.17.4
+elijah-potter.harper@0.48.0
 emeraldwalk.runonsave@0.2.7
 esbenp.prettier-vscode@11.0.0
 exiasr.hadolint@1.1.2
@@ -43,7 +44,7 @@ hashicorp.terraform@2.34.5
 hbenl.vscode-test-explorer@2.22.1
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.26.0
-hverlin.mise-vscode@0.50.0
+hverlin.mise-vscode@0.50.1
 jakearl.search-editor-apply-changes@0.1.1
 jnoortheen.nix-ide@0.4.22
 joshbolduc.commitlint@2.6.2
