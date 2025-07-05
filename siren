@@ -4,25 +4,31 @@
 # Settings
 # ==============================================================================
 
-# Default editor to configure (cursor, vscode, or vscode-insiders)
-SETUP_EDITOR="cursor"
-
-# List of config files to symlink from current directory.
-CONFIG_SOURCES=(
-  "settings.json"
-  "keybindings.json"
-  "snippets"
-)
-
-# Additional static symlinks to create (source => target)
-declare -A STATIC_SYMLINKS=(
-  ["cspell/vscode-user-dictionary.txt"]="${HOME}/.cspell/vscode-user-dictionary.txt"
-)
-
-# Detect current script directory.
+# Define base globals.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SETUP_EDITOR=""
+declare -A STATIC_SYMLINKS=()
 
-# Get extensions lockfile path for current editor
+# Define settings as a function, allowing them to run after all other functions
+# have been defined, using them as needed.
+define_settings() {
+  # List of config files to symlink from current directory.
+  CONFIG_SOURCES=(
+    "settings.json"
+    "keybindings.json"
+    "snippets"
+  )
+
+  # Additional static symlinks to create (source => target).
+  STATIC_SYMLINKS["cspell/vscode-user-dictionary.txt"]="${HOME}/.cspell/vscode-user-dictionary.txt"
+
+  # Conditionally add `mcp.json` for Cursor.
+  if [[ "${SETUP_EDITOR}" == "cursor" ]]; then
+    STATIC_SYMLINKS["cursor/mcp.json"]="${HOME}/.cursor/mcp.json"
+  fi
+}
+
+# Get extensions lockfile path for current editor.
 get_extensions_lock() {
   echo "${SCRIPT_DIR}/extensions.${SETUP_EDITOR}.lock"
 }
@@ -62,7 +68,7 @@ EOF
 # Functions
 # ==============================================================================
 
-# Determine editor config directory
+# Determine editor config directory.
 editor_config_dir() {
   case "$(uname -s)" in
     "Darwin")
@@ -112,34 +118,54 @@ editor_config_dir() {
   esac
 }
 
-# Cross-platform function to resolve symlinks
+# Determine harper-ls config directory.
+harper_config_dir() {
+  case "$(uname -s)" in
+    "Darwin")
+      echo "${HOME}/Library/Application Support/harper-ls"
+      ;;
+    "Linux")
+      if [[ -n "${XDG_CONFIG_HOME}" ]]; then
+        echo "${XDG_CONFIG_HOME}/harper-ls"
+      else
+        echo "${HOME}/.config/harper-ls"
+      fi
+      ;;
+    *)
+      echo "Error: Unsupported operating system"
+      exit 1
+      ;;
+  esac
+}
+
+# Cross-platform function to resolve symlinks.
 resolve_symlink() {
   local path="$1"
   if command -v realpath > /dev/null 2>&1; then
     realpath "$path"
   elif [[ "$(uname -s)" == "Darwin" ]]; then
-    # Use printf to safely pass the path to Python
+    # Use `printf` to safely pass the path to Python.
     python -c "import os, sys; print(os.path.realpath(sys.argv[1]))" "$path"
   else
     readlink -f "$path"
   fi
 }
 
-# Backup and symlink
+# Backup and symlink.
 backup_and_link() {
   local source="$1"
   local target="$2"
   local real_target
   local real_source
 
-  # Create target directory if it doesn't exist
+  # Create target directory if it doesn't exist.
   local target_dir
   target_dir="$(dirname "${target}")"
   mkdir -p "${target_dir}"
 
-  # Check if target already exists
+  # Check if target already exists.
   if [[ -e "${target}" ]]; then
-    # If it's a symlink, check if it points to the same location
+    # If it's a symlink, check if it points to the same location.
     if [[ -L "${target}" ]]; then
       real_target="$(resolve_symlink "$target")"
       real_source="$(resolve_symlink "$source")"
@@ -153,14 +179,14 @@ backup_and_link() {
     mv "${target}" "${target}.bak"
   fi
 
-  # Create symlink
+  # Create symlink.
   echo "Creating symlink for ${source} to ${target}"
   ln -s "${source}" "${target}"
 }
 
-# Create symlinks
+# Create symlinks.
 do_symlink() {
-  # Create editor config directory if it doesn't exist
+  # Create editor config directory if it doesn't exist.
   local config_dir
   config_dir="$(editor_config_dir)"
 
@@ -169,12 +195,7 @@ do_symlink() {
     backup_and_link "${SCRIPT_DIR}/${path}" "${config_dir}/${path}"
   done
 
-  # Conditionally add mcp.json for cursor
-  if [[ "${SETUP_EDITOR}" == "cursor" ]]; then
-    STATIC_SYMLINKS["cursor/mcp.json"]="${HOME}/.cursor/mcp.json"
-  fi
-
-  # Create static symlinks to custom locations
+  # Create static symlinks to custom locations.
   for source in "${!STATIC_SYMLINKS[@]}"; do
     target="${STATIC_SYMLINKS[${source}]}"
     backup_and_link "${SCRIPT_DIR}/${source}" "${target}"
@@ -183,14 +204,14 @@ do_symlink() {
   echo "Symlink setup complete!"
 }
 
-# Find the editor CLI command
+# Find the editor CLI command.
 find_editor_cmd() {
   local editor_cmd=""
   local possible_commands=()
 
   case "${SETUP_EDITOR}" in
     "cursor")
-      # Set possible Cursor CLI command locations
+      # Set possible Cursor CLI command locations.
       possible_commands=(
         "cursor"
         "/Applications/Cursor.app/Contents/Resources/app/bin/cursor"
@@ -198,7 +219,7 @@ find_editor_cmd() {
       )
       ;;
     "vscode")
-      # Set possible VSCode CLI command locations
+      # Set possible VSCode CLI command locations.
       possible_commands=(
         "code"
         "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
@@ -206,7 +227,7 @@ find_editor_cmd() {
       )
       ;;
     "vscode-insiders")
-      # Set possible VSCode Insiders CLI command locations
+      # Set possible VSCode Insiders CLI command locations.
       possible_commands=(
         "code-insiders"
         "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin/code"
@@ -214,7 +235,7 @@ find_editor_cmd() {
       )
       ;;
     "windsurf")
-      # Set possible Windsurf CLI command locations
+      # Set possible Windsurf CLI command locations.
       possible_commands=(
         "windsurf"
         "/Applications/Windsurf.app/Contents/Resources/app/bin/windsurf"
@@ -227,7 +248,7 @@ find_editor_cmd() {
       ;;
   esac
 
-  # Check for the command in all possible locations
+  # Check for the command in all possible locations.
   for cmd in "${possible_commands[@]}"; do
     if command -v "${cmd}" > /dev/null 2>&1; then
       editor_cmd="${cmd}"
@@ -243,7 +264,7 @@ find_editor_cmd() {
   echo "${editor_cmd}"
 }
 
-# Dump installed extensions to extensions.lock
+# Dump installed extensions to `extensions.lock`.
 do_dump_extensions() {
   local editor_cmd
   editor_cmd="$(find_editor_cmd)"
@@ -262,13 +283,13 @@ do_dump_extensions() {
   echo "Extensions list dumped to ${extensions_lock}"
 }
 
-# Validate extension line format
+# Validate extension line format.
 validate_extension_line() {
   local line="$1"
   local extension=""
   local version=""
 
-  # Check for exactly one @ symbol
+  # Check for exactly one `@` symbol.
   local at_count
   at_count=$(echo "${line}" | grep -o "@" | wc -l)
   if [[ ${at_count} -ne 1 ]]; then
@@ -276,28 +297,30 @@ validate_extension_line() {
     return 1
   fi
 
-  # Extract extension and version parts
+  # Extract extension and version parts.
   extension="${line%@*}"
   version="${line#*@}"
 
-  # Validate extension part (should be publisher.extension)
+  # Validate extension part (should be `<publisher>.<extension>`).
   if [[ ! "${extension}" =~ ^[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+$ ]]; then
-    echo "Warning: Invalid extension format '${extension}' - must be 'publisher.extension'"
+    echo "Warning: Invalid extension format '${extension}' - must be" \
+      "'publisher.extension'"
     return 1
   fi
 
-  # Validate version is not empty and contains valid characters
+  # Validate version is not empty and contains valid characters.
   if [[ -z "${version}" ]]; then
     echo "Warning: Empty version for extension '${extension}'"
     return 1
   fi
 
   if [[ ! "${version}" =~ ^[a-zA-Z0-9._-]+$ ]]; then
-    echo "Warning: Invalid version format '${version}' for extension '${extension}'"
+    echo "Warning: Invalid version format '${version}' for extension" \
+      "'${extension}'"
     return 1
   fi
 
-  # Check for leading/trailing whitespace
+  # Check for leading/trailing whitespace.
   if [[ "${line}" != "${line// /}" ]]; then
     echo "Warning: Extension line contains spaces: '${line}'"
     return 1
@@ -306,10 +329,10 @@ validate_extension_line() {
   return 0
 }
 
-# Global variable to cache installed extensions
+# Global variable to cache installed extensions.
 _INSTALLED_EXTENSIONS=""
 
-# Get installed extensions with versions, using cache if available
+# Get installed extensions with versions, using cache if available.
 installed_extensions() {
   local editor_cmd="$1"
 
@@ -321,18 +344,18 @@ installed_extensions() {
   echo "${_INSTALLED_EXTENSIONS}"
 }
 
-# Get the currently installed version of an extension
+# Get the currently installed version of an extension.
 get_installed_version() {
   local editor_cmd="$1"
   local extension="$2"
 
-  # Extract version from cached list
+  # Extract version from cached list.
   installed_extensions "${editor_cmd}" |
     grep "^$(printf '%s' "${extension}" | sed "s/[[\.*^$()+?{|]/\\\\&/g")@" |
     sed "s/^[^@]*@//"
 }
 
-# Install an extension directly using the marketplace
+# Install an extension directly using the marketplace.
 install_extension_direct() {
   local editor_cmd="$1"
   local extension="$2"
@@ -362,7 +385,7 @@ install_extension_direct() {
   return ${result}
 }
 
-# Install an extension via downloading .vsix file
+# Install an extension via downloading `*.vsix` file.
 install_extension_via_vsix() {
   local editor_cmd="$1"
   local extension="$2"
@@ -378,24 +401,27 @@ install_extension_via_vsix() {
   local install_version=""
 
   if [[ "${use_latest}" == "true" ]]; then
-    # Check for jq availability when using --latest flag
+    # Check for `jq` availability when using `--latest` flag.
     if ! command -v jq > /dev/null 2>&1; then
-      echo "Error: jq is required when using --latest flag to parse marketplace API responses"
-      echo "Please install jq or remove the --latest flag to use exact versions from the lock file"
+      echo "Error: jq is required when using --latest flag to parse" \
+        "marketplace API responses."
+      echo "Please install jq or remove the --latest flag to use exact" \
+        "versions from the lock file."
       return 1
     fi
 
-    # In latest mode, we need to first query the marketplace to get the latest version
+    # In latest mode, we need to first query the marketplace to get the latest
+    # version.
     echo "Finding latest version for ${extension}..."
 
-    # Query the VS Marketplace API to get the extension metadata
+    # Query the VS Marketplace API to get the extension metadata.
     local metadata_url="https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
     local temp_metadata="${extensions_cache_dir}/metadata-${extension}.json"
 
-    # Create extensions directory if it doesn't exist
+    # Create extensions directory if it doesn't exist.
     mkdir -p "${extensions_cache_dir}"
 
-    # Use jq to properly construct JSON
+    # Use `jq` to properly construct JSON.
     local request_data
     request_data=$(jq -n --arg ext "$extension" '{
       filters: [{
@@ -404,42 +430,49 @@ install_extension_via_vsix() {
       flags: 2
     }')
 
-    # Query the marketplace for extension metadata
-    if ! curl --silent --compressed -X POST -H "Content-Type: application/json" -H "Accept: application/json; api-version=7.2-preview.1" -d "${request_data}" "${metadata_url}" > "${temp_metadata}"; then
+    # Query the marketplace for extension metadata.
+    if ! curl --silent --compressed -X POST \
+      -H "Content-Type: application/json" \
+      -H "Accept: application/json; api-version=7.2-preview.1" \
+      -d "${request_data}" "${metadata_url}" > "${temp_metadata}"; then
       echo "Warning: Failed to query metadata for ${extension}"
       rm -f "${temp_metadata}"
       return 1
     fi
 
-    # Extract the latest version from the response using jq
-    install_version=$(jq -r '.results[0].extensions[0].versions[0].version' "${temp_metadata}" 2> /dev/null)
+    # Extract the latest version from the response using `jq`.
+    install_version=$(
+      jq -r '.results[0].extensions[0].versions[0].version' "${temp_metadata}" \
+        2> /dev/null
+    )
 
-    # Clean up metadata file
+    # Clean up metadata file.
     rm -f "${temp_metadata}"
 
-    # If we couldn't extract a version, use original version as fallback
+    # If we couldn't extract a version, use original version as fallback.
     if [[ -z "${install_version}" || "${install_version}" == "null" ]]; then
-      echo "Warning: Could not determine latest version, falling back to lock file version"
+      echo "Warning: Could not determine latest version, falling back to" \
+        "lock file version"
       install_version="${version}"
     else
       echo "Latest version of ${extension} is ${install_version}"
     fi
 
-    # Set up the download path and URL for the specific version we found
+    # Set up the download path and URL for the specific version we found.
     vsix_path="${extensions_cache_dir}/${extension}@${install_version}.vsix"
     vsix_url="https://marketplace.visualstudio.com/_apis/public/gallery/publishers/${publisher_id}/vsextensions/${extension_id}/${install_version}/vspackage"
   else
-    # In strict mode, use the exact version from the lock file
+    # In strict mode, use the exact version from the lock file.
     echo "Installing ${extension}@${version} via .vsix"
     vsix_path="${extensions_cache_dir}/${extension}@${version}.vsix"
     vsix_url="https://marketplace.visualstudio.com/_apis/public/gallery/publishers/${publisher_id}/vsextensions/${extension_id}/${version}/vspackage"
     install_version="${version}"
   fi
 
-  # Create extensions directory if it doesn't exist
+  # Create extensions directory if it doesn't exist.
   mkdir -p "${extensions_cache_dir}"
 
-  # Download the .vsix file
+  # Download the `*.vsix` file.
   echo "Downloading ${extension}@${install_version}.vsix..."
   echo "  - URL: ${vsix_url}"
   if ! curl --compressed -L -o "${vsix_path}" "${vsix_url}"; then
@@ -448,21 +481,22 @@ install_extension_via_vsix() {
     return 1
   fi
 
-  # Install the extension from .vsix file
-  # Note: Installing from .vsix automatically overwrites existing versions
+  # Install the extension from `*.vsix` file.
+  # Note: Installing from `*.vsix` automatically overwrites existing versions.
   echo "Installing extension from ${vsix_path}"
   if ! "${editor_cmd}" --install-extension "${vsix_path}"; then
-    echo "Warning: Failed to install ${extension}@${install_version} from .vsix"
+    echo "Warning: Failed to install ${extension}@${install_version}" \
+      "from '*.vsix'"
     result=1
   fi
 
-  # Clean up the .vsix file after installation attempt
+  # Clean up the `*.vsix` file after installation attempt.
   rm -f "${vsix_path}"
 
   return ${result}
 }
 
-# Install extensions from extensions.lock
+# Install extensions from `extensions.lock`.
 do_install_extensions() {
   local editor_cmd
   editor_cmd="$(find_editor_cmd)"
@@ -480,10 +514,10 @@ do_install_extensions() {
   # file.
   installed_extensions "${editor_cmd}"
 
-  # Process each extension
+  # Process each extension.
   while IFS= read -r line; do
     if [[ -n "${line}" && ! "${line}" =~ ^[[:space:]]*# ]]; then
-      # Validate extension line format
+      # Validate extension line format.
       if ! validate_extension_line "${line}"; then
         continue
       fi
@@ -491,43 +525,49 @@ do_install_extensions() {
       extension="${line%@*}"
       version="${line#*@}"
 
-      # Check if already installed and get current version
+      # Check if already installed and get current version.
       local current_version
       current_version="$(get_installed_version "${editor_cmd}" "${extension}")"
       local force_install="false"
 
       if [[ -z "${current_version}" ]]; then
-        # Extension not installed
+        # Extension not installed.
         echo "Installing ${extension}@${version}"
       elif [[ "${use_latest}" == "true" ]]; then
-        # In latest mode, skip if any version is installed
-        echo "Extension ${extension} is already installed (current: ${current_version}), skipping"
+        # In latest mode, skip if any version is installed.
+        echo "Extension ${extension} is already installed" \
+          "(current: ${current_version}), skipping"
         continue
       elif [[ "${current_version}" == "${version}" ]]; then
-        # Exact version already installed
+        # Exact version already installed.
         echo "Extension ${extension}@${version} is already installed, skipping"
         continue
       else
-        # Wrong version installed, need to force install
-        echo "Extension ${extension} is installed but wrong version (current: ${current_version}, wanted: ${version}), force-installing ${version}"
+        # Wrong version installed, need to force install.
+        echo "Extension ${extension} is installed but wrong version" \
+          "(current: ${current_version}, wanted: ${version})," \
+          "force-installing ${version}"
         force_install="true"
       fi
 
-      # For Cursor we need to download and install from .vsix file, as
+      # For Cursor we need to download and install from `*.vsix` file, as
       # installation via ID fails with a signature verification error.
       if [[ "${SETUP_EDITOR}" == "cursor" ]]; then
-        install_extension_via_vsix "${editor_cmd}" "${extension}" "${version}" "${use_latest}" "${extensions_cache_dir}"
+        install_extension_via_vsix "${editor_cmd}" "${extension}" "${version}" \
+          "${use_latest}" "${extensions_cache_dir}"
         continue
       fi
 
-      if ! install_extension_direct "${editor_cmd}" "${extension}" "${version}" "${use_latest}" "${force_install}"; then
+      if ! install_extension_direct "${editor_cmd}" "${extension}" \
+        "${version}" "${use_latest}" "${force_install}"; then
         echo "Direct installation failed, trying .vsix download method..."
-        install_extension_via_vsix "${editor_cmd}" "${extension}" "${version}" "${use_latest}" "${extensions_cache_dir}"
+        install_extension_via_vsix "${editor_cmd}" "${extension}" "${version}" \
+          "${use_latest}" "${extensions_cache_dir}"
       fi
     fi
   done < "${extensions_lock}"
 
-  # Clean up extensions directory if empty
+  # Clean up extensions directory if empty.
   rmdir "${extensions_cache_dir}" 2> /dev/null || true
   echo "Extensions installation complete!"
 }
@@ -554,7 +594,7 @@ main() {
     exit 1
   fi
 
-  # Set editor from first argument
+  # Set editor from first argument.
   editor="$(echo "${1}" | tr '[:upper:]' '[:lower:]')"
   case "${editor}" in
     "vscode" | "code" | "vsc" | "v")
@@ -576,14 +616,17 @@ main() {
       ;;
   esac
 
-  # Get command from second argument
+  # Define settings after `SETUP_EDITOR` is set.
+  define_settings
+
+  # Get command from second argument.
   local command="${2}"
   shift 2
 
-  # Default values for options
+  # Default values for options.
   local use_latest="false"
 
-  # Parse additional options
+  # Parse additional options.
   while [[ $# -gt 0 ]]; do
     case "$1" in
       --latest)
@@ -598,7 +641,7 @@ main() {
     esac
   done
 
-  # Handle commands
+  # Handle commands.
   case "${command}" in
     "config" | "conf")
       do_symlink
