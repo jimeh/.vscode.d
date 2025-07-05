@@ -321,25 +321,15 @@ installed_extensions() {
   echo "${_INSTALLED_EXTENSIONS}"
 }
 
-# Check if extension is already installed, ignoring version
-is_extension_installed() {
+# Get the currently installed version of an extension
+get_installed_version() {
   local editor_cmd="$1"
   local extension="$2"
 
-  # Check if extension exists in cached list
+  # Extract version from cached list
   installed_extensions "${editor_cmd}" |
-    grep -q "^$(printf '%s' "${extension}" | sed 's/[[\.*^$()+?{|]/\\&/g')@"
-}
-
-# Check if extension is installed with exact version
-is_exact_version_installed() {
-  local editor_cmd="$1"
-  local extension="$2"
-  local version="$3"
-
-  # Check if exact extension@version exists in cached list
-  installed_extensions "${editor_cmd}" |
-    grep -q "^$(printf '%s' "${extension}@${version}" | sed 's/[[\.*^$()+?{|]/\\&/g')$"
+    grep "^$(printf '%s' "${extension}" | sed "s/[[\.*^$()+?{|]/\\\\&/g")@" |
+    sed "s/^[^@]*@//"
 }
 
 # Install an extension directly using the marketplace
@@ -501,26 +491,25 @@ do_install_extensions() {
       extension="${line%@*}"
       version="${line#*@}"
 
-      # Check if already installed with correct version
-      if [[ "${use_latest}" == "true" ]]; then
-        # In latest mode, just check if extension is installed (any version)
-        if is_extension_installed "${editor_cmd}" "${extension}"; then
-          echo "Extension ${extension} is already installed, skipping"
-          continue
-        fi
-      else
-        # In exact mode, check if the exact version is installed
-        if is_exact_version_installed "${editor_cmd}" "${extension}" "${version}"; then
-          echo "Extension ${extension}@${version} is already installed, skipping"
-          continue
-        elif is_extension_installed "${editor_cmd}" "${extension}"; then
-          echo "Extension ${extension} is installed but wrong version, force-installing ${version}"
-        fi
-      fi
-
-      # Determine if we need to force install (when wrong version is installed)
+      # Check if already installed and get current version
+      local current_version
+      current_version="$(get_installed_version "${editor_cmd}" "${extension}")"
       local force_install="false"
-      if [[ "${use_latest}" == "false" ]] && is_extension_installed "${editor_cmd}" "${extension}"; then
+
+      if [[ -z "${current_version}" ]]; then
+        # Extension not installed
+        echo "Installing ${extension}@${version}"
+      elif [[ "${use_latest}" == "true" ]]; then
+        # In latest mode, skip if any version is installed
+        echo "Extension ${extension} is already installed (current: ${current_version}), skipping"
+        continue
+      elif [[ "${current_version}" == "${version}" ]]; then
+        # Exact version already installed
+        echo "Extension ${extension}@${version} is already installed, skipping"
+        continue
+      else
+        # Wrong version installed, need to force install
+        echo "Extension ${extension} is installed but wrong version (current: ${current_version}, wanted: ${version}), force-installing ${version}"
         force_install="true"
       fi
 
