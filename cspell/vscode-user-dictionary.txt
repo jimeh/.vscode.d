@@ -87,6 +87,7 @@ iterm
 jellyfin
 jimdev
 jimeh
+jimehk
 jimnoct
 jsbundling
 jsonlint
@@ -120,6 +121,7 @@ Loadbalancers
 localtime
 magit
 Menlo
+mergiraf
 metricks
 minfraud
 mkvtoolnix
@@ -135,6 +137,7 @@ nindent
 noct
 nokogiri
 nolint
+Ollama
 omniauth
 onepassword
 openemu
