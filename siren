@@ -14,8 +14,9 @@ declare -A STATIC_SYMLINKS=()
 define_settings() {
   # List of config files to symlink from current directory.
   CONFIG_SOURCES=(
-    "settings.json"
     "keybindings.json"
+    "mcp.json"
+    "settings.json"
     "snippets"
   )
 
