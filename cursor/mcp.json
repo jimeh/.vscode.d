@@ -1,9 +1,17 @@
 {
   "mcpServers": {
     "context7": {
-      "url": "https://mcp.context7.com/mcp"
+      "type": "stdio",
+      "command": "mise",
+      "args": [
+        "x",
+        "npm:@upstash/context7-mcp",
+        "--",
+        "context7-mcp"
+      ]
     },
     "sequential-thinking": {
+      "type": "stdio",
       "command": "mise",
       "args": [
         "x",
