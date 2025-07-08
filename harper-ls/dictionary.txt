@@ -35,6 +35,7 @@ VSCode's
 actionnav
 aker
 amazonses
+args
 authie
 automator
 bbedit
@@ -50,6 +51,7 @@ chgrp
 chromedriver
 clipcopy
 clippaste
+cmd
 commonmarker
 compinit
 conntrack
@@ -243,3 +245,4 @@ zinit
 zmodload
 zoxide
 zsh
+zshrc
