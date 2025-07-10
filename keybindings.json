@@ -346,6 +346,28 @@
   },
   //
   // ===========================================================================
+  // MARK: Quick Input
+  // ===========================================================================
+  //
+  // Quick input uses vim keybindings (ctrl+j/ctrl+k) by default. I specifically
+  // use Emacs keybindings (ctrl+n/ctrl+p for next/previous), so here we disable
+  // the default vim keybindings. This lets ctrl+k for example kill to end of
+  // line, which I use frequently.
+  //
+  // There's no need to map ctrl+n/ctrl+p to next/previous quick input item
+  // because we cover that via Karabiner-Elements.
+  //
+  { // Disable default next quick input item keybinding.
+    "key": "ctrl+j",
+    "command": "-quickInput.next",
+    "when": "inQuickInput && quickInputType == 'quickPick'"
+  },
+  { // Disable default previous quick input item keybinding.
+    "key": "ctrl+k",
+    "command": "-quickInput.previous",
+    "when": "inQuickInput && quickInputType == 'quickPick'"
+  },
+  // ===========================================================================
   // MARK: Move Active Editor Group
   // ===========================================================================
   //
