@@ -94,6 +94,7 @@ gomod
 gopkg
 gopls
 goreleaser
+goroutines
 gosec
 govulncheck
 guids
@@ -146,6 +147,7 @@ localtime
 lockfile
 lsp
 magit
+maxWait
 metricks
 minfraud
 mise
