@@ -97,6 +97,7 @@ katapult
 katapultobjects
 keybase
 keymap
+keypair
 khvagent
 klogger
 kluster
@@ -135,6 +136,7 @@ namespacing
 nerdctl
 nindent
 noct
+nodenv
 nokogiri
 nolint
 Ollama
