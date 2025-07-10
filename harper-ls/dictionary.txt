@@ -75,6 +75,7 @@ ctop
 ctrl
 cyberduck
 davide
+debouncer
 digg
 dired
 direnv
@@ -84,6 +85,7 @@ ekosystem
 elpaca
 emacsclient
 envctl
+failover
 feedly
 fieldset
 finalizer
@@ -106,6 +108,7 @@ gomod
 gopkg
 gopls
 goreleaser
+goroutine
 goroutines
 gosec
 govulncheck
@@ -153,6 +156,7 @@ langserver
 letsencrypt
 libgccjit
 libmysqlclient
+libvirt
 libvterm
 libyaml
 licecap
@@ -160,6 +164,7 @@ linux
 localtime
 lockfile
 lsp
+mTLS
 magit
 maxWait
 metricks
@@ -170,6 +175,7 @@ mkvtoolnix
 msgpack
 mtime
 mullvad
+mutex
 mvdan
 myops
 myopscode

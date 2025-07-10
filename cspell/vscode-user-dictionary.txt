@@ -30,6 +30,7 @@ cssbundling
 ctop
 cyberduck
 davide
+debouncer
 digg
 dired
 direnv
