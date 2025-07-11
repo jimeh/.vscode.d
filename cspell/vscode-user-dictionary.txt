@@ -49,12 +49,15 @@ finalizer
 finalizers
 fozbaz
 fpath
+funlen
 gelf
 ghostty
 gitx
 gluetun
 GOBIN
 gocov
+gocritic
+gocyclo
 godoc
 goenv
 gofumpt
