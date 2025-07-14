@@ -406,7 +406,7 @@
   "go.formatTool": "gofumpt",
   "go.inlayHints.constantValues": true,
   "go.lintOnSave": "workspace",
-  "go.lintTool": "golangci-lint",
+  "go.lintTool": "golangci-lint-v2",
   "go.testExplorer.packageDisplayMode": "nested",
   "go.testExplorer.showDynamicSubtestsInEditor": true,
   "go.testFlags": [
