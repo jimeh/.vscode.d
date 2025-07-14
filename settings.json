@@ -522,6 +522,7 @@
   "markdownlint.config": {
     "no-hard-tabs": { // MD010
       "ignore_code_languages": [
+        "caddyfile",
         "go",
         "makefile"
       ]
