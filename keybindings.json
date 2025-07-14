@@ -547,10 +547,25 @@
     "key": "alt+g alt+b",
     "command": "workbench.action.navigateBack"
   },
+  { // Peek definition.
+    "key": "alt+shift+;",
+    "command": "editor.action.peekDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
   { // Peek symbol references.
     "key": "alt+shift+/",
     "command": "editor.action.referenceSearch.trigger",
     "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  { // Peek symbol implementations.
+    "key": "alt+shift+\\",
+    "command": "editor.action.peekImplementation",
+    "when": "editorHasImplementationProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+  },
+  { // Peek call hierarchy.
+    "key": "alt+shift+'",
+    "command": "editor.showCallHierarchy",
+    "when": "editorHasCallHierarchyProvider && editorTextFocus && !inReferenceSearchEditor"
   },
   //
   // ===========================================================================
