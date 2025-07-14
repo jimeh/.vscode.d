@@ -11,6 +11,7 @@ bootable
 bootsnap
 buildx
 byebug
+Caddyfile
 cadvisor
 Cascadea
 casecmp
