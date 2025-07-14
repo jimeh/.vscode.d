@@ -1,8 +1,8 @@
 # vscode-insiders Extensions
-# Generated on Mon Jul  7 11:54:52 BST 2025
+# Generated on Mon Jul 14 11:13:30 BST 2025
 
 alefragnani.project-manager@12.8.0
-anthropic.claude-code@1.0.43
+anthropic.claude-code@1.0.51
 antiantisepticeye.vscode-color-picker@0.0.4
 antyos.openscad@1.3.2
 arrterian.nix-env-selector@1.1.0
@@ -28,17 +28,17 @@ dbaeumer.vscode-eslint@3.0.10
 dewski.simplecov@0.0.7
 dnut.rewrap-revived@1.16.3
 editorconfig.editorconfig@0.17.4
-elijah-potter.harper@0.48.0
+elijah-potter.harper@0.50.0
 emeraldwalk.runonsave@0.2.7
 esbenp.prettier-vscode@11.0.0
 exiasr.hadolint@1.1.2
 fogio.inline-go-struct-tags-syntax-highlight@1.0.0
 foxundermoon.shell-format@7.2.5
-github.copilot@1.339.1660
-github.copilot-chat@0.29.2025070403
+github.copilot@1.343.1674
+github.copilot-chat@0.30.2025071401
 github.remotehub@0.65.2025063001
 github.vscode-github-actions@0.27.2
-github.vscode-pull-request-github@0.113.2025070415
+github.vscode-pull-request-github@0.115.2025071404
 gofenix.go-lines@0.0.10
 golang.go@0.48.0
 gruntfuggly.todo-tree@0.0.226
@@ -63,10 +63,10 @@ mkhl.direnv@0.17.0
 mrmlnc.vscode-duplicate@1.2.1
 ms-azuretools.vscode-containers@2.0.3
 ms-kubernetes-tools.vscode-kubernetes-tools@1.3.25
-ms-python.debugpy@2025.8.0
-ms-python.python@2025.8.0
+ms-python.debugpy@2025.10.0
+ms-python.python@2025.10.0
 ms-python.vscode-pylance@2025.6.2
-ms-vscode-remote.remote-containers@0.420.0
+ms-vscode-remote.remote-containers@0.424.0
 ms-vscode-remote.remote-ssh@0.121.2025063015
 ms-vscode-remote.remote-ssh-edit@0.87.0
 ms-vscode.azure-repos@0.40.0
@@ -84,21 +84,21 @@ redhat.vscode-xml@0.29.0
 redhat.vscode-yaml@1.18.0
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
-rust-lang.rust-analyzer@0.3.2527
+rust-lang.rust-analyzer@0.3.2539
 shopify.ruby-extensions-pack@0.1.13
-shopify.ruby-lsp@0.9.28
+shopify.ruby-lsp@0.9.29
 sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.43
-streetsidesoftware.code-spell-checker@4.2.0
+streetsidesoftware.code-spell-checker@4.2.1
 stuart.unique-window-colors@1.0.51
 sumneko.lua@3.15.0
 svelte.svelte-vscode@109.9.0
 swellaby.vscode-rust-test-adapter@0.11.0
 swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
-timonwong.shellcheck@0.37.7
+timonwong.shellcheck@0.38.0
 tootone.org-mode@0.5.0
-tuttieee.emacs-mcx@0.71.0
+tuttieee.emacs-mcx@0.74.0
 tyriar.sort-lines@1.12.0
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
 wenhoujx.swiper@2.1.2
