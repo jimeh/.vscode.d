@@ -93,12 +93,14 @@ finalizer
 finalizers
 fozbaz
 fpath
+func
 fzf
 gelf
 ghostty
 gitx
 gluetun
 gocov
+gocyclo
 godoc
 goenv
 gofumpt
