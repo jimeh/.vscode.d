@@ -13,6 +13,7 @@ Falsef
 GOBIN
 GOMAXPROCS
 Gemfile
+HAProxy
 HISTFILE
 HISTSIZE
 Hammerspoon
@@ -179,6 +180,7 @@ msgpack
 mtime
 mullvad
 mutex
+mutexes
 mvdan
 myops
 myopscode

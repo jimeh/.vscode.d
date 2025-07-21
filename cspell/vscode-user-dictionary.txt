@@ -71,6 +71,7 @@ gomod
 gopkg
 gopls
 goreleaser
+goroutines
 gosec
 govulncheck
 guids
