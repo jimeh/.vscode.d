@@ -141,6 +141,8 @@
   //
   // Associations
   "files.associations": {
+    ".env": "properties",
+    ".env.*": "properties",
     "gitconfig": "gitconfig",
     "gitignore": "gitignore"
   },
