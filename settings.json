@@ -49,6 +49,7 @@
   // ===========================================================================
   //
   "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
   //
   // ===========================================================================
   // MARK: Editor
@@ -274,45 +275,6 @@
     "straight",
     "elpaca"
   ],
-  //
-  // ===========================================================================
-  // MARK: MCP Servers (VSCode) - Soon to be moved to separate mcp.json file.
-  // ===========================================================================
-  //
-  "mcp": {
-    "servers": {
-      "context7": {
-        "type": "stdio",
-        "command": "mise",
-        "args": [
-          "x",
-          "npm:@upstash/context7-mcp",
-          "--",
-          "context7-mcp"
-        ]
-      },
-      "sequential-thinking": {
-        "type": "stdio",
-        "command": "mise",
-        "args": [
-          "x",
-          "npm:@modelcontextprotocol/server-sequential-thinking",
-          "--",
-          "mcp-server-sequential-thinking"
-        ]
-      },
-      "memory": {
-        "type": "stdio",
-        "command": "mise",
-        "args": [
-          "x",
-          "npm:@modelcontextprotocol/server-memory",
-          "--",
-          "mcp-server-memory"
-        ]
-      }
-    }
-  },
   //
   // ===========================================================================
   // MARK: GitHub
