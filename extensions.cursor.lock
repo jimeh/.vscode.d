@@ -1,8 +1,8 @@
 # cursor Extensions
-# Generated on Mon Jul 14 10:25:50 BST 2025
+# Generated on Mon Jul 21 13:06:40 BST 2025
 
 alefragnani.project-manager@12.8.0
-anthropic.claude-code@1.0.51
+anthropic.claude-code@1.0.55
 antiantisepticeye.vscode-color-picker@0.0.4
 antyos.openscad@1.3.2
 arrterian.nix-env-selector@1.1.0
@@ -28,12 +28,11 @@ dbaeumer.vscode-eslint@3.0.10
 dewski.simplecov@0.0.7
 dnut.rewrap-revived@1.16.3
 editorconfig.editorconfig@0.17.4
-elijah-potter.harper@0.50.0
+elijah-potter.harper@0.51.0
 emeraldwalk.runonsave@0.2.7
 esbenp.prettier-vscode@11.0.0
 exiasr.hadolint@1.1.2
 fogio.inline-go-struct-tags-syntax-highlight@1.0.0
-foxundermoon.shell-format@7.2.5
 github.remotehub@0.64.0
 github.vscode-github-actions@0.27.2
 github.vscode-pull-request-github@0.108.0
@@ -44,7 +43,7 @@ hashicorp.terraform@2.34.5
 hbenl.vscode-test-explorer@2.22.1
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.26.0
-hverlin.mise-vscode@0.50.1
+hverlin.mise-vscode@0.51.1
 jakearl.search-editor-apply-changes@0.1.1
 jnoortheen.nix-ide@0.4.22
 joshbolduc.commitlint@2.6.2
@@ -53,6 +52,7 @@ karunamurti.haml@1.4.1
 koichisasada.vscode-rdbg@0.2.2
 letrieu.expand-region@0.1.4
 m4ns0ur.base64@1.0.0
+mads-hartmann.bash-ide-vscode@1.43.0
 matthewpi.caddyfile-support@0.4.0
 mattn.lisp@0.1.12
 mermaidchart.vscode-mermaid-chart@2.4.1
@@ -83,17 +83,16 @@ romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
 rust-lang.rust-analyzer@0.3.2539
 shopify.ruby-extensions-pack@0.1.13
-shopify.ruby-lsp@0.9.29
+shopify.ruby-lsp@0.9.30
 sidneys1.gitconfig@2.0.1
-sorbet.sorbet-vscode-extension@0.3.43
+sorbet.sorbet-vscode-extension@0.3.44
 streetsidesoftware.code-spell-checker@4.0.47
 stuart.unique-window-colors@1.0.51
 sumneko.lua@3.15.0
-svelte.svelte-vscode@109.9.0
+svelte.svelte-vscode@109.10.0
 swellaby.vscode-rust-test-adapter@0.11.1
 swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
-timonwong.shellcheck@0.38.0
 tootone.org-mode@0.5.0
 tuttieee.emacs-mcx@0.74.0
 tyriar.sort-lines@1.12.0
