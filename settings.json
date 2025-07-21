@@ -443,14 +443,14 @@
   // MARK: Lang: JSON
   // ===========================================================================
   //
-  "[json]": {
+  "[json][jsonc]": {
     "editor.insertSpaces": true,
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
+  },
+  "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "json.schemas": [
@@ -540,16 +540,14 @@
   // - https://marketplace.visualstudio.com/items?itemName=connorshea.vscode-ruby-test-adapter
   // - https://marketplace.visualstudio.com/items?itemName=dewski.simplecov
   //
-  "[ruby]": {
+  "[ruby][erb]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp",
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
   },
-  "[erb]": {
-    "editor.defaultFormatter": "Shopify.ruby-lsp",
-    "editor.tabSize": 2
+  "[ruby]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
   },
   // Ruby LSP
   "rubyLsp.featureFlags": {
@@ -593,12 +591,7 @@
   // - https://marketplace.visualstudio.com/items?itemName=arahata.linter-actionlint
   //
   "redhat.telemetry.enabled": false,
-  "[yaml]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml",
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true
-  },
-  "[github-actions-workflow]": {
+  "[yaml][github-actions-workflow]": {
     "editor.defaultFormatter": "redhat.vscode-yaml",
     "editor.tabSize": 2,
     "editor.insertSpaces": true
