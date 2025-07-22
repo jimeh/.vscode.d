@@ -56,6 +56,8 @@ gelf
 ghostty
 gitx
 gluetun
+goarch
+goarm
 GOBIN
 gocov
 gocritic
@@ -117,6 +119,7 @@ kubelogin
 kubens
 kubetail
 langserver
+ldflags
 letsencrypt
 libexec
 libgccjit
@@ -211,6 +214,7 @@ tmdb
 tmuxifier
 TOOLDIR
 traefik
+trimpath
 Truef
 trunc
 tweakable
