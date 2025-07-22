@@ -361,6 +361,7 @@
     "coveredGutterStyle": "verticalblue",
     "uncoveredGutterStyle": "verticalyellow"
   },
+  "go.diagnostic.vulncheck": "Imports",
   "go.disableConcurrentTests": true,
   "go.editorContextMenuCommands": {
     "testFile": true,
@@ -376,6 +377,7 @@
   "go.testFlags": [
     "-count=1"
   ],
+  "go.testTimeout": "90s",
   "go.toolsManagement.autoUpdate": false,
   "go.useLanguageServer": true,
   "gopls": {
