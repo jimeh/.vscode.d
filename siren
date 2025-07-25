@@ -21,6 +21,7 @@ define_settings() {
   )
 
   # Additional static symlinks to create (source => target).
+  STATIC_SYMLINKS["claude/CLAUDE.md"]="${HOME}/.claude/CLAUDE.md"
   STATIC_SYMLINKS["cspell/vscode-user-dictionary.txt"]="${HOME}/.cspell/vscode-user-dictionary.txt"
   STATIC_SYMLINKS["harper-ls/dictionary.txt"]="$(harper_config_dir)/dictionary.txt"
   STATIC_SYMLINKS["harper-ls/file_dictionaries"]="$(harper_config_dir)/file_dictionaries"
@@ -44,6 +45,7 @@ get_extensions_lock() {
 show_help() {
   cat << EOF
 Usage: $(basename "$0") EDITOR COMMAND [OPTIONS]
+       $(basename "$0") config
 
 Editors:
   cursor, c                   Cursor editor
@@ -60,6 +62,10 @@ Options:
   --latest                 When used with the extensions command, installs the
                            latest version of each extension instead of the
                            exact version from the lock file.
+
+Special Usage:
+  config, conf             When used without an editor, creates only static
+                           symlinks (CLAUDE.md, dictionaries, etc.)
 
 Description:
   This script manages editor configuration files and extensions.
@@ -188,8 +194,8 @@ backup_and_link() {
   ln -s "${source}" "${target}"
 }
 
-# Create symlinks.
-do_symlink() {
+# Private function: Create editor-specific symlinks.
+symlink_editor_config() {
   # Create editor config directory if it doesn't exist.
   local config_dir
   config_dir="$(editor_config_dir)"
@@ -198,13 +204,27 @@ do_symlink() {
   for path in "${CONFIG_SOURCES[@]}"; do
     backup_and_link "${SCRIPT_DIR}/${path}" "${config_dir}/${path}"
   done
+}
 
+# Private function: Create static symlinks.
+symlink_static_config() {
   # Create static symlinks to custom locations.
   for source in "${!STATIC_SYMLINKS[@]}"; do
     target="${STATIC_SYMLINKS[${source}]}"
     backup_and_link "${SCRIPT_DIR}/${source}" "${target}"
   done
+}
 
+# Public function: Create static symlinks only.
+do_static_config() {
+  symlink_static_config
+  echo "Static symlink setup complete!"
+}
+
+# Public function: Create all symlinks (editor-specific + static).
+do_config() {
+  symlink_editor_config
+  symlink_static_config
   echo "Symlink setup complete!"
 }
 
@@ -592,6 +612,15 @@ main() {
     exit 0
   fi
 
+  # Check if first argument is config/conf (standalone mode).
+  local first_arg
+  first_arg="$(echo "${1}" | tr '[:upper:]' '[:lower:]')"
+  if [[ "${first_arg}" == "config" || "${first_arg}" == "conf" ]]; then
+    define_settings
+    do_static_config
+    exit 0
+  fi
+
   if [[ $# -lt 2 ]]; then
     echo "Error: No command specified"
     show_help
@@ -599,7 +628,7 @@ main() {
   fi
 
   # Set editor from first argument.
-  editor="$(echo "${1}" | tr '[:upper:]' '[:lower:]')"
+  editor="${first_arg}"
   case "${editor}" in
     "vscode" | "code" | "vsc" | "v")
       SETUP_EDITOR="vscode"
@@ -648,7 +677,7 @@ main() {
   # Handle commands.
   case "${command}" in
     "config" | "conf")
-      do_symlink
+      do_config
       ;;
     "dump-extensions" | "dump")
       do_dump_extensions
