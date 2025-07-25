@@ -87,6 +87,7 @@ edamagit
 ekosystem
 elpaca
 emacsclient
+env
 envctl
 failover
 feedly
