@@ -22,12 +22,14 @@ JWKS
 JWT
 Karabiner
 Katapult's
+Kiro
 Linuxbrew
 Loadbalancers
 MCP
 Makefile
 Menlo
 Myhrberg
+OpenVSX
 PGID
 PR
 PUID
@@ -138,6 +140,7 @@ jellyfin
 jimdev
 jimeh
 jimnoct
+jq
 js
 jsbundling
 jsonlint

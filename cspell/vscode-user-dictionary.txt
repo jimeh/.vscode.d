@@ -110,6 +110,7 @@ keybase
 keymap
 keypair
 khvagent
+Kiro
 klogger
 kluster
 konfig
@@ -156,6 +157,7 @@ omniauth
 onepassword
 openemu
 opentofu
+openvsx
 Orbstack
 pagy
 pandoc
