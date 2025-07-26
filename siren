@@ -49,6 +49,7 @@ Usage: $(basename "$0") EDITOR COMMAND [OPTIONS]
 
 Editors:
   cursor, c                   Cursor editor
+  kiro, k                     Kiro editor
   vscode, code, vsc, v        Visual Studio Code
   vscode-insiders, vsci, i    Visual Studio Code Insiders
   windsurf, surf, w           Windsurf editor
@@ -95,6 +96,9 @@ editor_config_dir() {
         "windsurf")
           echo "${HOME}/Library/Application Support/Windsurf/User"
           ;;
+        "kiro")
+          echo "${HOME}/Library/Application Support/Kiro/User"
+          ;;
         *)
           echo "Error: Invalid editor '${SETUP_EDITOR}' for macOS"
           exit 1
@@ -114,6 +118,9 @@ editor_config_dir() {
           ;;
         "windsurf")
           echo "${HOME}/.config/Windsurf/User"
+          ;;
+        "kiro")
+          echo "${HOME}/.config/Kiro/User"
           ;;
         *)
           echo "Error: Invalid editor '${SETUP_EDITOR}' for Linux"
@@ -264,6 +271,14 @@ find_editor_cmd() {
         "windsurf"
         "/Applications/Windsurf.app/Contents/Resources/app/bin/windsurf"
         "${HOME}/Applications/Windsurf.app/Contents/Resources/app/bin/windsurf"
+      )
+      ;;
+    "kiro")
+      # Set possible Kiro CLI command locations.
+      possible_commands=(
+        "kiro"
+        "/Applications/Kiro.app/Contents/Resources/app/bin/kiro"
+        "${HOME}/Applications/Kiro.app/Contents/Resources/app/bin/kiro"
       )
       ;;
     *)
@@ -642,9 +657,12 @@ main() {
     "windsurf" | "wind" | "surf" | "w")
       SETUP_EDITOR="windsurf"
       ;;
+    "kiro" | "k")
+      SETUP_EDITOR="kiro"
+      ;;
     *)
       echo "Error: Unsupported editor '${editor}'"
-      echo "Supported editors: cursor, vscode (vsc), vscode-insiders (vsci), windsurf (wind)"
+      echo "Supported editors: cursor, kiro, vscode (vsc), vscode-insiders (vsci), windsurf (wind)"
       exit 1
       ;;
   esac
