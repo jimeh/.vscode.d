@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # ==============================================================================
 # Settings
@@ -34,6 +34,8 @@ define_settings() {
 }
 
 # Get extensions lockfile path for current editor.
+#
+# Returns: Path to extensions lock file via `STDOUT`.
 get_extensions_lock() {
   echo "${SCRIPT_DIR}/extensions.${SETUP_EDITOR}.lock"
 }
@@ -58,6 +60,8 @@ Commands:
   config, conf             Create symlinks for editor config files
   dump-extensions, dump    Export installed editor extensions to a lock file.
   extensions, ext          Install editor extensions from a lock file.
+  install                  Install a specific extension by identifier (e.g., ms-python.python).
+                           If no version is specified, installs the latest version.
 
 Options:
   --latest                 When used with the extensions command, installs the
@@ -80,6 +84,8 @@ EOF
 # ==============================================================================
 
 # Determine editor config directory.
+#
+# Returns: Editor config directory path via `STDOUT`.
 editor_config_dir() {
   case "$(uname -s)" in
     "Darwin")
@@ -136,6 +142,8 @@ editor_config_dir() {
 }
 
 # Determine harper-ls config directory.
+#
+# Returns: Harper-ls config directory path via `STDOUT`.
 harper_config_dir() {
   case "$(uname -s)" in
     "Darwin")
@@ -156,6 +164,8 @@ harper_config_dir() {
 }
 
 # Cross-platform function to resolve symlinks.
+#
+# Returns: Resolved symlink path via `STDOUT`.
 resolve_symlink() {
   local path="$1"
   if command -v realpath > /dev/null 2>&1; then
@@ -236,6 +246,8 @@ do_config() {
 }
 
 # Find the editor CLI command.
+#
+# Returns: Editor command path via `STDOUT`.
 find_editor_cmd() {
   local editor_cmd=""
   local possible_commands=()
@@ -316,7 +328,7 @@ do_dump_extensions() {
     echo "# ${SETUP_EDITOR} Extensions"
     echo "# Generated on ${current_date}"
     echo
-    "${editor_cmd}" --list-extensions --show-versions
+    "${editor_cmd}" --list-extensions --show-versions 2> /dev/null
   } > "${extensions_lock}"
 
   echo "Extensions list dumped to ${extensions_lock}"
@@ -372,26 +384,105 @@ validate_extension_line() {
 _INSTALLED_EXTENSIONS=""
 
 # Get installed extensions with versions, using cache if available.
+#
+# Returns: List of installed extensions with versions via `STDOUT`.
 installed_extensions() {
   local editor_cmd="$1"
 
   # Populate the cache if it's not already populated.
   if [[ -z "${_INSTALLED_EXTENSIONS}" ]]; then
-    _INSTALLED_EXTENSIONS="$("${editor_cmd}" --list-extensions --show-versions)"
+    _INSTALLED_EXTENSIONS="$(
+      "${editor_cmd}" --list-extensions --show-versions 2> /dev/null
+    )"
   fi
 
   echo "${_INSTALLED_EXTENSIONS}"
 }
 
 # Get the currently installed version of an extension.
+#
+# Returns: Version string of installed extension via `STDOUT` (empty if not installed).
 get_installed_version() {
   local editor_cmd="$1"
   local extension="$2"
+  local extension_pattern
+  extension_pattern="$(printf '%s' "${extension}" | sed 's/[[\.*^()$+?{|]/\\&/g')"
 
   # Extract version from cached list.
   installed_extensions "${editor_cmd}" |
-    grep "^$(printf '%s' "${extension}" | sed "s/[[\.*^$()+?{|]/\\\\&/g")@" |
-    sed "s/^[^@]*@//"
+    grep "^${extension_pattern}@" |
+    sed 's/^[^@]*@//'
+}
+
+# Query latest version of an extension.
+#
+# Returns: Latest version string via `STDOUT` on success.
+query_latest_version() {
+  local extension="$1"
+
+  if query_marketplace_latest_version "${extension}"; then
+    return 0
+  elif query_openvsx_latest_version "${extension}"; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+# Query latest version from OpenVSX registry.
+#
+# Returns: Latest version string via `STDOUT` on success.
+query_openvsx_latest_version() {
+  local extension="$1"
+  local publisher_id="${extension%%.*}"
+  local extension_id="${extension#*.}"
+  local openvsx_api_url="https://open-vsx.org/api/${publisher_id}/${extension_id}"
+
+  # Check for jq availability
+  if ! command -v jq > /dev/null 2>&1; then
+    return 1
+  fi
+
+  # Query OpenVSX API and extract latest version
+  if curl --silent --compressed "${openvsx_api_url}" 2> /dev/null |
+    jq -r '.version // empty' 2> /dev/null; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+# Query latest version from VS Marketplace.
+#
+# Returns: Latest version string via `STDOUT` on success.
+query_marketplace_latest_version() {
+  local extension="$1"
+  local metadata_url="https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
+
+  # Check for jq availability
+  if ! command -v jq > /dev/null 2>&1; then
+    return 1
+  fi
+
+  # Use jq to properly construct JSON
+  local request_data
+  request_data=$(jq -n --arg ext "$extension" '{
+    filters: [{
+      criteria: [{ filterType: 7, value: $ext }]
+    }],
+    flags: 2
+  }')
+
+  # Query the marketplace and extract latest version
+  if curl --silent --compressed -X POST \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json; api-version=7.2-preview.1" \
+    -d "${request_data}" "${metadata_url}" 2> /dev/null |
+    jq -r '.results[0].extensions[0].versions[0].version // empty' 2> /dev/null; then
+    return 0
+  else
+    return 1
+  fi
 }
 
 # Install an extension directly using the marketplace.
@@ -399,14 +490,13 @@ install_extension_direct() {
   local editor_cmd="$1"
   local extension="$2"
   local version="$3"
-  local use_latest="$4"
-  local force_install="$5"
+  local force_install="$4"
   local result=0
 
-  if [[ "${use_latest}" == "true" ]]; then
-    echo "Installing ${extension} (latest version)"
-    if ! "${editor_cmd}" --install-extension "${extension}" --force; then
-      echo "Warning: Direct install failed for ${extension}"
+  if [[ "${version}" == "latest" ]]; then
+    echo "Installing ${extension} (latest version)" >&2
+    if ! "${editor_cmd}" --install-extension "${extension}" --force 2> /dev/null; then
+      echo "Warning: Direct install failed for ${extension}" >&2
       result=1
     fi
   else
@@ -415,8 +505,8 @@ install_extension_direct() {
     if [[ "${force_install}" == "true" ]]; then
       install_cmd+=(--force)
     fi
-    if ! "${install_cmd[@]}"; then
-      echo "Warning: Direct install failed for ${extension}@${version}"
+    if ! "${install_cmd[@]}" 2> /dev/null; then
+      echo "Warning: Direct install failed for ${extension}@${version}" >&2
       result=1
     fi
   fi
@@ -424,43 +514,89 @@ install_extension_direct() {
   return ${result}
 }
 
-# Install an extension via downloading `*.vsix` file.
-install_extension_via_vsix() {
-  local editor_cmd="$1"
-  local extension="$2"
-  local version="$3"
-  local use_latest="$4"
-  local extensions_cache_dir="$5"
-  local result=0
-
+# Download extension from OpenVSX registry.
+#
+# Returns: Path to downloaded `.vsix` file via `STDOUT` on success.
+download_from_openvsx() {
+  local extension="$1"
+  local version="$2"
+  local extensions_cache_dir="$3"
   local publisher_id="${extension%%.*}"
   local extension_id="${extension#*.}"
+  local install_version="${version}"
   local vsix_path=""
-  local vsix_url=""
-  local install_version=""
 
-  if [[ "${use_latest}" == "true" ]]; then
-    # Check for `jq` availability when using `--latest` flag.
+  # If version is "latest", query OpenVSX API for latest version
+  if [[ "${version}" == "latest" ]]; then
+    echo "Querying OpenVSX for latest version of ${extension}..." >&2
+    if install_version=$(query_openvsx_latest_version "${extension}"); then
+      if [[ -z "${install_version}" ]]; then
+        echo "Error: Could not determine latest version from OpenVSX for ${extension}" >&2
+        return 1
+      fi
+      echo "Latest version of ${extension} from OpenVSX is ${install_version}" >&2
+    else
+      echo "Error: Failed to query OpenVSX API for ${extension}" >&2
+      return 1
+    fi
+  fi
+
+  # Set up download path and URL
+  vsix_path="${extensions_cache_dir}/${extension}@${install_version}.vsix"
+  local openvsx_url="https://open-vsx.org/api/${publisher_id}/${extension_id}/${install_version}/file/${publisher_id}.${extension_id}-${install_version}.vsix"
+
+  echo "Downloading ${extension}@${install_version} from OpenVSX..." >&2
+  echo "  - OpenVSX URL: ${openvsx_url}" >&2
+
+  # Create extensions directory if it doesn't exist
+  mkdir -p "${extensions_cache_dir}"
+
+  if curl --compressed -L -o "${vsix_path}" "${openvsx_url}" 2> /dev/null; then
+    # Verify the download was successful by checking file size
+    if [[ -s "${vsix_path}" ]]; then
+      echo "Successfully downloaded from OpenVSX" >&2
+      echo "${vsix_path}"
+      return 0
+    else
+      echo "OpenVSX download failed (empty file)" >&2
+      rm -f "${vsix_path}"
+      return 1
+    fi
+  else
+    echo "OpenVSX download failed" >&2
+    rm -f "${vsix_path}"
+    return 1
+  fi
+}
+
+# Download extension from VS Marketplace.
+#
+# Returns: Path to downloaded `.vsix` file via `STDOUT` on success.
+download_from_marketplace() {
+  local extension="$1"
+  local version="$2"
+  local extensions_cache_dir="$3"
+  local publisher_id="${extension%%.*}"
+  local extension_id="${extension#*.}"
+  local install_version="${version}"
+  local vsix_path=""
+
+  # If version is "latest", query VS Marketplace API for latest version
+  if [[ "${version}" == "latest" ]]; then
+    echo "Querying VS Marketplace for latest version of ${extension}..." >&2
+    local metadata_url="https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
+    local temp_metadata="${extensions_cache_dir}/marketplace-${extension}.json"
+
+    # Create extensions directory if it doesn't exist
+    mkdir -p "${extensions_cache_dir}"
+
+    # Check for jq availability
     if ! command -v jq > /dev/null 2>&1; then
-      echo "Error: jq is required when using --latest flag to parse" \
-        "marketplace API responses."
-      echo "Please install jq or remove the --latest flag to use exact" \
-        "versions from the lock file."
+      echo "Error: jq is required to parse VS Marketplace API response for latest version" >&2
       return 1
     fi
 
-    # In latest mode, we need to first query the marketplace to get the latest
-    # version.
-    echo "Finding latest version for ${extension}..."
-
-    # Query the VS Marketplace API to get the extension metadata.
-    local metadata_url="https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
-    local temp_metadata="${extensions_cache_dir}/metadata-${extension}.json"
-
-    # Create extensions directory if it doesn't exist.
-    mkdir -p "${extensions_cache_dir}"
-
-    # Use `jq` to properly construct JSON.
+    # Use jq to properly construct JSON
     local request_data
     request_data=$(jq -n --arg ext "$extension" '{
       filters: [{
@@ -469,77 +605,193 @@ install_extension_via_vsix() {
       flags: 2
     }')
 
-    # Query the marketplace for extension metadata.
-    if ! curl --silent --compressed -X POST \
+    # Query the marketplace for extension metadata
+    if curl --silent --compressed -X POST \
       -H "Content-Type: application/json" \
       -H "Accept: application/json; api-version=7.2-preview.1" \
-      -d "${request_data}" "${metadata_url}" > "${temp_metadata}"; then
-      echo "Warning: Failed to query metadata for ${extension}"
+      -d "${request_data}" "${metadata_url}" > "${temp_metadata}" 2> /dev/null; then
+
+      # Extract the latest version from the response using jq
+      install_version=$(
+        jq -r '.results[0].extensions[0].versions[0].version // empty' "${temp_metadata}" \
+          2> /dev/null
+      )
+
+      if [[ -z "${install_version}" || "${install_version}" == "null" ]]; then
+        echo "Error: Could not determine latest version from VS Marketplace for ${extension}" >&2
+        rm -f "${temp_metadata}"
+        return 1
+      fi
+
+      echo "Latest version of ${extension} from VS Marketplace is ${install_version}" >&2
+    else
+      echo "Error: Failed to query VS Marketplace API for ${extension}" >&2
       rm -f "${temp_metadata}"
       return 1
     fi
 
-    # Extract the latest version from the response using `jq`.
-    install_version=$(
-      jq -r '.results[0].extensions[0].versions[0].version' "${temp_metadata}" \
-        2> /dev/null
-    )
-
-    # Clean up metadata file.
     rm -f "${temp_metadata}"
-
-    # If we couldn't extract a version, use original version as fallback.
-    if [[ -z "${install_version}" || "${install_version}" == "null" ]]; then
-      echo "Warning: Could not determine latest version, falling back to" \
-        "lock file version"
-      install_version="${version}"
-    else
-      echo "Latest version of ${extension} is ${install_version}"
-    fi
-
-    # Set up the download path and URL for the specific version we found.
-    vsix_path="${extensions_cache_dir}/${extension}@${install_version}.vsix"
-    vsix_url="https://marketplace.visualstudio.com/_apis/public/gallery/publishers/${publisher_id}/vsextensions/${extension_id}/${install_version}/vspackage"
-  else
-    # In strict mode, use the exact version from the lock file.
-    echo "Installing ${extension}@${version} via .vsix"
-    vsix_path="${extensions_cache_dir}/${extension}@${version}.vsix"
-    vsix_url="https://marketplace.visualstudio.com/_apis/public/gallery/publishers/${publisher_id}/vsextensions/${extension_id}/${version}/vspackage"
-    install_version="${version}"
   fi
 
-  # Create extensions directory if it doesn't exist.
+  # Set up download path and URL
+  vsix_path="${extensions_cache_dir}/${extension}@${install_version}.vsix"
+  local marketplace_url="https://marketplace.visualstudio.com/_apis/public/gallery/publishers/${publisher_id}/vsextensions/${extension_id}/${install_version}/vspackage"
+
+  echo "Downloading ${extension}@${install_version} from VS Marketplace..." >&2
+  echo "  - Marketplace URL: ${marketplace_url}" >&2
+
+  # Create extensions directory if it doesn't exist
   mkdir -p "${extensions_cache_dir}"
 
-  # Download the `*.vsix` file.
-  echo "Downloading ${extension}@${install_version}.vsix..."
-  echo "  - URL: ${vsix_url}"
-  if ! curl --compressed -L -o "${vsix_path}" "${vsix_url}"; then
-    echo "Warning: Failed to download ${extension}@${install_version}.vsix"
-    rm -f "${vsix_path}" # Clean up potential partial downloads
+  if curl --compressed -L -o "${vsix_path}" "${marketplace_url}"; then
+    if [[ -s "${vsix_path}" ]]; then
+      echo "Successfully downloaded from VS Marketplace" >&2
+      echo "${vsix_path}"
+      return 0
+    else
+      echo "VS Marketplace download failed (empty file)" >&2
+      rm -f "${vsix_path}"
+      return 1
+    fi
+  else
+    echo "VS Marketplace download failed" >&2
+    rm -f "${vsix_path}"
     return 1
   fi
+}
 
-  # Install the extension from `*.vsix` file.
-  # Note: Installing from `*.vsix` automatically overwrites existing versions.
-  echo "Installing extension from ${vsix_path}"
-  if ! "${editor_cmd}" --install-extension "${vsix_path}"; then
-    echo "Warning: Failed to install ${extension}@${install_version}" \
-      "from '*.vsix'"
+# Try downloading extension from OpenVSX first, then fallback to official marketplace.
+#
+# Returns: Path to downloaded `.vsix` file via `STDOUT` on success.
+download_extension_vsix() {
+  local extension="$1"
+  local version="$2"
+  local extensions_cache_dir="$3"
+  local downloaded_path=""
+
+  # Try VS Marketplace first
+  echo "Trying VS Marketplace for ${extension}@${version}..." >&2
+  if downloaded_path=$(download_from_marketplace "${extension}" "${version}" "${extensions_cache_dir}"); then
+    echo "${downloaded_path}"
+    return 0
+  fi
+
+  # Try OpenVSX second
+  echo "Trying OpenVSX for ${extension}@${version}..." >&2
+  if downloaded_path=$(download_from_openvsx "${extension}" "${version}" "${extensions_cache_dir}"); then
+    echo "${downloaded_path}"
+    return 0
+  fi
+
+  echo "Error: Failed to download ${extension}@${version} from both OpenVSX and VS Marketplace" >&2
+  return 1
+}
+
+# Install an extension via downloading `*.vsix` file.
+install_extension_via_vsix() {
+  local editor_cmd="$1"
+  local extension="$2"
+  local version="$3"
+  local extensions_cache_dir="$4"
+  local result=0
+  local vsix_path=""
+
+  vsix_path="$(
+    download_extension_vsix "${extension}" "${version}" "${extensions_cache_dir}"
+  )"
+
+  if [[ -n "${vsix_path}" ]]; then
+    # Install the extension from the downloaded `*.vsix` file.
+    # Note: Installing from `*.vsix` automatically overwrites existing versions.
+    echo "Installing extension from ${vsix_path}"
+    if ! "${editor_cmd}" --install-extension "${vsix_path}" --force; then
+      echo "Warning: Failed to install ${extension} from '*.vsix'" >&2
+      result=1
+    fi
+
+    # Clean up the `*.vsix` file after installation attempt.
+    rm -f "${vsix_path}"
+  else
+    echo "Warning: Failed to download ${extension}@${version}.vsix" >&2
     result=1
   fi
 
-  # Clean up the `*.vsix` file after installation attempt.
-  rm -f "${vsix_path}"
-
   return ${result}
+}
+
+# Install an extension.
+install_extension() {
+  local editor_cmd="$1"
+  local extension="$2"
+  local version="$3"
+  local use_latest="$4"
+  local force_install="false"
+
+  local extensions_cache_dir
+  extensions_cache_dir="${SCRIPT_DIR}/cache/extensions"
+
+  # Check if already installed and get current version
+  local current_version
+  current_version="$(get_installed_version "${editor_cmd}" "${extension}")"
+
+  if [[ "${use_latest}" != "false" ]]; then
+    if [[ -n "${current_version}" && "${use_latest}" != "force" ]]; then
+      echo "Extension ${extension} is already installed" \
+        "(current: ${current_version}), skipping"
+      return 0
+    fi
+
+    echo "Checking latest version for ${extension}..." >&2
+    local latest_version
+    if latest_version=$(query_latest_version "${extension}"); then
+      echo "  - Latest available version: ${latest_version}"
+      version="${latest_version}"
+    else
+      echo "Error: Could not determine latest version for ${extension}" >&2
+      exit 1
+    fi
+  fi
+
+  if [[ -z "${current_version}" ]]; then
+    # Extension not installed.
+    echo "Installing ${extension}@${version}"
+  elif [[ "${current_version}" == "${version}" ]]; then
+    # Exact version already installed.
+    echo "Extension ${extension}@${version} is already installed, skipping"
+    return 0
+  else
+    # Wrong version installed, need to force install.
+    echo "Extension ${extension} has wrong version installed" \
+      "(current: ${current_version}, wanted: ${version})," \
+      "force-installing ${version}"
+    force_install="true"
+  fi
+
+  # For Cursor we need to download and install from `*.vsix` file, as
+  # installation via ID fails with a signature verification error.
+  if [[ "${SETUP_EDITOR}" == "cursor" ]]; then
+    install_extension_via_vsix "${editor_cmd}" "${extension}" "${version}" \
+      "${extensions_cache_dir}"
+    return 0
+  fi
+
+  if ! install_extension_direct "${editor_cmd}" "${extension}" \
+    "${version}" "${force_install}"; then
+    echo "Direct installation failed, trying .vsix download method..." >&2
+    install_extension_via_vsix "${editor_cmd}" "${extension}" "${version}" \
+      "${extensions_cache_dir}"
+  fi
+
+  # Clean up extensions directory if empty
+  rmdir "${extensions_cache_dir}" 2> /dev/null || true
+  echo "Extension ${extension} installed successfully!"
+  return 0
 }
 
 # Install extensions from `extensions.lock`.
 do_install_extensions() {
   local editor_cmd
   editor_cmd="$(find_editor_cmd)"
-  local extensions_cache_dir="${SCRIPT_DIR}/cache/extensions"
   local extensions_lock
   extensions_lock="$(get_extensions_lock)"
   local use_latest="${1:-false}"
@@ -549,9 +801,8 @@ do_install_extensions() {
     exit 1
   fi
 
-  # Warn the installed extensions cache before we start processing the lock
-  # file.
-  installed_extensions "${editor_cmd}"
+  # Warm the installed extensions cache before we start processing the lockfile.
+  installed_extensions "${editor_cmd}" > /dev/null
 
   # Process each extension.
   while IFS= read -r line; do
@@ -561,54 +812,64 @@ do_install_extensions() {
         continue
       fi
 
+      local extension
+      local version
       extension="${line%@*}"
       version="${line#*@}"
 
-      # Check if already installed and get current version.
-      local current_version
-      current_version="$(get_installed_version "${editor_cmd}" "${extension}")"
-      local force_install="false"
-
-      if [[ -z "${current_version}" ]]; then
-        # Extension not installed.
-        echo "Installing ${extension}@${version}"
-      elif [[ "${use_latest}" == "true" ]]; then
-        # In latest mode, skip if any version is installed.
-        echo "Extension ${extension} is already installed" \
-          "(current: ${current_version}), skipping"
-        continue
-      elif [[ "${current_version}" == "${version}" ]]; then
-        # Exact version already installed.
-        echo "Extension ${extension}@${version} is already installed, skipping"
-        continue
-      else
-        # Wrong version installed, need to force install.
-        echo "Extension ${extension} is installed but wrong version" \
-          "(current: ${current_version}, wanted: ${version})," \
-          "force-installing ${version}"
-        force_install="true"
-      fi
-
-      # For Cursor we need to download and install from `*.vsix` file, as
-      # installation via ID fails with a signature verification error.
-      if [[ "${SETUP_EDITOR}" == "cursor" ]]; then
-        install_extension_via_vsix "${editor_cmd}" "${extension}" "${version}" \
-          "${use_latest}" "${extensions_cache_dir}"
-        continue
-      fi
-
-      if ! install_extension_direct "${editor_cmd}" "${extension}" \
-        "${version}" "${use_latest}" "${force_install}"; then
-        echo "Direct installation failed, trying .vsix download method..."
-        install_extension_via_vsix "${editor_cmd}" "${extension}" "${version}" \
-          "${use_latest}" "${extensions_cache_dir}"
-      fi
+      install_extension "${editor_cmd}" "${extension}" "${version}" \
+        "${use_latest}"
     fi
   done < "${extensions_lock}"
+}
 
-  # Clean up extensions directory if empty.
-  rmdir "${extensions_cache_dir}" 2> /dev/null || true
-  echo "Extensions installation complete!"
+# Install a specific extension by identifier.
+do_install_extension() {
+  local extension_id="$1"
+  local use_latest="${2:-false}"
+  local editor_cmd
+  editor_cmd="$(find_editor_cmd)"
+  local extensions_cache_dir="${SCRIPT_DIR}/cache/extensions"
+  local extension=""
+  local version=""
+
+  if [[ -z "${extension_id}" ]]; then
+    echo "Error: Extension identifier required"
+    echo "Usage: siren EDITOR install EXTENSION_ID"
+    echo "Example: siren cursor install ms-python.python"
+    exit 1
+  fi
+
+  # Parse extension ID - can be just extension name or extension@version
+  if [[ "${extension_id}" =~ @ ]]; then
+    # Extension with specific version
+    if ! validate_extension_line "${extension_id}"; then
+      echo "Error: Invalid extension format '${extension_id}'"
+      echo "Expected format: publisher.extension or publisher.extension@version"
+      exit 1
+    fi
+    extension="${extension_id%@*}"
+    version="${extension_id#*@}"
+  else
+    # Extension without version - install latest
+    if [[ ! "${extension_id}" =~ ^[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+$ ]]; then
+      echo "Error: Invalid extension format '${extension_id}'"
+      echo "Expected format: publisher.extension or publisher.extension@version"
+      exit 1
+    fi
+    extension="${extension_id}"
+    version="latest"
+  fi
+
+  # Warm the installed extensions cache
+  installed_extensions "${editor_cmd}" > /dev/null
+
+  if [[ "${version}" == "latest" ]]; then
+    use_latest="force"
+  fi
+
+  install_extension "${editor_cmd}" "${extension}" "${version}" "${use_latest}"
+  return 0
 }
 
 # ==============================================================================
@@ -676,21 +937,53 @@ main() {
 
   # Default values for options.
   local use_latest="false"
+  local extension_id=""
 
-  # Parse additional options.
-  while [[ $# -gt 0 ]]; do
-    case "$1" in
-      --latest)
-        use_latest="true"
-        shift
-        ;;
-      *)
-        echo "Error: Unknown option '$1'"
-        show_help
+  # Handle command-specific options.
+  case "${command}" in
+    "install" | "inst")
+      # Handle install command specially since it requires an extension argument
+      if [[ $# -lt 1 ]]; then
+        echo "Error: Extension identifier required for install command"
+        echo "Usage: siren EDITOR install EXTENSION_ID"
+        echo "Example: siren cursor install ms-python.python"
         exit 1
-        ;;
-    esac
-  done
+      fi
+
+      extension_id="$1"
+      shift
+
+      # For install command, reject any additional options
+      if [[ $# -gt 0 ]]; then
+        echo "Error: Unknown option '$1' for install command"
+        echo "Usage: siren EDITOR install EXTENSION_ID"
+        exit 1
+      fi
+      ;;
+
+    "extensions" | "ext")
+      # Parse additional options for other commands
+      while [[ $# -gt 0 ]]; do
+        case "$1" in
+          --latest)
+            if [[ "${use_latest}" != "force" ]]; then
+              use_latest="true"
+            fi
+            shift
+            ;;
+          --force-latest)
+            use_latest="force"
+            shift
+            ;;
+          *)
+            echo "Error: Unknown option '$1'"
+            show_help
+            exit 1
+            ;;
+        esac
+      done
+      ;;
+  esac
 
   # Handle commands.
   case "${command}" in
@@ -702,6 +995,9 @@ main() {
       ;;
     "extensions" | "ext")
       do_install_extensions "${use_latest}"
+      ;;
+    "install")
+      do_install_extension "${extension_id}"
       ;;
     "")
       echo "Error: No command provided"
