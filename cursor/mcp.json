@@ -1,34 +1,14 @@
 {
-  "mcpServers": {
-    "context7": {
-      "type": "stdio",
-      "command": "mise",
-      "args": [
-        "x",
-        "npm:@upstash/context7-mcp",
-        "--",
-        "context7-mcp"
-      ]
-    },
-    "sequential-thinking": {
-      "type": "stdio",
-      "command": "mise",
-      "args": [
-        "x",
-        "npm:@modelcontextprotocol/server-sequential-thinking",
-        "--",
-        "mcp-server-sequential-thinking"
-      ]
-    },
-    "memory": {
-      "type": "stdio",
-      "command": "mise",
-      "args": [
-        "x",
-        "npm:@modelcontextprotocol/server-memory",
-        "--",
-        "mcp-server-memory"
-      ]
-    }
-  }
+	"mcpServers": {
+		"memory": {
+			"type": "stdio",
+			"command": "mise",
+			"args": [
+				"x",
+				"npm:@modelcontextprotocol/server-memory",
+				"--",
+				"mcp-server-memory"
+			]
+		}
+	}
 }
