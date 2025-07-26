@@ -551,6 +551,7 @@
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
+  "bashIde.enableSourceErrorDiagnostics": true,
   "bashIde.shfmt.caseIndent": true,
   "bashIde.shfmt.spaceRedirects": true,
   //
