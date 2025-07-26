@@ -297,6 +297,11 @@
   "mise.checkForNewMiseVersion": false,
   "mise.configureExtensionsAutomatically": false,
   "mise.updateOpenTerminalsEnvAutomatically": true,
+  // When updateEnvAutomatically is enabled, open terminals in VSCode get
+  // completely reset when mise installs new tools or updates. This wipes
+  // previous command output, and even kills any running processes you have in
+  // terminals.
+  "mise.updateEnvAutomatically": false,
   //
   // ===========================================================================
   // MARK: Hex editor
