@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Ensure that any command in a pipeline that fails will cause the entire
+# pipeline to fail. This is critical for API calls piped to jq.
+set -o pipefail
+
 # ==============================================================================
 # Settings
 # ==============================================================================
@@ -12,6 +16,10 @@ declare -A STATIC_SYMLINKS=()
 # When true, try downloading extensions from OpenVSX first, with a fallback to
 # VS Marketplace. This is forced to true for the Kiro editor.
 PREFER_OPENVSX="${PREFER_OPENVSX:-false}"
+
+# Global cache to track where version information was found
+# Key: extension name, Value: "openvsx" or "marketplace"
+declare -A VERSION_SOURCE_CACHE=()
 
 # Define settings as a function, allowing them to run after all other functions
 # have been defined, using them as needed.
@@ -458,19 +466,25 @@ get_installed_version() {
 # Returns: Latest version string via `STDOUT` on success.
 query_latest_version() {
   local extension="$1"
-
+  local extension_source="marketplace"
   debug "Querying latest version of ${extension}"
 
-  (
-    [[ "${PREFER_OPENVSX}" == "true" ]] &&
-      query_openvsx_latest_version "${extension}"
-  ) ||
-    query_marketplace_latest_version "${extension}" ||
-    (
-      [[ "${PREFER_OPENVSX}" != "true" ]] &&
-        query_openvsx_latest_version "${extension}"
-    ) ||
-    return 1
+  if [[ "${PREFER_OPENVSX}" == "true" ]]; then
+    extension_source="openvsx"
+  fi
+
+  case "${extension_source}" in
+    "openvsx")
+      query_openvsx_latest_version "${extension}" ||
+        query_marketplace_latest_version "${extension}" ||
+        return 1
+      ;;
+    "marketplace")
+      query_marketplace_latest_version "${extension}" ||
+        query_openvsx_latest_version "${extension}" ||
+        return 1
+      ;;
+  esac
 }
 
 # Query extension metadata from OpenVSX registry.
@@ -491,9 +505,10 @@ query_openvsx_metadata() {
 
   # Query OpenVSX API and return full JSON
   debug "Querying OpenVSX API for ${extension}@${version}: ${openvsx_api_url}"
-  if curl --silent --compressed "${openvsx_api_url}" 2> /dev/null; then
+  if curl --silent --compressed --fail "${openvsx_api_url}" 2> /dev/null; then
     return 0
   else
+    debug "OpenVSX API request failed for ${extension}@${version}"
     return 1
   fi
 }
@@ -512,6 +527,8 @@ query_openvsx_latest_version() {
   # Query OpenVSX metadata and extract latest version
   if query_openvsx_metadata "${extension}" "latest" |
     jq -r '.version // empty' 2> /dev/null; then
+    # Cache the successful source
+    VERSION_SOURCE_CACHE["${extension}"]="openvsx"
     return 0
   else
     return 1
@@ -541,12 +558,13 @@ query_marketplace_metadata() {
 
   # Query the marketplace and return full JSON
   debug "Querying VS Marketplace API for ${extension}: ${metadata_url}"
-  if curl --silent --compressed -X POST \
+  if curl --silent --compressed --fail -X POST \
     -H "Content-Type: application/json" \
     -H "Accept: application/json; api-version=7.2-preview.1" \
     -d "${request_data}" "${metadata_url}" 2> /dev/null; then
     return 0
   else
+    debug "VS Marketplace API request failed for ${extension}"
     return 1
   fi
 }
@@ -565,6 +583,8 @@ query_marketplace_latest_version() {
   # Query marketplace metadata and extract latest version
   if query_marketplace_metadata "${extension}" |
     jq -r '.results[0].extensions[0].versions[0].version // empty' 2> /dev/null; then
+    # Cache the successful source
+    VERSION_SOURCE_CACHE["${extension}"]="marketplace"
     return 0
   else
     return 1
@@ -666,13 +686,11 @@ install_extension_direct() {
   local result=0
 
   if [[ "${version}" == "latest" ]]; then
-    info "Installing ${extension} (latest version)"
     if ! "${editor_cmd}" --install-extension "${extension}" --force 2> /dev/null; then
       warn "Direct install failed for ${extension}"
       result=1
     fi
   else
-    info "Installing ${extension}@${version}"
     local install_cmd=("${editor_cmd}" --install-extension "${extension}@${version}")
     if [[ "${force_install}" == "true" ]]; then
       install_cmd+=(--force)
@@ -767,7 +785,7 @@ download_from_openvsx() {
   # Create extensions directory if it doesn't exist
   mkdir -p "${extensions_cache_dir}"
 
-  if curl --compressed -L -o "${vsix_path}" "${download_url}" 2> /dev/null; then
+  if curl --compressed -L -o "${vsix_path}" --fail "${download_url}" 2> /dev/null; then
     # Verify the download was successful by checking file size
     if [[ -s "${vsix_path}" ]]; then
       info "Successfully downloaded from OpenVSX"
@@ -834,8 +852,6 @@ download_from_marketplace() {
     info "Latest version of ${extension} from VS Marketplace is ${install_version}"
   fi
 
-  vsix_filename="${publisher_id}.${extension_id}-${install_version}.vsix"
-
   # Extract download URL directly from metadata
   if [[ "${target_platform}" != "universal" && "${target_platform}" != "null" ]]; then
     download_url=$(
@@ -850,17 +866,12 @@ download_from_marketplace() {
         '.results[0].extensions[0].versions[] | select(.version == $version and (.targetPlatform == null or .targetPlatform == "universal")) | .files[] | select(.assetType == "Microsoft.VisualStudio.Services.VSIXPackage") | .source' \
         2> /dev/null
     )
+    vsix_filename="${publisher_id}.${extension_id}-${install_version}.vsix"
   fi
 
-  # Fallback to manual URL construction if no download URL found in metadata
   if [[ -z "${download_url}" || "${download_url}" == "null" ]]; then
-    warn "No download URL found in metadata, using fallback URL construction"
-    if [[ "${target_platform}" != "universal" && "${target_platform}" != "null" ]]; then
-      download_url="https://marketplace.visualstudio.com/_apis/public/gallery/publishers/${publisher_id}/vsextensions/${extension_id}/${install_version}/vspackage?targetPlatform=${target_platform}"
-      vsix_filename="${publisher_id}.${extension_id}-${install_version}@${target_platform}.vsix"
-    else
-      download_url="https://marketplace.visualstudio.com/_apis/public/gallery/publishers/${publisher_id}/vsextensions/${extension_id}/${install_version}/vspackage"
-    fi
+    error "No download URL found in metadata"
+    return 1
   fi
 
   vsix_path="${extensions_cache_dir}/${vsix_filename}"
@@ -869,7 +880,7 @@ download_from_marketplace() {
   info "  - Platform: $(get_current_platform) (using ${target_platform})"
   info "  - Marketplace URL: ${download_url}"
 
-  if curl --compressed -L -o "${vsix_path}" "${download_url}" 2> /dev/null; then
+  if curl --compressed -L -o "${vsix_path}" --fail "${download_url}" 2> /dev/null; then
     if [[ -s "${vsix_path}" ]]; then
       info "Successfully downloaded from VS Marketplace"
       echo "${vsix_path}"
@@ -893,18 +904,42 @@ download_extension_vsix() {
   local extension="$1"
   local version="$2"
   local extensions_cache_dir="$3"
+  local extension_source="marketplace"
 
-  (
-    [[ "${PREFER_OPENVSX}" == "true" ]] &&
+  if [[ "${PREFER_OPENVSX}" == "true" ]]; then
+    extension_source="openvsx"
+  fi
+
+  # Check if we have cached source information for this extension
+  if [[ -n "${VERSION_SOURCE_CACHE[${extension}]:-}" ]]; then
+    local extension_source="${VERSION_SOURCE_CACHE[${extension}]}"
+    debug "Using cached source '${extension_source}' for ${extension}"
+  fi
+
+  case "${extension_source}" in
+    "openvsx")
+      if download_from_openvsx "${extension}" "${version}" "${extensions_cache_dir}"; then
+        return 0
+      fi
+      # If cached source fails, fall back to marketplace
+      warn "OpenVSX source failed, trying VS Marketplace"
+      download_from_marketplace "${extension}" "${version}" "${extensions_cache_dir}"
+      return $?
+      ;;
+    "marketplace")
+      if download_from_marketplace "${extension}" "${version}" "${extensions_cache_dir}"; then
+        return 0
+      fi
+      # If cached source fails, fall back to OpenVSX
+      warn "VS Marketplace source failed, trying OpenVSX"
       download_from_openvsx "${extension}" "${version}" "${extensions_cache_dir}"
-  ) ||
-    download_from_marketplace "${extension}" "${version}" "${extensions_cache_dir}" ||
-    (
-      [[ "${PREFER_OPENVSX}" != "true" ]] &&
-        download_from_openvsx "${extension}" "${version}" "${extensions_cache_dir}"
-    ) ||
-    error "Failed to download ${extension}@${version} from both OpenVSX and VS Marketplace" &&
-    return 1
+      return $?
+      ;;
+    *)
+      error "Invalid extension source '${extension_source}'"
+      return 1
+      ;;
+  esac
 }
 
 # Install an extension via downloading `*.vsix` file.
@@ -923,7 +958,7 @@ install_extension_via_vsix() {
   if [[ -n "${vsix_path}" ]]; then
     # Install the extension from the downloaded `*.vsix` file.
     # Note: Installing from `*.vsix` automatically overwrites existing versions.
-    echo "Installing extension from ${vsix_path}"
+    info "Installing extension from ${vsix_path}"
     if ! "${editor_cmd}" --install-extension "${vsix_path}" --force; then
       warn "Failed to install ${extension} from '*.vsix'"
       result=1
