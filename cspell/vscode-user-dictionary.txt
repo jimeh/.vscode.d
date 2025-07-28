@@ -45,6 +45,7 @@ ekosystem
 elpaca
 emacsclient
 envctl
+errgroup
 Evernote
 Falsef
 feedly
@@ -205,6 +206,7 @@ solargraph
 sshake
 sshkey
 staticcheck
+Streamable
 stretchr
 Subtests
 tailscale

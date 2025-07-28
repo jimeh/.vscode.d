@@ -25,7 +25,6 @@ Katapult's
 Kiro
 Linuxbrew
 Loadbalancers
-MCP
 Makefile
 Menlo
 Myhrberg
@@ -176,6 +175,7 @@ lsp
 mTLS
 magit
 maxWait
+mcp
 metricks
 minfraud
 mise
@@ -244,6 +244,8 @@ solargraph
 sshake
 sshkey
 staticcheck
+stderr
+stdout
 stretchr
 tailscale
 talosctl
