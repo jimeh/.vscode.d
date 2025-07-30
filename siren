@@ -96,24 +96,35 @@ EOF
 # ==============================================================================
 
 info() {
-  echo "$1" >&2
+  echo "$@" >&2
 }
 
 debug() {
-  [[ -n "${DEBUG}" ]] && echo "DEBUG: $1" >&2
+  [[ -n "${DEBUG}" ]] && echo "DEBUG: $*" >&2
 }
 
 warn() {
-  echo "WARN: $1" >&2
+  echo "WARN: $*" >&2
 }
 
 error() {
-  echo "ERROR: $1" >&2
+  echo "ERROR: $*" >&2
 }
 
 fatal() {
-  error "$1" >&2
+  error "$@" >&2
   exit 1
+}
+
+# Check for required dependencies.
+check_dependencies() {
+  if ! command -v jq > /dev/null 2>&1; then
+    fatal "jq is not installed. Please install it to continue."
+  fi
+
+  if ! command -v curl > /dev/null 2>&1; then
+    fatal "curl is not installed. Please install it to continue."
+  fi
 }
 
 # Determine current platform for OpenVSX downloads.
@@ -316,55 +327,50 @@ symlink_static_config() {
 # Find the editor CLI command.
 #
 # Returns: Editor command path via `STDOUT`.
+# Helper to add editor paths for both command names and full paths.
+_add_editor_paths() {
+  local editor_name="$1"
+  local command_name="$2"
+  local app_name="$3"
+  local paths=("${command_name}")
+
+  if [[ "$(uname -s)" == "Darwin" ]]; then
+    local app_locations=(
+      "/Applications"
+      "${HOME}/Applications"
+      "/System/Applications"
+    )
+    for loc in "${app_locations[@]}"; do
+      if [[ -d "${loc}/${app_name}" ]]; then
+        paths+=("${loc}/${app_name}/Contents/Resources/app/bin/${command_name}")
+      fi
+    done
+  fi
+
+  editor_paths["${editor_name}"]="${paths[*]}"
+}
+
+# Find the editor CLI command.
+#
+# Returns: Editor command path via `STDOUT`.
 find_editor_cmd() {
   local editor_cmd=""
   local possible_commands=()
+  local -A editor_paths
 
-  case "${SETUP_EDITOR}" in
-    "cursor")
-      # Set possible Cursor CLI command locations.
-      possible_commands=(
-        "cursor"
-        "/Applications/Cursor.app/Contents/Resources/app/bin/cursor"
-        "${HOME}/Applications/Cursor.app/Contents/Resources/app/bin/cursor"
-      )
-      ;;
-    "vscode")
-      # Set possible VSCode CLI command locations.
-      possible_commands=(
-        "code"
-        "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
-        "${HOME}/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
-      )
-      ;;
-    "vscode-insiders")
-      # Set possible VSCode Insiders CLI command locations.
-      possible_commands=(
-        "code-insiders"
-        "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin/code"
-        "${HOME}/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin/code"
-      )
-      ;;
-    "windsurf")
-      # Set possible Windsurf CLI command locations.
-      possible_commands=(
-        "windsurf"
-        "/Applications/Windsurf.app/Contents/Resources/app/bin/windsurf"
-        "${HOME}/Applications/Windsurf.app/Contents/Resources/app/bin/windsurf"
-      )
-      ;;
-    "kiro")
-      # Set possible Kiro CLI command locations.
-      possible_commands=(
-        "kiro"
-        "/Applications/Kiro.app/Contents/Resources/app/bin/kiro"
-        "${HOME}/Applications/Kiro.app/Contents/Resources/app/bin/kiro"
-      )
-      ;;
-    *)
-      fatal "Invalid editor '${SETUP_EDITOR}'"
-      ;;
-  esac
+  # Define editor command names and their possible locations.
+  _add_editor_paths "cursor" "cursor" "Cursor.app"
+  _add_editor_paths "vscode" "code" "Visual Studio Code.app"
+  _add_editor_paths "vscode-insiders" "code-insiders" "Visual Studio Code - Insiders.app"
+  _add_editor_paths "windsurf" "windsurf" "Windsurf.app"
+  _add_editor_paths "kiro" "kiro" "Kiro.app"
+
+  if [[ -z "${editor_paths[${SETUP_EDITOR}]}" ]]; then
+    fatal "Invalid editor '${SETUP_EDITOR}'"
+  fi
+
+  # Convert string to array of possible commands/paths.
+  read -r -a possible_commands <<< "${editor_paths[${SETUP_EDITOR}]}"
 
   # Check for the command in all possible locations.
   for cmd in "${possible_commands[@]}"; do
@@ -519,11 +525,6 @@ query_openvsx_metadata() {
 query_openvsx_latest_version() {
   local extension="$1"
 
-  # Check for jq availability
-  if ! command -v jq > /dev/null 2>&1; then
-    return 1
-  fi
-
   # Query OpenVSX metadata and extract latest version
   if query_openvsx_metadata "${extension}" "latest" |
     jq -r '.version // empty' 2> /dev/null; then
@@ -541,11 +542,6 @@ query_openvsx_latest_version() {
 query_marketplace_metadata() {
   local extension="$1"
   local metadata_url="https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
-
-  # Check for jq availability
-  if ! command -v jq > /dev/null 2>&1; then
-    return 1
-  fi
 
   # Use jq to properly construct JSON
   local request_data
@@ -575,11 +571,6 @@ query_marketplace_metadata() {
 query_marketplace_latest_version() {
   local extension="$1"
 
-  # Check for jq availability
-  if ! command -v jq > /dev/null 2>&1; then
-    return 1
-  fi
-
   # Query marketplace metadata and extract latest version
   if query_marketplace_metadata "${extension}" |
     jq -r '.results[0].extensions[0].versions[0].version // empty' 2> /dev/null; then
@@ -594,80 +585,111 @@ query_marketplace_latest_version() {
 # Find platform-specific version from VS Marketplace metadata.
 #
 # Returns: Version and target platform via `STDOUT` as "version:platform".
+
+# Helper to find the latest version for a specific platform.
+_find_latest_platform_version() {
+  local metadata="$1"
+  local platform="$2"
+  echo "${metadata}" | jq -r \
+    --arg platform "$platform" \
+    '.results[0].extensions[0].versions[] | select(.targetPlatform == $platform) | .version' |
+    head -n 1
+}
+
+# Helper to find the latest universal version.
+_find_latest_universal_version() {
+  local metadata="$1"
+  echo "${metadata}" | jq -r \
+    '.results[0].extensions[0].versions[] | select(.targetPlatform == null or .targetPlatform == "universal") | .version' |
+    head -n 1
+}
+
+# Helper to find the overall latest version.
+_find_overall_latest_version() {
+  local metadata="$1"
+  local version
+  version=$(echo "${metadata}" | jq -r '.results[0].extensions[0].versions[0].version // empty')
+  local platform
+  platform=$(echo "${metadata}" | jq -r '.results[0].extensions[0].versions[0].targetPlatform // "universal"')
+  echo "${version}:${platform}"
+}
+
+# Helper to find a specific version for a given platform.
+_find_specific_platform_version() {
+  local metadata="$1"
+  local version="$2"
+  local platform="$3"
+  echo "${metadata}" | jq -r \
+    --arg version "$version" --arg platform "$platform" \
+    '.results[0].extensions[0].versions[] | select(.version == $version and .targetPlatform == $platform)'
+}
+
+# Helper to find a specific universal version.
+_find_specific_universal_version() {
+  local metadata="$1"
+  local version="$2"
+  echo "${metadata}" | jq -r \
+    --arg version "$version" \
+    '.results[0].extensions[0].versions[] | select(.version == $version and (.targetPlatform == null or .targetPlatform == "universal"))'
+}
+
+# Helper to find a specific version for any platform.
+_find_specific_version_any_platform() {
+  local metadata="$1"
+  local version="$2"
+  echo "${metadata}" | jq -r \
+    --arg version "$version" \
+    '.results[0].extensions[0].versions[] | select(.version == $version)' |
+    head -n 1
+}
+
+# Find platform-specific version from VS Marketplace metadata.
+#
+# Returns: Version and target platform via `STDOUT` as "version:platform".
 query_marketplace_platform_version() {
   local extension="$1"
   local version="$2"
-  local metadata="$3" # JSON metadata from query_marketplace_metadata
+  local metadata="$3"
   local current_platform
   current_platform="$(get_current_platform)"
   local install_version=""
   local target_platform=""
 
-  # Check for jq availability
-  if ! command -v jq > /dev/null 2>&1; then
-    return 1
-  fi
-
   # If version is "latest", find the latest version for our platform
   if [[ "${version}" == "latest" ]]; then
-    # First try to find a version for our specific platform
-    install_version=$(
-      echo "${metadata}" | jq -r --arg platform "$current_platform" \
-        '.results[0].extensions[0].versions[] | select(.targetPlatform == $platform) | .version' \
-        2> /dev/null | head -1
-    )
-    target_platform="$current_platform"
+    install_version=$(_find_latest_platform_version "${metadata}" "${current_platform}")
+    target_platform="${current_platform}"
 
     # If no platform-specific version, get the latest universal version
-    if [[ -z "${install_version}" || "${install_version}" == "null" ]]; then
-      install_version=$(
-        echo "${metadata}" | jq -r \
-          '.results[0].extensions[0].versions[] | select(.targetPlatform == null or .targetPlatform == "universal") | .version' \
-          2> /dev/null | head -1
-      )
+    if [[ -z "${install_version}" ]]; then
+      install_version=$(_find_latest_universal_version "${metadata}")
       target_platform="universal"
     fi
 
     # If still no version, get the very latest regardless of platform
-    if [[ -z "${install_version}" || "${install_version}" == "null" ]]; then
-      install_version=$(
-        echo "${metadata}" | jq -r '.results[0].extensions[0].versions[0].version // empty' \
-          2> /dev/null
-      )
-      target_platform=$(
-        echo "${metadata}" | jq -r '.results[0].extensions[0].versions[0].targetPlatform // "universal"' \
-          2> /dev/null
-      )
+    if [[ -z "${install_version}" ]]; then
+      local latest_info
+      latest_info=$(_find_overall_latest_version "${metadata}")
+      install_version="${latest_info%:*}"
+      target_platform="${latest_info#*:}"
     fi
   else
     # Find the specific version entry for our platform and version
     local version_info
-    version_info=$(
-      echo "${metadata}" | jq -r --arg version "$version" --arg platform "$current_platform" \
-        '.results[0].extensions[0].versions[] | select(.version == $version and .targetPlatform == $platform)' \
-        2> /dev/null
-    )
+    version_info=$(_find_specific_platform_version "${metadata}" "${version}" "${current_platform}")
 
     # If no platform-specific version found, try universal
     if [[ -z "${version_info}" || "${version_info}" == "null" ]]; then
-      version_info=$(
-        echo "${metadata}" | jq -r --arg version "$version" \
-          '.results[0].extensions[0].versions[] | select(.version == $version and (.targetPlatform == null or .targetPlatform == "universal"))' \
-          2> /dev/null
-      )
+      version_info=$(_find_specific_universal_version "${metadata}" "${version}")
     fi
 
     # If still no specific version found, use the first version with that version number
     if [[ -z "${version_info}" || "${version_info}" == "null" ]]; then
-      version_info=$(
-        echo "${metadata}" | jq -r --arg version "$version" \
-          '.results[0].extensions[0].versions[] | select(.version == $version)' \
-          2> /dev/null | head -1
-      )
+      version_info=$(_find_specific_version_any_platform "${metadata}" "${version}")
     fi
 
     install_version="$version"
-    target_platform=$(echo "${version_info}" | jq -r '.targetPlatform // "universal"' 2> /dev/null)
+    target_platform=$(echo "${version_info}" | jq -r '.targetPlatform // "universal"')
   fi
 
   if [[ -z "${install_version}" || "${install_version}" == "null" ]]; then
@@ -720,12 +742,6 @@ download_from_openvsx() {
   local vsix_path=""
 
   info "Downloading ${extension}@${version} from OpenVSX..."
-
-  # Check for jq availability
-  if ! command -v jq > /dev/null 2>&1; then
-    error "jq is required to parse OpenVSX API response"
-    return 1
-  fi
 
   # If version is "latest", query OpenVSX API for latest version
   if [[ "${version}" == "latest" ]]; then
@@ -821,12 +837,6 @@ download_from_marketplace() {
   local vsix_path=""
 
   info "Downloading ${extension}@${version} from VS Marketplace..."
-
-  # Check for jq availability
-  if ! command -v jq > /dev/null 2>&1; then
-    error "jq is required to parse VS Marketplace API response"
-    return 1
-  fi
 
   # Create extensions directory if it doesn't exist
   mkdir -p "${extensions_cache_dir}"
@@ -1166,18 +1176,21 @@ do_install_extension() {
 # ==============================================================================
 
 main() {
+  check_dependencies
+
+  # Show help if no arguments are provided.
   if [[ $# -lt 1 ]]; then
-    error "No editor specified"
     show_help
     exit 1
   fi
 
+  # Handle help command.
   if [[ "$1" == "help" || "$1" == "--help" || "$1" == "-h" ]]; then
     show_help
     exit 0
   fi
 
-  # Check if first argument is config/conf (standalone mode).
+  # Handle standalone config command.
   local first_arg
   first_arg="$(echo "${1}" | tr '[:upper:]' '[:lower:]')"
   if [[ "${first_arg}" == "config" || "${first_arg}" == "conf" ]]; then
@@ -1186,14 +1199,15 @@ main() {
     exit 0
   fi
 
+  # Require at least two arguments from this point on (editor and command).
   if [[ $# -lt 2 ]]; then
-    error "No command specified"
+    error "No command specified for editor '${1}'"
     show_help
     exit 1
   fi
 
   # Set editor from first argument.
-  editor="${first_arg}"
+  local editor="${first_arg}"
   case "${editor}" in
     "vscode" | "code" | "vsc" | "v")
       SETUP_EDITOR="vscode"
@@ -1213,67 +1227,38 @@ main() {
       ;;
     *)
       error "Unsupported editor '${editor}'"
-      info "Supported editors: cursor, kiro, vscode (vsc), vscode-insiders (vsci), windsurf (wind)"
+      show_help
       exit 1
       ;;
   esac
 
-  # Define settings after `SETUP_EDITOR` is set.
+  # Initialize settings now that SETUP_EDITOR is known.
   define_settings
 
-  # Get command from second argument.
+  # Get command and shift arguments.
   local command="${2}"
   shift 2
 
-  # Default values for options.
+  # Parse options.
   local use_latest="false"
   local extension_id=""
-
-  # Handle command-specific options.
-  case "${command}" in
-    "install" | "inst")
-      # Handle install command specially since it requires an extension argument
-      if [[ $# -lt 1 ]]; then
-        error "Extension identifier required for install command"
-        info "Usage: siren EDITOR install EXTENSION_ID"
-        info "Example: siren cursor install ms-python.python"
-        exit 1
-      fi
-
-      extension_id="$1"
-      shift
-
-      # For install command, reject any additional options
-      if [[ $# -gt 0 ]]; then
-        error "Unknown option '$1' for install command"
-        info "Usage: siren EDITOR install EXTENSION_ID"
-        exit 1
-      fi
-      ;;
-
-    "extensions" | "ext")
-      # Parse additional options for other commands
-      while [[ $# -gt 0 ]]; do
-        case "$1" in
-          --latest)
-            if [[ "${use_latest}" != "force" ]]; then
-              use_latest="true"
-            fi
-            shift
-            ;;
-          --force-latest)
-            use_latest="force"
-            shift
-            ;;
-          *)
-            error "Unknown option '$1'"
-            show_help
-            exit 1
-            ;;
-        esac
-      done
-      ;;
-  esac
+  local extra_args=()
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --latest)
+        use_latest="true"
+        shift
+        ;;
+      --force-latest)
+        use_latest="force"
+        shift
+        ;;
+      *)
+        extra_args+=("$1")
+        shift
+        ;;
+    esac
+  done
 
   # Handle commands.
   case "${command}" in
@@ -1287,7 +1272,12 @@ main() {
       do_install_extensions "${use_latest}"
       ;;
     "install")
-      do_install_extension "${extension_id}"
+      if [[ ${#extra_args[@]} -ne 1 ]]; then
+        error "The 'install' command requires exactly one argument: the extension ID."
+        show_help
+        exit 1
+      fi
+      do_install_extension "${extra_args[0]}"
       ;;
     "")
       error "No command provided"
