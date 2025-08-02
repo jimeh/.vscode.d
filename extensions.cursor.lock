@@ -1,8 +1,8 @@
 # cursor Extensions
-# Generated on Wed Jul 30 09:24:35 BST 2025
+# Generated on Sat Aug  2 23:31:21 BST 2025
 
 alefragnani.project-manager@12.8.0
-anthropic.claude-code@1.0.63
+anthropic.claude-code@1.0.67
 antiantisepticeye.vscode-color-picker@0.0.4
 antyos.openscad@1.3.2
 anysphere.cursorpyright@1.0.8
@@ -44,7 +44,7 @@ hashicorp.terraform@2.34.2025012311
 hbenl.vscode-test-explorer@2.22.1
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.1
-hverlin.mise-vscode@0.52.0
+hverlin.mise-vscode@0.53.0
 jakearl.search-editor-apply-changes@0.1.1
 jnoortheen.nix-ide@0.4.22
 joshbolduc.commitlint@2.6.2
@@ -78,7 +78,7 @@ ms-vscode.vscode-speech@0.16.0
 ms-vsliveshare.vsliveshare@1.0.5948
 pflannery.vscode-versionlens@1.22.2
 pkief.material-icon-theme@5.24.0
-redhat.vscode-xml@0.29.2025072908
+redhat.vscode-xml@0.29.2025080108
 redhat.vscode-yaml@1.18.0
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
@@ -95,7 +95,7 @@ swellaby.vscode-rust-test-adapter@0.11.1
 swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
-tuttieee.emacs-mcx@0.81.0
+tuttieee.emacs-mcx@0.87.1
 tyriar.sort-lines@1.12.0
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
 wenhoujx.swiper@2.1.2
