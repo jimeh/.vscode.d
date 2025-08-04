@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Mon Aug  4 23:46:55 BST 2025
+# Generated on Mon Aug  4 23:47:40 BST 2025
 
 alefragnani.project-manager@12.8.0
 anthropic.claude-code@1.0.67
@@ -51,6 +51,7 @@ joshbolduc.commitlint@2.6.2
 joshmu.periscope@1.12.0
 kahole.magit@0.6.67
 karunamurti.haml@1.4.1
+kilocode.kilo-code@4.74.0
 koichisasada.vscode-rdbg@0.2.2
 letrieu.expand-region@0.1.4
 m4ns0ur.base64@1.0.0
