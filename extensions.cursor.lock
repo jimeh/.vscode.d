@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Sat Aug  2 23:31:21 BST 2025
+# Generated on Mon Aug  4 10:04:42 BST 2025
 
 alefragnani.project-manager@12.8.0
 anthropic.claude-code@1.0.67
@@ -86,16 +86,16 @@ rust-lang.rust-analyzer@0.4.2557
 shopify.ruby-extensions-pack@0.1.13
 shopify.ruby-lsp@0.9.31
 sidneys1.gitconfig@2.0.1
-sorbet.sorbet-vscode-extension@0.3.44
+sorbet.sorbet-vscode-extension@0.3.45
 streetsidesoftware.code-spell-checker@4.2.3
 stuart.unique-window-colors@1.0.51
 sumneko.lua@3.15.0
-svelte.svelte-vscode@109.10.0
+svelte.svelte-vscode@109.10.1
 swellaby.vscode-rust-test-adapter@0.11.1
 swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
-tuttieee.emacs-mcx@0.87.1
+tuttieee.emacs-mcx@0.88.8
 tyriar.sort-lines@1.12.0
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
 wenhoujx.swiper@2.1.2
