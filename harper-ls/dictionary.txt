@@ -18,6 +18,7 @@ HISTFILE
 HISTSIZE
 Hammerspoon
 Hashie
+IPv6
 JWKS
 JWT
 Karabiner
