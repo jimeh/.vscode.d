@@ -70,6 +70,7 @@ clipcopy
 clippaste
 cmd
 commonmarker
+compat
 compinit
 conntrack
 coreutils
@@ -242,8 +243,10 @@ simplecov
 sirportly
 slsa
 solargraph
+srv
 sshake
 sshkey
+ssl
 staticcheck
 stderr
 stdout

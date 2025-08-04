@@ -217,6 +217,7 @@ TESTARGS
 tflint
 themepack
 tmdb
+tmpl
 tmuxifier
 TOOLDIR
 traefik
