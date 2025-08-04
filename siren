@@ -3,6 +3,11 @@
 # Ensure that any command in a pipeline that fails will cause the entire
 # pipeline to fail. This is critical for API calls piped to jq.
 set -o pipefail
+# Require Bash 4+ (associative arrays used)
+if [[ -z "${BASH_VERSINFO:-}" || "${BASH_VERSINFO[0]}" -lt 4 ]]; then
+  echo "ERROR: Bash 4+ required. On macOS: brew install bash and ensure it is first in PATH." >&2
+  exit 1
+fi
 
 # ==============================================================================
 # Settings
@@ -88,6 +93,7 @@ Description:
   This script manages editor configuration files and extensions.
   It can create symlinks for settings, keybindings, and snippets,
   as well as dump extension lock files and install extensions from them.
+  It prefers OpenVSX for Kiro, falling back to VS Marketplace.
 EOF
 }
 
@@ -152,7 +158,7 @@ get_current_platform() {
       os_name="win32"
       ;;
     *)
-      os_name="linux" # Default fallback
+      fatal "Unsupported platform: $(uname -s)"
       ;;
   esac
 
@@ -171,7 +177,7 @@ get_current_platform() {
       arch_name="x86"
       ;;
     *)
-      arch_name="x64" # Default fallback
+      fatal "Unsupported architecture: $(uname -m)"
       ;;
   esac
 
@@ -263,8 +269,15 @@ resolve_symlink() {
   if command -v realpath > /dev/null 2>&1; then
     realpath "$path"
   elif [[ "$(uname -s)" == "Darwin" ]]; then
-    # Use `printf` to safely pass the path to Python.
-    python -c "import os, sys; print(os.path.realpath(sys.argv[1]))" "$path"
+    if command -v python > /dev/null 2>&1; then
+      python -c "import os, sys; print(os.path.realpath(sys.argv[1]))" "$path"
+    elif command -v python3 > /dev/null 2>&1; then
+      python3 -c "import os, sys; print(os.path.realpath(sys.argv[1]))" "$path"
+    elif command -v perl > /dev/null 2>&1; then
+      perl -MCwd=realpath -e 'print realpath(shift)' -- "$path"
+    else
+      readlink "$path"
+    fi
   else
     readlink -f "$path"
   fi
@@ -310,6 +323,7 @@ symlink_editor_config() {
   config_dir="$(editor_config_dir)"
 
   mkdir -p "${config_dir}"
+  local path
   for path in "${CONFIG_SOURCES[@]}"; do
     backup_and_link "${SCRIPT_DIR}/${path}" "${config_dir}/${path}"
   done
@@ -317,6 +331,9 @@ symlink_editor_config() {
 
 # Private function: Create static symlinks.
 symlink_static_config() {
+  local source
+  local target
+
   # Create static symlinks to custom locations.
   for source in "${!STATIC_SYMLINKS[@]}"; do
     target="${STATIC_SYMLINKS[${source}]}"
@@ -334,14 +351,15 @@ _add_editor_paths() {
   local app_name="$3"
   local paths=("${command_name}")
 
-  if [[ "$(uname -s)" == "Darwin" ]]; then
+  if [[ "$(uname -s)" == "Darwin" ]] && [[ -n "${app_name}" ]]; then
     local app_locations=(
       "/Applications"
       "${HOME}/Applications"
       "/System/Applications"
     )
+    local loc
     for loc in "${app_locations[@]}"; do
-      if [[ -d "${loc}/${app_name}" ]]; then
+      if [[ -n "${loc}" ]] && [[ -d "${loc}/${app_name}" ]]; then
         paths+=("${loc}/${app_name}/Contents/Resources/app/bin/${command_name}")
       fi
     done
@@ -373,6 +391,7 @@ find_editor_cmd() {
   read -r -a possible_commands <<< "${editor_paths[${SETUP_EDITOR}]}"
 
   # Check for the command in all possible locations.
+  local cmd
   for cmd in "${possible_commands[@]}"; do
     if command -v "${cmd}" > /dev/null 2>&1; then
       editor_cmd="${cmd}"
@@ -922,7 +941,7 @@ download_extension_vsix() {
 
   # Check if we have cached source information for this extension
   if [[ -n "${VERSION_SOURCE_CACHE[${extension}]:-}" ]]; then
-    local extension_source="${VERSION_SOURCE_CACHE[${extension}]}"
+    extension_source="${VERSION_SOURCE_CACHE[${extension}]}"
     debug "Using cached source '${extension_source}' for ${extension}"
   fi
 
@@ -974,8 +993,10 @@ install_extension_via_vsix() {
       result=1
     fi
 
-    # Clean up the `*.vsix` file after installation attempt.
-    rm -f "${vsix_path}"
+    # Clean up the `*.vsix` file after installation attempt, only if within cache dir.
+    if [[ "${vsix_path}" == "${extensions_cache_dir}/"* ]]; then
+      rm -f -- "${vsix_path}"
+    fi
   else
     warn "Failed to download ${extension}@${version}.vsix"
     result=1
@@ -1106,6 +1127,7 @@ do_install_extensions() {
   installed_extensions "${editor_cmd}" > /dev/null
 
   # Process each extension.
+  local line
   while IFS= read -r line; do
     if [[ -n "${line}" && ! "${line}" =~ ^[[:space:]]*# ]]; then
       # Validate extension line format.
