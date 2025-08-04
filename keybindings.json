@@ -973,14 +973,27 @@
   },
   //
   // ===========================================================================
-  // MARK: swiper
+  // MARK: Periscope
   // ===========================================================================
   // Extension:
-  // - https://marketplace.visualstudio.com/items?itemName=wenhoujx.swiper
+  // - https://marketplace.visualstudio.com/items?itemName=joshmu.periscope
   //
-  { // Swiper word at cursor.
+  { // Search.
+    "key": "ctrl+x ctrl+'",
+    "command": "periscope.search"
+  },
+  { // Resume last search.
+    "key": "ctrl+x '",
+    "command": "periscope.resumeSearch"
+  },
+  { // Search current file.
     "key": "alt+r",
-    "command": "swiper.swiper-word-at-cursor"
+    "command": "periscope.searchCurrentFile"
+  },
+  { // Open current result in horizontal split.
+    "key": "ctrl+v",
+    "command": "periscope.openInHorizontalSplit",
+    "when": "periscopeActive"
   },
   //
   // ===========================================================================

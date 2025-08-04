@@ -325,6 +325,114 @@
   "rewrap.wholeComment": false,
   //
   // ===========================================================================
+  // MARK: Periscope
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=joshmu.periscope
+  //
+  "periscope.rgGlobExcludes": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "*.cjs",
+    "*.cts",
+    "*.log",
+    "*.min-latest.css",
+    "*.min-latest.js",
+    "*.min.css",
+    "*.min.js",
+    "*.sql",
+    "*.test",
+    "*/.log/*",
+    "*/.yarn/*",
+    ".bundle/*",
+    ".git/*",
+    ".log/*",
+    ".vscode/*",
+    ".yarn/*",
+    "straight/*",
+    "vendor/*"
+  ],
+  "periscope.rgMenuActions": [
+    {
+      "label": "Go",
+      "value": "--type-add 'go:go.{mod,work}' -t go"
+    },
+    {
+      "label": "JSON",
+      "value": "-t json"
+    },
+    {
+      "label": "JS/TS",
+      "value": "--type-add 'jsts:*.{js,ts,tsx,jsx}' -t jsts"
+    },
+    {
+      "label": "Ruby",
+      "value": "-t ruby"
+    },
+    {
+      "label": "Rust",
+      "value": "-t rust"
+    },
+    {
+      "label": "TOML",
+      "value": "-t toml"
+    },
+    {
+      "label": "YAML",
+      "value": "-t yaml"
+    }
+  ],
+  "periscope.rgOptions": [
+    "--smart-case",
+    "--sortr path",
+    "--hidden"
+  ],
+  "periscope.showWorkspaceFolderInFilePath": false,
+  "periscope.rgQueryParams": [
+    {
+      // filter the results to a folder
+      // Query: "redis -m module1"
+      // After: "rg 'redis' --iglob '**/*module1*/**'"
+      "regex": "^(.+) -m ([\\w-_\/]+)$",
+      "param": "--iglob '**/*$1*/**'"
+    },
+    {
+      // filter the results to a folder and filetype
+      // Query: "redis -m module1 yaml"
+      // After: "rg 'redis' --iglob '**/*module1*/**/*.yaml'"
+      "regex": "^(.+) -m ([\\w-_\/]+) ([\\w]+)$",
+      "param": "--iglob '**/*$1*/**/*.$2'"
+    },
+    {
+      // filter the results that match a glob
+      // Query: "redis -g *module"
+      // After: "rg 'redis' -g '*module'"
+      "regex": "^(.+) -g (.+)$",
+      "param": "-g '$1'"
+    },
+    {
+      // filter the results that match a glob
+      // Query: "redis -ig *module"
+      // After: "rg 'redis' -iglob '*module'"
+      "regex": "^(.+) -ig (.+)$",
+      "param": "--iglob '$1'"
+    },
+    {
+      // filter the results to rg filetypes
+      // Query: "redis -t yaml"
+      // After: "rg 'redis' -t yaml"
+      "regex": "^(.+) -t ?(\\w+)$",
+      "param": "-t $1"
+    },
+    {
+      // filter the results that match a file extension through a glob
+      // Query: redis *.rs => rg 'redis' -iglob '*.rs'
+      "regex": "^(.+) \\*\\.(\\w+)$",
+      "param": "--iglob '*.$1'"
+    }
+  ],
+  //
+  // ===========================================================================
   // MARK: Prettier
   // ===========================================================================
   //
@@ -649,10 +757,10 @@
   // - https://marketplace.visualstudio.com/items?itemName=ArturoDent.command-alias
   //
   "command aliases": {
-    "sortLines.sortLines": "sl", // Sort Lines - https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines
-    "settings.cycle.commandCenter": "Toggle Command Center",
     "macros.insertEmDash": "Insert Em Dash",
-    "macros.insertEnDash": "Insert En Dash"
+    "macros.insertEnDash": "Insert En Dash",
+    "settings.cycle.commandCenter": "Toggle Command Center",
+    "sortLines.sortLines": "sl" // Sort Lines - https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines
   },
   //
   // ===========================================================================
