@@ -67,6 +67,7 @@ gocritic
 gocyclo
 godoc
 goenv
+GOFILE
 gofumpt
 goimports
 golangci
@@ -206,6 +207,7 @@ solargraph
 sshake
 sshkey
 staticcheck
+storpool
 Streamable
 stretchr
 Subtests

@@ -215,7 +215,10 @@ powerline
 powify
 preprod
 println
+proc
 propshaft
+proto
+protobuf
 protoc
 rbheap
 rclone
@@ -250,6 +253,7 @@ ssl
 staticcheck
 stderr
 stdout
+storpool
 stretchr
 tailscale
 talosctl
