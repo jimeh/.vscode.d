@@ -47,7 +47,7 @@ editor experience with custom keybindings, settings, and extensions.
 
 - Config files are symlinked to appropriate editor directories based on OS
 - Extensions are managed via lock files with version pinning
-- Cursor uses .vsix installation due to signature verification issues
+- Extensions install directly by ID with fallback to .vsix when needed
 - Static symlinks for additional files like cspell dictionary and MCP config
 
 ### Key Features

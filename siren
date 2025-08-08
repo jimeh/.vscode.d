@@ -1020,53 +1020,50 @@ install_extension() {
   local current_version
   current_version="$(get_installed_version "${editor_cmd}" "${extension}")"
 
+  local target_version="${version}"
   if [[ "${use_latest}" != "false" ]]; then
-    if [[ -n "${current_version}" && "${use_latest}" != "force" ]]; then
-      echo "Extension ${extension} is already installed" \
-        "(current: ${current_version}), skipping"
-      return 0
-    fi
-
-    info "Checking latest version for ${extension}..."
-    local latest_version
-    latest_version=$(query_latest_version "${extension}")
-    if [[ -n "${latest_version}" ]]; then
-      info "  - Latest available version: ${latest_version}"
-      version="${latest_version}"
-    else
-      error "Could not determine latest version for ${extension}"
-      return 1
-    fi
+    target_version="latest"
   fi
 
   if [[ -z "${current_version}" ]]; then
     # Extension not installed.
-    info "Installing ${extension}@${version}"
+    info "Installing ${extension}@${target_version}"
   elif [[ "${current_version}" == "${version}" ]]; then
     # Exact version already installed.
     info "Extension ${extension}@${version} is already installed, skipping"
     return 0
-  else
+  elif [[ "${target_version}" != "latest" ]]; then
     # Wrong version installed, need to force install.
     info "Extension ${extension} has wrong version installed" \
       "(current: ${current_version}, wanted: ${version})," \
       "force-installing ${version}"
     force_install="true"
-  fi
-
-  # For Cursor we need to download and install from `*.vsix` file, as
-  # installation via ID fails with a signature verification error.
-  if [[ "${SETUP_EDITOR}" == "cursor" ]]; then
-    install_extension_via_vsix "${editor_cmd}" "${extension}" "${version}" \
-      "${extensions_cache_dir}"
+  else
+    info "Extension ${extension} is already installed" \
+      "(current: ${current_version}), skipping"
     return 0
   fi
 
+  # Try direct installation first; fall back to downloading `*.vsix` if needed.
   if ! install_extension_direct "${editor_cmd}" "${extension}" \
-    "${version}" "${force_install}"; then
+    "${target_version}" "${force_install}"; then
+
+    if [[ "${use_latest}" != "false" ]]; then
+      info "Checking latest version for ${extension}..."
+      local latest_version
+      latest_version=$(query_latest_version "${extension}")
+      if [[ -n "${latest_version}" ]]; then
+        info "  - Latest available version: ${latest_version}"
+        version="${latest_version}"
+      else
+        error "Could not determine latest version for ${extension}"
+        return 1
+      fi
+    fi
+
     warn "Direct installation failed, trying .vsix download method..."
-    install_extension_via_vsix "${editor_cmd}" "${extension}" "${version}" \
-      "${extensions_cache_dir}"
+    install_extension_via_vsix "${editor_cmd}" "${extension}" \
+      "${version}" "${extensions_cache_dir}"
   fi
 
   # Clean up extensions directory if empty
