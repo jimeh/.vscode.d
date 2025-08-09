@@ -1021,6 +1021,7 @@ install_extension() {
   current_version="$(get_installed_version "${editor_cmd}" "${extension}")"
 
   local target_version="${version}"
+  local latest_version
   if [[ "${use_latest}" != "false" ]]; then
     target_version="latest"
   fi
@@ -1028,6 +1029,11 @@ install_extension() {
   if [[ -z "${current_version}" ]]; then
     # Extension not installed.
     info "Installing ${extension}@${target_version}"
+  elif [[ "${use_latest}" == "force" ]]; then
+    # Force install latest version.
+    info "Extension ${extension} is installed (current: ${current_version})," \
+      "attempting to force-reinstall latest version"
+    force_install="true"
   elif [[ "${current_version}" == "${version}" ]]; then
     # Exact version already installed.
     info "Extension ${extension}@${version} is already installed, skipping"
@@ -1048,9 +1054,9 @@ install_extension() {
   if ! install_extension_direct "${editor_cmd}" "${extension}" \
     "${target_version}" "${force_install}"; then
 
+    local latest_version
     if [[ "${use_latest}" != "false" ]]; then
       info "Checking latest version for ${extension}..."
-      local latest_version
       latest_version=$(query_latest_version "${extension}")
       if [[ -n "${latest_version}" ]]; then
         info "  - Latest available version: ${latest_version}"
@@ -1059,6 +1065,12 @@ install_extension() {
         error "Could not determine latest version for ${extension}"
         return 1
       fi
+    fi
+
+    if [[ "${current_version}" == "${version}" ]]; then
+      info "Extension ${extension} is already installed" \
+        "(current: ${current_version}), skipping"
+      return 0
     fi
 
     warn "Direct installation failed, trying .vsix download method..."
