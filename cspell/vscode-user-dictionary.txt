@@ -167,6 +167,7 @@ passhash
 pgformatter
 PGID
 pipx
+PKCE
 powerline
 powify
 preprod
