@@ -32,6 +32,7 @@
   // ===========================================================================
   //
   "cursor.aipreview.enabled": true,
+  "cursor.composer.usageSummaryDisplay": "always",
   "cursor.cpp.enablePartialAccepts": true,
   "cursor.diffs.useCharacterLevelDiffs": true,
   "cursor.general.enableShadowWorkspace": true,
