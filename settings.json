@@ -331,8 +331,16 @@
   // - https://marketplace.visualstudio.com/items?itemName=joshmu.periscope
   //
   "periscope.rgGlobExcludes": [
+    "**/.bundle/**",
+    "**/.git/**",
+    "**/.log/**",
+    "**/.log/**",
+    "**/.yarn/**",
+    "**/.yarn/**",
     "**/dist/**",
     "**/node_modules/**",
+    "**/straight/**",
+    "**/vendor/**",
     "*.cjs",
     "*.cts",
     "*.log",
@@ -341,16 +349,7 @@
     "*.min.css",
     "*.min.js",
     "*.sql",
-    "*.test",
-    "*/.log/*",
-    "*/.yarn/*",
-    ".bundle/*",
-    ".git/*",
-    ".log/*",
-    ".vscode/*",
-    ".yarn/*",
-    "straight/*",
-    "vendor/*"
+    "*.test"
   ],
   "periscope.rgMenuActions": [
     {

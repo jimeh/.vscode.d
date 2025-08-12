@@ -986,14 +986,25 @@
     "key": "ctrl+x '",
     "command": "periscope.resumeSearch"
   },
-  { // Search current file.
-    "key": "alt+r",
-    "command": "periscope.searchCurrentFile"
-  },
+  // { // Search current file.
+  //   "key": "alt+r",
+  //   "command": "periscope.searchCurrentFile"
+  // },
   { // Open current result in horizontal split.
     "key": "ctrl+v",
     "command": "periscope.openInHorizontalSplit",
     "when": "periscopeActive"
+  },
+  //
+  // ===========================================================================
+  // MARK: Swiper
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=wenhoujx.swiper
+  //
+  { // swiper.
+    "key": "alt+r",
+    "command": "swiper.swiper"
   },
   //
   // ===========================================================================
