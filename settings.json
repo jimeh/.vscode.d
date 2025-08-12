@@ -102,7 +102,7 @@
   // ===========================================================================
   //
   // Activity Bar
-  "workbench.activityBar.location": "top",
+  "workbench.activityBar.location": "default",
   "workbench.activityBar.orientation": "horizontal",
   //
   // Command Palette
