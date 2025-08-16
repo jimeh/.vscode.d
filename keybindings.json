@@ -600,6 +600,13 @@
     "command": "emacs-mcx.tabToTabStop",
     "when": "editorTextFocus && !editorReadonly && !inlineSuggestionVisible && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible && !inSnippetMode && !editorTabCompletion && !editorParameterHintsVisible && !cursorAtInlineEdit && !cpp.shouldAcceptTab && !tableMode"
   },
+  { // yank-pop-forward (cycle kill ring in reverse)
+    "key": "ctrl+alt+y",
+    "command": "emacs-mcx.yankPop",
+    "args": {
+      "prefixArgument": -1
+    }
+  },
   //
   // ===========================================================================
   // MARK: Text Manipulation

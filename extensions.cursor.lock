@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Tue Aug 12 12:14:56 BST 2025
+# Generated on Sat Aug 16 13:30:23 BST 2025
 
 alefragnani.project-manager@12.8.0
 anthropic.claude-code@1.0.72
@@ -9,7 +9,7 @@ anysphere.cpptools@2.0.2
 anysphere.csharp@1.0.1
 anysphere.cursorpyright@1.0.8
 anysphere.remote-containers@1.0.22
-anysphere.remote-ssh@1.0.24
+anysphere.remote-ssh@1.0.25
 anysphere.remote-wsl@1.0.9
 arrterian.nix-env-selector@1.1.0
 arturodent.command-alias@0.6.2
@@ -34,7 +34,7 @@ dbaeumer.vscode-eslint@3.0.16
 dewski.simplecov@0.0.7
 dnut.rewrap-revived@1.16.3
 editorconfig.editorconfig@0.17.4
-elijah-potter.harper@0.56.0
+elijah-potter.harper@0.57.0
 emeraldwalk.runonsave@0.3.2
 esbenp.prettier-vscode@11.0.0
 exiasr.hadolint@1.1.2
@@ -53,10 +53,10 @@ hverlin.mise-vscode@0.53.0
 jakearl.search-editor-apply-changes@0.1.1
 jnoortheen.nix-ide@0.4.22
 joshbolduc.commitlint@2.6.2
-joshmu.periscope@1.13.2
+joshmu.periscope@1.13.3
 kahole.magit@0.6.67
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.79.2
+kilocode.kilo-code@4.81.0
 koichisasada.vscode-rdbg@0.2.1
 letrieu.expand-region@0.1.4
 llvm-vs-code-extensions.vscode-clangd@0.2.0
@@ -88,7 +88,7 @@ romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
 rust-lang.rust-analyzer@0.3.2577
 shopify.ruby-extensions-pack@0.1.13
-shopify.ruby-lsp@0.9.31
+shopify.ruby-lsp@0.9.32
 sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.45
 streetsidesoftware.code-spell-checker@4.0.47
@@ -99,7 +99,7 @@ swellaby.vscode-rust-test-adapter@0.11.1
 swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
-tuttieee.emacs-mcx@0.88.10
+tuttieee.emacs-mcx@0.89.0
 tyriar.sort-lines@1.9.1
 vadimcn.vscode-lldb@1.11.5
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
