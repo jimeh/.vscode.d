@@ -767,10 +767,25 @@
   // - https://marketplace.visualstudio.com/items?itemName=ArturoDent.command-alias
   //
   "command aliases": {
-    "macros.insertEmDash": "Insert Em Dash",
-    "macros.insertEnDash": "Insert En Dash",
+    "git.branchFrom": "gcb (Git: Create Branch from...)",
+    "git.checkout": "gco (Git: Checkout to...)",
+    "git.cloneRecursive": "gcl (Git: Clone Recursive)",
+    "git.fetch": "gf (Git: Fetch)",
+    "git.fetchPrune": "gfp (Git: Fetch Prune)",
+    "git.pullRebase": "gp (Git: Pull Rebase)",
+    "git.push": "gpu (Git: Push)",
+    "git.renameBranch": "grb (Git: Rename Branch)",
+    "git.stash": "gs (Git: Stash)",
+    "git.stashApply": "gas (Git: Apply Stash)",
+    "git.stashIncludeUntracked": "gsu (Git: Stash Include Untracked)",
+    "git.stashPop": "gps (Git: Pop Stash)",
+    "git.stashStaged": "gss (Git: Stash Staged)",
+    "git.stashView": "gvs (Git: View Stash)",
+    "macros.insertEmDash": "Insert Em Dash (—)",
+    "macros.insertEnDash": "Insert En Dash (–)",
     "settings.cycle.commandCenter": "Toggle Command Center",
-    "sortLines.sortLines": "sl" // Sort Lines - https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines
+    "sortLines.sortLines": "sl (Sort lines: ascending, case sensitive)", // Sort Lines - https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines
+    "workbench.action.reloadWindow": "rw (Reload Window)"
   },
   //
   // ===========================================================================
