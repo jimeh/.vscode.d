@@ -29,6 +29,7 @@ conntrack
 coreutils
 covermode
 coverprofile
+crontask
 cssbundling
 ctop
 cyberduck
