@@ -761,6 +761,19 @@
   ],
   //
   // ===========================================================================
+  // MARK: Excalidraw
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor
+  //
+  "excalidraw.theme": "auto",
+  "excalidraw.image": {
+    "exportScale": 2,
+    "exportWithBackground": true,
+    "exportWithDarkMode": true
+  },
+  //
+  // ===========================================================================
   // MARK: Command aliases
   // ===========================================================================
   // Extension:

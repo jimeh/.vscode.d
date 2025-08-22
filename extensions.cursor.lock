@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Sat Aug 16 13:30:23 BST 2025
+# Generated on Fri Aug 22 09:03:33 BST 2025
 
 alefragnani.project-manager@12.8.0
 anthropic.claude-code@1.0.72
@@ -9,7 +9,7 @@ anysphere.cpptools@2.0.2
 anysphere.csharp@1.0.1
 anysphere.cursorpyright@1.0.8
 anysphere.remote-containers@1.0.22
-anysphere.remote-ssh@1.0.25
+anysphere.remote-ssh@1.0.26
 anysphere.remote-wsl@1.0.9
 arrterian.nix-env-selector@1.1.0
 arturodent.command-alias@0.6.2
@@ -34,7 +34,7 @@ dbaeumer.vscode-eslint@3.0.16
 dewski.simplecov@0.0.7
 dnut.rewrap-revived@1.16.3
 editorconfig.editorconfig@0.17.4
-elijah-potter.harper@0.57.0
+elijah-potter.harper@0.59.0
 emeraldwalk.runonsave@0.3.2
 esbenp.prettier-vscode@11.0.0
 exiasr.hadolint@1.1.2
@@ -56,7 +56,7 @@ joshbolduc.commitlint@2.6.2
 joshmu.periscope@1.13.3
 kahole.magit@0.6.67
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.81.0
+kilocode.kilo-code@4.83.0
 koichisasada.vscode-rdbg@0.2.1
 letrieu.expand-region@0.1.4
 llvm-vs-code-extensions.vscode-clangd@0.2.0
@@ -81,7 +81,8 @@ ms-vscode.test-adapter-converter@0.2.1
 ms-vscode.vscode-speech@0.16.0
 ms-vsliveshare.vsliveshare@1.0.5948
 pflannery.vscode-versionlens@1.22.2
-pkief.material-icon-theme@5.25.0
+pkief.material-icon-theme@5.26.0
+pomdtr.excalidraw-editor@3.9.0
 redhat.vscode-xml@0.29.0
 redhat.vscode-yaml@1.18.0
 romanpeshkov.vscode-text-tables@0.1.5
@@ -99,7 +100,7 @@ swellaby.vscode-rust-test-adapter@0.11.1
 swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
-tuttieee.emacs-mcx@0.89.0
+tuttieee.emacs-mcx@0.90.1
 tyriar.sort-lines@1.9.1
 vadimcn.vscode-lldb@1.11.5
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
