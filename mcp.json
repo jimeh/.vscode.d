@@ -9,6 +9,9 @@
 				"--",
 				"mcp-server-memory"
 			]
+		},
+		"deepwiki": {
+			"url": "https://mcp.deepwiki.com/mcp"
 		}
 	},
 	"inputs": []
