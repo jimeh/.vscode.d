@@ -214,6 +214,7 @@ storpool
 Streamable
 stretchr
 Subtests
+swiftbar
 tailscale
 talosctl
 taplo

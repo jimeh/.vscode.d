@@ -53,6 +53,7 @@ SAVEHIST
 SHA
 SITEFUNS
 Subtests
+SwiftBar
 TBD
 TESTARGS
 TMPDIR
@@ -62,6 +63,7 @@ Traefik's
 Truef
 Unallocating
 VSCode's
+Xbar's
 ZB
 ZiB
 actionnav
