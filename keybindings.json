@@ -1011,7 +1011,7 @@
   //
   { // swiper.
     "key": "alt+r",
-    "command": "swiper.swiper"
+    "command": "swiper.swiper-word-at-cursor"
   },
   //
   // ===========================================================================
