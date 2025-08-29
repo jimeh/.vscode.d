@@ -1,15 +1,15 @@
 # cursor Extensions
-# Generated on Mon Aug 25 11:50:59 BST 2025
+# Generated on Fri Aug 29 10:19:18 BST 2025
 
 alefragnani.project-manager@12.8.0
-anthropic.claude-code@1.0.90
+anthropic.claude-code@1.0.96
 antiantisepticeye.vscode-color-picker@0.0.4
 antyos.openscad@1.3.2
 anysphere.cpptools@2.0.2
 anysphere.csharp@1.0.1
-anysphere.cursorpyright@1.0.8
+anysphere.cursorpyright@1.0.9
 anysphere.remote-containers@1.0.22
-anysphere.remote-ssh@1.0.26
+anysphere.remote-ssh@1.0.27
 anysphere.remote-wsl@1.0.9
 arrterian.nix-env-selector@1.1.0
 arturodent.command-alias@0.6.2
@@ -35,7 +35,7 @@ dbaeumer.vscode-eslint@3.0.16
 dewski.simplecov@0.0.7
 dnut.rewrap-revived@1.16.3
 editorconfig.editorconfig@0.17.4
-elijah-potter.harper@0.59.0
+elijah-potter.harper@0.60.0
 emeraldwalk.runonsave@0.3.2
 esbenp.prettier-vscode@11.0.0
 exiasr.hadolint@1.1.2
@@ -57,7 +57,7 @@ joshbolduc.commitlint@2.6.2
 joshmu.periscope@1.13.3
 kahole.magit@0.6.67
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.83.1
+kilocode.kilo-code@4.85.0
 koichisasada.vscode-rdbg@0.2.1
 letrieu.expand-region@0.1.4
 llvm-vs-code-extensions.vscode-clangd@0.2.0
