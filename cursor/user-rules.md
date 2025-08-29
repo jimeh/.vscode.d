@@ -1,3 +1,5 @@
+- If there is a `AGENTS.md` or `CLAUDE.md` file in the root of a project, please
+  read it for additional instructions.
 - Try and keep line length to 80 characters or fewer when possible.
 - Check and fix linting errors.
 - Follow code style and conventions already present in the project when
