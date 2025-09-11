@@ -283,6 +283,12 @@ resolve_symlink() {
   fi
 }
 
+# Strip ANSI escape sequences from stdin and write clean text to stdout.
+# This removes CSI sequences like ESC[...A/K that UIs use for status lines.
+strip_ansi_sequences() {
+  awk '{ gsub(/\033\[[0-9;?]*[ -\/]*[@-~]/, ""); print }'
+}
+
 # Backup and symlink.
 backup_and_link() {
   local source="$1"
@@ -1101,7 +1107,9 @@ do_dump_extensions() {
     echo "# ${SETUP_EDITOR} Extensions"
     echo "# Generated on ${current_date}"
     echo
-    "${editor_cmd}" --list-extensions --show-versions 2> /dev/null
+    "${editor_cmd}" --list-extensions --show-versions 2> /dev/null |
+      strip_ansi_sequences |
+      grep -E '^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+@[A-Za-z0-9._-]+$'
   } > "${extensions_lock}"
 
   info "Extensions list dumped to ${extensions_lock}"
