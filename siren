@@ -57,6 +57,48 @@ get_extensions_lock() {
   echo "${SCRIPT_DIR}/extensions.${SETUP_EDITOR}.lock"
 }
 
+# Get extensions lockfile path for a specific editor name.
+# Does not rely on SETUP_EDITOR.
+extensions_lock_for_editor() {
+  local editor_name="$1"
+  echo "${SCRIPT_DIR}/extensions.${editor_name}.lock"
+}
+
+# Normalize editor name/synonyms to canonical editor id.
+# Returns canonical id via STDOUT or empty string if unknown.
+normalize_editor_name() {
+  local name
+  name="$(echo "${1:-}" | tr '[:upper:]' '[:lower:]')"
+  case "${name}" in
+    cursor | c)
+      echo "cursor"
+      ;;
+    vscode | code | vsc | v)
+      echo "vscode"
+      ;;
+    vscode-insiders | code-insiders | insiders | vsci | i)
+      echo "vscode-insiders"
+      ;;
+    windsurf | wind | surf | w)
+      echo "windsurf"
+      ;;
+    kiro | k)
+      echo "kiro"
+      ;;
+    *)
+      echo ""
+      ;;
+  esac
+}
+
+# Read a lockfile and output sorted unique extension ids without versions.
+extensions_ids_from_lock() {
+  local lock_path="$1"
+  grep -Ev '^\s*(#|$)' "${lock_path}" |
+    cut -d@ -f1 |
+    sort -u
+}
+
 # ==============================================================================
 # Help
 # ==============================================================================
@@ -65,6 +107,7 @@ show_help() {
   cat << EOF
 Usage: $(basename "$0") EDITOR COMMAND [OPTIONS]
        $(basename "$0") config
+       $(basename "$0") shared-extensions [--json] [EDITORS...]
 
 Editors:
   cursor, c                   Cursor editor
@@ -79,6 +122,10 @@ Commands:
   extensions, ext          Install editor extensions from a lock file.
   install                  Install a specific extension by identifier (e.g., ms-python.python).
                            If no version is specified, installs the latest version.
+  shared-extensions, shared
+                           Print extensions present in all specified editors.
+                           Defaults to comparing: cursor, vscode
+                           Use --json to output a JSON array
 
 Options:
   --latest                 When used with the extensions command, installs the
@@ -1210,6 +1257,89 @@ do_install_extension() {
   return 0
 }
 
+# Compute and print the intersection of extensions across editors.
+do_shared_extensions() {
+  local -a input_editors
+  local -a editors
+  local -A seen
+  local arg
+  local output_json="false"
+
+  # Parse optional flags (currently only --json)
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --json)
+        output_json="true"
+        shift
+        ;;
+      --)
+        shift
+        break
+        ;;
+      --*)
+        fatal "Unknown option for shared-extensions: '$1'"
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+
+  if [[ $# -eq 0 ]]; then
+    input_editors=("cursor" "vscode")
+  else
+    input_editors=("$@")
+  fi
+
+  # Normalize and deduplicate editors.
+  for arg in "${input_editors[@]}"; do
+    local norm
+    norm="$(normalize_editor_name "${arg}")"
+    if [[ -z "${norm}" ]]; then
+      fatal "Unknown editor '${arg}'"
+    fi
+    if [[ -z "${seen[${norm}]:-}" ]]; then
+      editors+=("${norm}")
+      seen["${norm}"]=1
+    fi
+  done
+
+  if [[ ${#editors[@]} -eq 0 ]]; then
+    fatal "No valid editors specified"
+  fi
+
+  # Build intersection iteratively.
+  local result=""
+  local idx=0
+  for arg in "${editors[@]}"; do
+    local lock
+    lock="$(extensions_lock_for_editor "${arg}")"
+    if [[ ! -f "${lock}" ]]; then
+      fatal "Lock file not found for ${arg}: ${lock}"
+    fi
+
+    local current
+    current="$(extensions_ids_from_lock "${lock}")"
+
+    if [[ ${idx} -eq 0 ]]; then
+      result="${current}"
+    else
+      # 'comm' requires sorted input; our helper already sorts.
+      result="$(comm -12 <(printf '%s\n' "${result}") \
+        <(printf '%s\n' "${current}"))"
+    fi
+    idx=$((idx + 1))
+  done
+
+  # Print final result.
+  if [[ "${output_json}" == "true" ]]; then
+    # Convert newline-separated list to JSON array using jq safely
+    printf '%s\n' "${result}" | jq -R -s 'split("\n") | map(select(length>0))'
+  else
+    printf '%s\n' "${result}"
+  fi
+}
+
 # ==============================================================================
 # Main
 # ==============================================================================
@@ -1224,18 +1354,39 @@ main() {
   fi
 
   # Handle help command.
-  if [[ "$1" == "help" || "$1" == "--help" || "$1" == "-h" ]]; then
+  if [[ "$1" == "help" || " $* " == *" --help "* || " $* " == *" -h "* ]]; then
     show_help
     exit 0
   fi
 
-  # Handle standalone config command.
+  # Normalize first argument.
   local first_arg
   first_arg="$(echo "${1}" | tr '[:upper:]' '[:lower:]')"
-  if [[ "${first_arg}" == "config" || "${first_arg}" == "conf" ]]; then
-    define_settings
-    do_static_config
-    exit 0
+
+  # Handle standalone top-level commands.
+  case "${first_arg}" in
+    config | conf)
+      define_settings
+      do_static_config
+      exit 0
+      ;;
+    shared-extensions | shared)
+      shift 1
+      # Remaining arguments are optional editor names
+      do_shared_extensions "$@"
+      exit 0
+      ;;
+  esac
+
+  # Set editor from first argument using normalization.
+  SETUP_EDITOR="$(normalize_editor_name "${first_arg}")"
+  if [[ -z "${SETUP_EDITOR}" ]]; then
+    error "Unsupported editor '${first_arg}'"
+    show_help
+    exit 1
+  fi
+  if [[ "${SETUP_EDITOR}" == "kiro" ]]; then
+    PREFER_OPENVSX="true"
   fi
 
   # Require at least two arguments from this point on (editor and command).
@@ -1244,32 +1395,6 @@ main() {
     show_help
     exit 1
   fi
-
-  # Set editor from first argument.
-  local editor="${first_arg}"
-  case "${editor}" in
-    "vscode" | "code" | "vsc" | "v")
-      SETUP_EDITOR="vscode"
-      ;;
-    "vscode-insiders" | "code-insiders" | "insiders" | "vsci" | "i")
-      SETUP_EDITOR="vscode-insiders"
-      ;;
-    "cursor" | "c")
-      SETUP_EDITOR="cursor"
-      ;;
-    "windsurf" | "wind" | "surf" | "w")
-      SETUP_EDITOR="windsurf"
-      ;;
-    "kiro" | "k")
-      SETUP_EDITOR="kiro"
-      PREFER_OPENVSX="true"
-      ;;
-    *)
-      error "Unsupported editor '${editor}'"
-      show_help
-      exit 1
-      ;;
-  esac
 
   # Initialize settings now that SETUP_EDITOR is known.
   define_settings
@@ -1301,6 +1426,10 @@ main() {
 
   # Handle commands.
   case "${command}" in
+    "help" | "h")
+      show_help
+      exit 0
+      ;;
     "config" | "conf")
       do_config
       ;;
