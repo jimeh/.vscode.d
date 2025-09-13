@@ -1,8 +1,8 @@
 # cursor Extensions
-# Generated on Thu Sep 11 10:59:35 BST 2025
+# Generated on Sat Sep 13 05:34:43 BST 2025
 
 alefragnani.project-manager@12.8.0
-anthropic.claude-code@1.0.111
+anthropic.claude-code@1.0.113
 antiantisepticeye.vscode-color-picker@0.0.4
 antyos.openscad@1.3.2
 anysphere.cpptools@2.0.2
@@ -35,7 +35,7 @@ dbaeumer.vscode-eslint@3.0.16
 dewski.simplecov@0.0.7
 dnut.rewrap-revived@1.16.3
 editorconfig.editorconfig@0.17.4
-elijah-potter.harper@0.62.0
+elijah-potter.harper@0.63.0
 emeraldwalk.runonsave@0.3.2
 esbenp.prettier-vscode@11.0.0
 exiasr.hadolint@1.1.2
@@ -57,7 +57,7 @@ joshbolduc.commitlint@2.6.2
 joshmu.periscope@1.15.1
 kahole.magit@0.6.67
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.93.0
+kilocode.kilo-code@4.93.2
 koichisasada.vscode-rdbg@0.2.1
 letrieu.expand-region@0.1.4
 llvm-vs-code-extensions.vscode-clangd@0.2.0
@@ -82,7 +82,7 @@ ms-vscode.test-adapter-converter@0.2.1
 ms-vscode.vscode-speech@0.16.0
 ms-vsliveshare.vsliveshare@1.0.5948
 openai.chatgpt@0.4.6
-pflannery.vscode-versionlens@1.22.2
+pflannery.vscode-versionlens@1.22.3
 pkief.material-icon-theme@5.27.0
 pomdtr.excalidraw-editor@3.9.0
 redhat.vscode-xml@0.29.0
