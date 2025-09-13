@@ -50,97 +50,49 @@ define_settings() {
   fi
 }
 
-# Get extensions lockfile path for current editor.
-#
-# Returns: Path to extensions lock file via `STDOUT`.
-get_extensions_lock() {
-  echo "${SCRIPT_DIR}/extensions.${SETUP_EDITOR}.lock"
-}
-
-# Get extensions lockfile path for a specific editor name.
-# Does not rely on SETUP_EDITOR.
-extensions_lock_for_editor() {
-  local editor_name="$1"
-  echo "${SCRIPT_DIR}/extensions.${editor_name}.lock"
-}
-
-# Normalize editor name/synonyms to canonical editor id.
-# Returns canonical id via STDOUT or empty string if unknown.
-normalize_editor_name() {
-  local name
-  name="$(echo "${1:-}" | tr '[:upper:]' '[:lower:]')"
-  case "${name}" in
-    cursor | c)
-      echo "cursor"
-      ;;
-    vscode | code | vsc | v)
-      echo "vscode"
-      ;;
-    vscode-insiders | code-insiders | insiders | vsci | i)
-      echo "vscode-insiders"
-      ;;
-    windsurf | wind | surf | w)
-      echo "windsurf"
-      ;;
-    kiro | k)
-      echo "kiro"
-      ;;
-    *)
-      echo ""
-      ;;
-  esac
-}
-
-# Read a lockfile and output sorted unique extension ids without versions.
-extensions_ids_from_lock() {
-  local lock_path="$1"
-  grep -Ev '^\s*(#|$)' "${lock_path}" |
-    cut -d@ -f1 |
-    sort -u
-}
-
 # ==============================================================================
 # Help
 # ==============================================================================
 
 show_help() {
   cat << EOF
-Usage: $(basename "$0") EDITOR COMMAND [OPTIONS]
-       $(basename "$0") config
-       $(basename "$0") shared-extensions [--json] [EDITORS...]
+Usage:
+  $(basename "$0") EDITOR COMMAND [OPTIONS]
+  $(basename "$0") COMMAND EDITOR [OPTIONS]
+  $(basename "$0") config
+  $(basename "$0") shared-extensions [--json] [EDITORS...]
 
 Editors:
   cursor, c                   Cursor editor
-  kiro, k                     Kiro editor
+  kiro, k                     Kiro editor (uses OpenVSX by default)
   vscode, code, vsc, v        Visual Studio Code
   vscode-insiders, vsci, i    Visual Studio Code Insiders
   windsurf, surf, w           Windsurf editor
 
 Commands:
-  config, conf             Create symlinks for editor config files
-  dump-extensions, dump    Export installed editor extensions to a lock file.
-  extensions, ext          Install editor extensions from a lock file.
-  install                  Install a specific extension by identifier (e.g., ms-python.python).
-                           If no version is specified, installs the latest version.
+  config, conf             Create symlinks.
+                           With editor: full editor + static config.
+                           Without editor: static-only symlinks.
+  dump-extensions, dump    Export installed extensions to lock file
+                           for the specified editor.
+  extensions, ext          Install extensions from lock file for the
+                           specified editor.
+  install                  Install a specific extension id for the
+                           specified editor (e.g. ms-python.python).
   shared-extensions, shared
                            Print extensions present in all specified editors.
-                           Defaults to comparing: cursor, vscode
-                           Use --json to output a JSON array
+                           Defaults: cursor, vscode. Use --json for JSON.
 
 Options:
-  --latest                 When used with the extensions command, installs the
-                           latest version of each extension instead of the
-                           exact version from the lock file.
+  --latest                 With 'extensions': install latest versions instead
+                           of exact lockfile versions. With 'install': install
+                           the latest version of the specified extension.
+  --force-latest           Force latest behavior where applicable.
 
-Special Usage:
-  config, conf             When used without an editor, creates only static
-                           symlinks (CLAUDE.md, dictionaries, etc.)
-
-Description:
-  This script manages editor configuration files and extensions.
-  It can create symlinks for settings, keybindings, and snippets,
-  as well as dump extension lock files and install extensions from them.
-  It prefers OpenVSX for Kiro, falling back to VS Marketplace.
+Notes:
+  - For 'dump', 'extensions', and 'install', the editor may be given as
+    arg 1 or arg 2; both orders are supported.
+  - Kiro prefers OpenVSX, falling back to VS Marketplace.
 EOF
 }
 
@@ -178,6 +130,70 @@ check_dependencies() {
   if ! command -v curl > /dev/null 2>&1; then
     fatal "curl is not installed. Please install it to continue."
   fi
+}
+
+# Get extensions lockfile path for current editor.
+#
+# Returns: Path to extensions lock file via `STDOUT`.
+get_extensions_lock() {
+  echo "${SCRIPT_DIR}/extensions.${SETUP_EDITOR}.lock"
+}
+
+# Get extensions lockfile path for a specific editor name.
+# Does not rely on SETUP_EDITOR.
+extensions_lock_for_editor() {
+  local editor_name="$1"
+  echo "${SCRIPT_DIR}/extensions.${editor_name}.lock"
+}
+
+# Normalize editor name/synonyms to canonical editor id.
+#
+# Returns: canonical id via `STDOUT` or empty string if unknown.
+normalize_editor_name() {
+  local name
+  name="$(echo "${1:-}" | tr '[:upper:]' '[:lower:]')"
+  case "${name}" in
+    cursor | c)
+      echo "cursor"
+      ;;
+    vscode | code | vsc | v)
+      echo "vscode"
+      ;;
+    vscode-insiders | code-insiders | insiders | vsci | i)
+      echo "vscode-insiders"
+      ;;
+    windsurf | wind | surf | w)
+      echo "windsurf"
+      ;;
+    kiro | k)
+      echo "kiro"
+      ;;
+    *)
+      echo ""
+      ;;
+  esac
+}
+
+# Require an editor to be specified for a command.
+#
+# Returns: If no editor is specified, exits program with error.
+require_editor() {
+  local command="$1"
+
+  if [[ -z "${SETUP_EDITOR}" ]]; then
+    error "No editor specified for command '${command}'"
+    echo >&2
+    show_help
+    exit 1
+  fi
+}
+
+# Read a lockfile and output sorted unique extension ids without versions.
+extensions_ids_from_lock() {
+  local lock_path="$1"
+  grep -Ev '^\s*(#|$)' "${lock_path}" |
+    cut -d@ -f1 |
+    sort -u
 }
 
 # Determine current platform for OpenVSX downloads.
@@ -1221,7 +1237,9 @@ do_install_extension() {
 
   if [[ -z "${extension_id}" ]]; then
     error "Extension identifier required"
-    info "Usage: siren EDITOR install EXTENSION_ID"
+    info "Usage:"
+    info "  siren EDITOR install EXTENSION_ID"
+    info "  siren install EDITOR EXTENSION_ID"
     exit 1
   fi
 
@@ -1353,99 +1371,125 @@ main() {
     exit 1
   fi
 
+  # Set command or SETUP_EDITOR based on first argument.
+  local command=""
+  if [[ $# -ge 1 ]]; then
+    SETUP_EDITOR="$(normalize_editor_name "$1")"
+    if [[ -z "${SETUP_EDITOR}" ]]; then
+      command="$(echo "$1" | tr '[:upper:]' '[:lower:]')"
+    fi
+    shift 1
+  fi
+
+  # Set command or SETUP_EDITOR based on second argument.
+  if [[ $# -ge 1 ]]; then
+    if [[ -z "${command}" ]]; then
+      command="$(echo "$1" | tr '[:upper:]' '[:lower:]')"
+      shift 1
+    else
+      SETUP_EDITOR="$(normalize_editor_name "$1")"
+      if [[ -n "${SETUP_EDITOR}" ]]; then
+        shift 1
+      fi
+    fi
+  fi
+
   # Handle help command.
-  if [[ "$1" == "help" || " $* " == *" --help "* || " $* " == *" -h "* ]]; then
+  if [[ " $* " == *" --help "* || " $* " == *" -h "* ]]; then
+    command="help"
+  fi
+
+  # Handle help command early.
+  if [[ "${command}" == "help" ]]; then
     show_help
     exit 0
   fi
 
-  # Normalize first argument.
-  local first_arg
-  first_arg="$(echo "${1}" | tr '[:upper:]' '[:lower:]')"
-
-  # Handle standalone top-level commands.
-  case "${first_arg}" in
-    config | conf)
-      define_settings
-      do_static_config
-      exit 0
-      ;;
-    shared-extensions | shared)
-      shift 1
-      # Remaining arguments are optional editor names
-      do_shared_extensions "$@"
-      exit 0
-      ;;
-  esac
-
-  # Set editor from first argument using normalization.
-  SETUP_EDITOR="$(normalize_editor_name "${first_arg}")"
-  if [[ -z "${SETUP_EDITOR}" ]]; then
-    error "Unsupported editor '${first_arg}'"
+  # If still no command, exit with error.
+  if [[ -z "${command}" ]]; then
+    error "No command provided"
+    echo >&2
     show_help
     exit 1
   fi
+
+  # Set PREFER_OPENVSX to true for Kiro.
   if [[ "${SETUP_EDITOR}" == "kiro" ]]; then
     PREFER_OPENVSX="true"
   fi
 
-  # Require at least two arguments from this point on (editor and command).
-  if [[ $# -lt 2 ]]; then
-    error "No command specified for editor '${1}'"
-    show_help
-    exit 1
-  fi
-
-  # Initialize settings now that SETUP_EDITOR is known.
   define_settings
 
-  # Get command and shift arguments.
-  local command="${2}"
-  shift 2
-
-  # Parse options.
-  local use_latest="false"
-  local extension_id=""
-  local extra_args=()
-  while [[ $# -gt 0 ]]; do
-    case "$1" in
-      --latest)
-        use_latest="true"
-        shift
-        ;;
-      --force-latest)
-        use_latest="force"
-        shift
-        ;;
-      *)
-        extra_args+=("$1")
-        shift
-        ;;
-    esac
-  done
-
-  # Handle commands.
   case "${command}" in
-    "help" | "h")
-      show_help
+    config | conf)
+      if [[ -n "${SETUP_EDITOR}" ]]; then
+        do_config
+      else
+        do_static_config
+      fi
       exit 0
       ;;
-    "config" | "conf")
-      do_config
-      ;;
-    "dump-extensions" | "dump")
+    dump-extensions | dump)
+      require_editor "dump"
       do_dump_extensions
+      exit 0
       ;;
-    "extensions" | "ext")
+    shared-extensions | shared)
+      do_shared_extensions "$@"
+      exit 0
+      ;;
+    extensions | ext)
+      require_editor "extensions"
+      local use_latest="false"
+      while [[ $# -gt 0 ]]; do
+        case "$1" in
+          --latest)
+            use_latest="true"
+            shift
+            ;;
+          --force-latest)
+            use_latest="force"
+            shift
+            ;;
+          *)
+            break
+            ;;
+        esac
+      done
       do_install_extensions "${use_latest}"
+      exit 0
       ;;
-    "install")
-      if [[ ${#extra_args[@]} -ne 1 ]]; then
+    install)
+      require_editor "install"
+      local use_latest_i="false"
+      local extension_arg=""
+      while [[ $# -gt 0 ]]; do
+        case "$1" in
+          --latest)
+            use_latest_i="true"
+            shift
+            ;;
+          --force-latest)
+            use_latest_i="force"
+            shift
+            ;;
+          *)
+            if [[ -z "${extension_arg}" ]]; then
+              extension_arg="$1"
+              shift
+            else
+              break
+            fi
+            ;;
+        esac
+      done
+      if [[ -z "${extension_arg}" ]]; then
         error "The 'install' command requires exactly one argument: the extension ID."
         show_help
         exit 1
       fi
-      do_install_extension "${extra_args[0]}"
+      do_install_extension "${extension_arg}" "${use_latest_i}"
+      exit 0
       ;;
     "")
       error "No command provided"
