@@ -35,6 +35,7 @@
   "cursor.composer.usageSummaryDisplay": "always",
   "cursor.cpp.enablePartialAccepts": true,
   "cursor.diffs.useCharacterLevelDiffs": true,
+  "cursor.enable_agent_window_setting": true,
   "cursor.general.enableShadowWorkspace": true,
   "cursor.terminal.usePreviewBox": true,
   "update.releaseTrack": "prerelease",
