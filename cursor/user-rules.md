@@ -9,6 +9,10 @@
   instead let the unit test be narrower in scope.
 - Check Makefile and similar for common project tasks like lint, format, test,
   etc.
+- When told how to perform certain actions by executing a command, the user
+  means for the command to be run from the root of the project. DO NOT attempt
+  to run modify the command to an absolute path, instead just execute the
+  command as instructed.
 - When I ask for a fix or explanation, please provide direct code solutions or
   detailed technical explanations rather than general advice. I prefer
   straightforward answers without introductory phrases like "Here's how you
