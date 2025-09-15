@@ -1,9 +1,11 @@
+ApplicationController
 Authy
 BGP
 BST
 Blackmagic
 Bundler
 Cascadea
+Cron
 Dependabot
 Dockerfile
 Dockerfiles
@@ -16,6 +18,7 @@ Falsef
 GOBIN
 GOMAXPROCS
 Gemfile
+Graylog
 HAProxy
 HISTFILE
 HISTSIZE
@@ -289,6 +292,7 @@ tweakable
 tzdata
 ubersicht
 ubi
+umask
 unallocate
 unallocates
 unassigns
