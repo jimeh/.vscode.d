@@ -106,6 +106,7 @@ debouncer
 digg
 dired
 direnv
+docker
 dotenv
 edamagit
 ekosystem
