@@ -26,6 +26,7 @@ Hammerspoon
 Hashie
 IANA
 IPv6
+IntelliFlash
 JWKS
 JWT
 JWTs
@@ -42,6 +43,7 @@ Makefile
 Menlo
 MiB
 Myhrberg
+NFS
 OIDC
 OpenVSX
 PB
@@ -68,6 +70,8 @@ Unallocating
 VSCode's
 Xbar's
 ZB
+Zadara
+Zadara's
 ZiB
 actionnav
 aker

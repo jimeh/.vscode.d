@@ -95,6 +95,7 @@ hyprevisors
 iina
 incidentio
 innodb
+Intelli
 iplayer
 istat
 iterm
@@ -249,6 +250,7 @@ xbar
 xero
 xkcd
 yaegi
+Zadara
 zinit
 zmodload
 zoxide
