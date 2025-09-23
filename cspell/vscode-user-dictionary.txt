@@ -244,6 +244,7 @@ valkey
 vcard
 vcards
 vterm
+webmock
 websecure
 weechat
 xbar
