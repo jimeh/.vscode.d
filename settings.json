@@ -164,7 +164,7 @@
   // MARK: Git
   // ===========================================================================
   //
-  "git.blame.editorDecoration.enabled": false,
+  "git.blame.editorDecoration.enabled": true,
   "scm.defaultViewMode": "tree",
   //
   // ===========================================================================
