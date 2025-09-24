@@ -140,6 +140,7 @@ localtime
 magit
 Menlo
 mergiraf
+meshery
 metricks
 minfraud
 mkvtoolnix
