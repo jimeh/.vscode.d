@@ -29,6 +29,10 @@
     "key": "cmd+i",
     "command": "composerMode.agent"
   },
+  { // Toggle Plan.
+    "key": "alt+cmd+i",
+    "command": "composerMode.plan"
+  },
   { // Toggle Ask.
     "key": "cmd+l",
     "command": "composerMode.chat"
