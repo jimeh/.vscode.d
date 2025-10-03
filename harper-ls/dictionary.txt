@@ -1,5 +1,6 @@
 Aker's
 ApplicationController
+Astro
 Authy
 BGP
 BST
@@ -42,6 +43,7 @@ MB
 MITM
 Makefile
 Menlo
+MessagePack
 MiB
 Myhrberg
 NFS
@@ -108,6 +110,7 @@ ctrl
 cyberduck
 davide
 debouncer
+debuggable
 digg
 dired
 direnv
@@ -302,6 +305,7 @@ umask
 unallocate
 unallocates
 unassigns
+unescaped
 unionfs
 upscayl
 valkey
