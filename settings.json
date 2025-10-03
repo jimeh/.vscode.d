@@ -31,11 +31,13 @@
   // MARK: Cursor (Text Editor)
   // ===========================================================================
   //
+  "cursor.agent_layout_browser_beta_setting": true,
   "cursor.aipreview.enabled": true,
   "cursor.composer.usageSummaryDisplay": "always",
   "cursor.cpp.enablePartialAccepts": true,
   "cursor.diffs.useCharacterLevelDiffs": true,
   "cursor.enable_agent_window_setting": true,
+  "cursor.enable_git_worktrees_setting": true,
   "cursor.general.enableShadowWorkspace": true,
   "cursor.terminal.usePreviewBox": true,
   "update.releaseTrack": "prerelease",
@@ -458,7 +460,7 @@
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-containers",
     "editor.insertSpaces": true,
-    "editor.tabSize": 2,
+    "editor.tabSize": 2
   },
   //
   // ===========================================================================
