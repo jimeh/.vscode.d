@@ -6,6 +6,7 @@ BGP
 BST
 Blackmagic
 Bundler
+CRDs
 Cascadea
 Cron
 Dependabot
@@ -16,6 +17,7 @@ Ed25519
 EdDSA
 EiB
 Evernote
+FQDN
 Falsef
 GOBIN
 GOMAXPROCS
@@ -28,6 +30,7 @@ Hammerspoon
 Hashie
 IANA
 IPv6
+IngressRoute
 IntelliFlash
 JWKS
 JWT
@@ -54,12 +57,14 @@ PGID
 PKCE
 PR
 PUID
+PoC
 QUIC
 Redistat
 Resolutionator
 SAVEHIST
 SHA
 SITEFUNS
+SSR
 Subtests
 SwiftBar
 TBD
