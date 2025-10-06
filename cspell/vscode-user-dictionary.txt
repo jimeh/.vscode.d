@@ -48,6 +48,7 @@ emacsclient
 envctl
 errgroup
 Evernote
+Excalidraw
 Falsef
 feedly
 fieldset
@@ -248,6 +249,7 @@ vterm
 webmock
 websecure
 weechat
+worktrees
 xbar
 xero
 xkcd
