@@ -453,10 +453,44 @@
   // MARK: Lang: Dockerfile
   // ===========================================================================
   // Extensions:
-  // - https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker
+  // - https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers
   //
   "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-containers"
+    "editor.defaultFormatter": "ms-azuretools.vscode-containers",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+  },
+  //
+  // ===========================================================================
+  // MARK: Lang: Docker Compose
+  // ===========================================================================
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers
+  // - https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
+  //
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  //
+  // ===========================================================================
+  // MARK: Lang: GitHub Actions Workflow
+  // ===========================================================================
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions
+  // - https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
+  //
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
   },
   //
   // ===========================================================================
@@ -679,10 +713,9 @@
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
-  // - https://marketplace.visualstudio.com/items?itemName=arahata.linter-actionlint
   //
   "redhat.telemetry.enabled": false,
-  "[yaml][github-actions-workflow]": {
+  "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml",
     "editor.tabSize": 2,
     "editor.insertSpaces": true
