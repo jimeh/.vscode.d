@@ -55,6 +55,7 @@ Hideo
 Hidetaka
 HostGator
 IANA
+IPs
 IPv6
 Ibuffer
 Ichigo
@@ -77,6 +78,7 @@ LIGO
 Linuxbrew
 LiveScript
 Loadbalancers
+MADR
 MB
 MITM
 MSAA
@@ -97,6 +99,9 @@ OIDC
 OPENSTEP
 Oculus
 OpenVSX
+P50
+P95
+P99
 PB
 PGID
 PKCE
@@ -112,11 +117,11 @@ Rossum
 SAVEHIST
 SHA
 SITEFUNS
+SSR
 Shigeru
 Shinji
 Speedbar
 Stallman
-SSR
 Subtests
 SwiftBar
 TBD
