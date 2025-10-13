@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Sun Oct 12 17:43:23 BST 2025
+# Generated on Mon Oct 13 10:29:22 BST 2025
 
 alefragnani.project-manager@12.8.0
 anthropic.claude-code@2.0.14
@@ -24,7 +24,7 @@ bierner.markdown-yaml-preamble@0.1.0
 bmarkovic.haproxy@0.1.2
 bodil.file-browser@0.2.11
 britesnow.vscode-toggle-quotes@0.3.6
-bufbuild.vscode-buf@0.7.2
+bufbuild.vscode-buf@0.8.1
 carlos-algms.make-task-provider@2.4.2
 christian-kohler.path-intellisense@2.8.0
 connor4312.esbuild-problem-matchers@0.0.3
@@ -53,7 +53,7 @@ humao.rest-client@0.25.0
 hverlin.mise-vscode@0.56.0
 jakearl.search-editor-apply-changes@0.1.1
 jnoortheen.nix-ide@0.5.0
-joshbolduc.commitlint@2.6.2
+joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.15.1
 kahole.magit@0.6.67
 karunamurti.haml@1.4.1
