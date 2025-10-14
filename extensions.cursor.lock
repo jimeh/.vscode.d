@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Tue Oct 14 10:12:27 BST 2025
+# Generated on Tue Oct 14 12:09:27 BST 2025
 
 alefragnani.project-manager@12.8.0
 anthropic.claude-code@2.0.14
@@ -52,6 +52,7 @@ hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.0
 hverlin.mise-vscode@0.59.0
 jakearl.search-editor-apply-changes@0.1.1
+jimeh.executable-on-save@0.2.0
 jnoortheen.nix-ide@0.5.0
 joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.15.1

@@ -773,10 +773,10 @@
   //
   "emeraldwalk.runonsave": {
     "commands": [
-      { // Automatically chmod +x script files (first two bytes are `#!`).
-        "match": ".*",
-        "cmd": "if [ ! -x \"${file}\" ] && head -n 1 \"${file}\" | grep -q '^#!'; then echo \"Marking ${relativeFile} as executable...\" && chmod +x \"${file}\"; fi"
-      }
+      // { // Automatically chmod +x script files (first two bytes are `#!`).
+      //   "match": ".*",
+      //   "cmd": "if [ ! -x \"${file}\" ] && head -n 1 \"${file}\" | grep -q '^#!'; then echo \"Marking ${relativeFile} as executable...\" && chmod +x \"${file}\"; fi"
+      // }
     ]
   },
   //
