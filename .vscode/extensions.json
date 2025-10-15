@@ -8,7 +8,6 @@
     // Below list is produced by `./siren shared --json`
     "alefragnani.project-manager",
     "anthropic.claude-code",
-    "antiantisepticeye.vscode-color-picker",
     "antyos.openscad",
     "arrterian.nix-env-selector",
     "arturodent.command-alias",
@@ -51,6 +50,7 @@
     "humao.rest-client",
     "hverlin.mise-vscode",
     "jakearl.search-editor-apply-changes",
+    "jimeh.executable-on-save",
     "jnoortheen.nix-ide",
     "joshbolduc.commitlint",
     "joshmu.periscope",
