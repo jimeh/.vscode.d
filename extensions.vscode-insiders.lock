@@ -1,8 +1,8 @@
 # vscode-insiders Extensions
-# Generated on Wed Oct 15 11:58:09 BST 2025
+# Generated on Fri Oct 17 16:24:34 BST 2025
 
 alefragnani.project-manager@12.8.0
-anthropic.claude-code@2.0.15
+anthropic.claude-code@2.0.21
 antyos.openscad@1.3.2
 arrterian.nix-env-selector@1.1.0
 arturodent.command-alias@0.6.2
@@ -28,16 +28,16 @@ dbaeumer.vscode-eslint@3.0.16
 dewski.simplecov@0.0.7
 dnut.rewrap-revived@1.16.3
 editorconfig.editorconfig@0.17.4
-elijah-potter.harper@0.67.0
+elijah-potter.harper@0.68.0
 emeraldwalk.runonsave@0.2.7
 esbenp.prettier-vscode@11.0.0
 exiasr.hadolint@1.1.2
 fogio.inline-go-struct-tags-syntax-highlight@1.0.0
-github.copilot@1.380.1802
-github.copilot-chat@0.33.2025101503
+github.copilot@1.383.1811
+github.copilot-chat@0.33.2025101701
 github.remotehub@0.65.2025081801
 github.vscode-github-actions@0.28.0
-github.vscode-pull-request-github@0.121.2025101404
+github.vscode-pull-request-github@0.121.2025101604
 gofenix.go-lines@0.0.10
 golang.go@0.50.0
 gruntfuggly.todo-tree@0.0.226
@@ -47,13 +47,13 @@ hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.1
 hverlin.mise-vscode@0.59.0
 jakearl.search-editor-apply-changes@0.1.1
-jimeh.executable-on-save@0.2.2
+jimeh.executable-on-save@0.2.4
 jnoortheen.nix-ide@0.5.0
 joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.15.1
 kahole.magit@0.6.67
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.104.0
+kilocode.kilo-code@4.106.0
 koichisasada.vscode-rdbg@0.2.2
 letrieu.expand-region@0.1.4
 llvm-vs-code-extensions.vscode-clangd@0.2.0
@@ -108,7 +108,7 @@ tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
 tuttieee.emacs-mcx@0.91.0
 tyriar.sort-lines@1.12.0
-vadimcn.vscode-lldb@1.11.6
+vadimcn.vscode-lldb@1.11.7
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
 wenhoujx.swiper@2.1.2
 zhuangtongfa.material-theme@3.19.0
