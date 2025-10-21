@@ -682,7 +682,7 @@
   },
   // Ruby LSP
   "rubyLsp.featureFlags": {
-    "fullTestDiscovery": false
+    "fullTestDiscovery": true
   },
   "rubyLsp.rubyVersionManager": {
     "identifier": "auto"
