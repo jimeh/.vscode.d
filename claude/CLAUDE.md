@@ -14,12 +14,15 @@ everything you do.
   etc.
 - When told how to perform certain actions by executing a command, the user
   means for the command to be run from the root of the project. DO NOT attempt
-  to run modify the command to an absolute path, instead just execute the
-  command as instructed.
+  to modify the command to an absolute path, instead just execute the command as
+  instructed. There is no need to change directory into the root of the project,
+  as your commands already run from there.
 - When I ask for a fix or explanation, please provide direct code solutions or
   detailed technical explanations rather than general advice. I prefer
   straightforward answers without introductory phrases like "Here's how you
   can..."
+- When investigating third-party libraries, use deepwiki to lookup information
+  about it if available.
 - Include robust error handling in code examples and highlight potential edge
   cases
 - Flag security concerns and performance impacts in solutions
