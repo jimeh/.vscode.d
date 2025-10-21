@@ -812,6 +812,10 @@
   // MARK: Testing
   // ===========================================================================
   //
+  { // View: Show Testing
+    "key": "ctrl+shift+t",
+    "command": "workbench.view.extension.test"
+  },
   { // Run current file.
     "key": "ctrl+c , v",
     "command": "macros.runTestCurrentFile",
