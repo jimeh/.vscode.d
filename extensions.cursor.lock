@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Tue Oct 21 17:47:17 BST 2025
+# Generated on Tue Oct 21 20:16:30 BST 2025
 
 alefragnani.project-manager@12.8.0
 anthropic.claude-code@2.0.24
@@ -59,7 +59,7 @@ joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.15.1
 kahole.magit@0.6.67
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.108.0
+kilocode.kilo-code@4.109.0
 koichisasada.vscode-rdbg@0.2.1
 letrieu.expand-region@0.1.4
 llvm-vs-code-extensions.vscode-clangd@0.2.0
