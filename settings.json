@@ -66,7 +66,10 @@
   "editor.fontSize": 12,
   //
   // Cursor
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "explicit",
   "editor.cursorSurroundingLines": 5,
+  "editor.cursorWidth": 3,
   //
   // Whitespace
   "editor.renderWhitespace": "boundary",
