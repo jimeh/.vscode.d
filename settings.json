@@ -181,7 +181,7 @@
   //
   "terminal.integrated.allowChords": false,
   "terminal.integrated.automationProfile.osx": {
-    "path": "/opt/homebrew/bin/zsh"
+    "path": "/bin/zsh"
   },
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.macOptionIsMeta": true,
