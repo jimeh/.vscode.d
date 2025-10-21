@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Tue Oct 21 20:16:30 BST 2025
+# Generated on Tue Oct 21 20:22:50 BST 2025
 
 alefragnani.project-manager@12.8.0
 anthropic.claude-code@2.0.24
@@ -41,7 +41,7 @@ emeraldwalk.runonsave@0.3.2
 esbenp.prettier-vscode@11.0.0
 exiasr.hadolint@1.1.2
 fogio.inline-go-struct-tags-syntax-highlight@1.0.0
-github.remotehub@0.65.2025072801
+github.remotehub@0.65.2025081801
 github.vscode-github-actions@0.28.0
 github.vscode-pull-request-github@0.108.0
 gofenix.go-lines@0.0.10
@@ -79,10 +79,10 @@ ms-python.python@2025.6.1
 ms-vscode.cmake-tools@1.21.36
 ms-vscode.extension-test-runner@0.0.12
 ms-vscode.hexeditor@1.11.1
-ms-vscode.remote-repositories@0.43.2025072801
+ms-vscode.remote-repositories@0.43.2025081801
 ms-vscode.test-adapter-converter@0.2.1
 ms-vscode.vscode-speech@0.16.0
-ms-vsliveshare.vsliveshare@1.0.5948
+ms-vsliveshare.vsliveshare@1.0.5959
 openai.chatgpt@0.4.21
 pflannery.vscode-versionlens@1.22.4
 pkief.material-icon-theme@5.27.0
