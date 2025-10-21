@@ -1,5 +1,6 @@
 # Custom VSCode Dictionary Words
 actionnav
+actool
 aker
 amazonses
 Aonuma
@@ -113,6 +114,9 @@ Hitman
 hostnames
 hyprevisors
 Ichigo
+icns
+iconset
+iconutil
 iina
 Ikari
 incidentio
@@ -166,6 +170,7 @@ Linuxbrew
 Loadbalancers
 localtime
 Magento
+magick
 magit
 Menlo
 mergiraf
@@ -300,6 +305,7 @@ websecure
 weechat
 worktrees
 xbar
+xcrun
 xero
 xkcd
 XTSTEP

@@ -60,6 +60,7 @@ IPv6
 Ibuffer
 Ichigo
 Ikari
+ImageMagick
 IngressRoute
 IntelliFlash
 JWKS
@@ -105,6 +106,7 @@ P99
 PB
 PGID
 PKCE
+PNGs
 PR
 PUID
 PoC
@@ -236,6 +238,8 @@ helmfile
 hexedit
 hostnames
 hyprevisors
+icns
+iconset
 iina
 incidentio
 innodb
