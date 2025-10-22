@@ -152,6 +152,10 @@
     "key": "ctrl+x ctrl+;",
     "command": "workbench.action.quickOpen"
   },
+  { // Open recent files.
+    "key": "ctrl+z ctrl+r",
+    "command": "workbench.action.openRecent"
+  },
   //
   // ===========================================================================
   // MARK: File Rename
