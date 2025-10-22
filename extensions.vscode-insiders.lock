@@ -1,11 +1,12 @@
 # vscode-insiders Extensions
-# Generated on Fri Oct 17 16:24:34 BST 2025
+# Generated on Wed Oct 22 10:14:38 BST 2025
 
 alefragnani.project-manager@12.8.0
-anthropic.claude-code@2.0.21
+anthropic.claude-code@2.0.25
 antyos.openscad@1.3.2
 arrterian.nix-env-selector@1.1.0
 arturodent.command-alias@0.6.2
+astro-build.astro-vscode@2.15.4
 bibhasdn.unique-lines@1.0.0
 bierner.github-markdown-preview@0.3.0
 bierner.markdown-checkbox@0.4.0
@@ -21,7 +22,6 @@ bufbuild.vscode-buf@0.8.1
 carlos-algms.make-task-provider@2.5.1
 christian-kohler.path-intellisense@2.10.0
 connor4312.esbuild-problem-matchers@0.0.3
-connorshea.vscode-ruby-test-adapter@0.10.1
 ctf0.macros@1.1.1
 davidanson.vscode-markdownlint@0.60.0
 dbaeumer.vscode-eslint@3.0.16
@@ -33,16 +33,15 @@ emeraldwalk.runonsave@0.2.7
 esbenp.prettier-vscode@11.0.0
 exiasr.hadolint@1.1.2
 fogio.inline-go-struct-tags-syntax-highlight@1.0.0
-github.copilot@1.383.1811
-github.copilot-chat@0.33.2025101701
+github.copilot@1.387.0
+github.copilot-chat@0.33.2025102201
 github.remotehub@0.65.2025081801
 github.vscode-github-actions@0.28.0
-github.vscode-pull-request-github@0.121.2025101604
+github.vscode-pull-request-github@0.121.2025102204
 gofenix.go-lines@0.0.10
 golang.go@0.50.0
 gruntfuggly.todo-tree@0.0.226
 hashicorp.terraform@2.37.5
-hbenl.vscode-test-explorer@2.22.1
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.1
 hverlin.mise-vscode@0.59.0
@@ -53,7 +52,7 @@ joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.15.1
 kahole.magit@0.6.67
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.106.0
+kilocode.kilo-code@4.109.1
 koichisasada.vscode-rdbg@0.2.2
 letrieu.expand-region@0.1.4
 llvm-vs-code-extensions.vscode-clangd@0.2.0
@@ -81,16 +80,16 @@ ms-vscode.extension-test-runner@0.0.12
 ms-vscode.hexeditor@1.11.1
 ms-vscode.remote-explorer@0.6.2025081809
 ms-vscode.remote-repositories@0.43.2025081801
-ms-vscode.remote-server@1.6.2025101309
-ms-vscode.test-adapter-converter@0.2.1
+ms-vscode.remote-server@1.6.2025102109
 ms-vscode.vscode-speech@0.16.0
 ms-vsliveshare.vsliveshare@1.0.5959
-openai.chatgpt@0.4.19
+openai.chatgpt@0.4.21
 pflannery.vscode-versionlens@1.22.4
 pkief.material-icon-theme@5.27.0
 pomdtr.excalidraw-editor@3.9.0
 redhat.vscode-xml@0.29.0
 redhat.vscode-yaml@1.19.1
+repreng.csv@1.2.2
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
 rust-lang.rust-analyzer@0.3.2593
@@ -102,7 +101,6 @@ streetsidesoftware.code-spell-checker@4.2.6
 stuart.unique-window-colors@1.0.51
 sumneko.lua@3.15.0
 svelte.svelte-vscode@109.11.2
-swellaby.vscode-rust-test-adapter@0.11.0
 swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
