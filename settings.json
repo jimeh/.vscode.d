@@ -671,7 +671,6 @@
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=Shopify.ruby-extensions-pack
-  // - https://marketplace.visualstudio.com/items?itemName=connorshea.vscode-ruby-test-adapter
   // - https://marketplace.visualstudio.com/items?itemName=dewski.simplecov
   //
   "[ruby][erb]": {
@@ -690,19 +689,20 @@
   "rubyLsp.rubyVersionManager": {
     "identifier": "auto"
   },
-  // Ruby Test Explorer
-  "rubyTestExplorer.logpanel": false,
-  // Use mise to execute ruby test explorer bundler commands to ensure correct
-  // version of Ruby is used.
-  "rubyTestExplorer.minitestCommand": "mise x -- bundle exec rake",
-  "rubyTestExplorer.rspecCommand": "mise x -- bundle exec rspec",
-  "simplecov-vscode.enabled": false,
   "simplecov.coverageDecorator": {
     "type": "gutter",
     "coveredGutterStyle": "verticalblue",
     "uncoveredGutterStyle": "verticalyellow",
     "uncoveredBranchGutterStyle": "verticalyellow"
   },
+  //
+  // ===========================================================================
+  // MARK: Lang: Rust
+  // ===========================================================================
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer
+  //
+  "rust-analyzer.testExplorer": true,
   //
   // ===========================================================================
   // MARK: Lang: Shellscript

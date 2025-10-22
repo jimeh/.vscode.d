@@ -1,5 +1,5 @@
 # vscode Extensions
-# Generated on Tue Oct 21 21:05:44 BST 2025
+# Generated on Wed Oct 22 07:32:39 BST 2025
 
 alefragnani.project-manager@12.8.0
 anthropic.claude-code@2.0.24
@@ -22,7 +22,6 @@ bufbuild.vscode-buf@0.8.1
 carlos-algms.make-task-provider@2.5.1
 christian-kohler.path-intellisense@2.10.0
 connor4312.esbuild-problem-matchers@0.0.3
-connorshea.vscode-ruby-test-adapter@0.10.1
 ctf0.macros@1.1.1
 davidanson.vscode-markdownlint@0.60.0
 dbaeumer.vscode-eslint@3.0.16
@@ -43,7 +42,6 @@ gofenix.go-lines@0.0.10
 golang.go@0.50.0
 gruntfuggly.todo-tree@0.0.226
 hashicorp.terraform@2.37.5
-hbenl.vscode-test-explorer@2.22.1
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.1
 hverlin.mise-vscode@0.59.0
@@ -83,7 +81,6 @@ ms-vscode.hexeditor@1.11.1
 ms-vscode.remote-explorer@0.5.0
 ms-vscode.remote-repositories@0.42.0
 ms-vscode.remote-server@1.5.3
-ms-vscode.test-adapter-converter@0.2.1
 ms-vscode.vscode-speech@0.16.0
 ms-vsliveshare.vsliveshare@1.0.5959
 openai.chatgpt@0.4.21
@@ -104,7 +101,6 @@ streetsidesoftware.code-spell-checker@4.2.6
 stuart.unique-window-colors@1.0.51
 sumneko.lua@3.15.0
 svelte.svelte-vscode@109.11.2
-swellaby.vscode-rust-test-adapter@0.11.0
 swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
