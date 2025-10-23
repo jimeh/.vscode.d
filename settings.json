@@ -157,6 +157,7 @@
   "files.associations": {
     ".env": "properties",
     ".env.*": "properties",
+    "Procfile.*": "procfile",
     "gitconfig": "gitconfig",
     "gitignore": "gitignore"
   },
