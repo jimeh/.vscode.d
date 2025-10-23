@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Wed Oct 22 10:09:12 BST 2025
+# Generated on Thu Oct 23 14:42:11 BST 2025
 
 alefragnani.project-manager@12.8.0
 anthropic.claude-code@2.0.25
@@ -15,6 +15,7 @@ anysphere.remote-wsl@1.0.11
 arrterian.nix-env-selector@1.1.0
 arturodent.command-alias@0.6.2
 astro-build.astro-vscode@2.15.4
+benspaulding.procfile@1.1.7
 bibhasdn.unique-lines@1.0.0
 bierner.github-markdown-preview@0.3.0
 bierner.markdown-checkbox@0.4.0
@@ -81,6 +82,7 @@ ms-vscode.hexeditor@1.11.1
 ms-vscode.remote-repositories@0.43.2025081801
 ms-vscode.vscode-speech@0.16.0
 ms-vsliveshare.vsliveshare@1.0.5959
+ninoseki.vscode-mogami@0.1.6
 openai.chatgpt@0.4.21
 pflannery.vscode-versionlens@1.22.4
 pkief.material-icon-theme@5.27.0
