@@ -159,7 +159,8 @@
     ".env.*": "properties",
     "Procfile.*": "procfile",
     "gitconfig": "gitconfig",
-    "gitignore": "gitignore"
+    "gitignore": "gitignore",
+    "*.gemfile": "ruby"
   },
   //
   // Encoding
