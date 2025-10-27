@@ -175,6 +175,12 @@
   "files.readonlyFromPermissions": true,
   //
   // ===========================================================================
+  // MARK: Testing
+  // ===========================================================================
+  //
+  "testing.coverageToolbarEnabled": true,
+  //
+  // ===========================================================================
   // MARK: Git
   // ===========================================================================
   //
@@ -614,12 +620,15 @@
   // ===========================================================================
   // MARK: Lang: TypeScript
   // ===========================================================================
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest
   //
   "[typescript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.insertSpaces": true,
     "editor.tabSize": 2
   },
+  "jest.coverageFormatter": "GutterFormatter",
   //
   // ===========================================================================
   // MARK: Lang: Lua
@@ -672,6 +681,10 @@
     },
     "blanks-around-fences": { // MD031
       "list_items": false
+    },
+    "line-length": { // MD013
+      "line_length": 80,
+      "tables": false
     }
   },
   //
