@@ -526,7 +526,8 @@
   // - https://marketplace.visualstudio.com/items?itemName=gofenix.go-lines
   //
   "[go]": {
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "golang.go"
   },
   "go-lines.lineLength": 120,
   "go.coverageDecorator": {
