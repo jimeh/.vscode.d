@@ -206,6 +206,7 @@ OPENSTEP
 opentofu
 openvsx
 Orbstack
+otelprom
 pagy
 pandoc
 passhash
@@ -218,6 +219,7 @@ powify
 preprod
 println
 Procfile
+promhttp
 propshaft
 protoc
 PUID

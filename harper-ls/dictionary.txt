@@ -1,3 +1,4 @@
+AbcSize
 Aker's
 Aonuma
 ApplicationController
@@ -8,16 +9,19 @@ BST
 BeOS
 BioShock
 Blackmagic
+BlockLength
 Bowser
 Bundler
 CD
 CRDs
 Cascadea
 Castlevania
+ClassLength
 CommandError
 Cron
 Crysis
 Cumberbatch
+CyclomaticComplexity
 DOCX
 Dependabot
 Dockerfile
