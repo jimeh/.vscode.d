@@ -267,6 +267,8 @@ katalet
 katapult
 katapultobjects
 keybase
+keybinding
+keybindings
 keymap
 keypair
 khvagent
