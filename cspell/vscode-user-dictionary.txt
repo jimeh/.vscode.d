@@ -74,6 +74,7 @@ funlen
 Gedit
 gelf
 ghostty
+gitops
 gitx
 gluetun
 goarch
