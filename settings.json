@@ -184,7 +184,11 @@
   // MARK: Git
   // ===========================================================================
   //
+  "git.autoStash": true,
   "git.blame.editorDecoration.enabled": false,
+  "git.detectSubmodules": true,
+  "git.fetchOnPull": true,
+  "git.timeline.showUncommitted": true,
   "scm.defaultViewMode": "tree",
   //
   // ===========================================================================
