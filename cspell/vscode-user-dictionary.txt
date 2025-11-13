@@ -6,6 +6,7 @@ amazonses
 Aonuma
 atech
 atechmedia
+atuin
 authie
 Authy
 automator

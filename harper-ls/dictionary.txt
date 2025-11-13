@@ -169,6 +169,7 @@ amazonses
 args
 asdf
 atech
+atuin
 authie
 automator
 axe
