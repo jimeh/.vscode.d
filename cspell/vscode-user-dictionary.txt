@@ -226,6 +226,7 @@ protoc
 PUID
 QUIC
 Quiksilver
+Rackup
 rbheap
 rclone
 redcarpet
