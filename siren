@@ -1166,9 +1166,24 @@ do_dump_extensions() {
   local extensions_lock
   extensions_lock="$(get_extensions_lock)"
 
+  # Capture editor version information
+  local version_output
+  local editor_version=""
+  local editor_commit=""
+  local editor_arch=""
+
+  if version_output=$("${editor_cmd}" --version 2> /dev/null); then
+    editor_version=$(echo "${version_output}" | sed -n '1p' | tr -d '\r')
+    editor_commit=$(echo "${version_output}" | sed -n '2p' | tr -d '\r')
+    editor_arch=$(echo "${version_output}" | sed -n '3p' | tr -d '\r')
+  fi
+
   {
     echo "# ${SETUP_EDITOR} Extensions"
     echo "# Generated on ${current_date}"
+    if [[ -n "${editor_version}" && -n "${editor_commit}" && -n "${editor_arch}" ]]; then
+      echo "# Version: ${editor_version} (${editor_commit}, ${editor_arch})"
+    fi
     echo
     "${editor_cmd}" --list-extensions --show-versions 2> /dev/null |
       strip_ansi_sequences |
