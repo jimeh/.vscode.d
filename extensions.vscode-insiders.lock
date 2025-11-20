@@ -1,10 +1,10 @@
 # vscode-insiders Extensions
-# Generated on Mon Nov 17 10:35:03 GMT 2025
-# Version: 1.107.0-insider (7ba6cc6685504e207bf21dcefde21eb300cfa132, arm64)
+# Generated on Thu Nov 20 01:18:34 GMT 2025
+# Version: 1.107.20251119008-insider (570f7da3b52bde576d6bba5f71cb44ddda1460a8, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@12.8.0
-anthropic.claude-code@2.0.42
+anthropic.claude-code@2.0.47
 antyos.openscad@1.3.2
 arrterian.nix-env-selector@1.1.0
 arturodent.command-alias@0.6.2
@@ -37,10 +37,10 @@ esbenp.prettier-vscode@11.0.0
 exiasr.hadolint@1.1.2
 fogio.inline-go-struct-tags-syntax-highlight@1.0.0
 github.copilot@1.388.0
-github.copilot-chat@0.34.2025111702
+github.copilot-chat@0.34.2025111901
 github.remotehub@0.65.2025081801
 github.vscode-github-actions@0.28.0
-github.vscode-pull-request-github@0.123.2025111704
+github.vscode-pull-request-github@0.123.2025111904
 gofenix.go-lines@0.0.10
 golang.go@0.51.1
 gruntfuggly.todo-tree@0.0.226
@@ -55,7 +55,7 @@ joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.15.1
 kahole.magit@0.6.67
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.119.5
+kilocode.kilo-code@4.121.0
 koichisasada.vscode-rdbg@0.2.2
 letrieu.expand-region@0.1.4
 llvm-vs-code-extensions.vscode-clangd@0.3.2
@@ -71,11 +71,11 @@ ms-azuretools.vscode-containers@2.3.0
 ms-dotnettools.vscode-dotnet-runtime@2.3.9
 ms-kubernetes-tools.vscode-kubernetes-tools@1.3.26
 ms-python.debugpy@2025.16.0
-ms-python.python@2025.19.2025111301
+ms-python.python@2025.19.2025111801
 ms-python.vscode-pylance@2025.9.1
-ms-python.vscode-python-envs@1.13.13171012
+ms-python.vscode-python-envs@1.13.13221014
 ms-vscode-remote.remote-containers@0.433.0
-ms-vscode-remote.remote-ssh@0.122.2025111415
+ms-vscode-remote.remote-ssh@0.122.2025111815
 ms-vscode-remote.remote-ssh-edit@0.87.0
 ms-vscode.azure-repos@0.41.2025081801
 ms-vscode.cmake-tools@1.22.16
@@ -87,17 +87,17 @@ ms-vscode.remote-server@1.6.2025102109
 ms-vscode.vscode-speech@0.16.0
 ms-vsliveshare.vsliveshare@1.0.5959
 ninoseki.vscode-mogami@0.1.6
-openai.chatgpt@0.5.43
+openai.chatgpt@0.5.45
 orta.vscode-jest@6.4.4
 pflannery.vscode-versionlens@1.22.4
 pkief.material-icon-theme@5.28.0
 pomdtr.excalidraw-editor@3.9.0
-redhat.vscode-xml@0.29.2025111108
-redhat.vscode-yaml@1.20.2025101508
+redhat.vscode-xml@0.29.2025111908
+redhat.vscode-yaml@1.20.2025111908
 repreng.csv@1.2.2
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
-rust-lang.rust-analyzer@0.4.2682
+rust-lang.rust-analyzer@0.4.2688
 shopify.ruby-extensions-pack@0.1.13
 shopify.ruby-lsp@0.9.32
 sidneys1.gitconfig@2.0.1
