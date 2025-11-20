@@ -6,6 +6,7 @@
     // Allows for use of settings.shared.json and settings.local.json.
     "swellaby.workspace-config-plus",
     // Below list is produced by `./siren shared --json`
+    "ahmadalli.vscode-nginx-conf",
     "alefragnani.project-manager",
     "anthropic.claude-code",
     "antyos.openscad",
