@@ -31,6 +31,7 @@ Dockerfiles
 DualShock
 EB
 ENIAC
+ERB
 Ed25519
 EdDSA
 EiB
@@ -270,6 +271,7 @@ haml
 hati
 haxelib
 healthcheck
+healthz
 helmfile
 hexedit
 hostnames
@@ -312,6 +314,7 @@ kubectx
 kubelogin
 kubens
 kubetail
+kwargs
 langserver
 ldflags
 letsencrypt

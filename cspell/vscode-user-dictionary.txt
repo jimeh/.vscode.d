@@ -109,6 +109,7 @@ hati
 Havaianas
 haxelib
 healthcheck
+healthz
 helmfile
 hexedit
 Hideo
@@ -161,6 +162,7 @@ kubelogin
 kubens
 kubetail
 Kurosaki
+kwargs
 langserver
 ldflags
 letsencrypt
