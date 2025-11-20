@@ -5,10 +5,11 @@ repository.
 
 ## Project Overview
 
-This is a personal VSCode configuration repository (vscode-siren) that provides
-a unified configuration for VSCode-based editors including Cursor, VSCode,
-VSCode Insiders, and Windsurf. It focuses on recreating an Emacs-like text
-editor experience with custom keybindings, settings, and extensions.
+This is a personal VSCode configuration repository (vscode-siren) that
+provides a unified configuration for VSCode-based editors including Cursor,
+VSCode, VSCode Insiders, Windsurf, and Antigravity. It focuses on recreating
+an Emacs-like text editor experience with custom keybindings, settings, and
+extensions.
 
 ## Key Commands
 
@@ -28,6 +29,7 @@ editor experience with custom keybindings, settings, and extensions.
 
 ### Supported Editors
 
+- `antigravity` (agy, a) - Antigravity editor (VSCode-compatible, prefers OpenVSX)
 - `cursor` (c) - Cursor editor
 - `vscode` (code, vsc, v) - Visual Studio Code
 - `vscode-insiders` (vsci, i) - Visual Studio Code Insiders

@@ -1,5 +1,17 @@
 # List of supported editors
-EDITORS := cursor vscode vscode-insiders windsurf
+EDITORS := antigravity cursor vscode vscode-insiders windsurf
+
+.PHONY: antigravity-config
+antigravity-config:
+	./siren antigravity config
+
+.PHONY: antigravity-extensions
+antigravity-extensions:
+	./siren antigravity extensions
+
+.PHONY: antigravity-dump-extensions
+antigravity-dump-extensions:
+	./siren antigravity dump-extensions
 
 .PHONY: cursor-config
 cursor-config:

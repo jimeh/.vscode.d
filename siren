@@ -63,6 +63,7 @@ Usage:
   $(basename "$0") shared-extensions [--json] [EDITORS...]
 
 Editors:
+  antigravity, agy, a         Antigravity editor (prefers OpenVSX)
   cursor, c                   Cursor editor
   kiro, k                     Kiro editor (uses OpenVSX by default)
   vscode, code, vsc, v        Visual Studio Code
@@ -153,8 +154,14 @@ normalize_editor_name() {
   local name
   name="$(echo "${1:-}" | tr '[:upper:]' '[:lower:]')"
   case "${name}" in
+    antigravity | agy | a)
+      echo "antigravity"
+      ;;
     cursor | c)
       echo "cursor"
+      ;;
+    kiro | k)
+      echo "kiro"
       ;;
     vscode | code | vsc | v)
       echo "vscode"
@@ -164,9 +171,6 @@ normalize_editor_name() {
       ;;
     windsurf | wind | surf | w)
       echo "windsurf"
-      ;;
-    kiro | k)
-      echo "kiro"
       ;;
     *)
       echo ""
@@ -255,8 +259,14 @@ editor_config_dir() {
   case "$(uname -s)" in
     "Darwin")
       case "${SETUP_EDITOR}" in
+        "antigravity")
+          echo "${HOME}/Library/Application Support/Antigravity/User"
+          ;;
         "cursor")
           echo "${HOME}/Library/Application Support/Cursor/User"
+          ;;
+        "kiro")
+          echo "${HOME}/Library/Application Support/Kiro/User"
           ;;
         "vscode")
           echo "${HOME}/Library/Application Support/Code/User"
@@ -267,9 +277,6 @@ editor_config_dir() {
         "windsurf")
           echo "${HOME}/Library/Application Support/Windsurf/User"
           ;;
-        "kiro")
-          echo "${HOME}/Library/Application Support/Kiro/User"
-          ;;
         *)
           fatal "Invalid editor '${SETUP_EDITOR}' for macOS"
           ;;
@@ -277,8 +284,14 @@ editor_config_dir() {
       ;;
     "Linux")
       case "${SETUP_EDITOR}" in
+        "antigravity")
+          echo "${HOME}/.config/Antigravity/User"
+          ;;
         "cursor")
           echo "${HOME}/.config/Cursor/User"
+          ;;
+        "kiro")
+          echo "${HOME}/.config/Kiro/User"
           ;;
         "vscode")
           echo "${HOME}/.config/Code/User"
@@ -288,9 +301,6 @@ editor_config_dir() {
           ;;
         "windsurf")
           echo "${HOME}/.config/Windsurf/User"
-          ;;
-        "kiro")
-          echo "${HOME}/.config/Kiro/User"
           ;;
         *)
           fatal "Invalid editor '${SETUP_EDITOR}' for Linux"
@@ -446,11 +456,12 @@ find_editor_cmd() {
   local -A editor_paths
 
   # Define editor command names and their possible locations.
+  _add_editor_paths "antigravity" "agy" "Antigravity.app"
   _add_editor_paths "cursor" "cursor" "Cursor.app"
+  _add_editor_paths "kiro" "kiro" "Kiro.app"
   _add_editor_paths "vscode" "code" "Visual Studio Code.app"
   _add_editor_paths "vscode-insiders" "code-insiders" "Visual Studio Code - Insiders.app"
   _add_editor_paths "windsurf" "windsurf" "Windsurf.app"
-  _add_editor_paths "kiro" "kiro" "Kiro.app"
 
   if [[ -z "${editor_paths[${SETUP_EDITOR}]}" ]]; then
     fatal "Invalid editor '${SETUP_EDITOR}'"
@@ -1428,8 +1439,9 @@ main() {
     exit 1
   fi
 
-  # Set PREFER_OPENVSX to true for Kiro.
-  if [[ "${SETUP_EDITOR}" == "kiro" ]]; then
+  # Set PREFER_OPENVSX to true for editors that prefer OpenVSX.
+  if [[ "${SETUP_EDITOR}" == "kiro" ||
+    "${SETUP_EDITOR}" == "antigravity" ]]; then
     PREFER_OPENVSX="true"
   fi
 
