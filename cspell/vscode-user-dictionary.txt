@@ -31,6 +31,7 @@ clipcopy
 clippaste
 codeium
 commonmarker
+compinit
 conntrack
 coreutils
 covermode
@@ -112,6 +113,8 @@ helmfile
 hexedit
 Hideo
 Hidetaka
+HISTFILE
+HISTSIZE
 Hitman
 hostnames
 hyprevisors
@@ -171,6 +174,7 @@ LIGO
 Linuxbrew
 Loadbalancers
 localtime
+MADR
 Magento
 magick
 magit
@@ -200,6 +204,7 @@ nodenv
 nokogiri
 nolint
 NTFS
+nvmrc
 Ollama
 omniauth
 onepassword
@@ -302,6 +307,7 @@ upscayl
 valkey
 vcard
 vcards
+VPSA
 vterm
 Waluigi
 Wario

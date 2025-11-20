@@ -25,6 +25,7 @@ Cumberbatch
 CyclomaticComplexity
 DOCX
 Dependabot
+Docker
 Dockerfile
 Dockerfiles
 DualShock
@@ -57,6 +58,7 @@ HAProxy
 HISTFILE
 HISTSIZE
 Hammerspoon
+Harper
 Hashie
 Havaianas
 Hideo
@@ -85,11 +87,14 @@ Kojima
 Koopas
 Kurosaki
 LIGO
+LSP
+Linux
 Linuxbrew
 LiveScript
 Loadbalancers
 MADR
 MB
+MCP
 MITM
 MSAA
 Magento
@@ -122,6 +127,7 @@ Procfile
 QUIC
 Quiksilver
 ROM
+RPC
 RSpec
 Rackup
 Redistat
@@ -131,6 +137,7 @@ RuntimeError
 SAVEHIST
 SHA
 SITEFUNS
+SSL
 SSR
 Shigeru
 Shinji
@@ -141,6 +148,7 @@ SwiftBar's
 TBD
 TESTARGS
 TMPDIR
+TOML
 TOOLDIR
 TiB
 Traefik's
@@ -171,6 +179,7 @@ args
 arm64
 asdf
 atech
+atechmedia
 atuin
 authie
 automator
@@ -213,7 +222,6 @@ digg
 dir
 dired
 direnv
-docker
 dotenv
 edamagit
 ekosystem
@@ -259,7 +267,6 @@ gosec
 govulncheck
 guids
 haml
-harper
 hati
 haxelib
 healthcheck
@@ -315,15 +322,12 @@ libvirt
 libvterm
 libyaml
 licecap
-linux
 localtime
 lockfile
-lsp
 mTLS
 magick
 magit
 maxWait
-mcp
 mergiraf
 meshery
 metricks
@@ -381,7 +385,6 @@ rgba
 rmrf
 rollouts
 romdo
-rpc
 rubocop
 rubygems
 runtimes
@@ -403,7 +406,6 @@ solargraph
 srv
 sshake
 sshkey
-ssl
 staticcheck
 stderr
 stdout
@@ -420,7 +422,6 @@ tmdb
 tmpl
 tmux
 tmuxifier
-toml
 traefik
 trimpath
 triskaidekaphobia
