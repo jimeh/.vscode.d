@@ -168,6 +168,7 @@ aker
 amazonses
 antigravity
 args
+arm64
 asdf
 atech
 atuin
