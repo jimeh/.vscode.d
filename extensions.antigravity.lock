@@ -1,10 +1,10 @@
 # antigravity Extensions
-# Generated on Thu Nov 20 00:57:22 GMT 2025
-# Version: 1.104.0 (379750caac7172d89d256835378d03e766682227, arm64)
+# Generated on Sun Nov 23 12:09:55 GMT 2025
+# Version: 1.104.0 (afdb915a7890576374cec17dccf6d91249170a86, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@12.8.0
-anthropic.claude-code@2.0.47
+anthropic.claude-code@2.0.50
 antyos.openscad@1.3.2
 arrterian.nix-env-selector@1.1.0
 arturodent.command-alias@0.6.2
@@ -40,7 +40,7 @@ github.remotehub@0.65.2025081801
 github.vscode-github-actions@0.28.0
 github.vscode-pull-request-github@0.118.2
 gofenix.go-lines@0.0.10
-golang.go@0.51.1
+golang.go@0.50.0
 gruntfuggly.todo-tree@0.0.215
 hashicorp.terraform@2.37.5
 hoovercj.vscode-settings-cycler@1.0.1
@@ -53,7 +53,7 @@ joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.15.1
 kahole.magit@0.6.67
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.121.0
+kilocode.kilo-code@4.121.2
 koichisasada.vscode-rdbg@0.2.1
 letrieu.expand-region@0.1.4
 llvm-vs-code-extensions.vscode-clangd@0.2.0
@@ -62,7 +62,7 @@ mads-hartmann.bash-ide-vscode@1.43.0
 matthewpi.caddyfile-support@0.4.0
 mattn.lisp@0.1.12
 mermaidchart.vscode-mermaid-chart@2.3.0
-meta.pyrefly@0.42.2
+meta.pyrefly@0.42.3
 mhutchie.git-graph@1.30.0
 mkhl.direnv@0.17.0
 mrmlnc.vscode-duplicate@1.2.1
@@ -79,10 +79,10 @@ ms-vscode.remote-repositories@0.43.2025081801
 ms-vscode.vscode-speech@0.16.0
 ms-vsliveshare.vsliveshare@1.0.5959
 ninoseki.vscode-mogami@0.1.6
-openai.chatgpt@0.4.44
+openai.chatgpt@0.4.46
 orta.vscode-jest@6.4.4
 pflannery.vscode-versionlens@1.22.4
-pkief.material-icon-theme@5.28.0
+pkief.material-icon-theme@5.29.0
 pomdtr.excalidraw-editor@3.9.0
 redhat.java@1.49.0
 redhat.vscode-xml@0.29.0
