@@ -590,12 +590,7 @@
   //
   "[json][jsonc]": {
     "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
+    "editor.tabSize": 2,
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "json.schemas": [
