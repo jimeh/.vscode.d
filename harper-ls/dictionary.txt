@@ -425,6 +425,7 @@ tmdb
 tmpl
 tmux
 tmuxifier
+tmuxifier's
 traefik
 trimpath
 triskaidekaphobia

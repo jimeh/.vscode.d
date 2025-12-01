@@ -10,6 +10,7 @@ atuin
 authie
 Authy
 automator
+bashunit
 bbedit
 bioluminescent
 Blackmagic
@@ -63,6 +64,7 @@ envctl
 errgroup
 Evernote
 Excalidraw
+extglob
 Falsef
 feedly
 fieldset
@@ -282,6 +284,7 @@ swiftbar
 tailscale
 talosctl
 taplo
+tcsh
 teamspeak
 tesseract
 TESTARGS
@@ -300,6 +303,7 @@ trunc
 tweakable
 tzdata
 ubersicht
+unaliased
 unallocate
 unallocates
 Unallocating
