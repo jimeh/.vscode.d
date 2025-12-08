@@ -313,6 +313,7 @@ upscayl
 valkey
 vcard
 vcards
+vitest
 VPSA
 vterm
 Waluigi
