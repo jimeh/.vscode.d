@@ -1,19 +1,19 @@
 # cursor Extensions
-# Generated on Sun Nov 23 12:01:57 GMT 2025
-# Version: 2.1.25 (7584ea888f7eb7bf76c9873a8f71b28f034a9820, arm64)
+# Generated on Mon Dec  8 11:22:17 GMT 2025
+# Version: 2.1.50 (56f0a83df8e9eb48585fcc4858a9440db4cc7770, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@12.8.0
-anthropic.claude-code@2.0.50
+anthropic.claude-code@2.0.61
 antiantisepticeye.vscode-color-picker@0.0.4
 antyos.openscad@1.3.2
 anysphere.cpptools@2.0.2
 anysphere.csharp@1.0.1
 anysphere.cursor-lsp-profiler@1.0.0
 anysphere.cursorpyright@1.0.10
-anysphere.remote-containers@1.0.27
-anysphere.remote-ssh@1.0.34
-anysphere.remote-wsl@1.0.11
+anysphere.remote-containers@1.0.29
+anysphere.remote-ssh@1.0.35
+anysphere.remote-wsl@1.0.12
 arrterian.nix-env-selector@1.1.0
 arturodent.command-alias@0.6.2
 astro-build.astro-vscode@2.15.4
@@ -39,9 +39,9 @@ dbaeumer.vscode-eslint@3.0.16
 deerawan.vscode-faker@2.0.0
 dnut.rewrap-revived@1.16.3
 editorconfig.editorconfig@0.17.4
-elijah-potter.harper@0.72.0
+elijah-potter.harper@1.1.0
 emeraldwalk.runonsave@0.3.2
-esbenp.prettier-vscode@11.0.0
+esbenp.prettier-vscode@11.0.2
 exiasr.hadolint@1.1.2
 fogio.inline-go-struct-tags-syntax-highlight@1.0.0
 github.remotehub@0.65.2025081801
@@ -50,7 +50,7 @@ github.vscode-pull-request-github@0.120.2
 gofenix.go-lines@0.0.10
 golang.go@0.51.1
 gruntfuggly.todo-tree@0.0.215
-hashicorp.terraform@2.37.5
+hashicorp.terraform@2.37.6
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.0
 hverlin.mise-vscode@1.2.0
@@ -61,7 +61,7 @@ joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.15.1
 kahole.magit@0.6.67
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.121.2
+kilocode.kilo-code@4.130.1
 koichisasada.vscode-rdbg@0.2.1
 letrieu.expand-region@0.1.4
 llvm-vs-code-extensions.vscode-clangd@0.2.0
@@ -85,7 +85,7 @@ ms-vscode.remote-repositories@0.43.2025081801
 ms-vscode.vscode-speech@0.16.0
 ms-vsliveshare.vsliveshare@1.0.5959
 ninoseki.vscode-mogami@0.1.6
-openai.chatgpt@0.4.46
+openai.chatgpt@0.4.49
 orta.vscode-jest@6.4.4
 pflannery.vscode-versionlens@1.22.4
 pkief.material-icon-theme@5.29.0
@@ -95,22 +95,24 @@ redhat.vscode-yaml@1.19.1
 repreng.csv@1.2.2
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
-rust-lang.rust-analyzer@0.3.2683
+runem.lit-plugin@1.2.1
+rust-lang.rust-analyzer@0.3.2702
 shopify.ruby-extensions-pack@0.1.13
 shopify.ruby-lsp@0.9.32
 sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.46
 streetsidesoftware.code-spell-checker@4.3.2
 stuart.unique-window-colors@1.0.51
-sumneko.lua@3.15.0
+sumneko.lua@3.16.1
 svelte.svelte-vscode@109.12.0
 swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
 tuttieee.emacs-mcx@0.93.0
 tyriar.sort-lines@1.9.1
-vadimcn.vscode-lldb@1.11.8
+vadimcn.vscode-lldb@1.12.0
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
+vitest.explorer@1.36.0
 wenhoujx.swiper@2.1.2
 zhuangtongfa.material-theme@3.19.0
 ziyasal.vscode-open-in-github@1.3.6
