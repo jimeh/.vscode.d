@@ -55,7 +55,8 @@
     "**/*.p12",
     "**/*.pem",
     "**/*.pfx",
-    "**/.ansible/tmp/**",
+    "**/*.prv",
+    "**/.ansible/tmp/**", // Does not work.
     "**/.cursor/mcp.json",
     "**/.env",
     "**/.env*",
@@ -67,7 +68,8 @@
     "**/secret.json",
     "**/secret.yaml",
     "**/secrets.json",
-    "**/secrets.yaml"
+    "**/secrets.yaml",
+    "**/tmp*" // Covers ansible-vault temp files.
   ],
   "cursor.terminal.usePreviewBox": true,
   "update.releaseTrack": "prerelease",
