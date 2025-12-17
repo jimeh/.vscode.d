@@ -1,6 +1,6 @@
 # cursor Extensions
-# Generated on Sat Dec 13 18:08:01 GMT 2025
-# Version: 2.2.20 (b3573281c4775bfc6bba466bf6563d3d498d1070, arm64)
+# Generated on Wed Dec 17 21:55:00 GMT 2025
+# Version: 2.2.30 (6b030be1a256f7464cbd98e48627a802a4831bf0, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@12.8.0
@@ -24,7 +24,7 @@ bierner.markdown-checkbox@0.4.0
 bierner.markdown-emoji@0.3.1
 bierner.markdown-footnotes@0.1.1
 bierner.markdown-mermaid@1.29.0
-bierner.markdown-preview-github-styles@0.1.6
+bierner.markdown-preview-github-styles@2.2.0
 bierner.markdown-yaml-preamble@0.1.0
 bmarkovic.haproxy@0.1.2
 bodil.file-browser@0.2.11

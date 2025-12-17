@@ -16,6 +16,7 @@
   //
   // One Dark Pro theme settings
   "oneDarkPro.vivid": true,
+  "oneDarkPro.markdownStyle": false,
   //
   // ===========================================================================
   // MARK: Extensions
@@ -697,6 +698,7 @@
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
+  // - https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles
   //
   "[markdown]": {
     "editor.tabSize": 4,
@@ -704,6 +706,7 @@
     "editor.detectIndentation": false,
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
+  "markdown-preview-github-styles.darkTheme": "dark_dimmed",
   "markdownlint.configFile": "~/.markdownlint.yaml",
   "markdownlint.config": {
     "no-hard-tabs": { // MD010
