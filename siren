@@ -44,9 +44,19 @@ define_settings() {
   STATIC_SYMLINKS["harper-ls/file_dictionaries"]="$(harper_config_dir)/file_dictionaries"
   STATIC_SYMLINKS["harper-ls/ignored_lints"]="$(harper_config_dir)/ignored_lints"
 
-  # Conditionally add `mcp.json` for Cursor.
+  # Conditionally add symlinks for Cursor.
   if [[ "${SETUP_EDITOR}" == "cursor" ]]; then
     STATIC_SYMLINKS["cursor/mcp.json"]="${HOME}/.cursor/mcp.json"
+
+    # Symlink all markdown files from cursor/commands/ to ~/.cursor/commands/
+    local cmd_file
+    for cmd_file in "${SCRIPT_DIR}/cursor/commands/"*.md; do
+      if [[ -f "${cmd_file}" ]]; then
+        local filename
+        filename="$(basename "${cmd_file}")"
+        STATIC_SYMLINKS["cursor/commands/${filename}"]="${HOME}/.cursor/commands/${filename}"
+      fi
+    done
   fi
 }
 
@@ -417,6 +427,42 @@ symlink_static_config() {
   for source in "${!STATIC_SYMLINKS[@]}"; do
     target="${STATIC_SYMLINKS[${source}]}"
     backup_and_link "${SCRIPT_DIR}/${source}" "${target}"
+  done
+}
+
+# Private function: Remove stale symlinks in ~/.cursor/commands that point to
+# files in cursor/commands/ that no longer exist.
+cleanup_stale_cursor_commands() {
+  local cursor_commands_dir="${HOME}/.cursor/commands"
+  local source_commands_dir="${SCRIPT_DIR}/cursor/commands"
+
+  # Skip if the target directory doesn't exist.
+  if [[ ! -d "${cursor_commands_dir}" ]]; then
+    return
+  fi
+
+  local link
+  for link in "${cursor_commands_dir}"/*; do
+    # Skip if glob didn't match anything (returns literal pattern).
+    [[ -e "${link}" || -L "${link}" ]] || continue
+
+    # Skip if not a symlink.
+    if [[ ! -L "${link}" ]]; then
+      continue
+    fi
+
+    # Get the symlink target.
+    local target
+    target="$(readlink "${link}")"
+
+    # Check if the symlink points to our source directory.
+    if [[ "${target}" == "${source_commands_dir}/"* ]]; then
+      # If the target file no longer exists, remove the symlink.
+      if [[ ! -e "${target}" ]]; then
+        info "Removing stale symlink: ${link}"
+        rm -f "${link}"
+      fi
+    fi
   done
 }
 
@@ -1131,8 +1177,9 @@ install_extension() {
   fi
 
   # Try direct installation first; fall back to downloading `*.vsix` if needed.
-  if ! install_extension_direct "${editor_cmd}" "${extension}" \
-    "${target_version}" "${force_install}"; then
+  if [ -n "$FORCE_DOWNLOAD_VSX" ] ||
+    ! install_extension_direct "${editor_cmd}" "${extension}" \
+      "${target_version}" "${force_install}"; then
 
     local latest_version
     if [[ "${use_latest}" != "false" ]]; then
@@ -1214,6 +1261,12 @@ do_static_config() {
 do_config() {
   symlink_editor_config
   symlink_static_config
+
+  # Clean up stale symlinks for Cursor commands.
+  if [[ "${SETUP_EDITOR}" == "cursor" ]]; then
+    cleanup_stale_cursor_commands
+  fi
+
   info "Symlink setup complete!"
 }
 
