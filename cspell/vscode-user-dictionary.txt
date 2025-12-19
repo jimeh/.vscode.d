@@ -322,6 +322,7 @@ Wario
 webmock
 websecure
 weechat
+WHMCS
 worktrees
 xbar
 xcrun

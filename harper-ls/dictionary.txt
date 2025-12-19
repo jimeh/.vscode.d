@@ -1,4 +1,7 @@
 AbcSize
+ActionCable
+ActionController
+ActiveRecord
 Aker's
 Aonuma
 ApplicationController
@@ -19,6 +22,7 @@ Cascadea
 Castlevania
 ClassLength
 CommandError
+ControllerDelegate
 Cron
 Crysis
 Cumberbatch
@@ -124,6 +128,7 @@ PNGs
 PR
 PUID
 PoC
+PredicateMethod
 Procfile
 QUIC
 Quiksilver
@@ -159,6 +164,7 @@ Unallocating
 VPS
 VPSA
 VSCode's
+WHMCS
 Waluigi
 Wario
 WaveBird
