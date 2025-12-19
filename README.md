@@ -46,30 +46,44 @@ extensions via lock files.
 ```
 
 ```
-Usage: siren EDITOR COMMAND [OPTIONS]
+Usage:
+  siren EDITOR COMMAND [OPTIONS]
+  siren COMMAND EDITOR [OPTIONS]
+  siren config
+  siren shared-extensions [--json] [EDITORS...]
 
 Editors:
+  antigravity, agy, a         Antigravity editor (prefers OpenVSX)
   cursor, c                   Cursor editor
   kiro, k                     Kiro editor (uses OpenVSX by default)
-  antigravity, agy            Antigravity editor (prefers OpenVSX)
   vscode, code, vsc, v        Visual Studio Code
   vscode-insiders, vsci, i    Visual Studio Code Insiders
   windsurf, surf, w           Windsurf editor
 
 Commands:
-  config, conf             Create symlinks for editor config files
-  dump-extensions, dump    Export installed editor extensions to a lock file.
-  extensions, ext          Install editor extensions from a lock file.
+  config, conf             Create symlinks.
+                           With editor: full editor + static config.
+                           Without editor: static-only symlinks.
+  dump-extensions, dump    Export installed extensions to lock file
+                           for the specified editor.
+  extensions, ext          Install extensions from lock file for the
+                           specified editor.
+  install                  Install a specific extension id for the
+                           specified editor (e.g. ms-python.python).
+  shared-extensions, shared
+                           Print extensions present in all specified editors.
+                           Defaults: cursor, vscode. Use --json for JSON.
 
 Options:
-  --latest                 When used with the extensions command, installs the
-                           latest version of each extension instead of the
-                           exact version from the lock file.
+  --latest                 With 'extensions': install latest versions instead
+                           of exact lockfile versions. With 'install': install
+                           the latest version of the specified extension.
+  --force-latest           Force latest behavior where applicable.
 
-Description:
-  This script manages editor configuration files and extensions.
-  It can create symlinks for settings, keybindings, and snippets,
-  as well as dump extension lock files and install extensions from them.
+Notes:
+  - For 'dump', 'extensions', and 'install', the editor may be given as
+    arg 1 or arg 2; both orders are supported.
+  - Kiro prefers OpenVSX, falling back to VS Marketplace.
 ```
 
 In examples below, we will be using `cursor` as the editor.
