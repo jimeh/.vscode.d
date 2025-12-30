@@ -5,7 +5,7 @@
   "recommendations": [
     // Allows for use of settings.shared.json and settings.local.json.
     "swellaby.workspace-config-plus",
-    // Below list is produced by `./siren shared --json`
+    // Below list is produced by `./siren shared --json c i`
     "ahmadalli.vscode-nginx-conf",
     "alefragnani.project-manager",
     "anthropic.claude-code",
@@ -34,11 +34,13 @@
     "dbaeumer.vscode-eslint",
     "deerawan.vscode-faker",
     "dnut.rewrap-revived",
+    "drblury.protobuf-vsc",
     "editorconfig.editorconfig",
     "elijah-potter.harper",
     "emeraldwalk.runonsave",
     "esbenp.prettier-vscode",
     "exiasr.hadolint",
+    "expo.vscode-expo-tools",
     "fogio.inline-go-struct-tags-syntax-highlight",
     "github.remotehub",
     "github.vscode-github-actions",
@@ -91,24 +93,27 @@
     "repreng.csv",
     "romanpeshkov.vscode-text-tables",
     "rrudi.vscode-dired",
+    "runem.lit-plugin",
     "rust-lang.rust-analyzer",
     "shopify.ruby-extensions-pack",
     "shopify.ruby-lsp",
     "sidneys1.gitconfig",
     "sorbet.sorbet-vscode-extension",
+    "sswg.swift-lang",
     "streetsidesoftware.code-spell-checker",
     "stuart.unique-window-colors",
     "sumneko.lua",
     "svelte.svelte-vscode",
+    "swellaby.workspace-config-plus",
     "tamasfe.even-better-toml",
     "tootone.org-mode",
     "tuttieee.emacs-mcx",
     "tyriar.sort-lines",
     "vadimcn.vscode-lldb",
     "viktorzetterstrom.non-breaking-space-highlighter",
+    "vitest.explorer",
     "wenhoujx.swiper",
     "zhuangtongfa.material-theme",
-    "ziyasal.vscode-open-in-github",
-    "zxh404.vscode-proto3"
+    "ziyasal.vscode-open-in-github"
   ]
 }
