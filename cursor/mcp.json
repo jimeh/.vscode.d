@@ -1,15 +1,5 @@
 {
 	"mcpServers": {
-		"memory": {
-			"type": "stdio",
-			"command": "mise",
-			"args": [
-				"x",
-				"npm:@modelcontextprotocol/server-memory",
-				"--",
-				"mcp-server-memory"
-			]
-		},
 		"deepwiki": {
 			"url": "https://mcp.deepwiki.com/mcp"
 		}
