@@ -1,6 +1,6 @@
 # vscode-insiders Extensions
-# Generated on Wed Jan  7 05:58:45 GMT 2026
-# Version: 1.108.0-insider (31de8ea351f73eb2071e36e415ae1970749f91fd, arm64)
+# Generated on Wed Jan  7 17:20:25 GMT 2026
+# Version: 1.108.0-insider (3d862df21449d5ead0b0b1fbe6d43eb05490cb1c, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@13.0.1
@@ -57,10 +57,10 @@ joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.15.1
 kahole.magit@0.6.68
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.142.0
+kilocode.kilo-code@4.143.1
 koichisasada.vscode-rdbg@0.2.2
 letrieu.expand-region@0.1.4
-llvm-vs-code-extensions.lldb-dap@0.4.1
+llvm-vs-code-extensions.lldb-dap@0.5.20260106
 llvm-vs-code-extensions.vscode-clangd@0.3.2
 m4ns0ur.base64@1.0.0
 mads-hartmann.bash-ide-vscode@1.43.0
@@ -97,7 +97,7 @@ pkief.material-icon-theme@5.30.0
 pomdtr.excalidraw-editor@3.9.0
 qingpeng.common-lisp@1.2.11
 redhat.vscode-xml@0.29.2025112508
-redhat.vscode-yaml@1.20.2026010608
+redhat.vscode-yaml@1.20.2026010708
 repreng.csv@1.2.2
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
