@@ -313,12 +313,12 @@
   { // Navigate right.
     "key": "alt+l",
     "command": "workbench.action.navigateRight",
-    "when": "!panelFocus"
+    "when": "!panelFocus && !filesExplorerFocus"
   },
   { // Navigate right.
     "key": "cmd+alt+right",
     "command": "workbench.action.navigateRight",
-    "when": "!panelFocus"
+    "when": "!panelFocus && !filesExplorerFocus"
   },
   { // Navigate left.
     "key": "alt+j",
@@ -338,6 +338,16 @@
     "key": "alt+i",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "panelFocus"
+  },
+  { // Navigate right back to editor from file explorer.
+    "key": "alt+l",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "filesExplorerFocus"
+  },
+  { // Navigate right back to editor from file explorer.
+    "key": "cmd+alt+right",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "filesExplorerFocus"
   },
   { // Navigate up back to editor from terminal.
     //
