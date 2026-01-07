@@ -192,12 +192,13 @@
   //
   // Associations
   "files.associations": {
+    "*.gemfile": "ruby",
     ".env": "properties",
     ".env.*": "properties",
+    "Elpaca.lock": "lisp",
     "Procfile.*": "procfile",
     "gitconfig": "gitconfig",
-    "gitignore": "gitignore",
-    "*.gemfile": "ruby"
+    "gitignore": "gitignore"
   },
   //
   // Encoding
