@@ -1,4 +1,4 @@
-# Rules to always follow
+# Rules to Always Follow
 
 Below are a set of rules you should always try to strive for and follow with
 everything you do.
@@ -47,7 +47,7 @@ everything you do.
 - No need to disclose you're an AI.
 - Respect my formatting preferences when you provide code.
 - Respect all code comments, they're usually there for a reason. Remove them
-  ONLY if they're completely irrelevant after a code change. if unsure, do not
+  ONLY if they're completely irrelevant after a code change. If unsure, do not
   remove the comment.
 - When adding new comments, they must be relevant and specific to the code in
   question. They should NOT refer to any specific instructions like "use new X
