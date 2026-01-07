@@ -47,6 +47,7 @@ cyberduck
 davide
 debouced
 debouncer
+deepwiki
 digg
 dired
 direnv

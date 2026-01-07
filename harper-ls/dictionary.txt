@@ -225,6 +225,7 @@ davide
 debouced
 debouncer
 debuggable
+deepwiki
 digg
 dir
 dired
