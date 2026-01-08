@@ -1,10 +1,10 @@
 # vscode-insiders Extensions
-# Generated on Wed Jan  7 17:20:25 GMT 2026
+# Generated on Thu Jan  8 14:13:41 GMT 2026
 # Version: 1.108.0-insider (3d862df21449d5ead0b0b1fbe6d43eb05490cb1c, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@13.0.1
-anthropic.claude-code@2.0.75
+anthropic.claude-code@2.1.1
 antyos.openscad@1.3.2
 arrterian.nix-env-selector@1.1.0
 arturodent.command-alias@0.6.2
@@ -33,7 +33,7 @@ dnut.rewrap-revived@17.9.0
 drblury.protobuf-vsc@1.4.28
 editorconfig.editorconfig@0.17.4
 elijah-potter.harper@1.4.0
-emeraldwalk.runonsave@1.1.3
+emeraldwalk.runonsave@1.1.4
 esbenp.prettier-vscode@11.0.2
 exiasr.hadolint@1.1.2
 expo.vscode-expo-tools@1.6.2
@@ -42,7 +42,7 @@ github.copilot@1.388.0
 github.copilot-chat@0.36.2026010701
 github.remotehub@0.65.2025081801
 github.vscode-github-actions@0.29.1
-github.vscode-pull-request-github@0.125.2026010604
+github.vscode-pull-request-github@0.125.2026010717
 gofenix.go-lines@0.0.10
 golang.go@0.53.0
 gruntfuggly.todo-tree@0.0.226
@@ -60,7 +60,7 @@ karunamurti.haml@1.4.1
 kilocode.kilo-code@4.143.1
 koichisasada.vscode-rdbg@0.2.2
 letrieu.expand-region@0.1.4
-llvm-vs-code-extensions.lldb-dap@0.5.20260106
+llvm-vs-code-extensions.lldb-dap@0.5.20260107
 llvm-vs-code-extensions.vscode-clangd@0.3.2
 m4ns0ur.base64@1.0.0
 mads-hartmann.bash-ide-vscode@1.43.0
@@ -97,12 +97,12 @@ pkief.material-icon-theme@5.30.0
 pomdtr.excalidraw-editor@3.9.0
 qingpeng.common-lisp@1.2.11
 redhat.vscode-xml@0.29.2025112508
-redhat.vscode-yaml@1.20.2026010708
+redhat.vscode-yaml@1.20.2026010808
 repreng.csv@1.2.2
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
 runem.lit-plugin@1.4.3
-rust-lang.rust-analyzer@0.4.2745
+rust-lang.rust-analyzer@0.4.2746
 shopify.ruby-extensions-pack@0.1.13
 shopify.ruby-lsp@0.9.32
 sidneys1.gitconfig@2.0.1
@@ -117,6 +117,7 @@ tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
 tuttieee.emacs-mcx@0.103.0
 tyriar.sort-lines@1.12.0
+unifiedjs.vscode-mdx@1.8.17
 vadimcn.vscode-lldb@1.12.1
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
 vitest.explorer@1.36.0
