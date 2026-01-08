@@ -99,6 +99,7 @@
   //
   "chat.checkpoints.showFileChanges": true,
   "chat.edits2.enabled": true,
+  "chat.mcp.gallery.enabled": true,
   //
   // ===========================================================================
   // MARK: Editor
