@@ -734,6 +734,16 @@
   },
   //
   // ===========================================================================
+  // MARK: Lang: Nix
+  // ===========================================================================
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=jnoortheen.nix-ide
+  // - https://marketplace.visualstudio.com/items?itemName=arrterian.nix-env-selector
+  //
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "nil",
+  //
+  // ===========================================================================
   // MARK: Lang: Ruby
   // ===========================================================================
   // Extensions:
