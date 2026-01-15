@@ -1,10 +1,10 @@
 # cursor Extensions
-# Generated on Tue Jan 13 17:39:14 GMT 2026
+# Generated on Thu Jan 15 21:31:02 GMT 2026
 # Version: 2.3.35 (cf8353edc265f5e46b798bfb276861d0bf3bf120, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@13.0.0
-anthropic.claude-code@2.1.6
+anthropic.claude-code@2.1.7
 antiantisepticeye.vscode-color-picker@0.0.4
 antyos.openscad@1.3.2
 anysphere.cpptools@2.0.2
@@ -55,7 +55,7 @@ gruntfuggly.todo-tree@0.0.215
 hashicorp.terraform@2.37.6
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.0
-hverlin.mise-vscode@1.2.0
+hverlin.mise-vscode@1.3.0
 jakearl.search-editor-apply-changes@0.1.1
 jimeh.executable-on-save@0.2.5
 jnoortheen.nix-ide@0.5.5
@@ -88,7 +88,7 @@ ms-vscode.remote-repositories@0.43.2025081801
 ms-vscode.vscode-speech@0.16.0
 ms-vsliveshare.vsliveshare@1.0.5959
 ninoseki.vscode-mogami@0.1.6
-openai.chatgpt@0.4.58
+openai.chatgpt@0.4.60
 orta.vscode-jest@6.4.4
 pflannery.vscode-versionlens@1.22.4
 pkief.material-icon-theme@5.30.0
@@ -105,6 +105,8 @@ shopify.ruby-extensions-pack@0.1.13
 shopify.ruby-lsp@0.9.32
 sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.46
+soutaro.rbs-syntax@0.3.1
+soutaro.steep-vscode@0.10.0
 streetsidesoftware.code-spell-checker@4.4.0
 stuart.unique-window-colors@1.0.51
 sumneko.lua@3.16.4
@@ -118,7 +120,7 @@ tyriar.sort-lines@1.9.1
 unifiedjs.vscode-mdx@1.8.17
 vadimcn.vscode-lldb@1.12.1
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
-vitest.explorer@1.36.0
+vitest.explorer@1.38.0
 wenhoujx.swiper@2.1.2
 zhuangtongfa.material-theme@3.19.0
 ziyasal.vscode-open-in-github@1.3.6
