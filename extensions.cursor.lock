@@ -1,6 +1,6 @@
 # cursor Extensions
-# Generated on Thu Jan 15 21:31:02 GMT 2026
-# Version: 2.3.35 (cf8353edc265f5e46b798bfb276861d0bf3bf120, arm64)
+# Generated on Fri Jan 16 00:01:16 GMT 2026
+# Version: 2.3.38 (5d361ec90febc2eee7d3a0c5c8c6567985977500, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@13.0.0
@@ -63,7 +63,7 @@ joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.15.1
 kahole.magit@0.6.68
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.143.2
+kilocode.kilo-code@4.147.0
 koichisasada.vscode-rdbg@0.2.1
 letrieu.expand-region@0.1.4
 llvm-vs-code-extensions.lldb-dap@0.4.1
