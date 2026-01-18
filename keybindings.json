@@ -77,9 +77,49 @@
     "key": "cmd+0",
     "command": "workbench.action.zoomReset"
   },
-  { // Toggle sidebar visibility.
+  { // Toggle sidebar.
     "key": "ctrl+s",
     "command": "workbench.action.toggleSidebarVisibility"
+  },
+  { // Toggle secondary (auxiliary) bar.
+    "key": "cmd+b",
+    "command": "workbench.action.toggleAuxiliaryBar",
+    "when": "!isAuxiliaryWindowFocusedContext"
+  },
+  { // Disable default toggle sidebar visibility keybinding.
+    "key": "cmd+b",
+    "command": "-workbench.action.toggleSidebarVisibility",
+    "when": "!isAuxiliaryWindowFocusedContext"
+  },
+  { // Disable default toggle secondary (auxiliary) bar keybinding.
+    "key": "alt+cmd+b",
+    "command": "-workbench.action.toggleAuxiliaryBar",
+    "when": "!isAuxiliaryWindowFocusedContext"
+  },
+  { // Disable cmd+b keybinding for mdx.toggleStrong.
+    "key": "cmd+b",
+    "command": "-mdx.toggleStrong",
+    "when": "editorTextFocus && !editorReadonly && editorLangId == 'mdx'"
+  },
+  { // Disable cmd+b keybinding for emacs-mcx.isearchExit.
+    "key": "cmd+b",
+    "command": "-emacs-mcx.isearchExit",
+    "when": "config.emacs-mcx.useMetaPrefixMacCmd && editorFocus && findWidgetVisible && !config.emacs-mcx.cursorMoveOnFindWidget && !isComposing && !replaceInputFocussed"
+  },
+  { // Disable cmd+b keybinding for emacs-mcx.backwardWord.
+    "key": "cmd+b",
+    "command": "-emacs-mcx.backwardWord",
+    "when": "config.emacs-mcx.useMetaPrefixMacCmd && editorTextFocus"
+  },
+  { // Disable cmd+b keybinding for workbench.action.terminal.sendSequence.
+    "key": "cmd+b",
+    "command": "-workbench.action.terminal.sendSequence",
+    "when": "config.emacs-mcx.useMetaPrefixMacCmd && terminalFocus && terminalShellType != 'pwsh'"
+  },
+  {
+    "key": "cmd+b",
+    "command": "-workbench.action.terminal.sendSequence",
+    "when": "config.emacs-mcx.useMetaPrefixMacCmd && terminalFocus && terminalShellType == 'pwsh'"
   },
   //
   // ===========================================================================
