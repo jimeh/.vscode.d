@@ -1,10 +1,10 @@
 # vscode-insiders Extensions
-# Generated on Thu Jan 15 21:54:07 GMT 2026
-# Version: 1.108.0-insider (31de8ea351f73eb2071e36e415ae1970749f91fd, arm64)
+# Generated on Sun Jan 18 22:13:48 GMT 2026
+# Version: 1.109.0-insider (1fe49563dcd08fe007b04c6aa3b89a1f1fef46b6, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@13.0.1
-anthropic.claude-code@2.1.7
+anthropic.claude-code@2.1.11
 antyos.openscad@1.3.2
 arrterian.nix-env-selector@1.1.0
 arturodent.command-alias@0.6.2
@@ -34,15 +34,15 @@ drblury.protobuf-vsc@1.4.28
 editorconfig.editorconfig@0.17.4
 elijah-potter.harper@1.4.1
 emeraldwalk.runonsave@1.1.5
-esbenp.prettier-vscode@11.0.2
+esbenp.prettier-vscode@12.1.1
 exiasr.hadolint@1.1.2
 expo.vscode-expo-tools@1.6.2
 fogio.inline-go-struct-tags-syntax-highlight@1.0.0
 github.copilot@1.388.0
-github.copilot-chat@0.36.2026010701
+github.copilot-chat@0.37.2026011603
 github.remotehub@0.65.2025081801
 github.vscode-github-actions@0.29.1
-github.vscode-pull-request-github@0.127.2026011304
+github.vscode-pull-request-github@0.127.2026011612
 gofenix.go-lines@0.0.10
 golang.go@0.53.0
 gruntfuggly.todo-tree@0.0.226
@@ -50,6 +50,7 @@ hashicorp.terraform@2.37.2025092217
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.1
 hverlin.mise-vscode@1.3.0
+jackiotyu.git-worktree-manager@3.22.0
 jakearl.search-editor-apply-changes@0.1.1
 jimeh.executable-on-save@0.2.5
 jnoortheen.nix-ide@0.5.5
@@ -57,10 +58,10 @@ joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.15.1
 kahole.magit@0.6.68
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.147.0
+kilocode.kilo-code@4.148.1
 koichisasada.vscode-rdbg@0.2.2
 letrieu.expand-region@0.1.4
-llvm-vs-code-extensions.lldb-dap@0.5.20260107
+llvm-vs-code-extensions.lldb-dap@0.5.20260118
 llvm-vs-code-extensions.vscode-clangd@0.3.2
 m4ns0ur.base64@1.0.0
 mads-hartmann.bash-ide-vscode@1.43.0
@@ -90,7 +91,7 @@ ms-vscode.remote-server@1.6.2026011209
 ms-vscode.vscode-speech@0.16.0
 ms-vsliveshare.vsliveshare@1.0.5959
 ninoseki.vscode-mogami@0.1.9
-openai.chatgpt@0.5.60
+openai.chatgpt@0.5.61
 orta.vscode-jest@6.4.4
 pflannery.vscode-versionlens@1.22.4
 pkief.material-icon-theme@5.30.0
@@ -102,7 +103,7 @@ repreng.csv@1.2.2
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
 runem.lit-plugin@1.4.3
-rust-lang.rust-analyzer@0.4.2756
+rust-lang.rust-analyzer@0.4.2759
 shopify.ruby-extensions-pack@0.1.13
 shopify.ruby-lsp@0.9.32
 sidneys1.gitconfig@2.0.1
