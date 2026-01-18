@@ -39,16 +39,34 @@
   },
   //
   // ===========================================================================
-  // MARK: Claude Code (Terminal)
+  // MARK: Claude Code
   // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code
   //
-  {
+  //
+  { // Enable new lines in terminal.
     "key": "shift+enter",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
       "text": "\\\r\n"
     },
     "when": "terminalFocus"
+  },
+  { // Disable default open native console keybinding.
+    "key": "shift+cmd+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+  { // Blur Claude Code.
+    "key": "shift+cmd+c",
+    "command": "claude-vscode.blur",
+    "when": "!config.claudeCode.useTerminal && !editorTextFocus"
+  },
+  { // Focus Claude Code.
+    "key": "shift+cmd+c",
+    "command": "claude-vscode.focus",
+    "when": "editorTextFocus && !config.claudeCode.useTerminal"
   },
   //
   // ===========================================================================
