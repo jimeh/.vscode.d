@@ -16,6 +16,7 @@ BlockLength
 Bowser
 Bundler
 CD
+CLAUDE
 CRDs
 Caddyfile
 Cascadea
@@ -157,6 +158,7 @@ TMPDIR
 TOML
 TOOLDIR
 TiB
+Trae
 Traefik's
 Triforce
 Truef
@@ -164,6 +166,7 @@ Unallocating
 VPS
 VPSA
 VSCode's
+VSCodium
 WHMCS
 Waluigi
 Wario
@@ -453,6 +456,7 @@ valkey
 vcard
 vcards
 von
+vscm
 vscode
 vsix
 vterm

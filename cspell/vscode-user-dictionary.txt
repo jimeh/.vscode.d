@@ -181,6 +181,7 @@ LIGO
 Linuxbrew
 Loadbalancers
 localtime
+lockfiles
 MADR
 Magento
 magick
@@ -298,6 +299,7 @@ tmdb
 tmpl
 tmuxifier
 TOOLDIR
+Trae
 traefik
 Triforce
 trimpath
@@ -318,6 +320,7 @@ vcard
 vcards
 vitest
 VPSA
+vscm
 vterm
 Waluigi
 Wario
