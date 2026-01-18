@@ -325,6 +325,7 @@ webmock
 websecure
 weechat
 WHMCS
+worktree
 worktrees
 xbar
 xcrun
