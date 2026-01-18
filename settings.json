@@ -35,6 +35,29 @@
   "window.title": "${rootName}${separator}${profileName}",
   //
   // ===========================================================================
+  // MARK: Workbench
+  // ===========================================================================
+  //
+  // Activity Bar
+  "workbench.activityBar.location": "default",
+  "workbench.activityBar.orientation": "vertical",
+  //
+  // Command Palette
+  "workbench.commandPalette.history": 250,
+  "workbench.commandPalette.preserveInput": true,
+  //
+  // Hover
+  "workbench.hover.delay": 200,
+  //
+  // Local History
+  "workbench.localHistory.maxFileEntries": 250,
+  "workbench.localHistory.maxFileSize": 512,
+  //
+  // Tree
+  "workbench.tree.indent": 18,
+  "workbench.tree.renderIndentGuides": "always",
+  //
+  // ===========================================================================
   // MARK: Cursor (Text Editor)
   // ===========================================================================
   //
@@ -102,6 +125,14 @@
   "chat.mcp.gallery.enabled": true,
   //
   // ===========================================================================
+  // MARK: Claude Code
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code
+  //
+  "claudeCode.preferredLocation": "panel",
+  //
+  // ===========================================================================
   // MARK: Editor
   // ===========================================================================
   //
@@ -149,30 +180,12 @@
   "workbench.editor.highlightModifiedTabs": true,
   //
   // Accessibility
-  "editor.accessibilitySupport": "off",
-  //
-  // ===========================================================================
-  // MARK: Workbench
-  // ===========================================================================
-  //
-  // Activity Bar
-  "workbench.activityBar.location": "default",
-  "workbench.activityBar.orientation": "horizontal",
-  //
-  // Command Palette
-  "workbench.commandPalette.history": 250,
-  "workbench.commandPalette.preserveInput": true,
-  //
-  // Hover
-  "workbench.hover.delay": 200,
-  //
-  // Local History
-  "workbench.localHistory.maxFileEntries": 250,
-  "workbench.localHistory.maxFileSize": 512,
-  //
-  // Tree
-  "workbench.tree.indent": 18,
-  "workbench.tree.renderIndentGuides": "always",
+  "editor.accessibilitySupport": "auto",
+  // Force silence accessibility signal noises. Wisper Flow's editor integration
+  // works as a screen reader, which activates VSCode's accessiblity support,
+  // but that also comes with various sound queues on various operations. Hence
+  // we silence them by setting volume to 0%.
+  "accessibility.signalOptions.volume": 0,
   //
   // ===========================================================================
   // MARK: Explorer
@@ -231,6 +244,16 @@
   "git.fetchOnPull": true,
   "git.timeline.showUncommitted": true,
   "scm.defaultViewMode": "tree",
+  //
+  // ===========================================================================
+  // MARK: Git Worktree Manager
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=jackiotyu.git-worktree-manager
+  //
+  "git-worktree-manager.terminalNameTemplate": "$LABEL ⇄",
+  "git-worktree-manager.treeView.toSCM": true,
+  "git-worktree-manager.treeView.worktreeDescriptionTemplate": "$BASE_NAME",
   //
   // ===========================================================================
   // MARK: Diffs
