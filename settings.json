@@ -123,6 +123,7 @@
   "chat.checkpoints.showFileChanges": true,
   "chat.edits2.enabled": true,
   "chat.mcp.gallery.enabled": true,
+  "chat.tools.terminal.outputLocation": "chat",
   //
   // ===========================================================================
   // MARK: Claude Code
