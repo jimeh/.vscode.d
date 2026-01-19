@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Sun Jan 18 18:13:50 GMT 2026
+# Generated on Mon Jan 19 09:44:32 GMT 2026
 # Version: 2.3.41 (2ca326e0d1ce10956aea33d54c0e2d8c13c58a30, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
@@ -101,7 +101,7 @@ repreng.csv@1.2.2
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
 runem.lit-plugin@1.2.1
-rust-lang.rust-analyzer@0.3.2753
+rust-lang.rust-analyzer@0.3.2761
 shopify.ruby-extensions-pack@0.1.13
 shopify.ruby-lsp@0.9.32
 sidneys1.gitconfig@2.0.1

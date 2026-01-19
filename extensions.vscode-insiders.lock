@@ -1,6 +1,6 @@
 # vscode-insiders Extensions
-# Generated on Sun Jan 18 22:13:48 GMT 2026
-# Version: 1.109.0-insider (1fe49563dcd08fe007b04c6aa3b89a1f1fef46b6, arm64)
+# Generated on Mon Jan 19 10:25:54 GMT 2026
+# Version: 1.109.0-insider (6b921dda5c679c6ca1928a4505567c533ede72f9, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@13.0.1
@@ -42,7 +42,7 @@ github.copilot@1.388.0
 github.copilot-chat@0.37.2026011603
 github.remotehub@0.65.2025081801
 github.vscode-github-actions@0.29.1
-github.vscode-pull-request-github@0.127.2026011612
+github.vscode-pull-request-github@0.127.2026011904
 gofenix.go-lines@0.0.10
 golang.go@0.53.0
 gruntfuggly.todo-tree@0.0.226
@@ -103,19 +103,19 @@ repreng.csv@1.2.2
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
 runem.lit-plugin@1.4.3
-rust-lang.rust-analyzer@0.4.2759
+rust-lang.rust-analyzer@0.4.2760
 shopify.ruby-extensions-pack@0.1.13
 shopify.ruby-lsp@0.9.32
 sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.46
 soutaro.rbs-syntax@0.3.1
 soutaro.steep-vscode@0.10.0
-streetsidesoftware.code-spell-checker@4.4.0
+streetsidesoftware.code-spell-checker@4.4.1
 stuart.unique-window-colors@1.0.51
-sumneko.lua@3.16.4
+sumneko.lua@3.17.0
 svelte.svelte-vscode@109.12.1
 swellaby.workspace-config-plus@0.2.5
-swiftlang.swift-vscode@2.14.3
+swiftlang.swift-vscode@2.14.2
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
 tuttieee.emacs-mcx@0.105.0
