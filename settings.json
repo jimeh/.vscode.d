@@ -806,6 +806,9 @@
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer
   //
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
   "rust-analyzer.testExplorer": true,
   //
   // ===========================================================================
