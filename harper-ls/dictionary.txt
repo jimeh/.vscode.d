@@ -204,6 +204,7 @@ buildx
 byebug
 cadvisor
 casecmp
+cgroups
 chardata
 checkin
 chgrp
