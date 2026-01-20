@@ -39,6 +39,8 @@ define_settings() {
 
   # Additional static symlinks to create (source => target).
   STATIC_SYMLINKS["claude/CLAUDE.md"]="${HOME}/.claude/CLAUDE.md"
+  STATIC_SYMLINKS["claude/settings.json"]="${HOME}/.claude/settings.json"
+  STATIC_SYMLINKS["claude/statusline.sh"]="${HOME}/.claude/statusline.sh"
   STATIC_SYMLINKS["cspell/vscode-user-dictionary.txt"]="${HOME}/.cspell/vscode-user-dictionary.txt"
   STATIC_SYMLINKS["harper-ls/dictionary.txt"]="$(harper_config_dir)/dictionary.txt"
   STATIC_SYMLINKS["harper-ls/file_dictionaries"]="$(harper_config_dir)/file_dictionaries"
