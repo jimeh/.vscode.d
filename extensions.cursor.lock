@@ -1,5 +1,5 @@
 # cursor Extensions
-# Generated on Wed Jan 21 10:02:32 GMT 2026
+# Generated on Wed Jan 21 19:50:10 GMT 2026
 # Version: 2.4.7 (ca0f9bf806f235ea014a22712cbcbf5e88ca77e0, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
@@ -64,7 +64,7 @@ joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.15.1
 kahole.magit@0.6.68
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.149.0
+kilocode.kilo-code@4.151.0
 koichisasada.vscode-rdbg@0.2.1
 letrieu.expand-region@0.1.4
 llvm-vs-code-extensions.lldb-dap@0.4.1
@@ -92,7 +92,7 @@ ninoseki.vscode-mogami@0.1.6
 openai.chatgpt@0.4.60
 orta.vscode-jest@6.4.4
 pflannery.vscode-versionlens@1.22.4
-pkief.material-icon-theme@5.30.0
+pkief.material-icon-theme@5.31.0
 pomdtr.excalidraw-editor@3.9.0
 qingpeng.common-lisp@1.2.11
 redhat.vscode-xml@0.29.0
@@ -103,7 +103,7 @@ rrudi.vscode-dired@0.0.9
 runem.lit-plugin@1.2.1
 rust-lang.rust-analyzer@0.3.2761
 shopify.ruby-extensions-pack@0.1.13
-shopify.ruby-lsp@0.9.32
+shopify.ruby-lsp@0.9.33
 sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.46
 soutaro.rbs-syntax@0.3.1
