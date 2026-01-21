@@ -120,8 +120,8 @@
   // MARK: Chat (VSCode)
   // ===========================================================================
   //
-  "chat.agentsControl.enabled": true,
   "chat.agentSessionProjection.enabled": true,
+  "chat.agentsControl.enabled": true,
   "chat.checkpoints.showFileChanges": true,
   "chat.commandCenter.enabled": false,
   "chat.edits2.enabled": true,
@@ -282,6 +282,7 @@
   "terminal.integrated.persistentSessionScrollback": 1000,
   "terminal.integrated.scrollback": 50000,
   "terminal.integrated.sendKeybindingsToShell": true,
+  "terminal.integrated.shellIntegration.enabled": true,
   //
   // ===========================================================================
   // MARK: Awesome Emacs Keybindings
