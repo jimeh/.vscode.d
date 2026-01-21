@@ -1,6 +1,6 @@
 # vscode-insiders Extensions
-# Generated on Mon Jan 19 10:25:54 GMT 2026
-# Version: 1.109.0-insider (6b921dda5c679c6ca1928a4505567c533ede72f9, arm64)
+# Generated on Wed Jan 21 10:03:39 GMT 2026
+# Version: 1.109.0-insider (f60f946b1736ae6f26b944f8f5b6ce6270d05405, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@13.0.1
@@ -39,10 +39,10 @@ exiasr.hadolint@1.1.2
 expo.vscode-expo-tools@1.6.2
 fogio.inline-go-struct-tags-syntax-highlight@1.0.0
 github.copilot@1.388.0
-github.copilot-chat@0.37.2026011603
+github.copilot-chat@0.37.2026012101
 github.remotehub@0.65.2025081801
 github.vscode-github-actions@0.29.1
-github.vscode-pull-request-github@0.127.2026011904
+github.vscode-pull-request-github@0.127.2026012104
 gofenix.go-lines@0.0.10
 golang.go@0.53.0
 gruntfuggly.todo-tree@0.0.226
@@ -50,7 +50,7 @@ hashicorp.terraform@2.37.2025092217
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.1
 hverlin.mise-vscode@1.3.0
-jackiotyu.git-worktree-manager@3.22.0
+jackiotyu.git-worktree-manager@3.22.1
 jakearl.search-editor-apply-changes@0.1.1
 jimeh.executable-on-save@0.2.5
 jnoortheen.nix-ide@0.5.5
@@ -58,11 +58,11 @@ joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.15.1
 kahole.magit@0.6.68
 karunamurti.haml@1.4.1
-kilocode.kilo-code@4.148.1
+kilocode.kilo-code@4.150.0
 koichisasada.vscode-rdbg@0.2.2
 letrieu.expand-region@0.1.4
-llvm-vs-code-extensions.lldb-dap@0.5.20260118
-llvm-vs-code-extensions.vscode-clangd@0.3.2
+llvm-vs-code-extensions.lldb-dap@0.5.20260120
+llvm-vs-code-extensions.vscode-clangd@0.4.0
 m4ns0ur.base64@1.0.0
 mads-hartmann.bash-ide-vscode@1.43.0
 matthewpi.caddyfile-support@0.4.0
@@ -74,7 +74,7 @@ mrmlnc.vscode-duplicate@1.2.1
 ms-azuretools.vscode-containers@2.3.0
 ms-dotnettools.vscode-dotnet-runtime@3.0.0
 ms-kubernetes-tools.vscode-kubernetes-tools@1.3.29
-ms-python.debugpy@2025.19.2026011501
+ms-python.debugpy@2025.19.2026011901
 ms-python.python@2026.1.2026011501
 ms-python.vscode-pylance@2025.10.4
 ms-python.vscode-python-envs@1.17.10151015
@@ -94,16 +94,16 @@ ninoseki.vscode-mogami@0.1.9
 openai.chatgpt@0.5.61
 orta.vscode-jest@6.4.4
 pflannery.vscode-versionlens@1.22.4
-pkief.material-icon-theme@5.30.0
+pkief.material-icon-theme@5.31.0
 pomdtr.excalidraw-editor@3.9.0
 qingpeng.common-lisp@1.2.11
 redhat.vscode-xml@0.29.2025112508
-redhat.vscode-yaml@1.20.2026011408
+redhat.vscode-yaml@1.20.2026012008
 repreng.csv@1.2.2
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
 runem.lit-plugin@1.4.3
-rust-lang.rust-analyzer@0.4.2760
+rust-lang.rust-analyzer@0.4.2763
 shopify.ruby-extensions-pack@0.1.13
 shopify.ruby-lsp@0.9.32
 sidneys1.gitconfig@2.0.1
@@ -112,7 +112,7 @@ soutaro.rbs-syntax@0.3.1
 soutaro.steep-vscode@0.10.0
 streetsidesoftware.code-spell-checker@4.4.1
 stuart.unique-window-colors@1.0.51
-sumneko.lua@3.17.0
+sumneko.lua@3.17.1
 svelte.svelte-vscode@109.12.1
 swellaby.workspace-config-plus@0.2.5
 swiftlang.swift-vscode@2.14.2
@@ -123,7 +123,7 @@ tyriar.sort-lines@1.12.0
 unifiedjs.vscode-mdx@1.8.17
 vadimcn.vscode-lldb@1.12.1
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
-vitest.explorer@1.38.0
+vitest.explorer@1.38.1
 wenhoujx.swiper@2.1.2
 zhuangtongfa.material-theme@3.19.0
 ziyasal.vscode-open-in-github@1.3.6
