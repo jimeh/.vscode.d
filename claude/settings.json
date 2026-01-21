@@ -34,6 +34,7 @@
       "Bash(curl:*)",
       "Read(./.env)",
       "Read(./.env*)",
+      "Read(./mcp.json)",
       "Read(./secrets/**)"
     ]
   },
