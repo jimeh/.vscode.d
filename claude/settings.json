@@ -20,6 +20,7 @@
       "Bash(golangci-lint run:*)",
       "Bash(helm template:*)",
       "Bash(helm lint:*)",
+      "Bash(ls:*)",
       "Bash(pnpm build:*)",
       "Bash(pnpm install:*)",
       "Bash(pnpm lint:*)",
