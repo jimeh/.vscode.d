@@ -16,7 +16,6 @@ BlockLength
 Bowser
 Bundler
 CD
-CLAUDE
 CRDs
 Caddyfile
 Cascadea
@@ -45,6 +44,7 @@ Elric
 Evernote
 Excalidraw
 FQDN
+FactoryBot
 Falsef
 Fightstar
 Fukushima
@@ -116,6 +116,7 @@ NFS
 NeXTSTEP
 Neumann
 Niantic
+OAuth2
 OIDC
 OPENSTEP
 Oculus
@@ -167,6 +168,7 @@ VPS
 VPSA
 VSCode's
 VSCodium
+ViewComponent
 WHMCS
 Waluigi
 Wario
@@ -182,6 +184,7 @@ Zelda
 ZiB
 actionnav
 actool
+ai
 aker
 amazonses
 antigravity
@@ -209,6 +212,7 @@ chardata
 checkin
 chgrp
 chromedriver
+claude
 clipcopy
 clippaste
 cmd
