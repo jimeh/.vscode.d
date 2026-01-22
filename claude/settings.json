@@ -2,13 +2,17 @@
   "permissions": {
     "allow": [
       "Bash(bundle check:*)",
+      "Bash(bundle info:*)",
       "Bash(bundle install:*)",
       "Bash(bundle list:*)",
       "Bash(cargo build:*)",
       "Bash(cargo clippy:*)",
       "Bash(cargo fmt:*)",
       "Bash(cargo test:*)",
+      "Bash(find:*)",
+      "Bash(gem list:*)",
       "Bash(gh issue view:*)",
+      "Bash(gh pr diff:*)",
       "Bash(gh pr view:*)",
       "Bash(git add:*)",
       "Bash(git show:*)",
@@ -18,8 +22,9 @@
       "Bash(go mod tidy:*)",
       "Bash(go test:*)",
       "Bash(golangci-lint run:*)",
-      "Bash(helm template:*)",
+      "Bash(grep:*)",
       "Bash(helm lint:*)",
+      "Bash(helm template:*)",
       "Bash(ls:*)",
       "Bash(pnpm build:*)",
       "Bash(pnpm install:*)",
@@ -39,7 +44,6 @@
       "Read(./secrets/**)"
     ]
   },
-  "plansDirectory": ".claude/plans",
   "model": "opus",
   "statusLine": {
     "type": "command",
@@ -63,5 +67,6 @@
     "swift-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true
   },
-  "autoUpdatesChannel": "latest"
+  "autoUpdatesChannel": "latest",
+  "plansDirectory": ".claude/plans"
 }
