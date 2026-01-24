@@ -246,6 +246,7 @@ rclone
 redcarpet
 Redistat
 renderable
+reqwest
 Resolutionator
 restish
 rgba
@@ -255,6 +256,7 @@ romdo
 Rossum
 rubocop
 rubygems
+rustls
 rustup
 SAVEHIST
 scaleway
@@ -262,6 +264,7 @@ sccache
 schedulable
 schro
 scrollback
+serde
 setuptools
 shellcheck
 shfmt
@@ -328,6 +331,7 @@ webmock
 websecure
 weechat
 WHMCS
+wiremock
 worktree
 worktrees
 xbar
