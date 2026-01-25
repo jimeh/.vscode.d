@@ -77,5 +77,7 @@ Below are rules to follow with everything you do.
 ## Plan Mode
 
 - Make the plan extremely concise. Sacrifice grammar for the sake of concision.
+- Plans must include testing: comprehensive tests for all changes, covering edge
+  cases, error conditions, and integration points.
 - At the end of each plan, give me a list of unresolved questions to answer, if
   any.
