@@ -2,6 +2,12 @@
 
 Below are rules to follow with everything you do.
 
+## Importance of Quality Work
+
+- Always strive to produce the highest quality work possible.
+- Due to the nature of my work, any output you produce is likely to be deployed
+  in hospitals, airplanes, and other critical systems.
+
 ## Communication Style
 
 - Be casual unless otherwise specified.
@@ -57,11 +63,16 @@ Below are rules to follow with everything you do.
 - When investigating third-party libraries, use deepwiki to look up information
   if available.
 
-## Importance of Quality Work
+## Git Commits
 
-- Always strive to produce the highest quality work possible.
-- Due to the nature of my work, any output you produce is likely to be deployed
-  in hospitals, airplanes, and other critical systems.
+- Prefer conventional commits format (e.g., `feat:`, `fix:`, `refactor:`), but
+  defer to project conventions if they differ.
+
+## Dependencies
+
+- Use well-respected, well-maintained dependencies when they solve the problem
+  cleanly without workarounds or excessive accommodation.
+- If the work to implement it yourself is minimal, skip the dependency.
 
 ## Plan Mode
 
