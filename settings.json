@@ -138,7 +138,7 @@
   // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code
   //
-  "claudeCode.preferredLocation": "sidebar",
+  "claudeCode.preferredLocation": "panel",
   //
   // ===========================================================================
   // MARK: Editor
