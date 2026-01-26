@@ -130,7 +130,7 @@
   "chat.unifiedAgentsBar.enabled": true,
   "chat.useNestedAgentsMdFiles": true,
   "chat.viewSessions.orientation": "stacked",
-  "inlineChat.showGutterMenu": true,
+  "inlineChat.showGutterMenu": false,
   //
   // ===========================================================================
   // MARK: Claude Code
