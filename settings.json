@@ -267,7 +267,9 @@
   // MARK: Diffs
   // ===========================================================================
   //
+  "diffEditor.experimental.showMoves": true,
   "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": true,
   //
   // ===========================================================================
   // MARK: Terminal
