@@ -50,7 +50,6 @@
       "mcp__deepwiki__read_wiki_structure"
     ],
     "deny": [
-      "Bash(curl:*)",
       "Read(./.env)",
       "Read(./.env*)",
       "Read(./mcp.json)",
@@ -71,14 +70,15 @@
     "commit-commands@claude-plugins-official": true,
     "plugin-dev@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
+    "playwright@claude-plugins-official": false,
     "security-guidance@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
-    "ralph-loop@claude-plugins-official": true,
-    "pr-review-toolkit@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": false,
+    "pr-review-toolkit@claude-plugins-official": false,
+    "rust-analyzer-lsp@claude-plugins-official": false,
     "swift-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true
+    "lua-lsp@claude-plugins-official": false,
+    "sentry@claude-plugins-official": true
   },
   "autoUpdatesChannel": "latest",
   "plansDirectory": ".claude/plans"
