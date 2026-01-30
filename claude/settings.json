@@ -32,6 +32,7 @@
       "Bash(helm lint:*)",
       "Bash(helm template:*)",
       "Bash(ls:*)",
+      "Bash(mkdir:*)",
       "Bash(pnpm build:*)",
       "Bash(pnpm install:*)",
       "Bash(pnpm lint:*)",
