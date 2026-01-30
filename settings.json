@@ -30,9 +30,14 @@
   //
   "window.commandCenter": true,
   "window.customTitleBarVisibility": "auto",
-  "window.nativeFullScreen": false, // Does not work with nativeTabs enabled.
-  "window.nativeTabs": true,
   "window.title": "${rootName}${separator}${profileName}",
+  // Enabling nativeTabs prevents custom title bar styling, and non-native
+  // fullscreen modes.
+  "window.nativeTabs": true,
+  // Requires nativeTabs to be disabled.
+  "window.nativeFullScreen": false,
+  // Requires nativeTabs to be disabled, and nativeFullScreen to be enabled.
+  "window.titleBarStyle": "custom",
   //
   // ===========================================================================
   // MARK: Workbench
