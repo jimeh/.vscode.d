@@ -46,6 +46,7 @@
       "Bash(pnpm typecheck:*)",
       "Bash(rg:*)",
       "Bash(wc:*)",
+      "Skill(commit-commands:commit:*)",
       "mcp__deepwiki__ask_question",
       "mcp__deepwiki__read_wiki_contents",
       "mcp__deepwiki__read_wiki_structure"
