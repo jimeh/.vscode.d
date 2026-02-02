@@ -267,6 +267,13 @@
   "git-worktree-manager.terminalNameTemplate": "$LABEL ⇄",
   "git-worktree-manager.treeView.toSCM": true,
   "git-worktree-manager.treeView.worktreeDescriptionTemplate": "$BASE_NAME",
+  "git-worktree-manager.worktreeCopyPatterns": [
+    "*.local",
+    ".claude/settings.local.json",
+    ".env",
+    ".vscode/settings.json",
+    ".vscode/settings.local.json"
+  ],
   //
   // ===========================================================================
   // MARK: Diffs
