@@ -58,8 +58,8 @@ Below are rules to follow with everything you do.
   etc.
 - If commands fail due to a missing file you expect to exist, double check the
   current directory with `pwd`, and `cd` to the project root if needed.
-- Avoid using flags to specify a working directory (e.g., `git -C <path>`).
-  Instead, verify you're not already in that directory, then `cd` to it.
+- Do not execute `git` with the `-C` flag. Instead, verify you're not already
+  in the target directory, then `cd` to it.
 - When investigating third-party libraries, use deepwiki to look up information
   if available.
 
