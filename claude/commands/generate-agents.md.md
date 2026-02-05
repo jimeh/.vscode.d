@@ -9,9 +9,9 @@ sources:
 ## Important Caveats
 
 Auto-generated AGENTS.md files tend to be too comprehensive. Use this as a
-**starting point only** - then aggressively trim. Target: smallest possible
-file that provides value. Most instructions should move to progressive
-disclosure (docs/*.md files).
+**starting point only** - then aggressively trim. Target: smallest possible file
+that provides value. Most instructions should move to progressive disclosure
+(docs/*.md files).
 
 Remember:
 
@@ -68,14 +68,15 @@ Instead document:
 ## Context & Principles
 
 You are going to help me create a **hierarchical AGENTS.md system** for this
-codebase. This is critical for AI coding agents to work efficiently with
-minimal token usage.
+codebase. This is critical for AI coding agents to work efficiently with minimal
+token usage.
 
 ### Core Principles
 
 1. **Minimal root AGENTS.md** - Only universal guidance, links to sub-files
 2. **Nearest-wins hierarchy** - Agents read closest AGENTS.md to edited file
-3. **Pattern hints over paths** - Describe grep-able patterns, not file locations
+3. **Pattern hints over paths** - Describe grep-able patterns, not file
+   locations
 4. **Token efficiency** - Small, actionable guidance over encyclopedic docs
 5. **Progressive disclosure** - Link to docs/*.md for detailed rules
 6. **Domain concepts** - Document terminology and business rules, not structure
@@ -160,8 +161,8 @@ Link to detailed docs instead of inlining them:
 
 ### Phase 3: Generate Sub-Folder AGENTS.md Files
 
-Only create for directories with significantly different tech/patterns.
-Each file should be ~30-50 lines max.
+Only create for directories with significantly different tech/patterns. Each
+file should be ~30-50 lines max.
 
 #### Required Sections (3-4 essentials)
 
