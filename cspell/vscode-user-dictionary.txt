@@ -213,6 +213,7 @@ nokogiri
 nolint
 NTFS
 nvmrc
+OKLCH
 Ollama
 omniauth
 onepassword
