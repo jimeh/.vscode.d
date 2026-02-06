@@ -22,6 +22,7 @@
       "Bash(gh pr view:*)",
       "Bash(gh repo view:*)",
       "Bash(git add:*)",
+      "Bash(git branch:*)",
       "Bash(git diff:*)",
       "Bash(git fetch:*)",
       "Bash(git log:*)",
