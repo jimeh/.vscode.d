@@ -2,12 +2,6 @@
 
 Below are rules to follow with everything you do.
 
-## Importance of Quality Work
-
-- Always strive to produce the highest quality work possible.
-- Due to the nature of my work, any output you produce is likely to be deployed
-  in hospitals, airplanes, and other critical systems.
-
 ## Communication Style
 
 - Be casual unless otherwise specified.
@@ -85,6 +79,30 @@ Below are rules to follow with everything you do.
 - Use well-respected, well-maintained dependencies when they solve the problem
   cleanly without workarounds or excessive accommodation.
 - If the work to implement it yourself is minimal, skip the dependency.
+
+## Documenting Discoveries
+
+When you encounter surprising, unexpected, or non-obvious findings while
+working on a project, document them in the project's agent instructions file:
+
+- If `AGENTS.md` already exists, add findings there.
+- If only `CLAUDE.md` exists (project-level, not this global one), add there.
+- If neither exists, propose creating an `AGENTS.md` file.
+
+What to document:
+
+- Non-obvious project conventions or patterns that aren't apparent from the
+  code structure alone.
+- Surprising behaviors, gotchas, or workarounds discovered during development.
+- Implicit dependencies or ordering constraints between components.
+- Environment-specific quirks (e.g., platform differences, tool version
+  sensitivities).
+- Undocumented requirements or constraints found through trial and error.
+
+Keep entries concise and actionable. Group them under a relevant existing
+section or create a new section like `## Discoveries` or `## Gotchas`. The
+goal is to prevent future agents (or yourself in a future session) from
+re-discovering the same things the hard way.
 
 ## Plan Mode
 
