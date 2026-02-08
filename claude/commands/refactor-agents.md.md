@@ -1,4 +1,5 @@
 ---
+description: Refactor an existing AGENTS.md to follow progressive disclosure principles, extracting detailed rules into separate docs
 source: https://www.aihero.dev/a-complete-guide-to-agents-md
 ---
 

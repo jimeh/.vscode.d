@@ -1,4 +1,5 @@
 ---
+description: Analyze the codebase and generate a minimal, hierarchical AGENTS.md structure with progressive disclosure
 sources:
   - https://github.com/RayFernando1337/llm-cursor-rules/blob/main/generate-agents.md
   - https://www.aihero.dev/a-complete-guide-to-agents-md

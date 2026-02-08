@@ -1,4 +1,12 @@
-# Task: Convert CLAUDE.md to AGENTS.md
+---
+description: Convert a project's CLAUDE.md into an agent-agnostic AGENTS.md file, keeping CLAUDE.md as a thin @-reference
+---
+
+## Context
+
+- Check if `CLAUDE.md` and `AGENTS.md` exist in the project root.
+
+## Your Task
 
 Convert this project's `CLAUDE.md` into an `AGENTS.md` file, and replace
 `CLAUDE.md` with a thin reference to it.
@@ -10,7 +18,7 @@ Convert this project's `CLAUDE.md` into an `AGENTS.md` file, and replace
    - If `CLAUDE.md` does not exist but `AGENTS.md` does, skip to step 7.
    - If both exist, abort — suggest using `AGENTS.md` directly or removing it
      first.
-   - Otherwise `CLAUDE.md` exists and `AGENTS.md` does not — proceed.
+   - Otherwise, `CLAUDE.md` exists and `AGENTS.md` does not — proceed.
 
 2. **Read `CLAUDE.md`** content in full.
 
