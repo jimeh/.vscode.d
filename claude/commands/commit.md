@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*)
+allowed-tools: Bash(git add:*), Bash(git diff:*), Bash(git status:*), Bash(git commit:*)
 description: Create a git commit
 source: https://github.com/anthropics/claude-plugins-official/blob/main/plugins/commit-commands/commands/commit.md
 ---
@@ -15,6 +15,12 @@ source: https://github.com/anthropics/claude-plugins-official/blob/main/plugins/
 
 Based on the above changes, create a single git commit.
 
-You have the capability to call multiple tools in a single response. Stage and
-create the commit using a single message. Do not use any other tools or do
-anything else. Do not send any other text or messages besides these tool calls.
+If asked to commit only staged changes, run `git diff --staged` to see exactly
+what is staged, and base the commit message solely on those changes. Do NOT
+stage additional files.
+
+Otherwise, stage all relevant changes and create the commit.
+
+You have the capability to call multiple tools in a single response. Do not use
+any other tools or do anything else. Do not send any other text or messages
+besides these tool calls.
