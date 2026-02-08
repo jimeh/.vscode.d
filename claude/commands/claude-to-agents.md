@@ -6,10 +6,11 @@ Convert this project's `CLAUDE.md` into an `AGENTS.md` file, and replace
 ## Steps
 
 1. **Verify preconditions**:
-   - Confirm `CLAUDE.md` exists in the project root. If not, abort with an error
-     message.
-   - Confirm `AGENTS.md` does NOT already exist in the project root. If it does,
-     abort — suggest using it directly or removing it first.
+   - If neither `CLAUDE.md` nor `AGENTS.md` exist, abort with an error message.
+   - If `CLAUDE.md` does not exist but `AGENTS.md` does, skip to step 7.
+   - If both exist, abort — suggest using `AGENTS.md` directly or removing it
+     first.
+   - Otherwise `CLAUDE.md` exists and `AGENTS.md` does not — proceed.
 
 2. **Read `CLAUDE.md`** content in full.
 
@@ -52,4 +53,13 @@ Convert this project's `CLAUDE.md` into an `AGENTS.md` file, and replace
    This makes Claude Code load `AGENTS.md` via the `@`-reference.
 
 6. **Summary**: Report what was done, including any references that were updated
-   in step 3.
+   in step 3. Stop here.
+
+7. **Create `CLAUDE.md` reference** (only reached when `CLAUDE.md` doesn't
+   exist but `AGENTS.md` does):
+   - Write a new `CLAUDE.md` in the project root containing just:
+     ```
+     @AGENTS.md
+     ```
+   - Report that `CLAUDE.md` was created as a reference to the existing
+     `AGENTS.md`.
