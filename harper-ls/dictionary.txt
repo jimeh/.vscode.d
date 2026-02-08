@@ -163,6 +163,7 @@ Trae
 Traefik's
 Triforce
 Truef
+Turborepo
 Unallocating
 VPS
 VPSA
@@ -217,6 +218,7 @@ clipcopy
 clippaste
 cmd
 codeium
+colocated
 commonmarker
 compat
 compinit
@@ -345,7 +347,9 @@ lockfile
 mTLS
 magick
 magit
+markdown
 maxWait
+md
 mergiraf
 meshery
 metricks
@@ -384,6 +388,7 @@ passhash
 pbcopy
 pgformatter
 pipx
+pnpm
 powerline
 powify
 preprod
@@ -446,6 +451,7 @@ trimpath
 triskaidekaphobia
 trunc
 tweakable
+typecheck
 tzdata
 ubersicht
 ubi
@@ -469,6 +475,7 @@ webmock
 websecure
 websocket
 weechat
+worktree
 worktrees
 xbar
 xcrun

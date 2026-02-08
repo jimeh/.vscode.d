@@ -309,6 +309,7 @@ Triforce
 trimpath
 Truef
 trunc
+Turborepo
 tweakable
 tzdata
 ubersicht
