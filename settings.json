@@ -318,11 +318,14 @@
   "file-browser.labelIgnoredFiles": true,
   //
   // ===========================================================================
-  // MARK: Spell Check
+  // MARK: Spell Checkers
   // ===========================================================================
-  // Extension:
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=elijah-potter.harper
   // - https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
   //
+  "harper.isolateEnglish": true,
+  "harper.linters.Dashes": false,
   "cSpell.checkVSCodeSystemFiles": true,
   "cSpell.customDictionaries": {
     // Run the `./siren <editor> config` command to symlink
