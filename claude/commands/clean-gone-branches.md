@@ -5,17 +5,19 @@ source: https://github.com/anthropics/claude-plugins-official/blob/main/plugins/
 
 ## Your Task
 
-You need to execute the following bash commands to clean up stale local branches that have been deleted from the remote repository.
+You need to execute the following bash commands to clean up stale local branches
+that have been deleted from the remote repository.
 
 ## Commands to Execute
 
-1. **First, list branches to identify any with [gone] status**
-   Execute this command:
+1. **First, list branches to identify any with [gone] status** Execute this
+   command:
    ```bash
    git branch -v
    ```
 
-   Note: Branches with a '+' prefix have associated worktrees and must have their worktrees removed before deletion.
+   Note: Branches with a '+' prefix have associated worktrees and must have
+   their worktrees removed before deletion.
 
 2. **Next, identify worktrees that need to be removed for [gone] branches**
    Execute this command:
@@ -23,8 +25,8 @@ You need to execute the following bash commands to clean up stale local branches
    git worktree list
    ```
 
-3. **Finally, remove worktrees and delete [gone] branches (handles both regular and worktree branches)**
-   Execute this command:
+3. **Finally, remove worktrees and delete [gone] branches (handles both regular
+   and worktree branches)** Execute this command:
    ```bash
    # Process all [gone] branches, removing '+' prefix if present
    git branch -v | grep '\[gone\]' | sed 's/^[+* ]//' | awk '{print $1}' | while read branch; do

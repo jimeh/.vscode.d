@@ -55,8 +55,8 @@ Convert this project's `CLAUDE.md` into an `AGENTS.md` file, and replace
 6. **Summary**: Report what was done, including any references that were updated
    in step 3. Stop here.
 
-7. **Create `CLAUDE.md` reference** (only reached when `CLAUDE.md` doesn't
-   exist but `AGENTS.md` does):
+7. **Create `CLAUDE.md` reference** (only reached when `CLAUDE.md` doesn't exist
+   but `AGENTS.md` does):
    - Write a new `CLAUDE.md` in the project root containing just:
      ```
      @AGENTS.md
