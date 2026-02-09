@@ -12,7 +12,7 @@ sources:
 Auto-generated AGENTS.md files tend to be too comprehensive. Use this as a
 **starting point only** - then aggressively trim. Target: smallest possible file
 that provides value. Most instructions should move to progressive disclosure
-(docs/*.md files).
+(docs/agents/*.md files).
 
 Remember:
 
@@ -79,7 +79,7 @@ token usage.
 3. **Pattern hints over paths** - Describe grep-able patterns, not file
    locations
 4. **Token efficiency** - Small, actionable guidance over encyclopedic docs
-5. **Progressive disclosure** - Link to docs/*.md for detailed rules
+5. **Progressive disclosure** - Link to docs/agents/*.md for detailed rules
 6. **Domain concepts** - Document terminology and business rules, not structure
 
 ---
@@ -147,8 +147,8 @@ Link to detailed docs instead of inlining them:
 
 ```
 ## Detailed Docs
-- TypeScript conventions: see docs/TYPESCRIPT.md
-- Testing patterns: see docs/TESTING.md
+- TypeScript conventions: see docs/agents/TYPESCRIPT.md
+- Testing patterns: see docs/agents/TESTING.md
 ```
 
 #### Optional Sections (include only if truly needed)

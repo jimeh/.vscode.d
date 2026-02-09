@@ -26,7 +26,7 @@ Follow these steps:
 4. **Create the file structure**: Output:
    - A minimal root AGENTS.md with Markdown links to the separate files
    - Each separate file with its relevant instructions
-   - A suggested .agents/docs/ or docs/ folder structure
+   - A suggested docs/agents/ folder structure
 
 5. **Flag for deletion**: Identify any instructions that are:
    - Redundant (the agent already knows this)
