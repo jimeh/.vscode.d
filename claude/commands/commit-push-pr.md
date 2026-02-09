@@ -32,11 +32,14 @@ Based on the above changes:
    base the commit message solely on those changes. Do NOT stage additional
    files. Otherwise, stage all relevant changes.
 4. Push the branch to origin
-5. Create a pull request using `gh pr create`. The PR description should cover
-   all commits on the branch since main/master (use `git log` to review them),
-   not just the latest commit. Check for a PR template at
-   `.github/PULL_REQUEST_TEMPLATE.md` — if one exists, use it as the base for
-   the PR body and fill in the sections appropriately.
+5. Create a pull request using `gh pr create`. Use `git log` and
+   `git diff main...HEAD` (or master) to understand all changes on the branch.
+   The PR description should clearly explain *what* changed and *why*, covering
+   the full scope of changes since main/master. Do NOT include a list of
+   commits — the PR already shows those. Focus on a cohesive summary that
+   helps a reviewer understand the purpose and impact of the changes. Check for
+   a PR template at `.github/PULL_REQUEST_TEMPLATE.md` — if one exists, use it
+   as the base for the PR body and fill in the sections appropriately.
 6. You have the capability to call multiple tools in a single response. You MUST
    do all of the above in a single message. Do not use any other tools or do
    anything else. Do not send any other text or messages besides these tool
