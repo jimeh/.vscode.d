@@ -170,6 +170,7 @@ VPSA
 VSCode's
 VSCodium
 ViewComponent
+Vitest
 WHMCS
 Waluigi
 Wario

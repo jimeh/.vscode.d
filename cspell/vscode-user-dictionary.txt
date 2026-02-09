@@ -312,6 +312,7 @@ Truef
 trunc
 Turborepo
 tweakable
+Typesense
 tzdata
 ubersicht
 unaliased
