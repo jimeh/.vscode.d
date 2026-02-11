@@ -307,11 +307,12 @@
   "terminal.integrated.profiles.osx": {
     "Claude": {
       "path": "claude",
-      "icon": "sparkle",
-      "overrideName": true
+      "icon": "sparkle"
     }
   },
+  "terminal.integrated.tabs.title": "${sequence}",
   "terminal.integrated.scrollback": 50000,
+  "terminal.integrated.enableKittyKeyboardProtocol": true,
   "terminal.integrated.sendKeybindingsToShell": false,
   "terminal.integrated.shellIntegration.enabled": true,
   //
