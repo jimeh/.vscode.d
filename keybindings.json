@@ -22,51 +22,44 @@
   },
   //
   // ===========================================================================
-  // MARK: Cursor (Text Editor)
-  // ===========================================================================
-  //
-  { // Toggle Agent.
-    "key": "cmd+i",
-    "command": "composerMode.agent"
-  },
-  { // Toggle Plan.
-    "key": "alt+cmd+i",
-    "command": "composerMode.plan"
-  },
-  { // Toggle Ask.
-    "key": "cmd+l",
-    "command": "composerMode.chat"
-  },
-  //
-  // ===========================================================================
   // MARK: Claude Code
   // ===========================================================================
   // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code
   //
-  //
+  { // Focus Claude Code sidebar.
+    "key": "cmd+i",
+    "command": "claude-vscode.focus",
+    "when": "editorTextFocus && !config.claudeCode.useTerminal"
+  },
+  { // Blur Claude Code sidebar.
+    "key": "cmd+i",
+    "command": "claude-vscode.blur",
+    "when": "!config.claudeCode.useTerminal && !editorTextFocus"
+  },
   { // Enable new lines in terminal.
     "key": "shift+enter",
     "command": "workbench.action.terminal.sendSequence",
     "args": {
-      "text": "\\\r\n"
+      "text": "\u001b[13;2u"
     },
     "when": "terminalFocus"
   },
-  { // Disable default open native console keybinding.
+  { // Disable default open native console (External Terminal) keybinding.
     "key": "shift+cmd+c",
     "command": "-workbench.action.terminal.openNativeConsole",
     "when": "!terminalFocus"
   },
-  { // Blur Claude Code.
+  { // Open Claude terminal.
     "key": "shift+cmd+c",
-    "command": "claude-vscode.blur",
-    "when": "!config.claudeCode.useTerminal && !editorTextFocus"
+    "command": "workbench.action.terminal.newWithProfile",
+    "args": {
+      "profileName": "Claude"
+    }
   },
-  { // Focus Claude Code.
-    "key": "shift+cmd+c",
-    "command": "claude-vscode.focus",
-    "when": "editorTextFocus && !config.claudeCode.useTerminal"
+  { // Open Claude terminal in editor tab to the side (locked group).
+    "key": "alt+shift+cmd+c",
+    "command": "macros.openClaudeTerminalBeside"
   },
   //
   // ===========================================================================

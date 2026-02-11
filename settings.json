@@ -143,7 +143,7 @@
   // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code
   //
-  "claudeCode.preferredLocation": "panel",
+  "claudeCode.preferredLocation": "sidebar",
   //
   // ===========================================================================
   // MARK: Editor
@@ -304,8 +304,14 @@
   "terminal.integrated.defaultProfile.osx": "zsh",
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.persistentSessionScrollback": 1000,
+  "terminal.integrated.profiles.osx": {
+    "Claude": {
+      "path": "claude",
+      "icon": "terminal"
+    }
+  },
   "terminal.integrated.scrollback": 50000,
-  "terminal.integrated.sendKeybindingsToShell": true,
+  "terminal.integrated.sendKeybindingsToShell": false,
   "terminal.integrated.shellIntegration.enabled": true,
   //
   // ===========================================================================
@@ -994,6 +1000,29 @@
   // - https://marketplace.visualstudio.com/items?itemName=ctf0.macros
   //
   "macros.list": {
+    "openClaudeTerminalBeside": [
+      {
+        "command": "workbench.action.terminal.newWithProfile",
+        "args": {
+          "profileName": "Claude",
+          "location": "editor"
+        }
+      },
+      {
+        "command": "$delay",
+        "args": {
+          "delay": 100
+        }
+      },
+      "workbench.action.moveEditorToRightGroup",
+      {
+        "command": "$delay",
+        "args": {
+          "delay": 50
+        }
+      },
+      "workbench.action.lockEditorGroup"
+    ],
     "insertEmDash": [
       {
         "command": "type",
