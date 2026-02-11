@@ -52,6 +52,7 @@ deepwiki
 digg
 dired
 direnv
+DMARC
 Dockerfiles
 dotenv
 Dreamcast
@@ -62,6 +63,7 @@ Elon
 elpaca
 Elric
 emacsclient
+endor
 ENIAC
 envctl
 errgroup
@@ -154,6 +156,7 @@ keybase
 keymap
 keypair
 khvagent
+kira
 Kiro
 klogger
 kluster
