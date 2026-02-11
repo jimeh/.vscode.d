@@ -307,7 +307,8 @@
   "terminal.integrated.profiles.osx": {
     "Claude": {
       "path": "claude",
-      "icon": "terminal"
+      "icon": "sparkle",
+      "overrideName": true
     }
   },
   "terminal.integrated.scrollback": 50000,
