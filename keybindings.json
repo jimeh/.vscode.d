@@ -50,16 +50,16 @@
     "command": "-workbench.action.terminal.openNativeConsole",
     "when": "!terminalFocus"
   },
-  { // Open Claude terminal.
+  { // Open Claude terminal in editor tab to the side (locked group).
     "key": "shift+cmd+c",
+    "command": "macros.openClaudeTerminalBeside"
+  },
+  { // Open Claude terminal.
+    "key": "alt+shift+cmd+c",
     "command": "workbench.action.terminal.newWithProfile",
     "args": {
       "profileName": "Claude"
     }
-  },
-  { // Open Claude terminal in editor tab to the side (locked group).
-    "key": "alt+shift+cmd+c",
-    "command": "macros.openClaudeTerminalBeside"
   },
   //
   // ===========================================================================
