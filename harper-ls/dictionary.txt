@@ -294,6 +294,7 @@ helmfile
 hexedit
 hostnames
 href
+https
 hyprevisors
 icns
 iconset
