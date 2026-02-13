@@ -285,7 +285,7 @@
   // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph
   //
-  "git-graph.dialog.fetchRemote.prune": true
+  "git-graph.dialog.fetchRemote.prune": true,
   //
   // ===========================================================================
   // MARK: Git Worktree Manager
