@@ -24,6 +24,7 @@
   //
   // Disable automatic extension updates.
   "extensions.autoUpdate": false,
+  //
   // ===========================================================================
   // MARK: Window
   // ===========================================================================
@@ -38,6 +39,16 @@
   "window.nativeFullScreen": false,
   // Requires nativeTabs to be disabled, and nativeFullScreen to be enabled.
   "window.titleBarStyle": "custom",
+  //
+  // ===========================================================================
+  // MARK: Window Decorations
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=jimeh.glaze
+  //
+  "glaze.enabled": true,
+  "glaze.elements.statusBar": false,
+  "glaze.elements.activityBar": false,
   //
   // ===========================================================================
   // MARK: Workbench
