@@ -227,6 +227,8 @@ opentofu
 openvsx
 Orbstack
 otelprom
+oxfmt
+oxlint
 pagy
 pandoc
 passhash
@@ -243,6 +245,7 @@ promhttp
 propshaft
 protoc
 PUID
+pyflakes
 QUIC
 Quiksilver
 Rackup
