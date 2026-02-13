@@ -332,7 +332,7 @@
   "terminal.integrated.tabs.title": "${sequence}",
   "terminal.integrated.scrollback": 50000,
   "terminal.integrated.enableKittyKeyboardProtocol": true,
-  "terminal.integrated.sendKeybindingsToShell": false,
+  "terminal.integrated.sendKeybindingsToShell": true,
   "terminal.integrated.shellIntegration.enabled": true,
   //
   // ===========================================================================
@@ -726,6 +726,7 @@
       "url": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/manifest.json"
     }
   ],
+  "json.schemaDownload.enable": true,
   //
   // ===========================================================================
   // MARK: Lang: JavaScript
