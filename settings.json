@@ -280,6 +280,14 @@
   "githubRepositories.autoFetch.enabled": true,
   //
   // ===========================================================================
+  // MARK: Git Graph
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph
+  //
+  "git-graph.dialog.fetchRemote.prune": true
+  //
+  // ===========================================================================
   // MARK: Git Worktree Manager
   // ===========================================================================
   // Extension:
