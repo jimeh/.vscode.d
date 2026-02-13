@@ -5,6 +5,7 @@ description: Convert a project's CLAUDE.md into an agent-agnostic AGENTS.md file
 ## Context
 
 - Check if `CLAUDE.md` and `AGENTS.md` exist in the project root.
+- Check if `CLAUDE.md` is a symlink (e.g., `ls -la CLAUDE.md`).
 
 ## Your Task
 
@@ -14,6 +15,7 @@ Convert this project's `CLAUDE.md` into an `AGENTS.md` file, and replace
 ## Steps
 
 1. **Verify preconditions**:
+   - If `CLAUDE.md` is a symlink pointing to `AGENTS.md`, skip to step 8.
    - If neither `CLAUDE.md` nor `AGENTS.md` exist, abort with an error message.
    - If `CLAUDE.md` does not exist but `AGENTS.md` does, skip to step 7.
    - If both exist, abort — suggest using `AGENTS.md` directly or removing it
@@ -70,4 +72,14 @@ Convert this project's `CLAUDE.md` into an `AGENTS.md` file, and replace
      @AGENTS.md
      ```
    - Report that `CLAUDE.md` was created as a reference to the existing
+     `AGENTS.md`.
+
+8. **Replace symlink with `@`-reference** (only reached when `CLAUDE.md` is a
+   symlink to `AGENTS.md`):
+   - Remove the `CLAUDE.md` symlink.
+   - Write a new `CLAUDE.md` file containing just:
+     ```
+     @AGENTS.md
+     ```
+   - Report that the symlink was replaced with an `@`-reference to
      `AGENTS.md`.
