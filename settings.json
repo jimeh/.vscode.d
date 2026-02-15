@@ -329,6 +329,12 @@
       "icon": "sparkle"
     }
   },
+  "terminal.integrated.profiles.linux": {
+    "Claude": {
+      "path": "claude",
+      "icon": "sparkle"
+    }
+  },
   "terminal.integrated.tabs.title": "${sequence}",
   "terminal.integrated.scrollback": 50000,
   "terminal.integrated.enableKittyKeyboardProtocol": true,
