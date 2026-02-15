@@ -1,6 +1,7 @@
 # Custom VSCode Dictionary Words
 actionnav
 actool
+agentic
 aker
 amazonses
 Aonuma
@@ -227,6 +228,7 @@ opentofu
 openvsx
 Orbstack
 otelprom
+OVSX
 oxfmt
 oxlint
 pagy
@@ -234,6 +236,7 @@ pandoc
 passhash
 pgformatter
 PGID
+pipefail
 pipx
 PKCE
 powerline
