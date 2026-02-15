@@ -43,19 +43,9 @@ define_settings() {
   STATIC_SYMLINKS["harper-ls/file_dictionaries"]="$(harper_config_dir)/file_dictionaries"
   STATIC_SYMLINKS["harper-ls/ignored_lints"]="$(harper_config_dir)/ignored_lints"
 
-  # Conditionally add symlinks for Claude (only if CLI is installed).
-  if command -v claude &>/dev/null; then
-    STATIC_SYMLINKS["claude/CLAUDE.md"]="${HOME}/.claude/CLAUDE.md"
-    STATIC_SYMLINKS["claude/settings.json"]="${HOME}/.claude/settings.json"
-    STATIC_SYMLINKS["claude/statusline.sh"]="${HOME}/.claude/statusline.sh"
-    _add_command_symlinks "claude" "${HOME}/.claude"
-    _add_skill_symlinks "claude" "${HOME}/.claude"
-  fi
-
   # Conditionally add symlinks for Cursor.
   if [[ "${SETUP_EDITOR}" == "cursor" ]]; then
     STATIC_SYMLINKS["cursor/mcp.json"]="${HOME}/.cursor/mcp.json"
-    _add_command_symlinks "cursor" "${HOME}/.cursor"
   fi
 }
 
@@ -426,123 +416,6 @@ symlink_static_config() {
   for source in "${!STATIC_SYMLINKS[@]}"; do
     target="${STATIC_SYMLINKS[${source}]}"
     backup_and_link "${SCRIPT_DIR}/${source}" "${target}"
-  done
-}
-
-# Add symlinks for all markdown files in a commands directory.
-# Args: $1 = source subdir (e.g., "claude"), $2 = target dir (e.g., ~/.claude)
-_add_command_symlinks() {
-  local source_subdir="$1"
-  local target_base="$2"
-  local cmd_file
-
-  for cmd_file in "${SCRIPT_DIR}/${source_subdir}/commands/"*.md; do
-    if [[ -f "${cmd_file}" ]]; then
-      local filename
-      filename="$(basename "${cmd_file}")"
-      STATIC_SYMLINKS["${source_subdir}/commands/${filename}"]="${target_base}/commands/${filename}"
-    fi
-  done
-}
-
-# Add symlinks for all skill directories (containing SKILL.md) in a skills
-# directory.
-# Args: $1 = source subdir (e.g., "claude"), $2 = target dir (e.g., ~/.claude)
-_add_skill_symlinks() {
-  local source_subdir="$1"
-  local target_base="$2"
-  local skills_dir="${SCRIPT_DIR}/${source_subdir}/skills"
-
-  if [[ ! -d "${skills_dir}" ]]; then
-    return
-  fi
-
-  local skill_dir
-  for skill_dir in "${skills_dir}"/*/; do
-    # Skip if glob didn't match anything (returns literal pattern).
-    [[ -d "${skill_dir}" ]] || continue
-
-    # Only treat directories containing SKILL.md as skills.
-    if [[ -f "${skill_dir}/SKILL.md" ]]; then
-      local skill_name
-      skill_name="$(basename "${skill_dir}")"
-      STATIC_SYMLINKS["${source_subdir}/skills/${skill_name}"]="${target_base}/skills/${skill_name}"
-    fi
-  done
-}
-
-# Remove stale symlinks in a commands directory that point to source files that
-# no longer exist.
-# Args: $1 = source subdir (e.g., "claude"), $2 = target dir (e.g., ~/.claude)
-_cleanup_stale_commands() {
-  local source_subdir="$1"
-  local target_base="$2"
-  local commands_dir="${target_base}/commands"
-  local source_dir="${SCRIPT_DIR}/${source_subdir}/commands"
-
-  if [[ ! -d "${commands_dir}" ]]; then
-    return
-  fi
-
-  local link
-  for link in "${commands_dir}"/*; do
-    # Skip if glob didn't match anything (returns literal pattern).
-    [[ -e "${link}" || -L "${link}" ]] || continue
-
-    # Skip if not a symlink.
-    if [[ ! -L "${link}" ]]; then
-      continue
-    fi
-
-    local target
-    target="$(readlink "${link}")"
-
-    # Check if the symlink points to our source directory.
-    if [[ "${target}" == "${source_dir}/"* ]]; then
-      # If the target file no longer exists, remove the symlink.
-      if [[ ! -e "${target}" ]]; then
-        info "Removing stale symlink: ${link}"
-        rm -f "${link}"
-      fi
-    fi
-  done
-}
-
-# Remove stale symlinks in a skills directory that point to source
-# directories that no longer exist. Only touches symlinks pointing into our
-# source tree; symlinks managed by other tools are left untouched.
-# Args: $1 = source subdir (e.g., "claude"), $2 = target dir (e.g., ~/.claude)
-_cleanup_stale_skills() {
-  local source_subdir="$1"
-  local target_base="$2"
-  local skills_dir="${target_base}/skills"
-  local source_dir="${SCRIPT_DIR}/${source_subdir}/skills"
-
-  if [[ ! -d "${skills_dir}" ]]; then
-    return
-  fi
-
-  local link
-  for link in "${skills_dir}"/*; do
-    # Skip if glob didn't match anything (returns literal pattern).
-    [[ -e "${link}" || -L "${link}" ]] || continue
-
-    # Skip if not a symlink.
-    if [[ ! -L "${link}" ]]; then
-      continue
-    fi
-
-    local target
-    target="$(readlink "${link}")"
-
-    # Check if the symlink points to our source directory.
-    if [[ "${target}" == "${source_dir}/"* ]]; then
-      # If the target directory no longer exists, remove the symlink.
-      if [[ ! -e "${target}" ]]; then
-        info "Removing stale symlink: ${link}"
-        rm -f "${link}"
-      fi
-    fi
   done
 }
 
@@ -1341,15 +1214,6 @@ do_static_config() {
 do_config() {
   symlink_editor_config
   symlink_static_config
-
-  # Clean up stale command and skill symlinks.
-  if command -v claude &>/dev/null; then
-    _cleanup_stale_commands "claude" "${HOME}/.claude"
-    _cleanup_stale_skills "claude" "${HOME}/.claude"
-  fi
-  if [[ "${SETUP_EDITOR}" == "cursor" ]]; then
-    _cleanup_stale_commands "cursor" "${HOME}/.cursor"
-  fi
 
   info "Symlink setup complete!"
 }
