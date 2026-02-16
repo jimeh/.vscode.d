@@ -1,73 +1,41 @@
 # AGENTS.md
 
-This file provides guidance to LLM agents when working with code in this
-repository.
-
-## Project Overview
-
-This is a personal VSCode configuration repository (vscode-siren) that
-provides a unified configuration for VSCode-based editors including Cursor,
-VSCode, VSCode Insiders, Windsurf, and Antigravity. It focuses on recreating
-an Emacs-like text editor experience with custom keybindings, settings, and
-extensions.
+Unified VSCode configuration repo — manages settings, keybindings, extensions,
+and tool configs for multiple VSCode-compatible editors via symlinks.
 
 ## Key Commands
 
-### Configuration Management
-
-- `./siren <editor> config` - Create symlinks for editor config files
-- `./siren <editor> extensions` - Install extensions from lock file
-- `./siren <editor> extensions --latest` - Install latest versions of extensions
-- `./siren <editor> dump-extensions` - Export installed extensions to lock file
-
-### Makefile Shortcuts
-
-- `make cursor-config` - Configure Cursor editor
-- `make cursor-extensions` - Install Cursor extensions
-- `make all-config` - Configure all editors
-- `make all-extensions` - Install extensions for all editors
+```bash
+./siren <editor> config             # Symlink config files to editor
+./siren <editor> extensions         # Install extensions from lock file
+./siren <editor> extensions --latest # Install latest extension versions
+./siren <editor> dump-extensions    # Export installed extensions to lock file
+make all-config                     # Configure all editors
+make all-extensions                 # Install extensions for all editors
+```
 
 ### Supported Editors
 
-- `antigravity` (agy, a) - Antigravity editor (VSCode-compatible, prefers OpenVSX)
-- `cursor` (c) - Cursor editor
-- `vscode` (code, vsc, v) - Visual Studio Code
-- `vscode-insiders` (vsci, i) - Visual Studio Code Insiders
-- `windsurf` (surf, w) - Windsurf editor
+antigravity (agy, a), cursor (c), kiro (k), vscode (code, vsc, v),
+vscode-insiders (vsci, i), windsurf (surf, w)
 
-## Architecture
+## Conventions
 
-### Core Components
+- **Config files** are symlinked from this repo into each editor's config dir.
+  The siren script handles backup and linking per OS (macOS/Linux).
+- **Extension lock files** (`extensions.<editor>.lock`) pin versions in
+  `publisher.name@version` format. Dual registry: OpenVSX primary, VS
+  Marketplace fallback, `.vsix` download as last resort.
+- **settings.json and keybindings.json** are large files (~1200+ lines each)
+  organized with `// MARK:` comment sections. Search for `MARK:` to navigate.
+- **Keybindings** follow Emacs conventions — heavy use of `ctrl+x` and `ctrl+c`
+  chord prefixes.
+- **Siren script** (bash): uses `set -o pipefail`, requires bash 4+ (assoc
+  arrays), depends on `jq` and `curl`. Functions use `snake_case`.
 
-- **siren script** - Main configuration management tool (bash script)
-- **settings.json** - VSCode settings configuration
-- **keybindings.json** - Custom keybindings (Emacs-inspired)
-- **snippets/** - Code snippets for Go and Ruby
-- **extensions.*.lock** - Extension lock files for each editor
+## Scope
 
-### Configuration Structure
-
-- Config files are symlinked to appropriate editor directories based on OS
-- Extensions are managed via lock files with version pinning
-- Extensions install directly by ID with fallback to .vsix when needed
-- Static symlinks for additional files like cspell dictionary and MCP config
-
-### Key Features
-
-- Cross-platform support (macOS/Linux)
-- Version-locked extensions with fallback to .vsix downloads
-- Automatic backup of existing configurations
-- Emacs-inspired keybindings and workflow
-- Dark/light theme switching based on system preferences
-
-## Development Guidelines
-
-Based on cursor/user-rules.md:
-
-- Keep line length to 80 characters when possible
-- Check Makefile for common project tasks
-- Be direct and terse in communication
-- Provide code solutions rather than general advice
-- Include robust error handling
-- Consider cross-platform compatibility
-- Respect existing code comments
+AI agent configurations (CLAUDE.md, commands, skills, cursor rules) are managed
+in a separate repo ([jimeh/agentic](https://github.com/jimeh/agentic)). This
+repo only handles editor settings, keybindings, extensions, and tool configs
+(cspell, harper-ls, MCP).
