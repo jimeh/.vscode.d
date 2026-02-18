@@ -1,10 +1,10 @@
 # cursor Extensions
-# Generated on Fri Feb 13 09:48:01 GMT 2026
-# Version: 2.4.35 (d2bf8ec12017b1049f304ad3a5c8867b117ed830, arm64)
+# Generated on Wed Feb 18 10:21:18 GMT 2026
+# Version: 2.5.17 (7b98dcb824ea96c9c62362a5e80dbf0d1aae4770, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@13.0.0
-anthropic.claude-code@2.1.39
+anthropic.claude-code@2.1.45
 antiantisepticeye.vscode-color-picker@0.0.4
 antyos.openscad@1.3.2
 anysphere.cpptools@2.0.2
@@ -13,7 +13,7 @@ anysphere.cursor-lsp-profiler@1.0.0
 anysphere.cursorpyright@1.0.10
 anysphere.remote-containers@1.0.32
 anysphere.remote-ssh@1.0.39
-anysphere.remote-wsl@1.0.12
+anysphere.remote-wsl@1.0.13
 arrterian.nix-env-selector@1.1.0
 arturodent.command-alias@0.6.2
 astro-build.astro-vscode@2.16.8
@@ -58,10 +58,11 @@ hashicorp.terraform@2.37.7
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.0
 hverlin.mise-vscode@1.3.0
-jackiotyu.git-worktree-manager@3.22.3
+jackiotyu.git-worktree-manager@3.23.0
 jakearl.search-editor-apply-changes@0.1.1
+jimeh.actionlint@0.1.3
 jimeh.executable-on-save@0.2.5
-jimeh.glaze@0.1.3
+jimeh.glaze@0.1.4
 jnoortheen.nix-ide@0.5.5
 joshbolduc.commitlint@2.6.3
 joshmu.periscope@1.16.1
@@ -92,7 +93,7 @@ ms-vscode.remote-repositories@0.43.2025081801
 ms-vscode.vscode-speech@0.16.0
 ms-vsliveshare.vsliveshare@1.0.5959
 ninoseki.vscode-mogami@0.1.6
-openai.chatgpt@0.4.74
+openai.chatgpt@0.4.76
 orta.vscode-jest@6.4.4
 oxc.oxc-vscode@1.45.0
 pflannery.vscode-versionlens@1.22.4
@@ -100,12 +101,12 @@ pkief.material-icon-theme@5.31.0
 pomdtr.excalidraw-editor@3.9.0
 qingpeng.common-lisp@1.2.11
 redhat.vscode-xml@0.29.0
-redhat.vscode-yaml@1.19.1
+redhat.vscode-yaml@1.20.0
 repreng.csv@1.3.0
 romanpeshkov.vscode-text-tables@0.1.5
 rrudi.vscode-dired@0.0.9
 runem.lit-plugin@1.2.1
-rust-lang.rust-analyzer@0.3.2786
+rust-lang.rust-analyzer@0.3.2795
 shopify.ruby-extensions-pack@0.1.13
 shopify.ruby-lsp@0.10.0
 sidneys1.gitconfig@2.0.1
@@ -121,7 +122,7 @@ swellaby.workspace-config-plus@0.2.5
 swiftlang.swift-vscode@2.16.1
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
-tuttieee.emacs-mcx@0.107.1
+tuttieee.emacs-mcx@0.107.2
 tyriar.sort-lines@1.9.1
 unifiedjs.vscode-mdx@1.8.17
 vadimcn.vscode-lldb@1.12.1
