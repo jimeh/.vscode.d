@@ -15,6 +15,7 @@ Blackmagic
 BlockLength
 Bowser
 Bundler
+Bungie
 CD
 CRDs
 Caddyfile
@@ -42,6 +43,7 @@ EdDSA
 EiB
 Eiji
 Elric
+Etheric
 Evernote
 Excalidraw
 FQDN
@@ -129,11 +131,15 @@ PGID
 PKCE
 PNGs
 PR
+PS4
 PUID
 PoC
 PredicateMethod
 Procfile
+PvE
+PvP
 QUIC
+Qodron
 Quiksilver
 ROM
 RPC
