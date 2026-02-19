@@ -46,9 +46,10 @@
   // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=jimeh.glaze
   //
-  "glaze.enabled": true,
-  "glaze.elements.statusBar": false,
   "glaze.elements.activityBar": false,
+  "glaze.elements.statusBar": false,
+  "glaze.enabled": true,
+  "glaze.workspaceIdentifier.includeRemoteAuthority": false,
   //
   // ===========================================================================
   // MARK: Workbench
