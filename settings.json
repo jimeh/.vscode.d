@@ -719,13 +719,15 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "json.schemas": [
-    { // Release Please config
+    {
+      // Release Please config
       "fileMatch": [
         "/**/release-please-config.json"
       ],
       "url": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json"
     },
-    { // Release Please manifest
+    {
+      // Release Please manifest
       "fileMatch": [
         "/**/.release-please-manifest.json",
         "/**/release-please-manifest.json"
@@ -802,17 +804,20 @@
   "markdown-preview-github-styles.darkTheme": "dark_dimmed",
   "markdownlint.configFile": "~/.markdownlint.yaml",
   "markdownlint.config": {
-    "no-hard-tabs": { // MD010
+    // MD010
+    "no-hard-tabs": {
       "ignore_code_languages": [
         "caddyfile",
         "go",
         "makefile"
       ]
     },
-    "blanks-around-fences": { // MD031
+    // MD031
+    "blanks-around-fences": {
       "list_items": false
     },
-    "line-length": { // MD013
+    // MD013
+    "line-length": {
       "line_length": 80,
       "code_blocks": false,
       "ignore_code_blocks": true,
