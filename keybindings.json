@@ -906,6 +906,19 @@
   },
   //
   // ===========================================================================
+  // MARK: Tasks
+  // ===========================================================================
+  //
+  { // Run tasks UI.
+    "key": "ctrl+c ctrl+m",
+    "command": "workbench.action.tasks.runTask"
+  },
+  { // Run tasks UI.
+    "key": "ctrl+c enter",
+    "command": "workbench.action.tasks.runTask"
+  },
+  //
+  // ===========================================================================
   // MARK: Testing
   // ===========================================================================
   //
@@ -1164,21 +1177,6 @@
     // right arrow.
     "key": "ctrl+q right",
     "command": "text-tables.formatUnderCursor"
-  },
-  //
-  // ===========================================================================
-  // MARK: Makefile Task Runner
-  // ===========================================================================
-  // Extension:
-  // - https://marketplace.visualstudio.com/items?itemName=carlos-algms.make-task-provider
-  //
-  { // Run target.
-    "key": "ctrl+c ctrl+m",
-    "command": "make-task-provider.runTarget"
-  },
-  { // Run target.
-    "key": "ctrl+c enter",
-    "command": "make-task-provider.runTarget"
   },
   //
   // ===========================================================================
