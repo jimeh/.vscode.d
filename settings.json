@@ -17,6 +17,19 @@
   // One Dark Pro theme settings
   "oneDarkPro.vivid": true,
   "oneDarkPro.markdownStyle": false,
+  "editor.tokenColorCustomizations": {
+    "[One Dark Pro]": {
+      "textMateRules": [
+        {
+          // Make markdown blockquotes a bit more visible.
+          "scope": "markup.quote.markdown",
+          "settings": {
+            "foreground": "#838893"
+          }
+        }
+      ]
+    }
+  }
   //
   // ===========================================================================
   // MARK: Extensions
