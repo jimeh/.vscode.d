@@ -5,7 +5,7 @@
   "recommendations": [
     // Allows for use of settings.shared.json and settings.local.json.
     "swellaby.workspace-config-plus",
-    // Below list is produced by `./siren shared --json c i`
+    // Below list is produced by `./siren shared --json c v`
     "ahmadalli.vscode-nginx-conf",
     "alefragnani.project-manager",
     "anthropic.claude-code",
@@ -48,12 +48,16 @@
     "gofenix.go-lines",
     "golang.go",
     "gruntfuggly.todo-tree",
+    "hashicorp.hcl",
     "hashicorp.terraform",
     "hoovercj.vscode-settings-cycler",
     "humao.rest-client",
     "hverlin.mise-vscode",
+    "jackiotyu.git-worktree-manager",
     "jakearl.search-editor-apply-changes",
+    "jimeh.actionlint",
     "jimeh.executable-on-save",
+    "jimeh.glaze",
     "jnoortheen.nix-ide",
     "joshbolduc.commitlint",
     "joshmu.periscope",
@@ -86,6 +90,7 @@
     "ninoseki.vscode-mogami",
     "openai.chatgpt",
     "orta.vscode-jest",
+    "oxc.oxc-vscode",
     "pflannery.vscode-versionlens",
     "pkief.material-icon-theme",
     "pomdtr.excalidraw-editor",
@@ -101,8 +106,10 @@
     "shopify.ruby-lsp",
     "sidneys1.gitconfig",
     "sorbet.sorbet-vscode-extension",
+    "soutaro.rbs-syntax",
+    "soutaro.steep-vscode",
     "streetsidesoftware.code-spell-checker",
-    "stuart.unique-window-colors",
+    "stylelint.vscode-stylelint",
     "sumneko.lua",
     "svelte.svelte-vscode",
     "swiftlang.swift-vscode",
@@ -116,6 +123,7 @@
     "vitest.explorer",
     "wenhoujx.swiper",
     "zhuangtongfa.material-theme",
+    "ziglang.vscode-zig",
     "ziyasal.vscode-open-in-github"
   ]
 }
