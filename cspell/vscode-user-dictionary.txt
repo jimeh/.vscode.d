@@ -16,6 +16,7 @@ bashunit
 bbedit
 bioluminescent
 Blackmagic
+blockquotes
 bootable
 bootsnap
 Bowser
@@ -348,6 +349,8 @@ websecure
 weechat
 WHMCS
 wiremock
+Wisper
+Wispr
 worktree
 worktrees
 xbar
