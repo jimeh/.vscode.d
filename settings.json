@@ -219,8 +219,8 @@
   // Accessibility
   "editor.accessibilitySupport": "on",
   "accessibility.windowTitleOptimized": false,
-  // Force silence accessibility signal noises. Wisper Flow's editor integration
-  // works as a screen reader, which activates VSCode's accessiblity support,
+  // Force silence accessibility signal noises. Wispr Flow's editor integration
+  // works as a screen reader, which activates VSCode's accessibility support,
   // but that also comes with various sound queues on various operations. Hence
   // we silence them by setting volume to 0%.
   "accessibility.signalOptions.volume": 0,
