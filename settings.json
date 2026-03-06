@@ -774,6 +774,14 @@
   "jest.coverageFormatter": "GutterFormatter",
   //
   // ===========================================================================
+  // MARK: Lang: Svelte
+  // ===========================================================================
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode
+  //
+  "svelte.enable-ts-plugin": true,
+  //
+  // ===========================================================================
   // MARK: Lang: Lua
   // ===========================================================================
   // Extensions:
