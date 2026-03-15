@@ -216,6 +216,7 @@ axe
 baryonic
 bashunit
 bbedit
+bcrypt
 bioluminescence
 bioluminescent
 blockquotes

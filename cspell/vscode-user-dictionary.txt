@@ -4,6 +4,7 @@ actool
 agentic
 aker
 amazonses
+anthropics
 Aonuma
 atech
 atechmedia
@@ -53,6 +54,7 @@ debouced
 debouncer
 deepwiki
 digg
+dioxus
 dired
 direnv
 DMARC
@@ -115,11 +117,13 @@ goroutines
 gosec
 govulncheck
 guids
+guix
 haml
 Hammerspoon
 Hashie
 hati
 Havaianas
+haxe
 haxelib
 healthcheck
 healthz
@@ -226,6 +230,7 @@ OKLCH
 Ollama
 omniauth
 onepassword
+opencode
 openemu
 OPENSTEP
 opentofu
@@ -252,11 +257,15 @@ promhttp
 propshaft
 protoc
 PUID
+pulumi
+purescript
+pyenv
 pyflakes
 Qodron
 QUIC
 Quiksilver
 Rackup
+raku
 rbheap
 rclone
 redcarpet
@@ -266,6 +275,7 @@ reqwest
 Resolutionator
 restish
 rgba
+rlang
 rmrf
 rollouts
 romdo
@@ -339,6 +349,8 @@ upscayl
 valkey
 vcard
 vcards
+vcsh
+virtualenv
 vitest
 VPSA
 vscm
