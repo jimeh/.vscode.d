@@ -130,7 +130,7 @@
     "**/secrets.yaml",
     "**/tmp*" // Covers ansible-vault temp files.
   ],
-  "cursor.terminal.usePreviewBox": true,
+  "cursor.terminal.usePreviewBox": false,
   "update.releaseTrack": "prerelease",
   //
   // ===========================================================================
@@ -335,6 +335,7 @@
     "path": "/bin/zsh"
   },
   "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.enableImages": true,
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.persistentSessionScrollback": 1000,
   "terminal.integrated.profiles.osx": {
@@ -354,6 +355,7 @@
   "terminal.integrated.enableKittyKeyboardProtocol": true,
   "terminal.integrated.sendKeybindingsToShell": true,
   "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.stickyScroll.enabled": true,
   //
   // ===========================================================================
   // MARK: Awesome Emacs Keybindings
