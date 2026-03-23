@@ -355,7 +355,7 @@
   "terminal.integrated.enableKittyKeyboardProtocol": true,
   "terminal.integrated.sendKeybindingsToShell": true,
   "terminal.integrated.shellIntegration.enabled": true,
-  "terminal.integrated.stickyScroll.enabled": true,
+  "terminal.integrated.stickyScroll.enabled": false,
   //
   // ===========================================================================
   // MARK: Awesome Emacs Keybindings
