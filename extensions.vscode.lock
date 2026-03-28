@@ -1,12 +1,12 @@
 # vscode Extensions
-# Generated on Mon Mar 23 20:53:20 GMT 2026
-# Version: 1.112.0 (07ff9d6178ede9a1bd12ad3399074d726ebe6e43, arm64)
+# Generated on Sat Mar 28 11:19:24 GMT 2026
+# Version: 1.113.0 (cfbea10c5ffb233ea9177d34726e6056e89913dc, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@13.0.1
-anthropic.claude-code@2.1.81
+anthropic.claude-code@2.1.86
 antyos.openscad@1.3.2
-arrterian.nix-env-selector@1.1.0
+arrterian.nix-env-selector@1.2.0
 arturodent.command-alias@0.6.2
 astro-build.astro-vscode@2.16.13
 benspaulding.procfile@1.1.7
@@ -39,20 +39,20 @@ esbenp.prettier-vscode@12.4.0
 exiasr.hadolint@1.1.2
 expo.vscode-expo-tools@1.6.2
 fogio.inline-go-struct-tags-syntax-highlight@1.0.0
-github.copilot-chat@0.40.1
+github.copilot-chat@0.41.2
 github.remotehub@0.64.0
 github.vscode-github-actions@0.31.2
-github.vscode-pull-request-github@0.132.1
+github.vscode-pull-request-github@0.132.2
 gofenix.go-lines@0.0.10
 golang.go@0.52.2
 google.gemini-cli-vscode-ide-companion@0.20.0
 gruntfuggly.todo-tree@0.0.226
 hashicorp.hcl@0.6.0
-hashicorp.terraform@2.39.0
+hashicorp.terraform@2.39.2
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.1
 hverlin.mise-vscode@1.7.0
-jackiotyu.git-worktree-manager@3.23.4
+jackiotyu.git-worktree-manager@3.23.6
 jakearl.search-editor-apply-changes@0.1.1
 jimeh.actionlint@0.1.3
 jimeh.executable-on-save@0.2.5
@@ -71,7 +71,7 @@ m4ns0ur.base64@1.0.0
 mads-hartmann.bash-ide-vscode@1.43.0
 matthewpi.caddyfile-support@0.4.0
 mattn.lisp@0.1.12
-mermaidchart.vscode-mermaid-chart@2.6.1
+mermaidchart.vscode-mermaid-chart@2.6.2
 mhutchie.git-graph@1.30.0
 mkhl.direnv@0.17.0
 mrmlnc.vscode-duplicate@1.2.1
@@ -81,7 +81,7 @@ ms-kubernetes-tools.vscode-kubernetes-tools@1.3.29
 ms-python.debugpy@2025.18.0
 ms-python.python@2026.4.0
 ms-python.vscode-pylance@2026.1.1
-ms-python.vscode-python-envs@1.22.0
+ms-python.vscode-python-envs@1.24.0
 ms-vscode-remote.remote-containers@0.447.0
 ms-vscode-remote.remote-ssh@0.122.0
 ms-vscode-remote.remote-ssh-edit@0.87.0
@@ -90,16 +90,17 @@ ms-vscode.cmake-tools@1.22.28
 ms-vscode.cpp-devtools@0.4.6
 ms-vscode.extension-test-runner@0.0.14
 ms-vscode.hexeditor@1.11.1
+ms-vscode.live-server@0.4.17
 ms-vscode.remote-explorer@0.5.0
 ms-vscode.remote-repositories@0.42.0
 ms-vscode.remote-server@1.5.3
 ms-vscode.vscode-speech@0.16.0
 ms-vsliveshare.vsliveshare@1.0.5959
 ninoseki.vscode-mogami@0.3.1
-openai.chatgpt@26.318.11754
+openai.chatgpt@26.325.31654
 orta.vscode-jest@6.4.4
-oxc.oxc-vscode@1.50.0
-pflannery.vscode-versionlens@1.26.1
+oxc.oxc-vscode@1.51.0
+pflannery.vscode-versionlens@1.28.0
 pkief.material-icon-theme@5.32.0
 pomdtr.excalidraw-editor@3.9.1
 qingpeng.common-lisp@1.2.11
@@ -111,7 +112,7 @@ rrudi.vscode-dired@0.0.9
 runem.lit-plugin@1.4.3
 rust-lang.rust-analyzer@0.3.2836
 shopify.ruby-extensions-pack@0.1.14
-shopify.ruby-lsp@0.10.1
+shopify.ruby-lsp@0.10.2
 sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.46
 soutaro.rbs-syntax@0.3.1
@@ -129,7 +130,7 @@ tyriar.sort-lines@1.12.0
 unifiedjs.vscode-mdx@1.8.17
 vadimcn.vscode-lldb@1.12.1
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
-vitest.explorer@1.48.2
+vitest.explorer@1.50.0
 wenhoujx.swiper@2.1.2
 zhuangtongfa.material-theme@3.19.0
 ziglang.vscode-zig@0.6.18
