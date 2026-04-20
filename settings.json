@@ -775,6 +775,7 @@
     "editor.tabSize": 2
   },
   "jest.coverageFormatter": "GutterFormatter",
+  "typescript.experimental.useTsgo": true,
   //
   // ===========================================================================
   // MARK: Lang: Svelte
