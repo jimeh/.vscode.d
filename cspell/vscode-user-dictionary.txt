@@ -89,6 +89,7 @@ funlen
 Gedit
 gelf
 ghostty
+gitnexus
 gitops
 gitx
 Gjallarhorn
@@ -135,6 +136,7 @@ HISTFILE
 HISTSIZE
 Hitman
 hostnames
+hucode
 hyprevisors
 Ichigo
 icns
@@ -268,6 +270,7 @@ Rackup
 raku
 rbheap
 rclone
+rebundle
 redcarpet
 Redistat
 Referer
