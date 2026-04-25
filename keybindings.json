@@ -1013,15 +1013,26 @@
   },
   //
   // ===========================================================================
+  // MARK: Git Graph
+  // ===========================================================================
+  // Extension:
+  // - https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph
+  //
+  { // Open Git Graph.
+    "key": "ctrl+x g",
+    "command": "git-graph.view"
+  },
+  //
+  // ===========================================================================
   // MARK: edamagit
   // ===========================================================================
   // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=kahole.magit
   //
-  { // Open magit status.
-    "key": "ctrl+x g",
-    "command": "magit.status"
-  },
+  // { // Open magit status.
+  //   "key": "ctrl+x g",
+  //   "command": "magit.status"
+  // },
   { // Disable default open magit status keybinding.
     "key": "alt+x g",
     "command": "-magit.status"
