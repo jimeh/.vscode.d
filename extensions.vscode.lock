@@ -1,10 +1,10 @@
 # vscode Extensions
-# Generated on Mon Apr 20 22:06:20 BST 2026
-# Version: 1.116.0 (560a9dba96f961efea7b1612916f89e5d5d4d679, arm64)
+# Generated on Sat Apr 25 17:55:17 BST 2026
+# Version: 1.117.0 (10c8e557c8b9f9ed0a87f61f1c9a44bde731c409, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
 alefragnani.project-manager@13.1.0
-anthropic.claude-code@2.1.114
+anthropic.claude-code@2.1.120
 antyos.openscad@1.3.2
 arturodent.command-alias@0.6.2
 astro-build.astro-vscode@2.16.13
@@ -20,7 +20,7 @@ bierner.markdown-yaml-preamble@0.1.0
 bodil.file-browser@0.2.11
 bradlc.vscode-tailwindcss@0.14.29
 britesnow.vscode-toggle-quotes@0.3.6
-bufbuild.vscode-buf@0.8.17
+bufbuild.vscode-buf@0.8.18
 carlos-algms.make-task-provider@2.5.1
 christian-kohler.path-intellisense@2.10.0
 connor4312.esbuild-problem-matchers@0.0.3
@@ -31,14 +31,14 @@ deerawan.vscode-faker@2.0.0
 dnut.rewrap-revived@17.9.0
 drblury.protobuf-vsc@1.6.0
 editorconfig.editorconfig@0.18.2
-elijah-potter.harper@2.0.0
+elijah-potter.harper@2.1.0
 esbenp.prettier-vscode@12.4.0
 exiasr.hadolint@1.1.2
-fogio.inline-go-struct-tags-syntax-highlight@1.0.0
-github.copilot-chat@0.44.2
+fogio.inline-go-struct-tags-syntax-highlight@1.0.1
+github.copilot-chat@0.45.1
 github.remotehub@0.65.2026031901
-github.vscode-github-actions@0.31.4
-github.vscode-pull-request-github@0.137.2026042004
+github.vscode-github-actions@0.31.5
+github.vscode-pull-request-github@0.139.2026042404
 golang.go@0.53.1
 hashicorp.hcl@0.6.0
 hashicorp.terraform@2.39.2026030417
@@ -53,9 +53,9 @@ jimeh.glaze@0.1.6
 jnoortheen.nix-ide@0.5.5
 joshmu.periscope@1.16.1
 karunamurti.haml@1.4.1
-kilocode.kilo-code@7.2.14
+kilocode.kilo-code@7.2.22
 letrieu.expand-region@0.1.4
-llvm-vs-code-extensions.lldb-dap@0.5.20260420
+llvm-vs-code-extensions.lldb-dap@0.5.20260424
 llvm-vs-code-extensions.vscode-clangd@0.4.0
 m4ns0ur.base64@1.0.0
 mads-hartmann.bash-ide-vscode@1.43.0
@@ -64,13 +64,13 @@ mattn.lisp@0.1.12
 mermaidchart.vscode-mermaid-chart@2.6.4
 mhutchie.git-graph@1.30.0
 mkhl.direnv@0.17.0
-ms-azuretools.vscode-containers@2.4.1
+ms-azuretools.vscode-containers@2.4.2
 ms-dotnettools.vscode-dotnet-runtime@3.0.0
 ms-kubernetes-tools.vscode-kubernetes-tools@1.3.29
-ms-python.debugpy@2026.3.2026032701
+ms-python.debugpy@2026.5.11141007
 ms-python.python@2026.5.2026032701
 ms-python.vscode-pylance@2026.2.1
-ms-python.vscode-python-envs@1.29.2026041601
+ms-python.vscode-python-envs@1.29.2026042401
 ms-vscode-remote.remote-containers@0.456.0
 ms-vscode-remote.remote-ssh@0.123.2026033115
 ms-vscode-remote.remote-ssh-edit@0.87.0
@@ -81,21 +81,21 @@ ms-vscode.remote-repositories@0.43.2026031901
 ms-vscode.remote-server@1.6.2026041509
 ms-vsliveshare.vsliveshare@1.1.122
 ninoseki.vscode-mogami@0.4.1
-openai.chatgpt@26.5417.40842
+openai.chatgpt@26.422.30944
 orta.vscode-jest@6.4.4
-oxc.oxc-vscode@1.52.0
+oxc.oxc-vscode@1.53.0
 pflannery.vscode-versionlens@1.28.0
 pkief.material-icon-theme@5.33.1
 pomdtr.excalidraw-editor@3.9.1
 qingpeng.common-lisp@1.2.11
 redhat.vscode-xml@0.29.2025112508
-redhat.vscode-yaml@1.23.2026041808
+redhat.vscode-yaml@1.23.2026042408
 repreng.csv@1.3.0
 romanpeshkov.vscode-text-tables@0.1.5
 runem.lit-plugin@1.4.3
-rust-lang.rust-analyzer@0.4.2869
+rust-lang.rust-analyzer@0.3.2870
 shopify.ruby-extensions-pack@0.1.14
-shopify.ruby-lsp@0.10.2
+shopify.ruby-lsp@0.10.3
 sidneys1.gitconfig@2.0.1
 sorbet.sorbet-vscode-extension@0.3.46
 soutaro.rbs-syntax@0.3.1
@@ -107,11 +107,11 @@ svelte.svelte-vscode@109.15.0
 swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
-tuttieee.emacs-mcx@0.110.4
-typescriptteam.native-preview@0.20260420.1
+tuttieee.emacs-mcx@0.110.7
+typescriptteam.native-preview@0.20260425.1
 tyriar.sort-lines@1.12.0
 unifiedjs.vscode-mdx@1.8.17
-vadimcn.vscode-lldb@1.12.1
+vadimcn.vscode-lldb@1.12.2
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
 vitest.explorer@1.50.2
 wenhoujx.swiper@2.1.2
