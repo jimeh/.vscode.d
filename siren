@@ -64,6 +64,7 @@ Usage:
 Editors:
   antigravity, agy, a         Antigravity editor (prefers OpenVSX)
   cursor, c                   Cursor editor
+  hucode                      Hucode editor (prefers OpenVSX)
   kiro, k                     Kiro editor (uses OpenVSX by default)
   vscode, code, vsc, v        Visual Studio Code
   vscode-insiders, vsci, i    Visual Studio Code Insiders
@@ -92,7 +93,8 @@ Options:
 Notes:
   - For 'dump', 'extensions', and 'install', the editor may be given as
     arg 1 or arg 2; both orders are supported.
-  - Kiro prefers OpenVSX, falling back to VS Marketplace.
+  - Antigravity, Hucode, and Kiro prefer OpenVSX, falling back to
+    VS Marketplace.
 EOF
 }
 
@@ -158,6 +160,9 @@ normalize_editor_name() {
       ;;
     cursor | c)
       echo "cursor"
+      ;;
+    hucode | h)
+      echo "hucode"
       ;;
     kiro | k)
       echo "kiro"
@@ -264,6 +269,9 @@ editor_config_dir() {
         "cursor")
           echo "${HOME}/Library/Application Support/Cursor/User"
           ;;
+        "hucode")
+          echo "${HOME}/Library/Application Support/Hucode/User"
+          ;;
         "kiro")
           echo "${HOME}/Library/Application Support/Kiro/User"
           ;;
@@ -288,6 +296,9 @@ editor_config_dir() {
           ;;
         "cursor")
           echo "${HOME}/.config/Cursor/User"
+          ;;
+        "hucode")
+          echo "${HOME}/.config/Hucode/User"
           ;;
         "kiro")
           echo "${HOME}/.config/Kiro/User"
@@ -427,6 +438,7 @@ _add_editor_paths() {
   local editor_name="$1"
   local command_name="$2"
   local app_name="$3"
+  local embedded_command_name="${4:-${command_name}}"
   local paths=("${command_name}")
 
   if [[ "$(uname -s)" == "Darwin" ]] && [[ -n "${app_name}" ]]; then
@@ -438,7 +450,9 @@ _add_editor_paths() {
     local loc
     for loc in "${app_locations[@]}"; do
       if [[ -n "${loc}" ]] && [[ -d "${loc}/${app_name}" ]]; then
-        paths+=("${loc}/${app_name}/Contents/Resources/app/bin/${command_name}")
+        paths+=(
+          "${loc}/${app_name}/Contents/Resources/app/bin/${embedded_command_name}"
+        )
       fi
     done
   fi
@@ -457,6 +471,7 @@ find_editor_cmd() {
   # Define editor command names and their possible locations.
   _add_editor_paths "antigravity" "agy" "Antigravity.app"
   _add_editor_paths "cursor" "cursor" "Cursor.app"
+  _add_editor_paths "hucode" "hucode" "Hucode.app" "code"
   _add_editor_paths "kiro" "kiro" "Kiro.app"
   _add_editor_paths "vscode" "code" "Visual Studio Code.app"
   _add_editor_paths "vscode-insiders" "code-insiders" "Visual Studio Code - Insiders.app"
@@ -1220,8 +1235,6 @@ do_config() {
 
 # Install extensions from `extensions.lock`.
 do_install_extensions() {
-  local editor_cmd
-  editor_cmd="$(find_editor_cmd)"
   local extensions_lock
   extensions_lock="$(get_extensions_lock)"
   local use_latest="${1:-false}"
@@ -1229,6 +1242,9 @@ do_install_extensions() {
   if [[ ! -f "${extensions_lock}" ]]; then
     fatal "${extensions_lock} not found"
   fi
+
+  local editor_cmd
+  editor_cmd="$(find_editor_cmd)"
 
   # Warm the installed extensions cache before we start processing the lockfile.
   installed_extensions "${editor_cmd}" > /dev/null
@@ -1398,6 +1414,13 @@ main() {
     exit 1
   fi
 
+  if [[ "${1:-}" == "--help" ||
+    "${1:-}" == "-h" ||
+    "${1:-}" == "help" ]]; then
+    show_help
+    exit 0
+  fi
+
   # Set command or SETUP_EDITOR based on first argument.
   local command=""
   if [[ $# -ge 1 ]]; then
@@ -1442,6 +1465,7 @@ main() {
 
   # Set PREFER_OPENVSX to true for editors that prefer OpenVSX.
   if [[ "${SETUP_EDITOR}" == "kiro" ||
+    "${SETUP_EDITOR}" == "hucode" ||
     "${SETUP_EDITOR}" == "antigravity" ]]; then
     PREFER_OPENVSX="true"
   fi
@@ -1463,7 +1487,11 @@ main() {
       exit 0
       ;;
     shared-extensions | shared)
-      do_shared_extensions "$@"
+      if [[ -n "${SETUP_EDITOR}" ]]; then
+        do_shared_extensions "${SETUP_EDITOR}" "$@"
+      else
+        do_shared_extensions "$@"
+      fi
       exit 0
       ;;
     extensions | ext)

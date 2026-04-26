@@ -16,8 +16,8 @@ make all-extensions                 # Install extensions for all editors
 
 ### Supported Editors
 
-antigravity (agy, a), cursor (c), kiro (k), vscode (code, vsc, v),
-vscode-insiders (vsci, i), windsurf (surf, w)
+antigravity (agy, a), cursor (c), hucode, kiro (k),
+vscode (code, vsc, v), vscode-insiders (vsci, i), windsurf (surf, w)
 
 ## Conventions
 

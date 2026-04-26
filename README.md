@@ -1,9 +1,9 @@
 # jimeh's VSCode configuration (vscode-siren)
 
 This is my personal configuration for [VSCode][] and VSCode-based editors like
-[Cursor][], [Antigravity][], and [Windsurf][], and is heavily geared towards
-recreating the text editor experience I have in Emacs with [my
-config][emacs-siren].
+[Cursor][], [Antigravity][], Hucode, and [Windsurf][], and is heavily geared
+towards recreating the text editor experience I have in Emacs with
+[my config][emacs-siren].
 
 The "vscode-siren" nickname is based on the the "Emacs Siren" nickname of my
 Emacs config.
@@ -55,6 +55,7 @@ Usage:
 Editors:
   antigravity, agy, a         Antigravity editor (prefers OpenVSX)
   cursor, c                   Cursor editor
+  hucode                      Hucode editor (prefers OpenVSX)
   kiro, k                     Kiro editor (uses OpenVSX by default)
   vscode, code, vsc, v        Visual Studio Code
   vscode-insiders, vsci, i    Visual Studio Code Insiders
@@ -83,7 +84,8 @@ Options:
 Notes:
   - For 'dump', 'extensions', and 'install', the editor may be given as
     arg 1 or arg 2; both orders are supported.
-  - Kiro prefers OpenVSX, falling back to VS Marketplace.
+  - Antigravity, Hucode, and Kiro prefer OpenVSX, falling back to
+    VS Marketplace.
 ```
 
 In examples below, we will be using `cursor` as the editor.
