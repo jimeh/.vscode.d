@@ -1,5 +1,5 @@
 # vscode Extensions
-# Generated on Sat Apr 25 17:55:17 BST 2026
+# Generated on Mon Apr 27 11:03:20 BST 2026
 # Version: 1.117.0 (10c8e557c8b9f9ed0a87f61f1c9a44bde731c409, arm64)
 
 ahmadalli.vscode-nginx-conf@0.3.5
@@ -28,20 +28,20 @@ ctf0.macros@1.1.1
 davidanson.vscode-markdownlint@0.61.2
 dbaeumer.vscode-eslint@3.0.24
 deerawan.vscode-faker@2.0.0
-dnut.rewrap-revived@17.9.0
-drblury.protobuf-vsc@1.6.0
+dnut.rewrap-revived@1.16.3
+drblury.protobuf-vsc@1.6.6
 editorconfig.editorconfig@0.18.2
 elijah-potter.harper@2.1.0
 esbenp.prettier-vscode@12.4.0
 exiasr.hadolint@1.1.2
 fogio.inline-go-struct-tags-syntax-highlight@1.0.1
 github.copilot-chat@0.45.1
-github.remotehub@0.65.2026031901
+github.remotehub@0.64.0
 github.vscode-github-actions@0.31.5
-github.vscode-pull-request-github@0.139.2026042404
-golang.go@0.53.1
+github.vscode-pull-request-github@0.138.0
+golang.go@0.52.2
 hashicorp.hcl@0.6.0
-hashicorp.terraform@2.39.2026030417
+hashicorp.terraform@2.39.2
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.1
 hverlin.mise-vscode@1.7.0
@@ -55,7 +55,7 @@ joshmu.periscope@1.16.1
 karunamurti.haml@1.4.1
 kilocode.kilo-code@7.2.22
 letrieu.expand-region@0.1.4
-llvm-vs-code-extensions.lldb-dap@0.5.20260424
+llvm-vs-code-extensions.lldb-dap@0.4.1
 llvm-vs-code-extensions.vscode-clangd@0.4.0
 m4ns0ur.base64@1.0.0
 mads-hartmann.bash-ide-vscode@1.43.0
@@ -65,35 +65,34 @@ mermaidchart.vscode-mermaid-chart@2.6.4
 mhutchie.git-graph@1.30.0
 mkhl.direnv@0.17.0
 ms-azuretools.vscode-containers@2.4.2
-ms-dotnettools.vscode-dotnet-runtime@3.0.0
 ms-kubernetes-tools.vscode-kubernetes-tools@1.3.29
-ms-python.debugpy@2026.5.11141007
-ms-python.python@2026.5.2026032701
+ms-python.debugpy@2025.18.0
+ms-python.python@2026.4.0
 ms-python.vscode-pylance@2026.2.1
-ms-python.vscode-python-envs@1.29.2026042401
-ms-vscode-remote.remote-containers@0.456.0
-ms-vscode-remote.remote-ssh@0.123.2026033115
+ms-python.vscode-python-envs@1.28.0
+ms-vscode-remote.remote-containers@0.454.0
+ms-vscode-remote.remote-ssh@0.122.0
 ms-vscode-remote.remote-ssh-edit@0.87.0
 ms-vscode.extension-test-runner@0.0.14
 ms-vscode.hexeditor@1.11.1
-ms-vscode.remote-explorer@0.6.2026031809
-ms-vscode.remote-repositories@0.43.2026031901
-ms-vscode.remote-server@1.6.2026041509
+ms-vscode.remote-explorer@0.5.0
+ms-vscode.remote-repositories@0.42.0
+ms-vscode.remote-server@1.5.3
 ms-vsliveshare.vsliveshare@1.1.122
 ninoseki.vscode-mogami@0.4.1
 openai.chatgpt@26.422.30944
 orta.vscode-jest@6.4.4
 oxc.oxc-vscode@1.53.0
 pflannery.vscode-versionlens@1.28.0
-pkief.material-icon-theme@5.33.1
+pkief.material-icon-theme@5.34.0
 pomdtr.excalidraw-editor@3.9.1
 qingpeng.common-lisp@1.2.11
-redhat.vscode-xml@0.29.2025112508
-redhat.vscode-yaml@1.23.2026042408
+redhat.vscode-xml@0.29.2
+redhat.vscode-yaml@1.22.0
 repreng.csv@1.3.0
 romanpeshkov.vscode-text-tables@0.1.5
 runem.lit-plugin@1.4.3
-rust-lang.rust-analyzer@0.3.2870
+rust-lang.rust-analyzer@0.3.2878
 shopify.ruby-extensions-pack@0.1.14
 shopify.ruby-lsp@0.10.3
 sidneys1.gitconfig@2.0.1
@@ -108,7 +107,7 @@ swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
 tuttieee.emacs-mcx@0.110.7
-typescriptteam.native-preview@0.20260425.1
+typescriptteam.native-preview@0.20260427.1
 tyriar.sort-lines@1.12.0
 unifiedjs.vscode-mdx@1.8.17
 vadimcn.vscode-lldb@1.12.2
