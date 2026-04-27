@@ -917,6 +917,15 @@
   "bashIde.shfmt.spaceRedirects": true,
   //
   // ===========================================================================
+  // MARK: Lang: TOML
+  // ===========================================================================
+  // Extensions:
+  // - https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
+  },
+  //
+  // ===========================================================================
   // MARK: Lang: YAML
   // ===========================================================================
   // Extensions:
