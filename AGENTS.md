@@ -24,8 +24,8 @@ vscode (code, vsc, v), vscode-insiders (vsci, i), windsurf (surf, w)
 - **Config files** are symlinked from this repo into each editor's config dir.
   The siren script handles backup and linking per OS (macOS/Linux).
 - **Extension lock files** (`extensions.<editor>.lock`) pin versions in
-  `publisher.name@version` format. Dual registry: OpenVSX primary, VS
-  Marketplace fallback, `.vsix` download as last resort.
+  `publisher.name@version` format. Dual registry: VS Marketplace primary,
+  OpenVSX fallback by default; Antigravity and Kiro prefer OpenVSX.
 - **settings.json and keybindings.json** are large files (~1200+ lines each)
   organized with `// MARK:` comment sections. Search for `MARK:` to navigate.
 - **Keybindings** follow Emacs conventions — heavy use of `ctrl+x` and `ctrl+c`

@@ -55,7 +55,7 @@ Usage:
 Editors:
   antigravity, agy, a         Antigravity editor (prefers OpenVSX)
   cursor, c                   Cursor editor
-  hucode                      Hucode editor (prefers OpenVSX)
+  hucode                      Hucode editor
   kiro, k                     Kiro editor (uses OpenVSX by default)
   vscode, code, vsc, v        Visual Studio Code
   vscode-insiders, vsci, i    Visual Studio Code Insiders
@@ -84,7 +84,7 @@ Options:
 Notes:
   - For 'dump', 'extensions', and 'install', the editor may be given as
     arg 1 or arg 2; both orders are supported.
-  - Antigravity, Hucode, and Kiro prefer OpenVSX, falling back to
+  - Antigravity and Kiro prefer OpenVSX, falling back to
     VS Marketplace.
 ```
 
