@@ -7,7 +7,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -33,7 +34,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -59,7 +61,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -85,7 +88,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -111,7 +115,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -137,7 +142,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -163,7 +169,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -189,7 +196,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -215,7 +223,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -241,7 +250,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -267,7 +277,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -292,7 +303,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -317,7 +329,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -342,7 +355,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -367,7 +381,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -392,7 +407,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
@@ -418,7 +434,8 @@
           "bundle_identifiers": [
             "^com\\.exafunction\\.windsurf",
             "^com\\.microsoft\\.VSCode",
-            "^com\\.todesktop\\."
+            "^com\\.todesktop\\.",
+            "^dev\\.hucode\\.app"
           ],
           "type": "frontmost_application_if"
         }
