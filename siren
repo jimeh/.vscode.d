@@ -22,6 +22,12 @@ declare -A STATIC_SYMLINKS=()
 # VS Marketplace. This is forced to true for the Kiro editor.
 PREFER_OPENVSX="${PREFER_OPENVSX:-false}"
 
+# When true, latest version lookups may return prerelease extension versions.
+INCLUDE_PRERELEASE_EXTENSIONS="${INCLUDE_PRERELEASE_EXTENSIONS:-false}"
+
+# When true, skip direct extension installation and download a VSIX first.
+FORCE_DOWNLOAD_VSX="${FORCE_DOWNLOAD_VSX:-}"
+
 # Global cache to track where version information was found
 # Key: extension name, Value: "openvsx" or "marketplace"
 declare -A VERSION_SOURCE_CACHE=()
@@ -89,6 +95,8 @@ Options:
                            of exact lockfile versions. With 'install': install
                            the latest version of the specified extension.
   --force-latest           Force latest behavior where applicable.
+  --force-download-vsx     Download and install extensions via VSIX files.
+  --prerelease             Allow prerelease versions in latest API lookups.
 
 Notes:
   - For 'dump', 'extensions', and 'install', the editor may be given as
@@ -637,16 +645,41 @@ query_openvsx_metadata() {
 # Returns: Latest version string via `STDOUT` on success.
 query_openvsx_latest_version() {
   local extension="$1"
+  local metadata
+  local version
 
-  # Query OpenVSX metadata and extract latest version
-  if query_openvsx_metadata "${extension}" "latest" |
-    jq -r '.version // empty' 2> /dev/null; then
-    # Cache the successful source
-    VERSION_SOURCE_CACHE["${extension}"]="openvsx"
-    return 0
-  else
+  if ! metadata=$(query_openvsx_metadata "${extension}" "latest"); then
     return 1
   fi
+
+  if [[ "${INCLUDE_PRERELEASE_EXTENSIONS}" == "true" ]] ||
+    [[ "$(echo "${metadata}" | jq -r '.preRelease == true')" != "true" ]]; then
+    version="$(echo "${metadata}" | jq -r '.version // empty' 2> /dev/null)"
+    if [[ -n "${version}" ]]; then
+      VERSION_SOURCE_CACHE["${extension}"]="openvsx"
+      echo "${version}"
+      return 0
+    fi
+  fi
+
+  while IFS= read -r version; do
+    [[ -z "${version}" || "${version}" == "latest" ]] && continue
+    if ! metadata=$(query_openvsx_metadata "${extension}" "${version}"); then
+      continue
+    fi
+    if [[ "$(echo "${metadata}" |
+      jq -r '.preRelease == true')" == "true" ]]; then
+      continue
+    fi
+
+    VERSION_SOURCE_CACHE["${extension}"]="openvsx"
+    echo "${version}"
+    return 0
+  done < <(
+    echo "${metadata}" | jq -r '.allVersions | to_entries[].key' 2> /dev/null
+  )
+
+  return 1
 }
 
 # Query extension metadata from VS Marketplace.
@@ -662,7 +695,7 @@ query_marketplace_metadata() {
     filters: [{
       criteria: [{ filterType: 7, value: $ext }]
     }],
-    flags: 2
+    flags: 18
   }')
 
   # Query the marketplace and return full JSON
@@ -683,16 +716,21 @@ query_marketplace_metadata() {
 # Returns: Latest version string via `STDOUT` on success.
 query_marketplace_latest_version() {
   local extension="$1"
+  local metadata
+  local version
 
-  # Query marketplace metadata and extract latest version
-  if query_marketplace_metadata "${extension}" |
-    jq -r '.results[0].extensions[0].versions[0].version // empty' 2> /dev/null; then
-    # Cache the successful source
-    VERSION_SOURCE_CACHE["${extension}"]="marketplace"
-    return 0
-  else
+  if ! metadata=$(query_marketplace_metadata "${extension}"); then
     return 1
   fi
+
+  version="$(_find_latest_any_platform_version "${metadata}")"
+  if [[ -n "${version}" ]]; then
+    VERSION_SOURCE_CACHE["${extension}"]="marketplace"
+    echo "${version}"
+    return 0
+  fi
+
+  return 1
 }
 
 # Find platform-specific version from VS Marketplace metadata.
@@ -705,7 +743,17 @@ _find_latest_platform_version() {
   local platform="$2"
   echo "${metadata}" | jq -r \
     --arg platform "$platform" \
-    '.results[0].extensions[0].versions[] | select(.targetPlatform == $platform) | .version' |
+    --arg include_prerelease "${INCLUDE_PRERELEASE_EXTENSIONS}" '
+      def is_prerelease:
+        ((.properties // []) | any(
+          .key == "Microsoft.VisualStudio.Code.PreRelease" and
+          ((.value // "") | ascii_downcase) == "true"
+        ));
+      .results[0].extensions[0].versions[]
+      | select($include_prerelease == "true" or (is_prerelease | not))
+      | select(.targetPlatform == $platform)
+      | .version
+    ' 2> /dev/null |
     head -n 1
 }
 
@@ -713,7 +761,34 @@ _find_latest_platform_version() {
 _find_latest_universal_version() {
   local metadata="$1"
   echo "${metadata}" | jq -r \
-    '.results[0].extensions[0].versions[] | select(.targetPlatform == null or .targetPlatform == "universal") | .version' |
+    --arg include_prerelease "${INCLUDE_PRERELEASE_EXTENSIONS}" '
+      def is_prerelease:
+        ((.properties // []) | any(
+          .key == "Microsoft.VisualStudio.Code.PreRelease" and
+          ((.value // "") | ascii_downcase) == "true"
+        ));
+      .results[0].extensions[0].versions[]
+      | select($include_prerelease == "true" or (is_prerelease | not))
+      | select(.targetPlatform == null or .targetPlatform == "universal")
+      | .version
+    ' 2> /dev/null |
+    head -n 1
+}
+
+# Helper to find the latest version for any platform.
+_find_latest_any_platform_version() {
+  local metadata="$1"
+  echo "${metadata}" | jq -r \
+    --arg include_prerelease "${INCLUDE_PRERELEASE_EXTENSIONS}" '
+      def is_prerelease:
+        ((.properties // []) | any(
+          .key == "Microsoft.VisualStudio.Code.PreRelease" and
+          ((.value // "") | ascii_downcase) == "true"
+        ));
+      .results[0].extensions[0].versions[]
+      | select($include_prerelease == "true" or (is_prerelease | not))
+      | .version
+    ' 2> /dev/null |
     head -n 1
 }
 
@@ -721,9 +796,16 @@ _find_latest_universal_version() {
 _find_overall_latest_version() {
   local metadata="$1"
   local version
-  version=$(echo "${metadata}" | jq -r '.results[0].extensions[0].versions[0].version // empty')
+  version=$(_find_latest_any_platform_version "${metadata}")
   local platform
-  platform=$(echo "${metadata}" | jq -r '.results[0].extensions[0].versions[0].targetPlatform // "universal"')
+  platform=$(
+    echo "${metadata}" | jq -r \
+      --arg version "${version}" \
+      '.results[0].extensions[0].versions[]
+      | select(.version == $version)
+      | .targetPlatform // "universal"' 2> /dev/null |
+      head -n 1
+  )
   echo "${version}:${platform}"
 }
 
@@ -821,7 +903,13 @@ install_extension_direct() {
   local result=0
 
   if [[ "${version}" == "latest" ]]; then
-    if ! "${editor_cmd}" --install-extension "${extension}" --force 2> /dev/null; then
+    local install_cmd=(
+      "${editor_cmd}" --install-extension "${extension}" --force
+    )
+    if [[ "${INCLUDE_PRERELEASE_EXTENSIONS}" == "true" ]]; then
+      install_cmd+=(--pre-release)
+    fi
+    if ! "${install_cmd[@]}" 2> /dev/null; then
       warn "Direct install failed for ${extension}"
       result=1
     fi
@@ -1145,7 +1233,7 @@ install_extension() {
   fi
 
   # Try direct installation first; fall back to downloading `*.vsix` if needed.
-  if [ -n "$FORCE_DOWNLOAD_VSX" ] ||
+  if [[ -n "${FORCE_DOWNLOAD_VSX}" ]] ||
     ! install_extension_direct "${editor_cmd}" "${extension}" \
       "${target_version}" "${force_install}"; then
 
@@ -1168,7 +1256,11 @@ install_extension() {
       return 0
     fi
 
-    warn "Direct installation failed, trying .vsix download method..."
+    if [[ -n "${FORCE_DOWNLOAD_VSX}" ]]; then
+      info "Using .vsix download method..."
+    else
+      warn "Direct installation failed, trying .vsix download method..."
+    fi
     install_extension_via_vsix "${editor_cmd}" "${extension}" \
       "${version}" "${extensions_cache_dir}"
   fi
@@ -1506,6 +1598,14 @@ main() {
             use_latest="force"
             shift
             ;;
+          --force-download-vsx | --force-download-vsix)
+            FORCE_DOWNLOAD_VSX="true"
+            shift
+            ;;
+          --prerelease)
+            INCLUDE_PRERELEASE_EXTENSIONS="true"
+            shift
+            ;;
           *)
             break
             ;;
@@ -1526,6 +1626,14 @@ main() {
             ;;
           --force-latest)
             use_latest_i="force"
+            shift
+            ;;
+          --force-download-vsx | --force-download-vsix)
+            FORCE_DOWNLOAD_VSX="true"
+            shift
+            ;;
+          --prerelease)
+            INCLUDE_PRERELEASE_EXTENSIONS="true"
             shift
             ;;
           *)

@@ -80,6 +80,8 @@ Options:
                            of exact lockfile versions. With 'install': install
                            the latest version of the specified extension.
   --force-latest           Force latest behavior where applicable.
+  --force-download-vsx     Download and install extensions via VSIX files.
+  --prerelease             Allow prerelease versions in latest API lookups.
 
 Notes:
   - For 'dump', 'extensions', and 'install', the editor may be given as
@@ -108,6 +110,13 @@ Or if you want install the latest versions rather than those from the lock file:
 
 ```bash
 ./siren cursor extensions --latest
+```
+
+Prerelease versions are skipped by default when `--latest` resolves versions via
+the Marketplace or OpenVSX APIs. Add `--prerelease` to include them:
+
+```bash
+./siren cursor extensions --latest --prerelease
 ```
 
 ### Update extensions lock file

@@ -26,6 +26,10 @@ vscode (code, vsc, v), vscode-insiders (vsci, i), windsurf (surf, w)
 - **Extension lock files** (`extensions.<editor>.lock`) pin versions in
   `publisher.name@version` format. Dual registry: VS Marketplace primary,
   OpenVSX fallback by default; Antigravity and Kiro prefer OpenVSX.
+- **Prerelease latest lookups** are opt-in via `--prerelease`. Marketplace
+  prerelease filtering depends on version properties (`flags: 18`) exposing
+  `Microsoft.VisualStudio.Code.PreRelease`; OpenVSX uses per-version
+  `preRelease` metadata.
 - **settings.json and keybindings.json** are large files (~1200+ lines each)
   organized with `// MARK:` comment sections. Search for `MARK:` to navigate.
 - **Keybindings** follow Emacs conventions — heavy use of `ctrl+x` and `ctrl+c`
