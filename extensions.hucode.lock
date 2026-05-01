@@ -1,8 +1,8 @@
 # hucode Extensions
-# Generated on Thu Apr 30 10:21:44 BST 2026
-# Version: 1.117.0 (0ce0222ef3a5a013d2449bb3e4aeaeab514a9349, arm64)
+# Generated on Fri May  1 11:32:58 BST 2026
+# Version: 0.0.1 (cd385ea11e6f02e87846fe32fca38ff6e8c5be64, arm64)
 
-anthropic.claude-code@2.1.120
+anthropic.claude-code@2.1.126
 arturodent.command-alias@0.6.2
 astro-build.astro-vscode@2.16.13
 benspaulding.procfile@1.1.7
@@ -15,17 +15,17 @@ bierner.markdown-mermaid@1.32.0
 bierner.markdown-preview-github-styles@2.2.0
 bierner.markdown-yaml-preamble@0.1.0
 bodil.file-browser@0.2.11
-bradlc.vscode-tailwindcss@0.14.28
+bradlc.vscode-tailwindcss@0.14.29
 britesnow.vscode-toggle-quotes@0.3.6
 bufbuild.vscode-buf@0.8.18
-carlos-algms.make-task-provider@2.4.2
-christian-kohler.path-intellisense@2.8.0
+carlos-algms.make-task-provider@2.5.1
+christian-kohler.path-intellisense@2.10.0
 connor4312.esbuild-problem-matchers@0.0.3
 ctf0.macros@1.1.1
 davidanson.vscode-markdownlint@0.61.2
 dbaeumer.vscode-eslint@3.0.24
 deerawan.vscode-faker@2.0.0
-dnut.rewrap-revived@17.9.0
+dnut.rewrap-revived@1.16.3
 drblury.protobuf-vsc@1.6.6
 editorconfig.editorconfig@0.18.2
 elijah-potter.harper@2.1.0
@@ -35,10 +35,10 @@ fogio.inline-go-struct-tags-syntax-highlight@1.0.1
 github.vscode-github-actions@0.31.5
 github.vscode-pull-request-github@0.140.0
 golang.go@0.52.2
-hashicorp.hcl@0.5.0
+hashicorp.hcl@0.6.0
 hashicorp.terraform@2.39.2
 hoovercj.vscode-settings-cycler@1.0.1
-humao.rest-client@0.25.0
+humao.rest-client@0.25.1
 hverlin.mise-vscode@1.7.0
 jackiotyu.git-worktree-manager@3.24.1
 jakearl.search-editor-apply-changes@0.1.1
@@ -58,24 +58,24 @@ mhutchie.git-graph@1.30.0
 mkhl.direnv@0.17.0
 ms-azuretools.vscode-containers@2.4.3
 ms-kubernetes-tools.vscode-kubernetes-tools@1.3.29
-ms-python.debugpy@2026.4.0
+ms-python.debugpy@2026.6.0
 ms-python.python@2026.4.0
 ms-python.vscode-python-envs@1.28.0
 ms-vscode.extension-test-runner@0.0.14
 ms-vscode.hexeditor@1.11.1
-ninoseki.vscode-mogami@0.4.1
-openai.chatgpt@26.422.30944
+ninoseki.vscode-mogami@0.4.2
+openai.chatgpt@26.422.71525
 orta.vscode-jest@6.4.4
 oxc.oxc-vscode@1.53.0
 pflannery.vscode-versionlens@1.28.0
 pkief.material-icon-theme@5.34.0
-pomdtr.excalidraw-editor@3.9.0
+pomdtr.excalidraw-editor@3.9.1
 qingpeng.common-lisp@1.2.11
 redhat.vscode-xml@0.29.2
 redhat.vscode-yaml@1.22.0
 repreng.csv@1.3.0
 romanpeshkov.vscode-text-tables@0.1.5
-runem.lit-plugin@1.2.1
+runem.lit-plugin@1.4.3
 rust-lang.rust-analyzer@0.3.2878
 shopify.ruby-extensions-pack@0.1.14
 shopify.ruby-lsp@0.10.3
@@ -90,8 +90,8 @@ swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
 tuttieee.emacs-mcx@0.110.8
-typescriptteam.native-preview@0.20260427.1
-tyriar.sort-lines@1.9.1
+typescriptteam.native-preview@0.20260501.1
+tyriar.sort-lines@1.12.0
 unifiedjs.vscode-mdx@1.8.17
 vadimcn.vscode-lldb@1.12.2
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
