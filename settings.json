@@ -47,9 +47,9 @@
   "window.title": "${rootName}${separator}${profileName}",
   // Enabling nativeTabs prevents custom title bar styling, and non-native
   // fullscreen modes.
-  "window.nativeTabs": true,
+  "window.nativeTabs": false,
   // Requires nativeTabs to be disabled.
-  "window.nativeFullScreen": false,
+  "window.nativeFullScreen": true,
   // Requires nativeTabs to be disabled, and nativeFullScreen to be enabled.
   "window.titleBarStyle": "custom",
   //
@@ -67,6 +67,9 @@
   // ===========================================================================
   // MARK: Workbench
   // ===========================================================================
+  //
+  // Sidebar
+  "workbench.sideBar.location": "right",
   //
   // Activity Bar
   "workbench.activityBar.location": "default",
@@ -152,7 +155,7 @@
   // ===========================================================================
   //
   "chat.agentSessionProjection.enabled": true,
-  "chat.agentsControl.enabled": true,
+  "chat.agentsControl.enabled": "hidden",
   "chat.checkpoints.showFileChanges": true,
   "chat.commandCenter.enabled": false,
   "chat.edits2.enabled": true,

@@ -74,21 +74,21 @@
     "key": "ctrl+s",
     "command": "workbench.action.toggleSidebarVisibility"
   },
-  { // Toggle secondary (auxiliary) bar.
-    "key": "cmd+b",
-    "command": "workbench.action.toggleAuxiliaryBar",
-    "when": "!isAuxiliaryWindowFocusedContext"
-  },
-  { // Disable default toggle sidebar visibility keybinding.
-    "key": "cmd+b",
-    "command": "-workbench.action.toggleSidebarVisibility",
-    "when": "!isAuxiliaryWindowFocusedContext"
-  },
-  { // Disable default toggle secondary (auxiliary) bar keybinding.
-    "key": "alt+cmd+b",
-    "command": "-workbench.action.toggleAuxiliaryBar",
-    "when": "!isAuxiliaryWindowFocusedContext"
-  },
+  // { // Toggle secondary (auxiliary) bar.
+  //   "key": "cmd+b",
+  //   "command": "workbench.action.toggleAuxiliaryBar",
+  //   "when": "!isAuxiliaryWindowFocusedContext"
+  // },
+  // { // Disable default toggle sidebar visibility keybinding.
+  //   "key": "cmd+b",
+  //   "command": "-workbench.action.toggleSidebarVisibility",
+  //   "when": "!isAuxiliaryWindowFocusedContext"
+  // },
+  // { // Disable default toggle secondary (auxiliary) bar keybinding.
+  //   "key": "alt+cmd+b",
+  //   "command": "-workbench.action.toggleAuxiliaryBar",
+  //   "when": "!isAuxiliaryWindowFocusedContext"
+  // },
   { // Disable cmd+b keybinding for mdx.toggleStrong.
     "key": "cmd+b",
     "command": "-mdx.toggleStrong",
@@ -131,10 +131,10 @@
     "key": "ctrl+z down",
     "command": "workbench.action.showNextWindowTab"
   },
-  { // Go to next window tab.
-    "key": "shift+cmd+]",
-    "command": "workbench.action.showNextWindowTab"
-  },
+  // { // Go to next window tab.
+  //   "key": "cmd+shift+]",
+  //   "command": "workbench.action.showNextWindowTab"
+  // },
   { // Go to previous window tab.
     "key": "ctrl+z ctrl+p",
     "command": "workbench.action.showPreviousWindowTab"
@@ -147,10 +147,10 @@
     "key": "ctrl+z up",
     "command": "workbench.action.showPreviousWindowTab"
   },
-  { // Go to previous window tab.
-    "key": "shift+cmd+[",
-    "command": "workbench.action.showPreviousWindowTab"
-  },
+  // { // Go to previous window tab.
+  //   "key": "cmd+shift+[",
+  //   "command": "workbench.action.showPreviousWindowTab"
+  // },
   { // Create new window tab.
     "key": "ctrl+z ctrl+c",
     "command": "workbench.action.newWindowTab"
@@ -265,36 +265,36 @@
   // MARK: Editor/View Navigation
   // ===========================================================================
   //
-  { // Go to next editor.
-    "key": "cmd+]",
-    "command": "workbench.action.nextEditor",
-    "when": "!(terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus)"
-  },
-  { // Go to previous editor.
-    "key": "cmd+[",
-    "command": "workbench.action.previousEditor",
-    "when": "!(terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus)"
-  },
-  { // Focus next terminal.
-    "key": "cmd+]",
-    "command": "workbench.action.terminal.focusNext",
-    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
-  },
-  { // Focus previous terminal.
-    "key": "cmd+[",
-    "command": "workbench.action.terminal.focusPrevious",
-    "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
-  },
-  { // Focus previous panel view.
-    "key": "cmd+ctrl+[",
-    "command": "workbench.action.previousPanelView",
-    "when": "panelVisible"
-  },
-  { // Focus next panel view.
-    "key": "cmd+ctrl+]",
-    "command": "workbench.action.nextPanelView",
-    "when": "panelVisible"
-  },
+  // { // Go to next editor.
+  //   "key": "cmd+]",
+  //   "command": "workbench.action.nextEditor",
+  //   "when": "!(terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus)"
+  // },
+  // { // Go to previous editor.
+  //   "key": "cmd+[",
+  //   "command": "workbench.action.previousEditor",
+  //   "when": "!(terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus)"
+  // },
+  // { // Focus next terminal.
+  //   "key": "cmd+]",
+  //   "command": "workbench.action.terminal.focusNext",
+  //   "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+  // },
+  // { // Focus previous terminal.
+  //   "key": "cmd+[",
+  //   "command": "workbench.action.terminal.focusPrevious",
+  //   "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
+  // },
+  // { // Focus previous panel view.
+  //   "key": "cmd+ctrl+[",
+  //   "command": "workbench.action.previousPanelView",
+  //   "when": "panelVisible"
+  // },
+  // { // Focus next panel view.
+  //   "key": "cmd+ctrl+]",
+  //   "command": "workbench.action.nextPanelView",
+  //   "when": "panelVisible"
+  // },
   //
   // ===========================================================================
   // MARK: Editor/View Layout
