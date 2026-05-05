@@ -289,10 +289,17 @@
   "scm.defaultViewMode": "tree",
   //
   // ===========================================================================
-  // MARK: GitHub
+  // MARK: GitHub Pull Requests
   // ===========================================================================
   // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github
+  //
+  "githubPullRequests.pullBranch": "never",
+  //
+  // ===========================================================================
+  // MARK: GitHub Repositories
+  // ===========================================================================
+  // Extensions:
   // - https://marketplace.visualstudio.com/items?itemName=GitHub.remotehub
   //
   "githubRepositories.autoFetch.enabled": true,
