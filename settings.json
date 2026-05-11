@@ -910,6 +910,12 @@
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
+  "rust-analyzer.cargo.extraEnv": {
+    "RUSTC_WRAPPER": "sccache"
+  },
+  "rust-analyzer.cargo.buildScripts.useRustcWrapper": true,
+  "rust-analyzer.cachePriming.enable": true,
+  "rust-analyzer.cachePriming.numThreads": 2,
   "rust-analyzer.testExplorer": true,
   //
   // ===========================================================================
