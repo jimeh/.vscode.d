@@ -30,6 +30,7 @@ Cron
 Crysis
 Cumberbatch
 CyclomaticComplexity
+Cydia
 DMARC
 DOCX
 Dependabot

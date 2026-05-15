@@ -49,6 +49,7 @@ cssbundling
 ctop
 Cumberbatch
 cyberduck
+Cydia
 davide
 debouced
 debouncer
@@ -57,6 +58,7 @@ digg
 dioxus
 dired
 direnv
+Disqus
 DMARC
 Dockerfiles
 dotenv
