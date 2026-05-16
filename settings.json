@@ -79,6 +79,9 @@
   "workbench.commandPalette.history": 250,
   "workbench.commandPalette.preserveInput": true,
   //
+  // Browser
+  "workbench.browser.showInTitleBar": true,
+  //
   // Hover
   "workbench.hover.delay": 200,
   //
@@ -147,6 +150,13 @@
   // ===========================================================================
   //
   "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
+    "mdx": true
+  },
   "github.copilot.nextEditSuggestions.enabled": true,
   "workbench.browser.enableChatTools": true,
   //
@@ -785,7 +795,7 @@
     "editor.tabSize": 2
   },
   "jest.coverageFormatter": "GutterFormatter",
-  "typescript.experimental.useTsgo": true,
+  "js/ts.experimental.useTsgo": true,
   //
   // ===========================================================================
   // MARK: Lang: Svelte
