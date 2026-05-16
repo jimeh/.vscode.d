@@ -22,6 +22,16 @@
   },
   //
   // ===========================================================================
+  // Hucode (VSCode fork)
+  // ===========================================================================
+  //
+  {
+    "key": "ctrl+s",
+    "command": "workbench.action.omniWindow.toggleProjectsSidebar",
+    "when": "isHostedOmniWorkspace || isOmniWindow"
+  },
+  //
+  // ===========================================================================
   // MARK: Claude Code
   // ===========================================================================
   // Extension:
@@ -70,10 +80,10 @@
     "key": "cmd+0",
     "command": "workbench.action.zoomReset"
   },
-  { // Toggle sidebar.
-    "key": "ctrl+s",
-    "command": "workbench.action.toggleSidebarVisibility"
-  },
+  // { // Toggle sidebar.
+  //   "key": "ctrl+s",
+  //   "command": "workbench.action.toggleSidebarVisibility"
+  // },
   // { // Toggle secondary (auxiliary) bar.
   //   "key": "cmd+b",
   //   "command": "workbench.action.toggleAuxiliaryBar",
