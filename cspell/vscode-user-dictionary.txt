@@ -298,6 +298,7 @@ schro
 scrollback
 serde
 setuptools
+sgdisk
 shellcheck
 shfmt
 Shigeru
