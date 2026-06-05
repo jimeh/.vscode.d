@@ -290,9 +290,10 @@
   // MARK: Git
   // ===========================================================================
   //
-  "git.autofetch": true,
   "git.autoStash": true,
+  "git.autofetch": true,
   "git.blame.editorDecoration.enabled": false,
+  "git.blame.statusBarItem.enabled": true,
   "git.detectSubmodules": true,
   "git.fetchOnPull": true,
   "git.timeline.showUncommitted": true,
