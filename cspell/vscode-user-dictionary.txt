@@ -187,6 +187,7 @@ Kurosaki
 kwargs
 langserver
 ldflags
+lefthook
 letsencrypt
 libexec
 libgccjit
@@ -299,6 +300,7 @@ scrollback
 serde
 setuptools
 sgdisk
+shadcn
 shellcheck
 shfmt
 Shigeru
