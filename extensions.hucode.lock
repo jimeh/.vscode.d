@@ -1,8 +1,8 @@
 # hucode Extensions
-# Generated on Mon Jun  8 19:38:25 BST 2026
+# Generated on Tue Jun  9 10:17:54 BST 2026
 # Version: 0.0.25 (c311feacedb2d03b971dc1a73568eb86823b89f1, arm64)
 
-anthropic.claude-code@2.1.168
+anthropic.claude-code@2.1.169
 arturodent.command-alias@0.6.2
 astro-build.astro-vscode@2.16.13
 benspaulding.procfile@1.1.7
@@ -37,7 +37,7 @@ github.vscode-github-actions@0.31.5
 github.vscode-pull-request-github@0.146.0
 golang.go@0.52.2
 hashicorp.hcl@0.6.0
-hashicorp.terraform@2.39.2
+hashicorp.terraform@2.39.3
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.1
 hverlin.mise-vscode@1.10.0
@@ -66,7 +66,7 @@ ms-python.vscode-python-envs@1.30.0
 ms-vscode.extension-test-runner@0.0.14
 ms-vscode.hexeditor@1.11.1
 ninoseki.vscode-mogami@0.5.3
-openai.chatgpt@26.602.40724
+openai.chatgpt@26.602.71036
 orta.vscode-jest@6.4.4
 oxc.oxc-vscode@1.57.0
 pflannery.vscode-versionlens@1.28.0
@@ -93,7 +93,7 @@ swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
 tuttieee.emacs-mcx@0.110.9
-typescriptteam.native-preview@0.20260608.1
+typescriptteam.native-preview@0.20260609.1
 tyriar.sort-lines@1.12.0
 unifiedjs.vscode-mdx@1.8.17
 vadimcn.vscode-lldb@1.12.2
