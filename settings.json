@@ -61,7 +61,7 @@
   //
   "glaze.elements.activityBar": false,
   "glaze.elements.statusBar": false,
-  "glaze.enabled": true,
+  "glaze.enabled": false,
   "glaze.workspaceIdentifier.includeRemoteAuthority": false,
   //
   // ===========================================================================
@@ -1053,7 +1053,7 @@
   // Extension:
   // - https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor
   //
-  "excalidraw.theme": "auto",
+  "excalidraw.theme": "dark",
   "excalidraw.image": {
     "exportScale": 2,
     "exportWithBackground": true,
