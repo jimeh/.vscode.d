@@ -336,6 +336,7 @@ jimnoct
 jq
 js
 jsbundling
+json
 jsonlint
 katalet
 katapult

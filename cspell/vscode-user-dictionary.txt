@@ -340,6 +340,7 @@ TOOLDIR
 tracearr
 Trae
 traefik
+treeboot
 treesit
 Triforce
 trimpath
