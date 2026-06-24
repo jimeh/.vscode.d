@@ -250,6 +250,7 @@ pandoc
 passhash
 pgformatter
 PGID
+pinact
 pipefail
 pipx
 PKCE
@@ -386,6 +387,7 @@ XTSTEP
 yaegi
 Zadara
 zinit
+zizmor
 zmodload
 zoxide
 zprof
