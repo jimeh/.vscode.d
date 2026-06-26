@@ -1,5 +1,5 @@
 # hucode Extensions
-# Generated on Fri Jun 26 09:26:35 BST 2026
+# Generated on Fri Jun 26 10:06:47 BST 2026
 # Version: 0.0.37 (7e7b3228e9707579bccae583585a6b5431ebaf14, arm64)
 
 anthropic.claude-code@2.1.193
@@ -66,7 +66,7 @@ ms-python.vscode-python-envs@1.36.0
 ms-vscode.extension-test-runner@0.0.14
 ms-vscode.hexeditor@1.11.1
 ninoseki.vscode-mogami@0.5.3
-openai.chatgpt@26.623.31443
+openai.chatgpt@26.623.31921
 orta.vscode-jest@6.4.4
 oxc.oxc-vscode@1.58.0
 pflannery.vscode-versionlens@1.28.0
