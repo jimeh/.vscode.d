@@ -1,8 +1,8 @@
 # hucode Extensions
-# Generated on Wed Jul  8 13:11:34 BST 2026
-# Version: 0.0.40 (f8400cd3d7a0f0fb955dd1c93a1e3f431e55751f, arm64)
+# Generated on Mon Jul 20 00:50:18 BST 2026
+# Version: 0.0.48 (4a741c8456900f79c2b55b57aec6db609b6ad35b, arm64)
 
-anthropic.claude-code@2.1.204
+anthropic.claude-code@2.1.215
 arturodent.command-alias@0.6.2
 astro-build.astro-vscode@2.16.17
 benspaulding.procfile@1.1.7
@@ -15,27 +15,27 @@ bierner.markdown-mermaid@1.32.1
 bierner.markdown-preview-github-styles@2.2.0
 bierner.markdown-yaml-preamble@0.1.1
 bodil.file-browser@0.2.11
-bradlc.vscode-tailwindcss@0.14.29
+bradlc.vscode-tailwindcss@0.16.0
 britesnow.vscode-toggle-quotes@0.3.6
 bufbuild.vscode-buf@0.8.19
 carlos-algms.make-task-provider@2.5.1
 christian-kohler.path-intellisense@2.10.0
-coderabbit.coderabbit-vscode@0.20.7
+coderabbit.coderabbit-vscode@0.21.0
 connor4312.esbuild-problem-matchers@0.0.3
 ctf0.macros@1.1.1
 davidanson.vscode-markdownlint@0.61.2
-dbaeumer.vscode-eslint@3.0.24
+dbaeumer.vscode-eslint@3.0.34
 deerawan.vscode-faker@2.0.0
 dnut.rewrap-revived@1.16.3
-drblury.protobuf-vsc@1.6.7
+drblury.protobuf-vsc@1.6.9
 editorconfig.editorconfig@0.18.2
 elijah-potter.harper@2.6.0
 esbenp.prettier-vscode@12.4.0
 exiasr.hadolint@1.1.2
 fogio.inline-go-struct-tags-syntax-highlight@1.0.1
-github.vscode-github-actions@0.32.1
+github.vscode-github-actions@0.32.3
 github.vscode-pull-request-github@0.156.0
-golang.go@0.54.0
+golang.go@0.56.0
 hashicorp.hcl@0.6.0
 hashicorp.terraform@2.39.4
 hoovercj.vscode-settings-cycler@1.0.1
@@ -46,7 +46,7 @@ jakearl.search-editor-apply-changes@0.1.1
 jimeh.actionlint@0.1.3
 jimeh.executable-on-save@0.2.5
 jimeh.glaze@0.1.6
-jnoortheen.nix-ide@0.5.9
+jnoortheen.nix-ide@0.5.10
 joshmu.periscope@1.16.1
 karunamurti.haml@1.4.1
 letrieu.expand-region@0.1.4
@@ -66,11 +66,11 @@ ms-python.vscode-python-envs@1.36.0
 ms-vscode.extension-test-runner@0.0.14
 ms-vscode.hexeditor@1.11.1
 ninoseki.vscode-mogami@0.5.3
-openai.chatgpt@26.623.141536
+openai.chatgpt@26.715.31925
 orta.vscode-jest@6.4.4
 oxc.oxc-vscode@1.58.0
 pflannery.vscode-versionlens@1.28.0
-pkief.material-icon-theme@5.36.1
+pkief.material-icon-theme@5.37.0
 pomdtr.excalidraw-editor@3.9.3
 qingpeng.common-lisp@1.2.11
 redhat.vscode-xml@0.29.3
@@ -79,7 +79,7 @@ remcohaszing.vscode-mdxlint@1.2.0
 repreng.csv@1.3.0
 romanpeshkov.vscode-text-tables@0.1.5
 runem.lit-plugin@1.4.3
-rust-lang.rust-analyzer@0.3.2963
+rust-lang.rust-analyzer@0.3.2971
 shopify.ruby-extensions-pack@0.1.14
 shopify.ruby-lsp@0.10.4
 sidneys1.gitconfig@2.0.1
@@ -92,8 +92,8 @@ sumneko.lua@3.18.2
 swellaby.workspace-config-plus@0.2.5
 tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
-tuttieee.emacs-mcx@0.110.11
-typescriptteam.native-preview@0.20260707.2
+tuttieee.emacs-mcx@0.111.0
+typescriptteam.native-preview@0.20260708.2
 tyriar.sort-lines@1.12.0
 unifiedjs.vscode-mdx@1.8.17
 vadimcn.vscode-lldb@1.12.2
@@ -101,5 +101,5 @@ viktorzetterstrom.non-breaking-space-highlighter@0.0.3
 vitest.explorer@1.50.7
 wenhoujx.swiper@2.1.2
 zhuangtongfa.material-theme@3.19.0
-ziglang.vscode-zig@0.6.18
+ziglang.vscode-zig@0.6.19
 ziyasal.vscode-open-in-github@1.3.6
