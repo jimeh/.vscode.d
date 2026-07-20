@@ -26,6 +26,9 @@ vscode (code, vsc, v), vscode-insiders (vsci, i), windsurf (surf, w)
 - **Extension lock files** (`extensions.<editor>.lock`) pin versions in
   `publisher.name@version` format. Dual registry: VS Marketplace primary,
   OpenVSX fallback by default; Antigravity and Kiro prefer OpenVSX.
+- **Editor version headers** record version and commit only. Standard editor
+  CLIs return three lines; standalone Hucode returns
+  `hucode VERSION (commit HASH)`, and dumps support both formats.
 - **Prerelease latest lookups** are opt-in via `--prerelease`. Marketplace
   prerelease filtering depends on version properties (`flags: 18`) exposing
   `Microsoft.VisualStudio.Code.PreRelease`; OpenVSX uses per-version
