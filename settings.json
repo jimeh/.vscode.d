@@ -260,6 +260,8 @@
   //
   // Associations
   "files.associations": {
+    "**/config/ghostty/config": "ghostty-config",
+    "**/config/ghostty/themes/*": "ghostty-config",
     "*.gemfile": "ruby",
     ".env": "properties",
     ".env.*": "properties",
@@ -964,6 +966,14 @@
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ],
   //
   // ===========================================================================
   // MARK: Lang: Zig
