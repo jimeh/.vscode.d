@@ -71,6 +71,8 @@
   // Sidebar
   "workbench.sideBar.location": "right",
   //
+  // Secondary Sidebar
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
   // Activity Bar
   "workbench.activityBar.location": "default",
   "workbench.activityBar.orientation": "vertical",
