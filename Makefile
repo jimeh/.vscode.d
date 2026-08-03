@@ -1,5 +1,6 @@
 # List of supported editors
 EDITORS := antigravity cursor hucode vscode vscode-insiders windsurf
+CONFIG_EDITORS := $(EDITORS) hucode-web
 
 .PHONY: antigravity-config
 antigravity-config:
@@ -36,6 +37,10 @@ hucode-extensions:
 .PHONY: hucode-dump-extensions
 hucode-dump-extensions:
 	./siren hucode dump-extensions
+
+.PHONY: hucode-web-config
+hucode-web-config:
+	./siren hucode-web config
 
 .PHONY: vscode-config
 vscode-config:
@@ -75,6 +80,6 @@ windsurf-dump-extensions:
 
 # Convenience targets for all editors
 .PHONY: all-config all-extensions
-all-config: $(addsuffix -config,$(EDITORS))
+all-config: $(addsuffix -config,$(CONFIG_EDITORS))
 all-extensions: $(addsuffix -extensions,$(EDITORS))
 all-dump-extensions: $(addsuffix -dump-extensions,$(EDITORS))

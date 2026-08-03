@@ -71,6 +71,7 @@ Editors:
   antigravity, agy, a         Antigravity editor (prefers OpenVSX)
   cursor, c                   Cursor editor
   hucode                      Hucode editor
+  hucode-web                  Hucode web/server config (config only)
   kiro, k                     Kiro editor (uses OpenVSX by default)
   vscode, code, vsc, v        Visual Studio Code
   vscode-insiders, vsci, i    Visual Studio Code Insiders
@@ -171,6 +172,9 @@ normalize_editor_name() {
       ;;
     hucode | h)
       echo "hucode"
+      ;;
+    hucode-web)
+      echo "hucode-web"
       ;;
     kiro | k)
       echo "kiro"
@@ -280,6 +284,9 @@ editor_config_dir() {
         "hucode")
           echo "${HOME}/Library/Application Support/Hucode/User"
           ;;
+        "hucode-web")
+          echo "${HOME}/.hucode-server/data/WebUser/User"
+          ;;
         "kiro")
           echo "${HOME}/Library/Application Support/Kiro/User"
           ;;
@@ -307,6 +314,9 @@ editor_config_dir() {
           ;;
         "hucode")
           echo "${HOME}/.config/Hucode/User"
+          ;;
+        "hucode-web")
+          echo "${HOME}/.hucode-server/data/WebUser/User"
           ;;
         "kiro")
           echo "${HOME}/.config/Kiro/User"

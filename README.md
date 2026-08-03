@@ -56,6 +56,7 @@ Editors:
   antigravity, agy, a         Antigravity editor (prefers OpenVSX)
   cursor, c                   Cursor editor
   hucode                      Hucode editor
+  hucode-web                  Hucode web/server config (config only)
   kiro, k                     Kiro editor (uses OpenVSX by default)
   vscode, code, vsc, v        Visual Studio Code
   vscode-insiders, vsci, i    Visual Studio Code Insiders
