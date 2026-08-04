@@ -73,6 +73,10 @@
   //
   // Secondary Sidebar
   "workbench.secondarySideBar.defaultVisibility": "hidden",
+  //
+  // Experimental Modern UI
+  "workbench.experimental.modernUI": true,
+  //
   // Activity Bar
   "workbench.activityBar.location": "default",
   "workbench.activityBar.orientation": "vertical",
