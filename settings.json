@@ -103,8 +103,8 @@
   // MARK: Hucode (Text Editor)
   // ===========================================================================
   //
-  "hucode.omni.workbenchItemLayout": "compact",
-  "hucode.omni.worktreeItemLayout": "compact",
+  "hucode.omni.workbenchItemLayout": "twoLine",
+  "hucode.omni.worktreeItemLayout": "twoLine",
   //
   // ===========================================================================
   // MARK: Cursor (Text Editor)
@@ -313,6 +313,7 @@
   "git.fetchOnPull": true,
   "git.timeline.showUncommitted": true,
   "scm.defaultViewMode": "tree",
+  "scm.repositories.selectionMode": "single",
   //
   // ===========================================================================
   // MARK: GitHub Pull Requests
