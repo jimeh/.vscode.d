@@ -30,6 +30,13 @@
       ]
     }
   },
+  // Fix status bar background color when using experimental modern UI.
+  "workbench.colorCustomizations": {
+    "[One Dark Pro]": {
+      "statusBar.background": "#282c34",
+      "statusBar.noFolderBackground": "#282c34"
+    }
+  },
   //
   // ===========================================================================
   // MARK: Extensions
