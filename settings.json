@@ -285,6 +285,7 @@
     "*.gemfile": "ruby",
     ".env": "properties",
     ".env.*": "properties",
+    ".terraformrc": "terraform",
     "Elpaca.lock": "lisp",
     "Procfile.*": "procfile",
     "gitconfig": "gitconfig",
