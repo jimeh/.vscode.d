@@ -110,8 +110,8 @@
   // MARK: Hucode (Text Editor)
   // ===========================================================================
   //
-  "hucode.omni.workbenchItemLayout": "twoLine",
-  "hucode.omni.worktreeItemLayout": "twoLine",
+  "hucode.omni.workbenchItemLayout": "default",
+  "hucode.omni.worktreeItemLayout": "default",
   //
   // ===========================================================================
   // MARK: Cursor (Text Editor)
