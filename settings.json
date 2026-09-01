@@ -157,7 +157,7 @@
     "**/tmp*" // Covers ansible-vault temp files.
   ],
   "cursor.terminal.usePreviewBox": false,
-  "update.releaseTrack": "prerelease",
+  "update.releaseTrack": "stable",
   //
   // ===========================================================================
   // MARK: Windsurf (Text Editor)
