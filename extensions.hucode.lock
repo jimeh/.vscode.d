@@ -1,8 +1,8 @@
 # hucode Extensions
-# Generated on Tue Sep  1 10:53:55 BST 2026
+# Generated on Fri Sep  4 10:48:35 BST 2026
 # Version: 0.0.78 (f2188e0c9021a077e39caee609933ccec35b1d6f)
 
-anthropic.claude-code@2.1.252
+anthropic.claude-code@2.1.260
 arturodent.command-alias@0.7.1
 astro-build.astro-vscode@2.16.20
 benspaulding.procfile@1.1.7
@@ -19,7 +19,7 @@ davidanson.vscode-markdownlint@0.62.1
 dbaeumer.vscode-eslint@3.0.34
 deerawan.vscode-faker@2.0.0
 dnut.rewrap-revived@1.16.3
-drblury.protobuf-vsc@1.6.13
+drblury.protobuf-vsc@1.6.14
 editorconfig.editorconfig@0.18.2
 elijah-potter.harper@2.9.1
 esbenp.prettier-vscode@12.4.0
@@ -27,17 +27,17 @@ exiasr.hadolint@1.1.2
 fogio.inline-go-struct-tags-syntax-highlight@1.0.1
 geequlim.godot-tools@2.7.1
 github.vscode-github-actions@0.32.3
-github.vscode-pull-request-github@0.162.0
+github.vscode-pull-request-github@0.164.0
 golang.go@0.56.1
 hashicorp.hcl@0.6.0
 hashicorp.terraform@2.40.0
 hoovercj.vscode-settings-cycler@1.0.1
 humao.rest-client@0.25.1
-hverlin.mise-vscode@1.25.0
+hverlin.mise-vscode@1.25.1
 jackiotyu.git-worktree-manager@3.28.0
 jakearl.search-editor-apply-changes@0.1.1
 jimeh.actionlint@0.1.3
-jimeh.better-markdown-preview@1.3.2
+jimeh.better-markdown-preview@1.3.3
 jimeh.executable-on-save@0.2.5
 jimeh.glaze@0.1.6
 jnoortheen.nix-ide@0.5.13
@@ -62,7 +62,7 @@ ms-python.vscode-python-envs@1.36.0
 ms-vscode.extension-test-runner@0.0.14
 ms-vscode.hexeditor@1.11.1
 ninoseki.vscode-mogami@0.5.7
-openai.chatgpt@26.825.51511
+openai.chatgpt@26.901.22334
 orta.vscode-jest@6.4.4
 oxc.oxc-vscode@1.60.0
 pflannery.vscode-versionlens@1.28.0
