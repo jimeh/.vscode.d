@@ -83,6 +83,7 @@
   //
   // Experimental Modern UI
   "workbench.experimental.modernUI": true,
+  "workbench.experimental.modernUIEditorTabStyle": "pill",
   //
   // Activity Bar
   "workbench.activityBar.location": "default",
