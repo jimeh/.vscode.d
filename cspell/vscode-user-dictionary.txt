@@ -322,6 +322,7 @@ staticcheck
 storpool
 Streamable
 stretchr
+Stringf
 Subtests
 swiftbar
 tailscale
@@ -357,6 +358,7 @@ unallocate
 unallocates
 Unallocating
 unassigns
+undent
 unionfs
 upscayl
 valkey
