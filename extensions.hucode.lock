@@ -1,5 +1,5 @@
 # hucode Extensions
-# Generated on Fri Oct 30 11:42:13 GMT 2026
+# Generated on Sun Nov  1 10:48:37 AM UTC 2026
 # Version: 0.0.98 (1c0e951330b690c6b63d4b2c08728a242d16bb56)
 
 arturodent.command-alias@0.7.1
@@ -15,7 +15,7 @@ davidanson.vscode-markdownlint@0.62.1
 dbaeumer.vscode-eslint@3.0.34
 deerawan.vscode-faker@2.0.0
 dnut.rewrap-revived@18.3.0
-drblury.protobuf-vsc@1.6.19
+drblury.protobuf-vsc@1.6.24
 editorconfig.editorconfig@0.18.2
 elijah-potter.harper@3.0.0
 exiasr.hadolint@1.2.0
@@ -70,6 +70,7 @@ tamasfe.even-better-toml@0.21.2
 tootone.org-mode@0.5.0
 tuttieee.emacs-mcx@0.111.6
 typescriptteam.native-preview@1.0.1
+typespec.typespec-vscode@1.17.0
 tyriar.sort-lines@1.12.0
 unifiedjs.vscode-mdx@1.8.18
 viktorzetterstrom.non-breaking-space-highlighter@0.0.3
