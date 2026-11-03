@@ -19,11 +19,6 @@
   "oneDarkPro.markdownStyle": false,
   "editor.tokenColorCustomizations": {
     "[One Dark Pro*]": {
-      // Bring borders around panels back for Modern UI.
-      // https://github.com/Binaryify/OneDark-Pro/issues/900#issuecomment-6595844031
-      "panel.border": "#3e4452",
-      "editorGroup.border": "#181a1f",
-      "sideBar.border": "#181a1f",
       // Make markdown blockquotes a bit more visible.
       "textMateRules": [
         {
@@ -35,11 +30,23 @@
       ]
     }
   },
-  // Fix status bar background color when using experimental modern UI.
   "workbench.colorCustomizations": {
+    // Fix status bar background color when using experimental modern UI.
     "[One Dark Pro]": {
       "statusBar.background": "#282c34",
       "statusBar.noFolderBackground": "#282c34"
+    },
+    "[One Dark Pro*]": {
+      // One Dark Pro 3.20.4 made borders match the editor background.
+      // Restore classic separators and Modern UI outlines in a consistent gray.
+      // https://github.com/Binaryify/OneDark-Pro/issues/900#issuecomment-6472993163
+      "editor.border": "#3e4452",
+      "editorGroup.border": "#3e4452",
+      "modernActivityBar.border": "#3e4452",
+      "modernPanel.border": "#3e4452",
+      "panel.border": "#3e4452",
+      "sideBar.border": "#3e4452",
+      "surface.border": "#3e4452"
     }
   },
   //
