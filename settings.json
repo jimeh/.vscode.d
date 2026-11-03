@@ -18,10 +18,15 @@
   "oneDarkPro.vivid": true,
   "oneDarkPro.markdownStyle": false,
   "editor.tokenColorCustomizations": {
-    "[One Dark Pro]": {
+    "[One Dark Pro*]": {
+      // Bring borders around panels back for Modern UI.
+      // https://github.com/Binaryify/OneDark-Pro/issues/900#issuecomment-6595844031
+      "panel.border": "#3e4452",
+      "editorGroup.border": "#181a1f",
+      "sideBar.border": "#181a1f",
+      // Make markdown blockquotes a bit more visible.
       "textMateRules": [
         {
-          // Make markdown blockquotes a bit more visible.
           "scope": "markup.quote.markdown",
           "settings": {
             "foreground": "#838893"
@@ -44,6 +49,7 @@
   //
   // Disable automatic extension updates.
   "extensions.autoUpdate": "off",
+  "extensions.autoUpdateDelay": 72,
   //
   // ===========================================================================
   // MARK: Window
@@ -112,7 +118,7 @@
   // ===========================================================================
   //
   "hucode.omni.workbenchItemLayout": "default",
-  "hucode.omni.worktreeItemLayout": "default",
+  "hucode.omni.worktreeItemLayout": "compactBranchPriority",
   //
   // ===========================================================================
   // MARK: Cursor (Text Editor)
